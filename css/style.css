@@ -250,6 +250,11 @@ input, textarea, select { font: inherit; }
   line-height: 1;
 }
 
+@media (max-width: 480px) {
+  .navbar__logo-text span { display: none; }
+  :root { --nav-height: 60px; }
+}
+
 .navbar__nav {
   display: none;
   align-items: center;
@@ -353,6 +358,9 @@ input, textarea, select { font: inherit; }
 }
 
 .mobile-menu__inner a:hover { background: var(--red-100); color: var(--red-800); }
+.mobile-menu__inner a svg { color: var(--gray-500); flex-shrink: 0; }
+.mobile-menu__inner a:hover svg,
+.mobile-menu__inner a.active svg { color: var(--gray-500); }
 
 .mobile-menu__divider { height: 1px; background: var(--gray-300); margin: 8px 0; }
 
