@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bildergalerie der DITIB Türkisch Islamischen Gemeinde Breuberg: Veranstaltungen, Ramazan, Kermes, Jugend und mehr.">
+  <title>Galerie – DITIB Breuberg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 36px;
+    }
+    .filter-btn {
+      padding: 8px 20px;
+      border-radius: var(--radius-full);
+      border: 2px solid var(--gray-300);
+      background: var(--white);
+      color: var(--gray-700);
+      font-size: .875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--duration) var(--ease);
+    }
+    .filter-btn:hover { border-color: var(--green-600); color: var(--green-700); }
+    .filter-btn.active { background: var(--green-800); border-color: var(--green-800); color: var(--white); }
+
+    .gallery-full-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    @media (min-width: 640px) { .gallery-full-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1024px) { .gallery-full-grid { grid-template-columns: repeat(4, 1fr); } }
+
+    .gallery-full-item {
+      aspect-ratio: 1;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 200ms var(--ease);
+    }
+    .gallery-full-item:hover { transform: scale(1.02); }
+
+    .gallery-full-item__emoji { font-size: 2.5rem; transition: transform 200ms var(--ease); }
+    .gallery-full-item:hover .gallery-full-item__emoji { transform: scale(1.15); }
+
+    .gallery-full-item__overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,.5);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 6px;
+      opacity: 0;
+      transition: opacity 200ms var(--ease);
+    }
+    .gallery-full-item:hover .gallery-full-item__overlay { opacity: 1; }
+    .gallery-full-item__overlay span { color: var(--white); font-size: .8125rem; font-weight: 600; text-align: center; padding: 0 12px; }
+
+    [data-hidden] { display: none !important; }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar__inner">
+        <a href="../index.html" class="navbar__logo">
+          <div class="navbar__logo-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a10 10 0 0 1 0 20"/><path d="M12 2a4 4 0 0 0 0 8 4 4 0 0 1 0 8"/><path d="M2 12h20"/>
+            </svg>
+          </div>
+          <div class="navbar__logo-text">
+            <strong>DITIB Breuberg</strong>
+            <span>Türkisch Islamische Gemeinde</span>
+          </div>
+        </a>
+        <nav class="navbar__nav">
+          <a href="../index.html">Startseite</a>
+          <a href="gebetszeiten.html">Gebetszeiten</a>
+          <a href="veranstaltungen.html">Veranstaltungen</a>
+          <a href="jugend.html">Jugend</a>
+          <a href="galerie.html" class="active">Galerie</a>
+          <a href="ueber-uns.html">Über uns</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+        <div class="navbar__actions">
+          <a href="spenden.html" class="btn btn--emerald btn--sm navbar__donate">❤️ Spenden</a>
+          <button class="navbar__hamburger" aria-label="Menü öffnen" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <div class="mobile-menu__inner">
+      <a href="../index.html">🏠 Startseite</a>
+      <a href="gebetszeiten.html">🕐 Gebetszeiten</a>
+      <a href="veranstaltungen.html">📅 Veranstaltungen</a>
+      <a href="jugend.html">👥 Jugend</a>
+      <a href="galerie.html">🖼️ Galerie</a>
+      <a href="ueber-uns.html">ℹ️ Über uns</a>
+      <a href="kontakt.html">📍 Kontakt</a>
+      <div class="mobile-menu__divider"></div>
+      <a href="spenden.html">❤️ Spenden</a>
+    </div>
+  </div>
+</header>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero__inner">
+      <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Startseite</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span>Galerie</span>
+      </nav>
+      <h1>Galerie</h1>
+      <p>Bilder aus unserem Gemeindeleben – Veranstaltungen, Feste, Jugendarbeit und mehr.</p>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <!-- Filter -->
+      <div class="filter-bar" data-aos role="toolbar" aria-label="Galerie filtern">
+        <button class="filter-btn active" data-filter="all">Alle</button>
+        <button class="filter-btn" data-filter="moschee">Moschee</button>
+        <button class="filter-btn" data-filter="ramadan">Ramazan</button>
+        <button class="filter-btn" data-filter="kermes">Kermes</button>
+        <button class="filter-btn" data-filter="jugend">Jugend</button>
+        <button class="filter-btn" data-filter="interkulturell">Interkulturell</button>
+        <button class="filter-btn" data-filter="opferfest">Opferfest</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-full-grid" data-aos>
+        <div class="gallery-full-item" data-category="moschee" style="background:linear-gradient(135deg,#1B5E42,#0D3B2A)">
+          <div class="gallery-full-item__emoji">🕌</div>
+          <div class="gallery-full-item__overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Moschee Innenraum</span>
+          </div>
+        </div>
+        <div class="gallery-full-item" data-category="ramadan" style="background:linear-gradient(135deg,#0D3B2A,#1a6b5a)">
+          <div class="gallery-full-item__emoji">🌙</div>
+          <div class="gallery-full-item__overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Ramazan Iftar 2022</span>
+          </div>
+        </div>
+        <div class="gallery-full-item" data-category="kermes" style="background:linear-gradient(135deg,#C8973F,#A0722A)">
+          <div class="gallery-full-item__emoji">🎪</div>
+          <div class="gallery-full-item__overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Kermes 2022</span>
+          </div>
+        </div>
+        <div class="gallery-full-item" data-category="jugend" style="background:linear-gradient(135deg,#2E7D5A,#1B5E42)">
+          <div class="gallery-full-item__emoji">⚽</div>
+          <div class="gallery-full-item__overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Jugend Fußball 2015</span>
+          </div>
+        </div>
+        <div class="gallery-full-item" data-category="interkulturell" style="background:linear-gradient(135deg,#3D9970,#2E7D5A)">
+          <div class="gallery-full-item__emoji">🌍</div>
+          <div class="gallery-full-item__overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Interkulturelle Woche 2022</span>
+          </div>
+        </div>
+        <div class="gallery-full-item" data-category="opferfest" style="background:linear-gradient(135deg,#E8C47A,#C8973F)">
+          <div class="gallery-full-item__emoji">🐑</div>
+          <div class="gallery-full-item__overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Opferfest 2011</span>
+          </div>
+        </div>
+        <div class="gallery-full-item" data-category="jugend" style="background:linear-gradient(135deg,#1B5E42,#3D9970)">
+          <div class="gallery-full-item__emoji">📚</div>
+          <div class="gallery-full-item__overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Hausaufgabenhilfe</span>
+          </div>
+        </div>
+        <div class="gallery-full-item" data-category="moschee" style="background:linear-gradient(135deg,#0A2D1F,#1B5E42)">
+          <div class="gallery-full-item__emoji">🤲</div>
+          <div class="gallery-full-item__overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Freitagsgebet</span>
+          </div>
+        </div>
+        <div class="gallery-full-item" data-category="ramadan" style="background:linear-gradient(135deg,#1a6b5a,#0D3B2A)">
+          <div class="gallery-full-item__emoji">🍽️</div>
+          <div class="gallery-full-item__overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Iftar Ramazan 2014</span>
+          </div>
+        </div>
+        <div class="gallery-full-item" data-category="kermes" style="background:linear-gradient(135deg,#A0722A,#E8C47A)">
+          <div class="gallery-full-item__emoji">🎡</div>
+          <div class="gallery-full-item__overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Kermes 2019</span>
+          </div>
+        </div>
+        <div class="gallery-full-item" data-category="interkulturell" style="background:linear-gradient(135deg,#2E7D5A,#4CAF7D)">
+          <div class="gallery-full-item__emoji">🍳</div>
+          <div class="gallery-full-item__overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Kochprojekt 2018</span>
+          </div>
+        </div>
+        <div class="gallery-full-item" data-category="jugend" style="background:linear-gradient(135deg,#0D3B2A,#2E7D5A)">
+          <div class="gallery-full-item__emoji">🏆</div>
+          <div class="gallery-full-item__overlay">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+            <span>Hutbe Wettbewerb 2018</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upload note -->
+      <div style="margin-top:40px;text-align:center;background:var(--cream);border-radius:var(--radius-lg);padding:28px;color:var(--gray-500)" data-aos>
+        <p style="font-size:.9375rem">
+          📸 Sie haben Fotos von unseren Veranstaltungen?
+          <a href="kontakt.html" style="color:var(--green-700);font-weight:600">Schicken Sie uns diese gerne zu!</a>
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© 2025 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
+      <div class="footer__bottom-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  // Gallery filter
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const galleryItems = document.querySelectorAll('.gallery-full-item');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      galleryItems.forEach(item => {
+        if (filter === 'all' || item.dataset.category === filter) {
+          delete item.dataset.hidden;
+        } else {
+          item.dataset.hidden = '';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>

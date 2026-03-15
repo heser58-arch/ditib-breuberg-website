@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Unterstützen Sie den Grundstückskauf der DITIB Breuberg. Gemeinsam schaffen wir ein neues Zuhause für unsere Gemeinde. Transparent, sicher, nachhaltig.">
+  <title>Grundstückskauf – Spenden – DITIB Breuberg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* ===== SPENDEN PAGE STYLES ===== */
+
+    /* Campaign Hero */
+    .campaign-hero {
+      background: linear-gradient(135deg, #0A2D1F 0%, #1B5E42 60%, #2E7D5A 100%);
+      color: #fff;
+      padding: clamp(60px, 8vw, 100px) 0 clamp(40px, 6vw, 70px);
+      position: relative;
+      overflow: hidden;
+    }
+    .campaign-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .campaign-hero__inner {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+    @media (min-width: 900px) {
+      .campaign-hero__inner { grid-template-columns: 1fr 1fr; gap: 60px; }
+    }
+    .campaign-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      color: #fff;
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .campaign-hero__badge span { width: 8px; height: 8px; background: #6BBF8E; border-radius: 50%; animation: pulse-dot 2s infinite; }
+    @keyframes pulse-dot { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.6; transform:scale(1.3); } }
+    .campaign-hero__title {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(28px, 4vw, 52px);
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .campaign-hero__title em { font-style: normal; color: #6BBF8E; }
+    .campaign-hero__desc {
+      font-size: 1rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,.8);
+      margin-bottom: 32px;
+      max-width: 520px;
+    }
+    .campaign-hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    /* Progress Card */
+    .progress-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 32px;
+      color: #1A1A2E;
+      box-shadow: 0 20px 60px rgba(0,0,0,.3);
+    }
+    .progress-card__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+    }
+    .progress-card__label { font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: #6B7280; }
+    .progress-card__percent {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #1B5E42;
+    }
+    .progress-bar-wrap {
+      height: 20px;
+      background: #F3F4F6;
+      border-radius: 9999px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #1B5E42, #2D8653, #6BBF8E);
+      width: 0%;
+      transition: width 1.8s cubic-bezier(.4,0,.2,1);
+      position: relative;
+    }
+    .progress-bar-fill::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 40px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.35));
+      border-radius: 9999px;
+    }
+    .progress-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .progress-stat { text-align: center; }
+    .progress-stat__value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #1B5E42;
+      display: block;
+    }
+    .progress-stat__label { font-size: .7rem; color: #6B7280; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; }
+    .progress-card__divider { height: 1px; background: #F3F4F6; margin: 0 -32px 20px; }
+    .progress-card__urgency {
+      font-size: .85rem;
+      color: #374151;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .progress-card__urgency strong { color: #1B5E42; }
+
+    /* === STATS BAR === */
+    .stats-bar {
+      background: #fff;
+      border-bottom: 1px solid #F3F4F6;
+      padding: 28px 0;
+    }
+    .stats-bar__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    @media (min-width: 640px) { .stats-bar__grid { grid-template-columns: repeat(4, 1fr); } }
+    .stats-bar__item {
+      text-align: center;
+      padding: 16px;
+      border-radius: 16px;
+      background: #F9FAFB;
+    }
+    .stats-bar__value {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 700;
+      color: #1B5E42;
+      display: block;
+    }
+    .stats-bar__label { font-size: .8rem; color: #6B7280; font-weight: 500; margin-top: 4px; }
+
+    /* === DONORS SECTION === */
+    .donors-section { padding: clamp(60px, 8vw, 100px) 0; background: #F9FAFB; }
+    .donors-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (min-width: 900px) { .donors-grid { grid-template-columns: 1fr 1fr; gap: 60px; } }
+
+    .donors-list-wrap {
+      background: #fff;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.06);
+    }
+    .donors-list-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #0A2D1F;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid #E8F5EE;
+    }
+    .donors-list-title svg { color: #2D8653; flex-shrink: 0; }
+
+    .donor-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid #F3F4F6;
+      animation: slideIn .4s ease forwards;
+    }
+    .donor-item:last-child { border-bottom: none; }
+    @keyframes slideIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+    .donor-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1B5E42, #2D8653);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .donor-info { flex: 1; min-width: 0; }
+    .donor-name { font-weight: 600; font-size: .9rem; color: #1A1A2E; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .donor-date { font-size: .75rem; color: #9CA3AF; margin-top: 2px; }
+    .donor-amount {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #1B5E42;
+      white-space: nowrap;
+    }
+
+    .donor-new-badge {
+      font-size: .65rem;
+      font-weight: 700;
+      background: #E8F5EE;
+      color: #1B5E42;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    /* === LIVE TOTAL BADGE === */
+    .live-total {
+      background: linear-gradient(135deg, #0A2D1F, #1B5E42);
+      color: #fff;
+      border-radius: 20px;
+      padding: 28px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(27,94,66,.35);
+    }
+    .live-total__label { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.65); margin-bottom: 8px; }
+    .live-total__value {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 3.5rem);
+      font-weight: 700;
+      color: #6BBF8E;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .live-total__goal { font-size: .9rem; color: rgba(255,255,255,.65); }
+    .live-total__goal strong { color: #fff; }
+    .live-total__bar {
+      margin: 20px 0 16px;
+      height: 12px;
+      background: rgba(255,255,255,.15);
+      border-radius: 9999px;
+      overflow: hidden;
+    }
+    .live-total__bar-fill {
+      height: 100%;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #6BBF8E, #2D8653);
+      width: 0%;
+      transition: width 2s 0.5s cubic-bezier(.4,0,.2,1);
+    }
+    .live-total__cta { margin-top: 20px; }
+    .live-total__supporters { font-size: .85rem; color: rgba(255,255,255,.75); margin-top: 14px; }
+    .live-total__supporters strong { color: #fff; }
+
+    /* === DONATION METHODS === */
+    .methods-section { padding: clamp(60px, 8vw, 100px) 0; }
+    .methods-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    @media (min-width: 640px) { .methods-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .methods-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .method-card {
+      background: #fff;
+      border: 2px solid #F3F4F6;
+      border-radius: 20px;
+      padding: 28px;
+      transition: border-color .2s, box-shadow .2s, transform .2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .method-card:hover {
+      border-color: #1B5E42;
+      box-shadow: 0 8px 30px rgba(27,94,66,.12);
+      transform: translateY(-3px);
+    }
+    .method-card--featured { border-color: #1B5E42; }
+    .method-card__featured-badge {
+      position: absolute;
+      top: -1px;
+      left: 24px;
+      background: #1B5E42;
+      color: #fff;
+      font-size: .7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      padding: 4px 12px;
+      border-radius: 0 0 8px 8px;
+    }
+    .method-card__icon { font-size: 2.5rem; margin-bottom: 14px; }
+    .method-card__title { font-size: 1.05rem; font-weight: 700; color: #0A2D1F; margin-bottom: 8px; }
+    .method-card__desc { font-size: .875rem; color: #6B7280; line-height: 1.65; margin-bottom: 18px; }
+    .method-card__info {
+      background: #F9FAFB;
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: .85rem;
+      line-height: 1.8;
+      color: #374151;
+      margin-bottom: 18px;
+    }
+
+    /* === PROJECT INFO === */
+    .project-section { padding: clamp(60px, 8vw, 100px) 0; background: #fff; }
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+    @media (min-width: 900px) { .project-grid { grid-template-columns: 1fr 1fr; } }
+    .project-features { display: grid; gap: 16px; margin-top: 24px; }
+    .project-feature {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .project-feature__icon {
+      width: 40px;
+      height: 40px;
+      background: #E8F5EE;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .project-feature__title { font-weight: 600; font-size: .9rem; color: #1A1A2E; }
+    .project-feature__desc { font-size: .825rem; color: #6B7280; margin-top: 2px; line-height: 1.5; }
+
+    .cost-table-wrap {
+      background: #F9FAFB;
+      border-radius: 20px;
+      padding: 28px;
+    }
+    .cost-table-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      color: #0A2D1F;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .cost-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+    .cost-table th {
+      text-align: left;
+      padding: 10px 14px;
+      background: #1B5E42;
+      color: #fff;
+      font-weight: 600;
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .cost-table th:first-child { border-radius: 10px 0 0 10px; }
+    .cost-table th:last-child { border-radius: 0 10px 10px 0; text-align: right; }
+    .cost-table td { padding: 12px 14px; border-bottom: 1px solid #E5E7EB; color: #374151; }
+    .cost-table td:last-child { text-align: right; font-weight: 600; color: #1B5E42; }
+    .cost-table tr:last-child td { border-bottom: none; background: #E8F5EE; font-weight: 700; color: #0A2D1F; }
+    .cost-table tr:last-child td:last-child { color: #1B5E42; }
+
+    /* === FAQ === */
+    .faq-section { padding: clamp(60px, 8vw, 100px) 0; background: #F9FAFB; }
+    .faq-list { max-width: 760px; margin: 0 auto; display: grid; gap: 12px; }
+    .faq-item {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,.05);
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      padding: 18px 22px;
+      font-weight: 600;
+      font-size: .95rem;
+      color: #1A1A2E;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      border: none;
+      background: none;
+      font-family: inherit;
+    }
+    .faq-question:hover { color: #1B5E42; }
+    .faq-icon { width: 22px; height: 22px; background: #E8F5EE; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform .25s, background .25s; }
+    .faq-icon svg { color: #1B5E42; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: #1B5E42; }
+    .faq-item.open .faq-icon svg { color: #fff; }
+    .faq-answer { display: none; padding: 0 22px 18px; font-size: .9rem; color: #6B7280; line-height: 1.7; }
+    .faq-item.open .faq-answer { display: block; }
+
+    /* === ISLAMIC QUOTE === */
+    .islamic-quote {
+      background: linear-gradient(135deg, #0A2D1F, #1B5E42);
+      color: #fff;
+      padding: clamp(60px, 8vw, 80px) 0;
+      text-align: center;
+    }
+    .islamic-quote__arabic {
+      font-family: 'Amiri', serif;
+      font-size: clamp(1.5rem, 4vw, 2.25rem);
+      color: #6BBF8E;
+      margin-bottom: 20px;
+      direction: rtl;
+      line-height: 1.6;
+    }
+    .islamic-quote__text { font-size: 1rem; color: rgba(255,255,255,.85); max-width: 620px; margin: 0 auto 12px; line-height: 1.75; }
+    .islamic-quote__source { font-size: .85rem; color: rgba(255,255,255,.45); }
+
+    /* Btn green overrides */
+    .btn--green {
+      background: linear-gradient(135deg, #1B5E42, #2D8653);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(27,94,66,.3);
+    }
+    .btn--green:hover { background: linear-gradient(135deg, #0A2D1F, #1B5E42); box-shadow: 0 6px 24px rgba(27,94,66,.4); }
+    .btn--green-outline {
+      border: 2px solid rgba(255,255,255,.4);
+      color: #fff;
+      background: transparent;
+    }
+    .btn--green-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.7); }
+
+    /* Section titles */
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: 9999px;
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      background: #E8F5EE;
+      color: #1B5E42;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3.5vw, 40px);
+      color: #0A2D1F;
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+    .section-desc { color: #6B7280; font-size: .9375rem; line-height: 1.7; max-width: 580px; }
+
+    /* Dua box */
+    .dua-box {
+      background: #E8F5EE;
+      border-left: 4px solid #1B5E42;
+      border-radius: 0 12px 12px 0;
+      padding: 18px 20px;
+      font-size: .875rem;
+      color: #374151;
+      line-height: 1.7;
+      margin-top: 24px;
+    }
+    .dua-box strong { color: #1B5E42; }
+
+    /* Updated at note */
+    .last-updated {
+      text-align: center;
+      font-size: .8rem;
+      color: #9CA3AF;
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .last-updated svg { color: #9CA3AF; }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar__inner">
+        <a href="../index.html" class="navbar__logo">
+          <div class="navbar__logo-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a10 10 0 0 1 0 20"/><path d="M12 2a4 4 0 0 0 0 8 4 4 0 0 1 0 8"/><path d="M2 12h20"/>
+            </svg>
+          </div>
+          <div class="navbar__logo-text">
+            <strong>DITIB Breuberg</strong>
+            <span>Türkisch Islamische Gemeinde</span>
+          </div>
+        </a>
+        <nav class="navbar__nav">
+          <a href="../index.html">Startseite</a>
+          <a href="gebetszeiten.html">Gebetszeiten</a>
+          <a href="veranstaltungen.html">Veranstaltungen</a>
+          <a href="jugend.html">Jugend</a>
+          <a href="galerie.html">Galerie</a>
+          <a href="ueber-uns.html">Über uns</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+        <div class="navbar__actions">
+          <a href="spenden.html" class="btn btn--emerald btn--sm navbar__donate active">❤️ Spenden</a>
+          <button class="navbar__hamburger" aria-label="Menü öffnen" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <div class="mobile-menu__inner">
+      <a href="../index.html">🏠 Startseite</a>
+      <a href="gebetszeiten.html">🕐 Gebetszeiten</a>
+      <a href="veranstaltungen.html">📅 Veranstaltungen</a>
+      <a href="jugend.html">👥 Jugend</a>
+      <a href="galerie.html">🖼️ Galerie</a>
+      <a href="ueber-uns.html">ℹ️ Über uns</a>
+      <a href="kontakt.html">📍 Kontakt</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== CAMPAIGN HERO ===== -->
+<section class="campaign-hero">
+  <div class="container">
+    <div class="campaign-hero__inner">
+      <!-- Left: Text -->
+      <div>
+        <div class="campaign-hero__badge">
+          <span></span>
+          Aktuelle Spendenkampagne
+        </div>
+        <h1 class="campaign-hero__title">
+          Unser <em>neues Zuhause</em><br>für die Gemeinde
+        </h1>
+        <p class="campaign-hero__desc">
+          Wir kaufen gemeinsam ein Grundstück für eine neue, größere Heimstätte unserer Gemeinde in Breuberg. Jede Spende bringt uns diesem Ziel näher. Mit Ihrer Unterstützung schaffen wir einen Ort für Gebet, Bildung und Begegnung für kommende Generationen.
+        </p>
+        <div class="campaign-hero__actions">
+          <a href="#spenden-methoden" class="btn btn--emerald btn--lg">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Jetzt Spenden
+          </a>
+          <a href="#projekt-info" class="btn btn--green-outline btn--lg">Über das Projekt</a>
+        </div>
+      </div>
+
+      <!-- Right: Progress Card -->
+      <div>
+        <div class="progress-card">
+          <div class="progress-card__header">
+            <span class="progress-card__label">Gesamtfortschritt</span>
+            <span class="progress-card__percent" id="hero-percent">0%</span>
+          </div>
+          <div class="progress-bar-wrap">
+            <div class="progress-bar-fill" id="hero-bar"></div>
+          </div>
+          <div class="progress-stats">
+            <div class="progress-stat">
+              <span class="progress-stat__value" id="hero-collected">–</span>
+              <span class="progress-stat__label">Gesammelt</span>
+            </div>
+            <div class="progress-stat">
+              <span class="progress-stat__value" id="hero-remaining">–</span>
+              <span class="progress-stat__label">Noch benötigt</span>
+            </div>
+            <div class="progress-stat">
+              <span class="progress-stat__value" id="hero-donors">–</span>
+              <span class="progress-stat__label">Spender</span>
+            </div>
+          </div>
+          <div class="progress-card__divider"></div>
+          <p class="progress-card__urgency">
+            Ziel: <strong id="hero-goal">600.000 €</strong> für den Grundstückskauf.<br>
+            Helfen Sie mit, dieses Ziel zu erreichen!
+          </p>
+        </div>
+        <p class="last-updated">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Zuletzt aktualisiert: <span id="last-updated-date"></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS BAR ===== -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-bar__grid">
+      <div class="stats-bar__item">
+        <span class="stats-bar__value" id="stat-collected">–</span>
+        <div class="stats-bar__label">Bisher gesammelt</div>
+      </div>
+      <div class="stats-bar__item">
+        <span class="stats-bar__value">600.000 €</span>
+        <div class="stats-bar__label">Gesamtziel</div>
+      </div>
+      <div class="stats-bar__item">
+        <span class="stats-bar__value" id="stat-donors">–</span>
+        <div class="stats-bar__label">Spender</div>
+      </div>
+      <div class="stats-bar__item">
+        <span class="stats-bar__value" id="stat-percent">–</span>
+        <div class="stats-bar__label">Prozent erreicht</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== DONORS & LIVE TOTAL ===== -->
+<section class="donors-section" id="spender">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="section-label">Transparenz</span>
+      <h2 class="section-title">Unsere Gemeinschaft spendet</h2>
+      <p class="section-desc" style="margin:0 auto">Wir zeigen offen, wer uns unterstützt und wie viel schon zusammengekommen ist. Barakallahu Fikum – möge Allah allen Spendern belohnen.</p>
+    </div>
+    <div class="donors-grid">
+
+      <!-- Recent Donors List -->
+      <div>
+        <div class="donors-list-wrap">
+          <div class="donors-list-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Letzte Spenden
+          </div>
+          <div id="donors-list">
+            <!-- Dynamisch befüllt via JS -->
+          </div>
+        </div>
+        <div class="dua-box" style="margin-top:16px">
+          <strong>Du'a für unsere Spender:</strong> „Ya Allah, segne jeden, der auf Deinem Weg gespendet hat. Nimm ihre Gabe an und vergib ihnen ihre Sünden. Versorge sie aus Wegen, die sie nicht erwarten."
+        </div>
+      </div>
+
+      <!-- Live Total -->
+      <div>
+        <div class="live-total">
+          <div class="live-total__label">Bisher gesammelt</div>
+          <div class="live-total__value" id="live-amount">–</div>
+          <div class="live-total__goal">von <strong>600.000 €</strong> Gesamtziel</div>
+          <div class="live-total__bar">
+            <div class="live-total__bar-fill" id="live-bar"></div>
+          </div>
+          <div class="live-total__supporters" id="live-supporters">– Spender haben bereits mitgemacht</div>
+          <div class="live-total__cta">
+            <a href="#spenden-methoden" class="btn btn--emerald btn--lg" style="width:100%;justify-content:center">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              Auch Spenden
+            </a>
+          </div>
+        </div>
+
+        <!-- Milestone tracker -->
+        <div style="background:#fff;border-radius:20px;padding:24px;margin-top:24px;box-shadow:0 4px 20px rgba(0,0,0,.06)">
+          <div style="font-weight:700;font-size:.9rem;color:#0A2D1F;margin-bottom:16px;display:flex;align-items:center;gap:8px">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B5E42" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            Meilensteine
+          </div>
+          <div id="milestones-list">
+            <!-- Befüllt via JS -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECT INFO ===== -->
+<section class="project-section" id="projekt-info">
+  <div class="container">
+    <div class="project-grid">
+      <div>
+        <span class="section-label">Unser Projekt</span>
+        <h2 class="section-title">Warum wir dieses Grundstück kaufen</h2>
+        <p class="section-desc">
+          Seit fast 50 Jahren ist die DITIB Breuberg eine feste Säule des islamischen Lebens im Odenwaldkreis. Unsere Gemeinde wächst, und die bestehenden Räumlichkeiten stoßen an ihre Grenzen. Ein eigenes Grundstück gibt uns Planungssicherheit für eine neue, größere Heimstätte.
+        </p>
+        <div class="project-features">
+          <div class="project-feature">
+            <div class="project-feature__icon">🕌</div>
+            <div>
+              <div class="project-feature__title">Größere Gebetsräume</div>
+              <div class="project-feature__desc">Platz für alle Mitglieder bei Freitagsgebet, Feiertagen und täglichen Gebeten</div>
+            </div>
+          </div>
+          <div class="project-feature">
+            <div class="project-feature__icon">📚</div>
+            <div>
+              <div class="project-feature__title">Bildungs- & Unterrichtsräume</div>
+              <div class="project-feature__desc">Koran-Unterricht, Hausaufgabenhilfe und Sprachkurse unter einem Dach</div>
+            </div>
+          </div>
+          <div class="project-feature">
+            <div class="project-feature__icon">👥</div>
+            <div>
+              <div class="project-feature__title">Gemeinschafts- & Veranstaltungsraum</div>
+              <div class="project-feature__desc">Iftar-Abende, Kermes, Familienfeste und interkulturelle Begegnungen</div>
+            </div>
+          </div>
+          <div class="project-feature">
+            <div class="project-feature__icon">🌍</div>
+            <div>
+              <div class="project-feature__title">Langfristige Planungssicherheit</div>
+              <div class="project-feature__desc">Eigenes Eigentum – keine Miete, keine Abhängigkeit, Zukunft für unsere Kinder</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="cost-table-wrap">
+          <div class="cost-table-title">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B5E42" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            Finanzierungsübersicht
+          </div>
+          <table class="cost-table">
+            <thead>
+              <tr>
+                <th>Posten</th>
+                <th style="text-align:right">Betrag</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Grundstückspreis</td>
+                <td>560.000 €</td>
+              </tr>
+              <tr>
+                <td>Grunderwerbsteuer (6 %)</td>
+                <td>ca. 33.600 €</td>
+              </tr>
+              <tr>
+                <td>Notar- & Gerichtskosten</td>
+                <td>ca. 6.400 €</td>
+              </tr>
+              <tr>
+                <td><strong>Gesamtbedarf</strong></td>
+                <td><strong>600.000 €</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="margin-top:20px;padding:14px;background:#E8F5EE;border-radius:12px;font-size:.825rem;color:#1B5E42;line-height:1.6">
+            <strong>Hinweis:</strong> Alle Spenden fließen ausschließlich in den Grundstückskauf. Über den Stand informieren wir regelmäßig auf dieser Seite.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DONATION METHODS ===== -->
+<section class="methods-section" id="spenden-methoden" style="background:#F9FAFB">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="section-label">Unterstützen</span>
+      <h2 class="section-title">So können Sie spenden</h2>
+      <p class="section-desc" style="margin:0 auto">Wählen Sie die Methode, die für Sie am bequemsten ist. Jede Spende – ob groß oder klein – zählt.</p>
+    </div>
+    <div class="methods-grid">
+
+      <!-- Überweisung -->
+      <div class="method-card method-card--featured">
+        <div class="method-card__featured-badge">Empfohlen</div>
+        <div class="method-card__icon" style="margin-top:12px">🏦</div>
+        <div class="method-card__title">Banküberweisung</div>
+        <div class="method-card__desc">Direkte Überweisung auf unser Vereinskonto. Sicher, kostenlos und nachvollziehbar.</div>
+        <div class="method-card__info">
+          <strong>DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</strong><br>
+          Bank: Volksbank Odenwald eG<br>
+          IBAN: Auf Anfrage erhältlich<br>
+          Verwendungszweck: <strong>Grundstück 2025</strong>
+        </div>
+        <a href="kontakt.html" class="btn btn--primary" style="width:100%;justify-content:center">IBAN anfragen</a>
+      </div>
+
+      <!-- Bar -->
+      <div class="method-card">
+        <div class="method-card__icon">💵</div>
+        <div class="method-card__title">Bar vor Ort</div>
+        <div class="method-card__desc">Bringen Sie Ihre Spende direkt in die Moschee. Wir stellen auf Wunsch eine Spendenquittung aus.</div>
+        <div class="method-card__info">
+          <strong>DITIB Breuberg</strong><br>
+          Sudetenstr. 19<br>
+          64747 Breuberg-Sandbach<br>
+          Zu allen Gebetszeiten möglich
+        </div>
+        <a href="gebetszeiten.html" class="btn btn--outline" style="width:100%;justify-content:center">Gebetszeiten ansehen</a>
+      </div>
+
+      <!-- Mitglied -->
+      <div class="method-card">
+        <div class="method-card__icon">👥</div>
+        <div class="method-card__title">Mitglied werden</div>
+        <div class="method-card__desc">Als Vereinsmitglied unterstützen Sie uns dauerhaft und haben Mitspracherecht bei der Verwendung.</div>
+        <div class="method-card__info">
+          Monatlicher Beitrag ab <strong>10 € / Monat</strong><br>
+          Familientarife verfügbar<br>
+          Stimmrecht bei Mitgliederversammlung
+        </div>
+        <a href="kontakt.html" class="btn btn--outline" style="width:100%;justify-content:center">Mitgliedschaft anfragen</a>
+      </div>
+
+    </div>
+
+    <!-- Sadaqa Jariya note -->
+    <div style="max-width:680px;margin:40px auto 0;text-align:center">
+      <div style="background:#fff;border-radius:20px;padding:28px 32px;box-shadow:0 4px 20px rgba(0,0,0,.06)">
+        <div style="font-size:2rem;margin-bottom:12px">🤲</div>
+        <p style="font-weight:600;color:#0A2D1F;margin-bottom:8px">Sadaqa Jariya</p>
+        <p style="font-size:.9rem;color:#6B7280;line-height:1.7">Jede Spende für den Bau eines islamischen Zentrums ist eine <strong style="color:#1B5E42">fortlaufende gute Tat (Sadaqa Jariya)</strong> – die Belohnung dafür wirkt über Ihr Leben hinaus fort, solange die Gemeinde davon profitiert.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:48px">
+      <span class="section-label">FAQ</span>
+      <h2 class="section-title">Häufige Fragen</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Warum wird ein neues Grundstück benötigt?
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer">Unsere Gemeinde ist auf über 240 Mitglieder und ihre Familien gewachsen. Die aktuellen Räume in der Sudetenstr. reichen nicht mehr aus – besonders an Freitagsgebeten und Feiertagen. Ein eigenes Grundstück gibt uns die Freiheit, eine passgenaue Moschee mit Bildungs- und Gemeinschaftsräumen zu planen.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Wie wird mit den Spendengeldern umgegangen?
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer">Alle Spendengelder fließen ausschließlich in den Grundstückskauf. Der Verein ist als e.V. eingetragen und geprüft. Über den Stand der Kampagne informieren wir regelmäßig auf dieser Seite und bei unseren Gemeindeveranstaltungen. Auf Anfrage stellen wir Spendenquittungen aus.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Kann ich eine Spendenquittung erhalten?
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer">Ja. Als gemeinnütziger Verein stellen wir Spendenquittungen ab einem Betrag von 200 € aus. Für kleinere Beträge genügt der Kontoauszug als Nachweis. Bitte kontaktieren Sie uns bei Bedarf.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Wie oft wird der Spendenstand aktualisiert?
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer">Wir aktualisieren den Stand auf dieser Seite mindestens einmal pro Woche. Größere Einzelspenden werden nach Bestätigung des Eingangs zeitnah eingetragen. Das Datum der letzten Aktualisierung ist unter dem Fortschrittsbalken sichtbar.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Was passiert, wenn das Ziel nicht erreicht wird?
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer">Wir sind zuversichtlich, dass wir das Ziel gemeinsam erreichen. Sollte sich der Zeitplan verzögern, werden alle Spenden sicher auf dem Vereinskonto verwahrt und ausschließlich für den Grundstückskauf verwendet. Alle Spender werden informiert.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          Kann ich anonym spenden?
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </button>
+        <div class="faq-answer">Ja. Wenn Sie nicht in der Liste erscheinen möchten, vermerken Sie dies bitte im Verwendungszweck als „Anonym" oder teilen Sie uns dies beim Vorstand mit. Wir respektieren Ihren Wunsch vollständig.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ISLAMIC QUOTE ===== -->
+<section class="islamic-quote">
+  <div class="container">
+    <div class="islamic-quote__arabic" dir="rtl">
+      مَثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ
+    </div>
+    <p class="islamic-quote__text">
+      „Das Gleichnis derer, die ihr Vermögen auf dem Wege Gottes ausgeben, gleicht einem Korn, das sieben Ähren hervorbringt, in jeder Ähre hundert Körner. Und Allah verdoppelt es für wen Er will."
+    </p>
+    <p class="islamic-quote__source">Al-Baqara 2:261</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© 2025 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
+      <div class="footer__bottom-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+<script>
+  /* ============================================================
+     SPENDEN-DATEN – HIER ANPASSEN
+     Aktualisiere diese Werte wenn neue Spenden eingehen.
+     ============================================================ */
+  const CAMPAIGN = {
+    goal: 600000,
+    collected: 87500,       // Aktuell gesammelt (bitte aktualisieren)
+    donorsCount: 43,        // Anzahl Spender
+    lastUpdated: '15.03.2026',
+
+    // Letzte Spender (neueste zuerst)
+    // name: Anzeigename (oder 'Anonym')
+    // amount: Betrag in Euro
+    // date: Datum der Spende
+    // isNew: true = zeigt "Neu" Badge (nur für die neuesten 2-3)
+    recentDonors: [
+      { name: 'Mehmet A.',       amount: 500,   date: '15.03.2026', isNew: true  },
+      { name: 'Familie Yilmaz',  amount: 1000,  date: '14.03.2026', isNew: true  },
+      { name: 'Anonym',          amount: 250,   date: '13.03.2026', isNew: false },
+      { name: 'Hasan K.',        amount: 200,   date: '12.03.2026', isNew: false },
+      { name: 'Fatma & Ali D.',  amount: 2000,  date: '10.03.2026', isNew: false },
+      { name: 'Ahmet S.',        amount: 100,   date: '09.03.2026', isNew: false },
+      { name: 'Familie Demir',   amount: 500,   date: '07.03.2026', isNew: false },
+      { name: 'Anonym',          amount: 5000,  date: '05.03.2026', isNew: false },
+      { name: 'Ibrahim T.',      amount: 300,   date: '03.03.2026', isNew: false },
+      { name: 'Leyla M.',        amount: 150,   date: '01.03.2026', isNew: false },
+    ],
+
+    // Meilensteine
+    milestones: [
+      { label: '10 % erreicht',   target: 60000,  icon: '🎯' },
+      { label: '25 % erreicht',   target: 150000, icon: '🌟' },
+      { label: '50 % erreicht',   target: 300000, icon: '🏆' },
+      { label: 'Ziel erreicht!',  target: 600000, icon: '🕌' },
+    ]
+  };
+
+  /* ============================================================
+     AB HIER NICHTS ÄNDERN – Automatische Berechnung & Anzeige
+     ============================================================ */
+  function formatEuro(n) {
+    return n.toLocaleString('de-DE') + ' €';
+  }
+
+  function getInitials(name) {
+    if (name === 'Anonym') return '?';
+    return name.trim().split(/\s+/).map(w => w[0]).slice(0,2).join('').toUpperCase();
+  }
+
+  function getAvatarColor(name) {
+    const colors = [
+      ['#0A2D1F','#1B5E42'],['#1B5E42','#2D8653'],
+      ['#2D8653','#3D9970'],['#14532D','#166534'],
+      ['#065F46','#047857']
+    ];
+    let hash = 0;
+    for (let c of name) hash += c.charCodeAt(0);
+    return colors[hash % colors.length];
+  }
+
+  function init() {
+    const pct = Math.min(100, (CAMPAIGN.collected / CAMPAIGN.goal) * 100);
+    const remaining = Math.max(0, CAMPAIGN.goal - CAMPAIGN.collected);
+
+    // Hero progress card
+    document.getElementById('hero-percent').textContent = pct.toFixed(1) + '%';
+    document.getElementById('hero-collected').textContent = formatEuro(CAMPAIGN.collected);
+    document.getElementById('hero-remaining').textContent = formatEuro(remaining);
+    document.getElementById('hero-donors').textContent = CAMPAIGN.donorsCount;
+    document.getElementById('last-updated-date').textContent = CAMPAIGN.lastUpdated;
+
+    // Animate bars after paint
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        document.getElementById('hero-bar').style.width = pct + '%';
+        document.getElementById('live-bar').style.width = pct + '%';
+      }, 300);
+    });
+
+    // Stats bar
+    document.getElementById('stat-collected').textContent = formatEuro(CAMPAIGN.collected);
+    document.getElementById('stat-donors').textContent = CAMPAIGN.donorsCount;
+    document.getElementById('stat-percent').textContent = pct.toFixed(1) + '%';
+
+    // Live total
+    document.getElementById('live-amount').textContent = formatEuro(CAMPAIGN.collected);
+    document.getElementById('live-supporters').innerHTML =
+      '<strong>' + CAMPAIGN.donorsCount + ' Spender</strong> haben bereits mitgemacht';
+
+    // Donors list
+    const list = document.getElementById('donors-list');
+    list.innerHTML = CAMPAIGN.recentDonors.map((d, i) => {
+      const [c1, c2] = getAvatarColor(d.name);
+      return `
+        <div class="donor-item" style="animation-delay:${i * 60}ms">
+          <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">${getInitials(d.name)}</div>
+          <div class="donor-info">
+            <div class="donor-name">${d.name} ${d.isNew ? '<span class="donor-new-badge">Neu</span>' : ''}</div>
+            <div class="donor-date">${d.date}</div>
+          </div>
+          <div class="donor-amount">${formatEuro(d.amount)}</div>
+        </div>`;
+    }).join('');
+
+    // Milestones
+    const ml = document.getElementById('milestones-list');
+    ml.innerHTML = CAMPAIGN.milestones.map(m => {
+      const done = CAMPAIGN.collected >= m.target;
+      const mpct = Math.min(100, (CAMPAIGN.collected / m.target) * 100);
+      return `
+        <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #F3F4F6">
+          <span style="font-size:1.25rem">${m.icon}</span>
+          <div style="flex:1">
+            <div style="font-size:.825rem;font-weight:600;color:${done ? '#1B5E42' : '#374151'}">${m.label}</div>
+            <div style="font-size:.75rem;color:#9CA3AF;margin-top:2px">${formatEuro(m.target)}</div>
+          </div>
+          ${done
+            ? '<span style="font-size:.75rem;font-weight:700;background:#E8F5EE;color:#1B5E42;padding:3px 10px;border-radius:9999px">Erreicht ✓</span>'
+            : `<span style="font-size:.75rem;color:#9CA3AF">${mpct.toFixed(0)}%</span>`
+          }
+        </div>`;
+    }).join('');
+  }
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(el => {
+        el.classList.remove('open');
+        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+
+  // IntersectionObserver for bar animation on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const pct = Math.min(100, (CAMPAIGN.collected / CAMPAIGN.goal) * 100);
+        document.getElementById('live-bar').style.width = pct + '%';
+      }
+    });
+  }, { threshold: 0.3 });
+  const liveBar = document.querySelector('.live-total');
+  if (liveBar) observer.observe(liveBar);
+
+  init();
+</script>
+</body>
+</html>

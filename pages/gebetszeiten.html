@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tägliche Gebetszeiten für Breuberg – DITIB Türkisch Islamische Gemeinde Breuberg-Sandbach.">
+  <title>Gebetszeiten – DITIB Breuberg</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<header>
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar__inner">
+        <a href="../index.html" class="navbar__logo">
+          <div class="navbar__logo-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2a10 10 0 0 1 0 20"/><path d="M12 2a4 4 0 0 0 0 8 4 4 0 0 1 0 8"/><path d="M2 12h20"/>
+            </svg>
+          </div>
+          <div class="navbar__logo-text">
+            <strong>DITIB Breuberg</strong>
+            <span>Türkisch Islamische Gemeinde</span>
+          </div>
+        </a>
+        <nav class="navbar__nav">
+          <a href="../index.html">Startseite</a>
+          <a href="gebetszeiten.html" class="active">Gebetszeiten</a>
+          <a href="veranstaltungen.html">Veranstaltungen</a>
+          <a href="jugend.html">Jugend</a>
+          <a href="galerie.html">Galerie</a>
+          <a href="ueber-uns.html">Über uns</a>
+          <a href="kontakt.html">Kontakt</a>
+        </nav>
+        <div class="navbar__actions">
+          <a href="spenden.html" class="btn btn--emerald btn--sm navbar__donate">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            Spenden
+          </a>
+          <button class="navbar__hamburger" aria-label="Menü öffnen" aria-expanded="false">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <div class="mobile-menu">
+    <div class="mobile-menu__inner">
+      <a href="../index.html">🏠 Startseite</a>
+      <a href="gebetszeiten.html">🕐 Gebetszeiten</a>
+      <a href="veranstaltungen.html">📅 Veranstaltungen</a>
+      <a href="jugend.html">👥 Jugend</a>
+      <a href="galerie.html">🖼️ Galerie</a>
+      <a href="ueber-uns.html">ℹ️ Über uns</a>
+      <a href="kontakt.html">📍 Kontakt</a>
+      <div class="mobile-menu__divider"></div>
+      <a href="spenden.html">❤️ Spenden</a>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <div class="page-hero__inner">
+      <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
+        <a href="../index.html">Startseite</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        <span>Gebetszeiten</span>
+      </nav>
+      <h1>Gebetszeiten</h1>
+      <p>Täglich aktualisierte Gebetszeiten für Breuberg, Deutschland – berechnet nach der Methode von Diyanet İşleri Başkanlığı.</p>
+    </div>
+  </div>
+</div>
+
+<main>
+  <section class="section">
+    <div class="container">
+      <!-- Next Prayer Banner -->
+      <div id="next-prayer-banner" class="next-prayer-banner" data-aos>
+        <div class="next-prayer-banner__info">
+          <div class="next-prayer-banner__icon">🕌</div>
+          <div class="next-prayer-banner__text">
+            <strong>Wird geladen…</strong>
+            <h3>Gebetszeiten</h3>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prayer Times Grid -->
+      <div id="prayer-times-full" data-aos></div>
+
+      <!-- Info cards -->
+      <div style="display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));margin-top:48px">
+        <div class="contact-info-card" data-aos>
+          <div class="contact-info-card__icon">📿</div>
+          <h3>Freitagsgebet (Cuma)</h3>
+          <p>Das Freitagsgebet findet wöchentlich um <strong>13:00 Uhr</strong> in unserer Moschee statt. Die Predigt (Hutbe) beginnt um 12:45 Uhr. Alle Gläubigen sind herzlich willkommen.</p>
+        </div>
+        <div class="contact-info-card" data-aos data-aos-delay="100">
+          <div class="contact-info-card__icon">🌙</div>
+          <h3>Ramazan-Zeiten</h3>
+          <p>Während des Ramazan werden täglich <strong>Iftar</strong> (Fastenbrechen) und <strong>Tarawih-Gebet</strong> in der Moschee angeboten. Die genauen Zeiten werden rechtzeitig bekanntgegeben.</p>
+        </div>
+        <div class="contact-info-card" data-aos data-aos-delay="200">
+          <div class="contact-info-card__icon">📍</div>
+          <h3>Moschee-Adresse</h3>
+          <p>DITIB Breuberg<br>Sudetenstr. 19<br>64747 Breuberg-Sandbach<br><a href="https://maps.google.com/?q=Sudetenstr.+19,+64747+Breuberg" target="_blank" rel="noopener">Route berechnen →</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Islamic Calendar Section -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header" data-aos>
+        <span class="badge">Islamischer Kalender</span>
+        <h2>Wichtige islamische Feiertage</h2>
+        <p>Die wichtigsten islamischen Feiertage und gesegneten Nächte im Überblick.</p>
+      </div>
+
+      <div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))" data-aos>
+        <div class="youth-card">
+          <div class="youth-card__icon">🌟</div>
+          <h3 class="youth-card__title">Mevlid Kandil</h3>
+          <p class="youth-card__desc">Die Nacht der Geburt des Propheten Muhammed (s.a.v.). Eine der fünf gesegneten Nächte im Islam.</p>
+        </div>
+        <div class="youth-card">
+          <div class="youth-card__icon">🌙</div>
+          <h3 class="youth-card__title">Ramazan</h3>
+          <p class="youth-card__desc">Der heilige Fastenmonat. 29 oder 30 Tage Fasten, Gebet und Besinnung.</p>
+        </div>
+        <div class="youth-card">
+          <div class="youth-card__icon">🎊</div>
+          <h3 class="youth-card__title">Ramazan Bayramı</h3>
+          <p class="youth-card__desc">Zuckerfest / Ramazanfest – das dreitägige Fest am Ende des Fastenmonats.</p>
+        </div>
+        <div class="youth-card">
+          <div class="youth-card__icon">🐑</div>
+          <h3 class="youth-card__title">Kurban Bayramı</h3>
+          <p class="youth-card__desc">Opferfest – vier Tage Fest im Gedenken an das Opfer des Propheten Ibrahim.</p>
+        </div>
+        <div class="youth-card">
+          <div class="youth-card__icon">✨</div>
+          <h3 class="youth-card__title">Kadir Gecesi</h3>
+          <p class="youth-card__desc">Die Nacht der Allmacht (Laylat al-Qadr) – die heiligste Nacht im Ramazan.</p>
+        </div>
+        <div class="youth-card">
+          <div class="youth-card__icon">🌅</div>
+          <h3 class="youth-card__title">Mirac Kandil</h3>
+          <p class="youth-card__desc">Die Nacht der Himmelsreise des Propheten Muhammed (s.a.v.).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__bottom">
+      <p>© 2025 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
+      <div class="footer__bottom-links">
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/prayer-times.js"></script>
+<script src="../js/main.js"></script>
+</body>
+</html>
