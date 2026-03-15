@@ -1484,6 +1484,16 @@ input, textarea, select { font: inherit; }
   align-items: center;
   gap: 24px;
   white-space: nowrap;
+  animation: marquee-scroll 30s linear infinite;
+}
+
+.announcement-bar:hover .announcement-bar__inner {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* ---- Countdown timer ---- */
