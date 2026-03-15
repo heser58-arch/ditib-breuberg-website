@@ -201,6 +201,10 @@ input, textarea, select { font: inherit; }
   box-shadow: var(--shadow-md);
 }
 
+.navbar .container {
+  height: 100%;
+}
+
 .navbar__inner {
   height: 100%;
   display: flex;
