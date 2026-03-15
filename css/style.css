@@ -217,13 +217,17 @@ input, textarea, select { font: inherit; }
 }
 
 .navbar__logo-icon {
-  width: 44px;
+  width: auto;
   height: 44px;
-  background: var(--red-800);
+  min-width: 44px;
+  max-width: 80px;
+  background: transparent;
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  padding: 4px 6px;
 }
 
 .navbar__logo-icon svg { color: var(--white); }
