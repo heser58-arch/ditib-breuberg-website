@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     /* ===== SPENDEN PAGE STYLES ===== */
 
@@ -114,6 +115,89 @@
       width: 40px;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.35));
       border-radius: 9999px;
+    }
+    /* ── Booster "Strahl" ── */
+    .progress-bar-wrap { display: flex; }
+    .progress-bar-fill  { border-radius: 0; }
+    .progress-bar-booster {
+      height: 100%;
+      background: linear-gradient(90deg, #F97316, #FB923C, #FDE68A);
+      width: 0%;
+      flex-shrink: 0;
+      transition: width 1.8s .3s cubic-bezier(.4,0,.2,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .progress-bar-booster::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: -50px;
+      width: 50px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+      animation: boosterShine 1.6s ease-in-out infinite;
+    }
+    @keyframes boosterShine {
+      0%   { left: -50px; }
+      100% { left: 110%; }
+    }
+    .live-total__bar { display: flex; }
+    .live-total__bar-fill { border-radius: 0; }
+    .live-total__bar-booster {
+      height: 100%;
+      background: linear-gradient(90deg, #F97316, #FBBF24);
+      width: 0%;
+      flex-shrink: 0;
+      transition: width 2s .7s cubic-bezier(.4,0,.2,1);
+      position: relative;
+      overflow: hidden;
+    }
+    .live-total__bar-booster::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: -50px;
+      width: 50px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+      animation: boosterShine 1.6s .4s ease-in-out infinite;
+    }
+    /* Booster badge (orange) */
+    .booster-badge {
+      display: inline-block;
+      font-size: .6rem;
+      font-weight: 700;
+      background: #FFF7ED;
+      color: #EA580C;
+      border: 1px solid #FED7AA;
+      padding: 1px 6px;
+      border-radius: 9999px;
+      vertical-align: middle;
+      margin-left: 4px;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+    .donor-amount--booster { color: #EA580C !important; font-weight: 700; }
+    .donor-detail { font-size: .7rem; color: #9CA3AF; margin-top: 1px; }
+    /* Booster Legende in der Fortschrittsanzeige */
+    .booster-legend {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .72rem;
+      margin-top: 6px;
+    }
+    .booster-legend__bar {
+      display: inline-block;
+      width: 28px; height: 8px;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #F97316, #FBBF24);
+      flex-shrink: 0;
+    }
+    /* Booster info tag below stat */
+    .booster-stat-info {
+      font-size: .65rem;
+      color: #F97316;
+      font-weight: 600;
+      margin-top: 2px;
+      display: none;
     }
     .progress-stats {
       display: grid;
@@ -281,53 +365,268 @@
 
     /* === DONATION METHODS === */
     .methods-section { padding: clamp(60px, 8vw, 100px) 0; }
+
+    /* Two-row grid:
+       Row 1 → Bank card full width
+       Row 2 → 3 secondary cards */
     .methods-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 24px;
+      gap: 20px;
     }
-    @media (min-width: 640px) { .methods-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 1024px) { .methods-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 768px) {
+      .methods-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
 
+    /* ----- Base card ----- */
     .method-card {
       background: #fff;
-      border: 2px solid #F3F4F6;
+      border: 2px solid #E5F0EA;
       border-radius: 20px;
       padding: 28px;
-      transition: border-color .2s, box-shadow .2s, transform .2s;
+      transition: border-color .22s, box-shadow .22s, transform .22s;
       position: relative;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
     .method-card:hover {
-      border-color: #1B5E42;
-      box-shadow: 0 8px 30px rgba(27,94,66,.12);
+      border-color: #2D8653;
+      box-shadow: 0 8px 32px rgba(27,94,66,.13);
       transform: translateY(-3px);
     }
-    .method-card--featured { border-color: #1B5E42; }
+
+    /* ----- Featured (Bank) card: full width, horizontal layout ----- */
+    .method-card--featured {
+      grid-column: 1 / -1;
+      border-color: #1B5E42;
+      box-shadow: 0 4px 24px rgba(27,94,66,.10);
+      padding: 0;          /* inner padding handled by sub-sections */
+      overflow: hidden;
+    }
+    .method-card--featured:hover {
+      border-color: #0A2D1F;
+      box-shadow: 0 10px 40px rgba(10,45,31,.18);
+    }
+
+    /* "Empfohlen" ribbon at the top of the featured card */
     .method-card__featured-badge {
       position: absolute;
-      top: -1px;
-      left: 24px;
-      background: #1B5E42;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(90deg, #0A2D1F 0%, #1B5E42 100%);
       color: #fff;
       font-size: .7rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: .06em;
-      padding: 4px 12px;
-      border-radius: 0 0 8px 8px;
+      letter-spacing: .1em;
+      padding: 6px 20px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
     }
-    .method-card__icon { font-size: 2.5rem; margin-bottom: 14px; }
-    .method-card__title { font-size: 1.05rem; font-weight: 700; color: #0A2D1F; margin-bottom: 8px; }
-    .method-card__desc { font-size: .875rem; color: #6B7280; line-height: 1.65; margin-bottom: 18px; }
+    .method-card__featured-badge::before {
+      content: '★';
+      font-size: .65rem;
+    }
+
+    /* Horizontal body inside featured card */
+    .method-card--featured .bank-body {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 32px; /* clears the ribbon */
+    }
+    @media (min-width: 768px) {
+      .method-card--featured .bank-body {
+        flex-direction: row;
+        align-items: stretch;
+      }
+    }
+
+    /* Left column: bank details */
+    .bank-details {
+      flex: 1;
+      padding: 28px 32px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Right column: QR */
+    .bank-qr {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      padding: 28px 32px;
+      background: #F4FAF7;
+      border-top: 1px solid #E5F0EA;
+    }
+    @media (min-width: 768px) {
+      .bank-qr {
+        border-top: none;
+        border-left: 1px solid #E5F0EA;
+        min-width: 240px;
+        max-width: 280px;
+      }
+    }
+
+    .bank-qr img {
+      width: 180px;
+      height: 180px;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .bank-qr__hint {
+      font-size: .78rem;
+      color: #6B7280;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 200px;
+    }
+
+    /* Card header: icon + title + desc */
+    .method-card__header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .method-card__icon-wrap {
+      width: 48px;
+      height: 48px;
+      background: #E8F5EE;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      flex-shrink: 0;
+    }
+    .method-card--featured .method-card__icon-wrap {
+      background: #D0EAD8;
+      width: 52px;
+      height: 52px;
+      font-size: 1.6rem;
+    }
+
+    .method-card__heading h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0A2D1F;
+      margin-bottom: 4px;
+      line-height: 1.3;
+    }
+    .method-card__heading p {
+      font-size: .85rem;
+      color: #6B7280;
+      line-height: 1.55;
+    }
+
+    /* Bank data rows: label → value */
+    .bank-data {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      background: #F4FAF7;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #DCF0E5;
+    }
+    .bank-data__row {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      padding: 9px 16px;
+      font-size: .85rem;
+    }
+    .bank-data__row + .bank-data__row {
+      border-top: 1px solid #DCF0E5;
+    }
+    .bank-data__label {
+      color: #6B7280;
+      font-weight: 500;
+      white-space: nowrap;
+      min-width: 130px;
+      font-size: .8rem;
+    }
+    .bank-data__value {
+      color: #0A2D1F;
+      font-weight: 600;
+      word-break: break-all;
+    }
+    .bank-data__value--mono {
+      font-family: 'JetBrains Mono', 'Courier New', monospace;
+      letter-spacing: .04em;
+      font-size: .9rem;
+    }
+
+    /* Purpose row gets a tinted highlight */
+    .bank-data__row--purpose .bank-data__value {
+      color: #1B5E42;
+    }
+
+    /* Secondary cards: icon on top, stacked */
+    .method-card__icon {
+      width: 52px;
+      height: 52px;
+      background: #E8F5EE;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+      flex-shrink: 0;
+    }
+    .method-card__title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #0A2D1F;
+      margin-bottom: 6px;
+    }
+    .method-card__desc {
+      font-size: .875rem;
+      color: #6B7280;
+      line-height: 1.65;
+      margin-bottom: 18px;
+      flex: 1;
+    }
     .method-card__info {
-      background: #F9FAFB;
+      background: #F4FAF7;
+      border: 1px solid #DCF0E5;
       border-radius: 12px;
       padding: 14px 16px;
       font-size: .85rem;
-      line-height: 1.8;
+      line-height: 1.85;
       color: #374151;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
+    }
+    .method-card__info strong { color: #0A2D1F; }
+
+    /* PayPal SVG logo sizing */
+    .paypal-logo {
+      display: block;
+      height: 22px;
+      width: auto;
+    }
+
+    /* Green-tinted outline button variant for the payment cards */
+    .btn--outline-green {
+      background: transparent;
+      color: #1B5E42;
+      border: 2px solid #1B5E42;
+    }
+    .btn--outline-green:hover {
+      background: #1B5E42;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(27,94,66,.25);
     }
 
     /* === PROJECT INFO === */
@@ -582,7 +881,7 @@
       <div>
         <div class="campaign-hero__badge">
           <span></span>
-          Aktuelle Spendenkampagne
+          Spendenkampagne Neues Moscheegrundstück
         </div>
         <h1 class="campaign-hero__title">
           Unser <em>neues Zuhause</em><br>für die Gemeinde
@@ -608,11 +907,13 @@
           </div>
           <div class="progress-bar-wrap">
             <div class="progress-bar-fill" id="hero-bar"></div>
+            <div class="progress-bar-booster" id="hero-bar-booster"></div>
           </div>
           <div class="progress-stats">
             <div class="progress-stat">
               <span class="progress-stat__value" id="hero-collected">–</span>
               <span class="progress-stat__label">Gesammelt</span>
+              <div class="booster-stat-info" id="hero-booster-info"></div>
             </div>
             <div class="progress-stat">
               <span class="progress-stat__value" id="hero-remaining">–</span>
@@ -696,8 +997,13 @@
           <div class="live-total__goal">von <strong>600.000 €</strong> Gesamtziel</div>
           <div class="live-total__bar">
             <div class="live-total__bar-fill" id="live-bar"></div>
+            <div class="live-total__bar-booster" id="live-bar-booster"></div>
           </div>
           <div class="live-total__supporters" id="live-supporters">– Spender haben bereits mitgemacht</div>
+          <div class="booster-legend" id="live-booster-legend" style="display:none;justify-content:center;text-align:center;color:rgba(255,255,255,.8)">
+            <span class="booster-legend__bar"></span>
+            <span id="live-booster-text"></span>
+          </div>
           <div class="live-total__cta">
             <a href="#spenden-methoden" class="btn btn--emerald btn--lg" style="width:100%;justify-content:center">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
@@ -778,26 +1084,11 @@
             </thead>
             <tbody>
               <tr>
-                <td>Grundstückspreis</td>
-                <td>560.000 €</td>
-              </tr>
-              <tr>
-                <td>Grunderwerbsteuer (6 %)</td>
-                <td>ca. 33.600 €</td>
-              </tr>
-              <tr>
-                <td>Notar- & Gerichtskosten</td>
-                <td>ca. 6.400 €</td>
-              </tr>
-              <tr>
-                <td><strong>Gesamtbedarf</strong></td>
+                <td><strong>Grundstückspreis inkl. Kaufnebenkosten</strong></td>
                 <td><strong>600.000 €</strong></td>
               </tr>
             </tbody>
           </table>
-          <div style="margin-top:20px;padding:14px;background:#E8F5EE;border-radius:12px;font-size:.825rem;color:#1B5E42;line-height:1.6">
-            <strong>Hinweis:</strong> Alle Spenden fließen ausschließlich in den Grundstückskauf. Über den Stand informieren wir regelmäßig auf dieser Seite.
-          </div>
         </div>
       </div>
     </div>
@@ -814,46 +1105,109 @@
     </div>
     <div class="methods-grid">
 
-      <!-- Überweisung -->
+      <!-- ===== Karte 1: Banküberweisung (volle Breite) ===== -->
       <div class="method-card method-card--featured">
         <div class="method-card__featured-badge">Empfohlen</div>
-        <div class="method-card__icon" style="margin-top:12px">🏦</div>
-        <div class="method-card__title">Banküberweisung</div>
-        <div class="method-card__desc">Direkte Überweisung auf unser Vereinskonto. Sicher, kostenlos und nachvollziehbar.</div>
-        <div class="method-card__info">
-          <strong>DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</strong><br>
-          Bank: Volksbank Odenwald eG<br>
-          IBAN: Auf Anfrage erhältlich<br>
-          Verwendungszweck: <strong>Grundstück 2026</strong>
-        </div>
-        <a href="kontakt.html" class="btn btn--primary" style="width:100%;justify-content:center">IBAN anfragen</a>
-      </div>
 
-      <!-- Bar -->
+        <div class="bank-body">
+
+          <!-- Linke Spalte: Bankdaten -->
+          <div class="bank-details">
+            <div class="method-card__header">
+              <div class="method-card__icon-wrap"><i class="fa-solid fa-building-columns" style="font-size:1.5rem;color:#1B5E42"></i></div>
+              <div class="method-card__heading">
+                <h3>Banküberweisung</h3>
+                <p>Direkte Überweisung auf unser Vereinskonto. Sicher, kostenlos und nachvollziehbar.</p>
+              </div>
+            </div>
+
+            <div class="bank-data">
+              <div class="bank-data__row">
+                <span class="bank-data__label">Empfänger</span>
+                <span class="bank-data__value">DITIB Türkisch-Islamische Gemeinde zu Breuberg e.V.</span>
+              </div>
+              <div class="bank-data__row">
+                <span class="bank-data__label">Bank</span>
+                <span class="bank-data__value">Vereinigte Volksbank Raiffeisenbank</span>
+              </div>
+              <div class="bank-data__row">
+                <span class="bank-data__label">IBAN</span>
+                <span class="bank-data__value bank-data__value--mono">DE64 5086 3513 0105 0101 87</span>
+              </div>
+              <div class="bank-data__row">
+                <span class="bank-data__label">BIC</span>
+                <span class="bank-data__value bank-data__value--mono">GENODE51MIC</span>
+              </div>
+              <div class="bank-data__row bank-data__row--purpose">
+                <span class="bank-data__label">Verwendungszweck</span>
+                <span class="bank-data__value">Spende Grundstückskauf - DITIB Breuberg</span>
+              </div>
+            </div>
+
+            <button
+              id="iban-copy-btn"
+              onclick="navigator.clipboard.writeText('DE64508635130105010187').then(()=>{this.textContent='Kopiert \u2713';setTimeout(()=>this.textContent='IBAN kopieren',2000)})"
+              class="btn btn--green"
+              style="align-self:flex-start"
+            >IBAN kopieren</button>
+          </div>
+
+          <!-- Rechte Spalte: QR-Code -->
+          <div class="bank-qr">
+            <img src="../images/girocode-qr.png" alt="GiroCode QR-Code für Banküberweisung" width="180" height="180">
+            <p class="bank-qr__hint">
+              Banking-App öffnen&nbsp;&rarr; Überweisung&nbsp;&rarr; <strong>Fotoüberweisung</strong>&nbsp;&rarr; QR-Code scannen&nbsp;&rarr; Betrag selbst eingeben
+            </p>
+          </div>
+
+        </div><!-- /.bank-body -->
+      </div><!-- /.method-card--featured -->
+
+      <!-- ===== Karte 2: Bar vor Ort ===== -->
       <div class="method-card">
-        <div class="method-card__icon">💵</div>
+        <div class="method-card__icon"><i class="fa-solid fa-hand-holding-heart" style="font-size:1.5rem;color:#1B5E42"></i></div>
         <div class="method-card__title">Bar vor Ort</div>
-        <div class="method-card__desc">Bringen Sie Ihre Spende direkt in die Moschee. Wir stellen auf Wunsch eine Spendenquittung aus.</div>
+        <div class="method-card__desc">Bringen Sie Ihre Spende direkt in die Moschee – zu jeder Gebetszeit willkommen.</div>
         <div class="method-card__info">
-          <strong>DITIB Breuberg</strong><br>
+          <strong>Kontaktinformationen</strong><br><br>
+          DITIB Breuberg<br>
           Sudetenstr. 19<br>
-          64747 Breuberg-Sandbach<br>
-          Zu allen Gebetszeiten möglich
+          64747 Breuberg-Sandbach<br><br>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+            <span>Cemal Polat</span>
+            <a href="tel:+4915752675813" style="color:#1B5E42;font-weight:600">+49 157 526 75813</a>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+            <span>Abdulselim Özkan</span>
+            <a href="tel:+4915257419023" style="color:#1B5E42;font-weight:600;white-space:nowrap">+49 152 574 19023</a>
+          </div>
         </div>
-        <a href="gebetszeiten.html" class="btn btn--outline" style="width:100%;justify-content:center">Gebetszeiten ansehen</a>
+        <a href="gebetszeiten.html" class="btn btn--outline-green" style="width:100%;justify-content:center;margin-top:auto">Gebetszeiten ansehen</a>
       </div>
 
-      <!-- Mitglied -->
+      <!-- ===== Karte 3: PayPal ===== -->
       <div class="method-card">
-        <div class="method-card__icon">👥</div>
-        <div class="method-card__title">Mitglied werden</div>
-        <div class="method-card__desc">Als Vereinsmitglied unterstützen Sie uns dauerhaft und haben Mitspracherecht bei der Verwendung.</div>
+        <!-- PayPal-Logo als inline SVG -->
+        <div class="method-card__icon" style="background:#EEF4FC"><i class="fa-brands fa-paypal" style="font-size:1.6rem;color:#009CDE"></i></div>
+        <div class="method-card__title">PayPal</div>
+        <div class="method-card__desc">Schnell und einfach per PayPal spenden.</div>
         <div class="method-card__info">
-          Monatlicher Beitrag ab <strong>10 € / Monat</strong><br>
-          Familientarife verfügbar<br>
-          Stimmrecht bei Mitgliederversammlung
+          Spende via PayPal<br>
+          <strong>paypal.me/DitibBreuberg</strong>
         </div>
-        <a href="kontakt.html" class="btn btn--outline" style="width:100%;justify-content:center">Mitgliedschaft anfragen</a>
+        <a href="https://paypal.me/DitibBreuberg" target="_blank" rel="noopener" class="btn btn--outline-green" style="width:100%;justify-content:center;margin-top:auto">Jetzt via PayPal spenden</a>
+      </div>
+
+      <!-- ===== Karte 4: Mitglied werden ===== -->
+      <div class="method-card">
+        <div class="method-card__icon"><i class="fa-solid fa-users" style="font-size:1.5rem;color:#1B5E42"></i></div>
+        <div class="method-card__title">Mitglied werden</div>
+        <div class="method-card__desc">Als Vereinsmitglied unterstützen Sie uns dauerhaft.</div>
+        <div class="method-card__info">
+          <strong>Monatlicher Beitrag</strong><br>
+          ab 10 € / Monat
+        </div>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc41CZieLPh_4YDz9NA4IJgyHXpFZOs7geW7C_utcrnheh56Q/viewform?usp=header" target="_blank" rel="noopener" class="btn btn--outline-green" style="width:100%;justify-content:center;margin-top:auto">Mitgliedschaft anfragen</a>
       </div>
 
     </div>
@@ -889,14 +1243,7 @@
           Wie wird mit den Spendengeldern umgegangen?
           <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
         </button>
-        <div class="faq-answer">Alle Spendengelder fließen ausschließlich in den Grundstückskauf. Der Verein ist als e.V. eingetragen und geprüft. Über den Stand der Kampagne informieren wir regelmäßig auf dieser Seite und bei unseren Gemeindeveranstaltungen. Auf Anfrage stellen wir Spendenquittungen aus.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Kann ich eine Spendenquittung erhalten?
-          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-        </button>
-        <div class="faq-answer">Ja. Als gemeinnütziger Verein stellen wir Spendenquittungen ab einem Betrag von 200 € aus. Für kleinere Beträge genügt der Kontoauszug als Nachweis. Bitte kontaktieren Sie uns bei Bedarf.</div>
+        <div class="faq-answer">Alle Spendengelder fließen ausschließlich in den Grundstückskauf. Der Verein ist als e.V. eingetragen und geprüft. Über den Stand der Kampagne informieren wir regelmäßig auf dieser Seite und bei unseren Gemeindeveranstaltungen.</div>
       </div>
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
@@ -951,45 +1298,71 @@
 <script src="../js/main.js"></script>
 <script>
   /* ============================================================
-     SPENDEN-DATEN – HIER ANPASSEN
-     Aktualisiere diese Werte wenn neue Spenden eingehen.
+     GOOGLE SHEETS KONFIGURATION
+     Spalten: A=Name | B=Datum | C=Betrag | D=Typ | E=Monate
+       Datum-Format: TT.MM.JJJJ (z.B. 22.03.2026)
+       Betrag: Zahl ohne €-Zeichen
+       Typ: leer oder "Spende"  →  normale Spende
+            "Beitrag"           →  monatliche Beitragserhöhung (Booster)
+       Monate: nur bei Typ=Beitrag, z.B. 12
+               Booster-Beitrag = Betrag × Monate
+     2. Datei → Freigeben → Im Web veröffentlichen → CSV → Link kopieren
+     3. Den Link unten eintragen
      ============================================================ */
-  const CAMPAIGN = {
+  const SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQqsmxM0yOlFwxLYf3uh4fZY1Yv9nI-OGyKFXu6nYJJ6w94FVMaDJ7PZnGzoxL2PEawYQKQOudZga4g/pub?gid=0&single=true&output=csv';
+
+  /* ============================================================
+     KAMPAGNEN-ZIEL & MEILENSTEINE – Nur diese Werte anpassen
+     ============================================================ */
+  const CAMPAIGN_CONFIG = {
     goal: 600000,
-    collected: 87500,       // Aktuell gesammelt (bitte aktualisieren)
-    donorsCount: 43,        // Anzahl Spender
-    lastUpdated: '15.03.2026',
-
-    // Letzte Spender (neueste zuerst)
-    // name: Anzeigename (oder 'Anonym')
-    // amount: Betrag in Euro
-    // date: Datum der Spende
-    // isNew: true = zeigt "Neu" Badge (nur für die neuesten 2-3)
-    recentDonors: [
-      { name: 'Mehmet A.',       amount: 500,   date: '15.03.2026', isNew: true  },
-      { name: 'Familie Yilmaz',  amount: 1000,  date: '14.03.2026', isNew: true  },
-      { name: 'Anonym',          amount: 250,   date: '13.03.2026', isNew: false },
-      { name: 'Hasan K.',        amount: 200,   date: '12.03.2026', isNew: false },
-      { name: 'Fatma & Ali D.',  amount: 2000,  date: '10.03.2026', isNew: false },
-      { name: 'Ahmet S.',        amount: 100,   date: '09.03.2026', isNew: false },
-      { name: 'Familie Demir',   amount: 500,   date: '07.03.2026', isNew: false },
-      { name: 'Anonym',          amount: 5000,  date: '05.03.2026', isNew: false },
-      { name: 'Ibrahim T.',      amount: 300,   date: '03.03.2026', isNew: false },
-      { name: 'Leyla M.',        amount: 150,   date: '01.03.2026', isNew: false },
-    ],
-
-    // Meilensteine
     milestones: [
       { label: '10 % erreicht',   target: 60000,  icon: '🎯' },
       { label: '25 % erreicht',   target: 150000, icon: '🌟' },
       { label: '50 % erreicht',   target: 300000, icon: '🏆' },
-      { label: 'Ziel erreicht!',  target: 600000, icon: '🕌' },
+      { label: 'Ziel erreicht!',  target: 600000, icon: '🤝' },
     ]
   };
 
   /* ============================================================
      AB HIER NICHTS ÄNDERN – Automatische Berechnung & Anzeige
      ============================================================ */
+
+  // CSV parsen: gibt Array von {name, date, amount, type, months, boosterTotal} zurück
+  function parseCSV(text) {
+    const lines = text.trim().split('\n');
+    return lines.slice(1).map(line => {
+      const cols = [];
+      let cur = '', inQ = false;
+      for (let i = 0; i < line.length; i++) {
+        if (line[i] === '"') { inQ = !inQ; }
+        else if (line[i] === ',' && !inQ) { cols.push(cur.trim()); cur = ''; }
+        else { cur += line[i]; }
+      }
+      cols.push(cur.trim());
+      const amount  = parseFloat((cols[2] || '0').replace(',', '.'));
+      const type    = (cols[3] || '').trim().toLowerCase();  // 'beitrag' oder leer
+      const months  = parseInt(cols[4] || '0', 10);
+      const isBooster = type === 'beitrag';
+      const boosterTotal = isBooster ? amount * (months || 1) : 0;
+      return {
+        name: cols[0] || '',
+        date: cols[1] || '',
+        amount: isNaN(amount) ? 0 : amount,
+        isBooster,
+        months: isNaN(months) ? 0 : months,
+        boosterTotal
+      };
+    }).filter(d => d.name && d.amount > 0);
+  }
+
+  // Datum TT.MM.JJJJ → Date-Objekt zum Sortieren
+  function parseDate(str) {
+    if (!str) return new Date(0);
+    const [d, m, y] = str.split('.');
+    return new Date(y + '-' + m + '-' + d);
+  }
+
   function formatEuro(n) {
     return n.toLocaleString('de-DE') + ' €';
   }
@@ -1010,44 +1383,82 @@
     return colors[hash % colors.length];
   }
 
-  function init() {
-    const pct = Math.min(100, (CAMPAIGN.collected / CAMPAIGN.goal) * 100);
-    const remaining = Math.max(0, CAMPAIGN.goal - CAMPAIGN.collected);
+  function renderCampaign(donors) {
+    // Beträge aufteilen
+    const spendenTotal  = donors.filter(d => !d.isBooster).reduce((s, d) => s + d.amount, 0);
+    const boosterTotal  = donors.filter(d =>  d.isBooster).reduce((s, d) => s + d.boosterTotal, 0);
+    const collected     = spendenTotal + boosterTotal;
+    const donorsCount   = donors.length;
+    const goal          = CAMPAIGN_CONFIG.goal;
+    const pct           = Math.min(100, (collected / goal) * 100);
+    const spendenPct    = Math.min(100, (spendenTotal / goal) * 100);
+    const boosterPct    = Math.min(pct - spendenPct, 100 - spendenPct);
+    const remaining     = Math.max(0, goal - collected);
+
+    // Neueste zuerst; "Neu"-Badge für Einträge der letzten 3 Tage
+    const sorted = [...donors].sort((a, b) => parseDate(b.date) - parseDate(a.date));
+    const threeDaysAgo = new Date();
+    threeDaysAgo.setHours(0, 0, 0, 0);
+    threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
+    const lastUpdated = sorted[0]?.date || '–';
 
     // Hero progress card
     document.getElementById('hero-percent').textContent = pct.toFixed(1) + '%';
-    document.getElementById('hero-collected').textContent = formatEuro(CAMPAIGN.collected);
+    document.getElementById('hero-collected').textContent = formatEuro(collected);
     document.getElementById('hero-remaining').textContent = formatEuro(remaining);
-    document.getElementById('hero-donors').textContent = CAMPAIGN.donorsCount;
-    document.getElementById('last-updated-date').textContent = CAMPAIGN.lastUpdated;
+    document.getElementById('hero-donors').textContent = donorsCount;
+    document.getElementById('last-updated-date').textContent = lastUpdated;
 
-    // Animate bars after paint
+
+    // Animate bars after paint – grün bis spendenPct, orange Booster-Strahl drüber
     requestAnimationFrame(() => {
       setTimeout(() => {
-        document.getElementById('hero-bar').style.width = pct + '%';
-        document.getElementById('live-bar').style.width = pct + '%';
+        document.getElementById('hero-bar').style.width = spendenPct + '%';
+        document.getElementById('hero-bar-booster').style.width = boosterPct + '%';
+        document.getElementById('live-bar').style.width = spendenPct + '%';
+        document.getElementById('live-bar-booster').style.width = boosterPct + '%';
       }, 300);
     });
 
     // Stats bar
-    document.getElementById('stat-collected').textContent = formatEuro(CAMPAIGN.collected);
-    document.getElementById('stat-donors').textContent = CAMPAIGN.donorsCount;
+    document.getElementById('stat-collected').textContent = formatEuro(collected);
+    document.getElementById('stat-donors').textContent = donorsCount;
     document.getElementById('stat-percent').textContent = pct.toFixed(1) + '%';
 
     // Live total
-    document.getElementById('live-amount').textContent = formatEuro(CAMPAIGN.collected);
+    document.getElementById('live-amount').textContent = formatEuro(collected);
     document.getElementById('live-supporters').innerHTML =
-      '<strong>' + CAMPAIGN.donorsCount + ' Spender</strong> haben bereits mitgemacht';
+      '<strong>' + donorsCount + ' Spender</strong> haben bereits mitgemacht';
+    if (boosterTotal > 0) {
+      const ll = document.getElementById('live-booster-legend');
+      document.getElementById('live-booster-text').textContent =
+        'Gesammelt durch Mitgliedsbeitrag-Erhöhung: ' + formatEuro(boosterTotal);
+      ll.style.display = 'flex';
+    }
 
     // Donors list
     const list = document.getElementById('donors-list');
-    list.innerHTML = CAMPAIGN.recentDonors.map((d, i) => {
+    list.innerHTML = sorted.map((d, i) => {
+      const isNew = parseDate(d.date) >= threeDaysAgo;
+      if (d.isBooster) {
+        // Oranger Booster-Eintrag
+        return `
+          <div class="donor-item" style="animation-delay:${i * 60}ms">
+            <div class="donor-avatar" style="background:linear-gradient(135deg,#F97316,#FBBF24)">${getInitials(d.name)}</div>
+            <div class="donor-info">
+              <div class="donor-name">${d.name} <span class="booster-badge">Beitragserhöhung</span>${isNew ? ' <span class="donor-new-badge">Neu</span>' : ''}</div>
+              <div class="donor-date">${d.date} &nbsp;·&nbsp; Letzte Aktivität</div>
+              <div class="donor-detail">+${formatEuro(d.amount)}/Monat × ${d.months} Monate</div>
+            </div>
+            <div class="donor-amount donor-amount--booster">${formatEuro(d.boosterTotal)}</div>
+          </div>`;
+      }
       const [c1, c2] = getAvatarColor(d.name);
       return `
         <div class="donor-item" style="animation-delay:${i * 60}ms">
           <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">${getInitials(d.name)}</div>
           <div class="donor-info">
-            <div class="donor-name">${d.name} ${d.isNew ? '<span class="donor-new-badge">Neu</span>' : ''}</div>
+            <div class="donor-name">${d.name} ${isNew ? '<span class="donor-new-badge">Neu</span>' : ''}</div>
             <div class="donor-date">${d.date}</div>
           </div>
           <div class="donor-amount">${formatEuro(d.amount)}</div>
@@ -1056,9 +1467,9 @@
 
     // Milestones
     const ml = document.getElementById('milestones-list');
-    ml.innerHTML = CAMPAIGN.milestones.map(m => {
-      const done = CAMPAIGN.collected >= m.target;
-      const mpct = Math.min(100, (CAMPAIGN.collected / m.target) * 100);
+    ml.innerHTML = CAMPAIGN_CONFIG.milestones.map(m => {
+      const done = collected >= m.target;
+      const mpct = Math.min(100, (collected / m.target) * 100);
       return `
         <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #F3F4F6">
           <span style="font-size:1.25rem">${m.icon}</span>
@@ -1072,6 +1483,25 @@
           }
         </div>`;
     }).join('');
+  }
+
+  async function init() {
+    if (!SHEETS_CSV_URL || SHEETS_CSV_URL.startsWith('HIER')) {
+      console.warn('Google Sheets URL nicht konfiguriert.');
+      document.getElementById('donors-list').innerHTML =
+        '<p style="color:#9CA3AF;font-size:.875rem;padding:16px 0">Spenderliste wird konfiguriert…</p>';
+      return;
+    }
+    try {
+      const res = await fetch(SHEETS_CSV_URL);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const text = await res.text();
+      renderCampaign(parseCSV(text));
+    } catch (err) {
+      console.error('Fehler beim Laden der Spenderdaten:', err);
+      document.getElementById('donors-list').innerHTML =
+        '<p style="color:#9CA3AF;font-size:.875rem;padding:16px 0">Spenderdaten konnten nicht geladen werden.</p>';
+    }
   }
 
   // FAQ accordion
@@ -1094,8 +1524,9 @@
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
       if (e.isIntersecting) {
-        const pct = Math.min(100, (CAMPAIGN.collected / CAMPAIGN.goal) * 100);
-        document.getElementById('live-bar').style.width = pct + '%';
+        // Breite wird durch renderCampaign gesetzt – hier nur nochmal triggern
+        const bar = document.getElementById('live-bar');
+        if (bar) bar.style.width = bar.style.width;
       }
     });
   }, { threshold: 0.3 });
@@ -1103,6 +1534,7 @@
   if (liveBar) observer.observe(liveBar);
 
   init();
+
 </script>
 </body>
 </html>
