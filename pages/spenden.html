@@ -560,6 +560,22 @@
       font-weight: 600;
       word-break: break-all;
     }
+    @media (max-width: 480px) {
+      .bank-data__row {
+        flex-direction: column;
+        gap: 2px;
+        padding: 10px 14px;
+      }
+      .bank-data__label {
+        min-width: 0;
+        font-size: .72rem;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+      }
+      .bank-data__value {
+        font-size: .88rem;
+      }
+    }
     .bank-data__value--mono {
       font-family: 'JetBrains Mono', 'Courier New', monospace;
       letter-spacing: .04em;
