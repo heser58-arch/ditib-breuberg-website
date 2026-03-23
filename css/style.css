@@ -1532,18 +1532,26 @@ input, textarea, select { font: inherit; }
 /* ---- Members / Team ---- */
 .team-grid {
   display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 640px) {
+  .team-grid { gap: 24px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 }
 
 .team-card {
   background: var(--white);
   border-radius: var(--radius-lg);
-  padding: 28px 20px;
+  padding: 20px 14px;
   text-align: center;
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--gray-300);
   transition: all var(--duration) var(--ease);
+}
+
+@media (min-width: 640px) {
+  .team-card { padding: 28px 20px; }
 }
 
 .team-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
