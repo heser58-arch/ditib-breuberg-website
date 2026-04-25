@@ -151,6 +151,12 @@
         <!-- Contact Form -->
         <div data-aos data-aos-delay="150">
           <form class="contact-form" id="contact-form" action="https://formsubmit.co/ditib-breuberg@hotmail.com" method="POST">
+            <!-- FormSubmit Konfiguration -->
+            <input type="hidden" name="_subject" value="Neue Kontaktanfrage – DITIB Breuberg">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" style="display:none">
+
             <h3>Nachricht senden</h3>
             <div class="form-row">
               <div class="form-group">
@@ -166,12 +172,12 @@
               <label class="form-label" for="subject">Betreff</label>
               <select class="form-select" id="subject" name="subject">
                 <option value="">Bitte wählen…</option>
-                <option value="allgemein">Allgemeine Anfrage</option>
-                <option value="mitglied">Mitglied werden</option>
-                <option value="jugend">Jugendprogramme</option>
-                <option value="veranstaltung">Veranstaltungen</option>
-                <option value="spende">Spenden</option>
-                <option value="sonstiges">Sonstiges</option>
+                <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
+                <option value="Mitglied werden">Mitglied werden</option>
+                <option value="Jugendprogramme">Jugendprogramme</option>
+                <option value="Veranstaltungen">Veranstaltungen</option>
+                <option value="Spenden">Spenden</option>
+                <option value="Sonstiges">Sonstiges</option>
               </select>
             </div>
             <div class="form-group">
