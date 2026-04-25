@@ -144,28 +144,6 @@
   });
 })();
 
-// ---- Contact Form ----
-(function initContactForm() {
-  const form = document.getElementById('contact-form');
-  if (!form) return;
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const btn = form.querySelector('.form-submit');
-    const originalText = btn.textContent;
-
-    btn.textContent = 'Wird gesendet…';
-    btn.disabled = true;
-
-    // Simulate async submit (replace with actual endpoint)
-    await new Promise(r => setTimeout(r, 1500));
-
-    showToast('Ihre Nachricht wurde erfolgreich gesendet!', 'success');
-    form.reset();
-    btn.textContent = originalText;
-    btn.disabled = false;
-  });
-})();
 
 // ---- Toast Notification ----
 function showToast(message, type = 'success') {
