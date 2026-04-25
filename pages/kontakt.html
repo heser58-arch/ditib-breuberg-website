@@ -9,6 +9,62 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Form Status Messages */
+    .form-status {
+      display: none;
+      padding: 16px 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      font-size: .95rem;
+      line-height: 1.5;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .form-status.is-visible {
+      display: flex;
+      animation: slideIn .4s ease;
+    }
+    .form-status.success {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+    }
+    .form-status.error {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+    .form-status svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .form-status strong {
+      display: block;
+      margin-bottom: 4px;
+      font-weight: 600;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .form-submit:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+    .form-submit .spinner {
+      display: none;
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(255,255,255,.3);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    .form-submit.loading .spinner { display: inline-block; }
+    .form-submit.loading svg { display: none; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
 </head>
 <body>
 
@@ -150,14 +206,28 @@
 
         <!-- Contact Form -->
         <div data-aos data-aos-delay="150">
-          <form class="contact-form" id="contact-form" action="https://formsubmit.co/ditib-breuberg@hotmail.com" method="POST">
-            <!-- FormSubmit Konfiguration -->
-            <input type="hidden" name="_subject" value="Neue Kontaktanfrage – DITIB Breuberg">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-            <input type="text" name="_honey" style="display:none">
-
+          <form class="contact-form" id="contact-form">
             <h3>Nachricht senden</h3>
+
+            <!-- Status-Meldungen -->
+            <div class="form-status success" id="form-success">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <div>
+                <strong>Vielen Dank!</strong>
+                Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns baldmöglichst bei Ihnen melden.
+              </div>
+            </div>
+            <div class="form-status error" id="form-error">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              <div>
+                <strong>Es ist ein Fehler aufgetreten.</strong>
+                Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt per E-Mail.
+              </div>
+            </div>
+
+            <!-- Honeypot für Spam-Schutz -->
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
             <div class="form-row">
               <div class="form-group">
                 <label class="form-label" for="name">Ihr Name *</label>
@@ -194,9 +264,10 @@
                 Ich habe die <a href="datenschutz.html" style="color:var(--green-700);text-decoration:underline">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. *
               </label>
             </div>
-            <button type="submit" class="btn btn--primary form-submit">
+            <button type="submit" class="btn btn--primary form-submit" id="submit-btn">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-              Nachricht senden
+              <span class="spinner"></span>
+              <span class="btn-text">Nachricht senden</span>
             </button>
           </form>
         </div>
@@ -259,5 +330,83 @@
 </footer>
 
 <script src="../js/main.js"></script>
+<script>
+  // AJAX Form Submission an FormSubmit – User bleibt auf der Seite
+  (function() {
+    const form = document.getElementById('contact-form');
+    const submitBtn = document.getElementById('submit-btn');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const successMsg = document.getElementById('form-success');
+    const errorMsg = document.getElementById('form-error');
+    // Empfänger-E-Mail (kann später durch Random-Hash von FormSubmit ersetzt werden)
+    const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/ajax/b6d78c3f49ed407a0ecaccc181da5941';
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      // Honeypot prüfen – wenn ausgefüllt, wahrscheinlich Spam
+      if (form.querySelector('[name="_honey"]').value) {
+        return;
+      }
+
+      // Status zurücksetzen
+      successMsg.classList.remove('is-visible');
+      errorMsg.classList.remove('is-visible');
+
+      // Loading-State
+      submitBtn.disabled = true;
+      submitBtn.classList.add('loading');
+      btnText.textContent = 'Wird gesendet…';
+
+      // Formulardaten als JSON sammeln
+      const formData = new FormData(form);
+      const data = {
+        name: formData.get('name'),
+        email: formData.get('email'),
+        _replyto: formData.get('email'),
+        subject: formData.get('subject') || 'Allgemeine Anfrage',
+        phone: formData.get('phone') || 'Nicht angegeben',
+        message: formData.get('message'),
+        _subject: 'Neue Kontaktanfrage – DITIB Breuberg',
+        _template: 'table'
+      };
+
+      try {
+        const response = await fetch(FORMSUBMIT_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success !== 'false') {
+          // Erfolg
+          successMsg.classList.add('is-visible');
+          form.reset();
+          // Sanftes Scrollen zur Erfolgsmeldung
+          successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Meldung nach 8 Sekunden ausblenden
+          setTimeout(() => {
+            successMsg.classList.remove('is-visible');
+          }, 8000);
+        } else {
+          throw new Error('Submission failed');
+        }
+      } catch (err) {
+        console.error('Formular-Fehler:', err);
+        errorMsg.classList.add('is-visible');
+        errorMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.classList.remove('loading');
+        btnText.textContent = 'Nachricht senden';
+      }
+    });
+  })();
+</script>
 </body>
 </html>
