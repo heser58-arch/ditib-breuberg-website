@@ -7,7 +7,7 @@
   <title>Grundstückskauf – Spenden – DITIB Breuberg</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -271,6 +271,22 @@
       padding: 28px;
       box-shadow: 0 4px 20px rgba(0,0,0,.06);
     }
+    #donors-list {
+      max-height: 720px;
+      overflow-y: auto;
+      padding-right: 8px;
+      margin-right: -8px;
+      scrollbar-width: thin;
+      scrollbar-color: transparent transparent;
+      transition: scrollbar-color .2s;
+    }
+    #donors-list:hover {
+      scrollbar-color: #D1FAE5 transparent;
+    }
+    #donors-list::-webkit-scrollbar { width: 4px; }
+    #donors-list::-webkit-scrollbar-thumb { background: transparent; border-radius: 9999px; transition: background .2s; }
+    #donors-list:hover::-webkit-scrollbar-thumb,
+    #donors-list:focus-within::-webkit-scrollbar-thumb { background: #D1FAE5; }
     .donors-list-title {
       display: flex;
       align-items: center;
@@ -312,8 +328,9 @@
     .donor-name { font-weight: 600; font-size: .9rem; color: #1A1A2E; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
     .donor-date { font-size: .75rem; color: #9CA3AF; margin-top: 2px; }
     .donor-amount {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Inter', sans-serif;
       font-weight: 700;
+      font-variant-numeric: tabular-nums;
       font-size: 1rem;
       color: #1B5E42;
       white-space: nowrap;
@@ -1072,7 +1089,7 @@
             <div class="project-feature__icon">📚</div>
             <div>
               <div class="project-feature__title">Bildungs- & Unterrichtsräume</div>
-              <div class="project-feature__desc">Koran-Unterricht, Hausaufgabenhilfe und Sprachkurse unter einem Dach</div>
+              <div class="project-feature__desc">Koran-Unterricht und Sprachkurse unter einem Dach</div>
             </div>
           </div>
           <div class="project-feature">
@@ -1258,7 +1275,7 @@
           Warum wird ein neues Grundstück benötigt?
           <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
         </button>
-        <div class="faq-answer">Unsere Gemeinde ist auf über 240 Mitglieder und ihre Familien gewachsen. Die aktuellen Räume in der Sudetenstr. reichen nicht mehr aus – besonders an Freitagsgebeten und Feiertagen. Ein eigenes Grundstück gibt uns die Freiheit, eine passgenaue Moschee mit Bildungs- und Gemeinschaftsräumen zu planen.</div>
+        <div class="faq-answer">Unsere Gemeinde ist auf über 320 Mitglieder und ihre Familien gewachsen. Die aktuellen Räume in der Sudetenstr. reichen nicht mehr aus – besonders an Freitagsgebeten und Feiertagen. Ein eigenes Grundstück gibt uns die Freiheit, eine passgenaue Moschee mit Bildungs- und Gemeinschaftsräumen zu planen.</div>
       </div>
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
@@ -1331,7 +1348,7 @@
      2. Datei → Freigeben → Im Web veröffentlichen → CSV → Link kopieren
      3. Den Link unten eintragen
      ============================================================ */
-  const SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQqsmxM0yOlFwxLYf3uh4fZY1Yv9nI-OGyKFXu6nYJJ6w94FVMaDJ7PZnGzoxL2PEawYQKQOudZga4g/pub?gid=0&single=true&output=csv';
+  const SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQbZ2kPdvh9r-0NmGiRhWu_L3XY2ZU47Y1nvG5ahZAydx2EOu9Si_w5itglxZ6RZg/pub?gid=462232318&single=true&output=csv';
 
   /* ============================================================
      KAMPAGNEN-ZIEL & MEILENSTEINE – Nur diese Werte anpassen
@@ -1350,30 +1367,65 @@
      AB HIER NICHTS ÄNDERN – Automatische Berechnung & Anzeige
      ============================================================ */
 
-  // CSV parsen: gibt Array von {name, date, amount, type, months, boosterTotal} zurück
+  // Hilfsfunktion: eine CSV-Zeile in Spalten aufteilen (berücksichtigt "..." Felder)
+  function splitCSVLine(line) {
+    const cols = [];
+    let cur = '', inQ = false;
+    for (let i = 0; i < line.length; i++) {
+      if (line[i] === '"') { inQ = !inQ; }
+      else if (line[i] === ',' && !inQ) { cols.push(cur.trim()); cur = ''; }
+      else { cur += line[i]; }
+    }
+    cols.push(cur.trim());
+    return cols;
+  }
+
+  // Zahlungsart für Anzeige übersetzen
+  function mapArt(raw) {
+    const s = (raw || '').trim().toLowerCase();
+    if (s.includes('rücklage') || s.includes('bank')) return 'Banküberweisung';
+    if (s.includes('paypal'))                          return 'PayPal';
+    if (s.includes('bar'))                             return 'Bar';
+    return raw;
+  }
+
+  // CSV parsen: sucht selbst die Kopfzeile (beginnt mit "Zahlungseingang")
+  // Darunter: DD/MM/YY, Name, ID, Art, Betrag, Typ, ...
   function parseCSV(text) {
-    const lines = text.trim().split('\n');
-    return lines.slice(1).map(line => {
-      const cols = [];
-      let cur = '', inQ = false;
-      for (let i = 0; i < line.length; i++) {
-        if (line[i] === '"') { inQ = !inQ; }
-        else if (line[i] === ',' && !inQ) { cols.push(cur.trim()); cur = ''; }
-        else { cur += line[i]; }
+    const lines = text.trim().split('\n').filter(l => l.trim());
+
+    // Kopfzeile finden
+    let dataStart = -1;
+    for (let i = 0; i < lines.length; i++) {
+      if (lines[i].toLowerCase().startsWith('zahlungseingang')) {
+        dataStart = i + 1;
+        break;
       }
-      cols.push(cur.trim());
-      const amount  = parseFloat((cols[2] || '0').replace(',', '.'));
-      const type    = (cols[3] || '').trim().toLowerCase();  // 'beitrag' oder leer
-      const months  = parseInt(cols[4] || '0', 10);
-      const isBooster = type === 'beitrag';
-      const boosterTotal = isBooster ? amount * (months || 1) : 0;
+    }
+    if (dataStart === -1) return []; // kein gültiges Format
+
+    return lines.slice(dataStart).map(line => {
+      const cols = splitCSVLine(line);
+      const rawDate = (cols[0] || '').trim();
+      const name    = (cols[1] || '').trim();
+      const rawArt  = (cols[3] || '').trim();
+      // Deutsches Format: Punkt = Tausender, Komma = Dezimal → 3.420 → 3420, 265,6 → 265.6
+      const rawAmt  = (cols[4] || '0').replace(/[€\s]/g, '').replace(/\./g, '').replace(',', '.');
+      const amount  = parseFloat(rawAmt);
+
+      // Datum DD/MM/YY → DD.MM.YYYY
+      let date = rawDate;
+      const dm = rawDate.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/);
+      if (dm) date = dm[1].padStart(2,'0') + '.' + dm[2].padStart(2,'0') + '.20' + dm[3];
+
       return {
-        name: cols[0] || '',
-        date: cols[1] || '',
+        name,
+        date,
+        art: mapArt(rawArt),
         amount: isNaN(amount) ? 0 : amount,
-        isBooster,
-        months: isNaN(months) ? 0 : months,
-        boosterTotal
+        isBooster: false,
+        months: 0,
+        boosterTotal: 0
       };
     }).filter(d => d.name && d.amount > 0);
   }
@@ -1386,7 +1438,11 @@
   }
 
   function formatEuro(n) {
-    return n.toLocaleString('de-DE') + ' €';
+    const hasCents = n % 1 !== 0;
+    return n.toLocaleString('de-DE', {
+      minimumFractionDigits: hasCents ? 2 : 0,
+      maximumFractionDigits: hasCents ? 2 : 0
+    }) + ' €';
   }
 
   function getInitials(name) {
@@ -1481,7 +1537,7 @@
           <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">${getInitials(d.name)}</div>
           <div class="donor-info">
             <div class="donor-name">${d.name} ${isNew ? '<span class="donor-new-badge">Neu</span>' : ''}</div>
-            <div class="donor-date">${d.date}</div>
+            <div class="donor-date">${d.date}${d.art ? ' &nbsp;·&nbsp; ' + d.art : ''}</div>
           </div>
           <div class="donor-amount">${formatEuro(d.amount)}</div>
         </div>`;
@@ -1508,12 +1564,6 @@
   }
 
   async function init() {
-    if (!SHEETS_CSV_URL || SHEETS_CSV_URL.startsWith('HIER')) {
-      console.warn('Google Sheets URL nicht konfiguriert.');
-      document.getElementById('donors-list').innerHTML =
-        '<p style="color:#9CA3AF;font-size:.875rem;padding:16px 0">Spenderliste wird konfiguriert…</p>';
-      return;
-    }
     try {
       const res = await fetch(SHEETS_CSV_URL);
       if (!res.ok) throw new Error('HTTP ' + res.status);
