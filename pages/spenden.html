@@ -1537,7 +1537,7 @@
           <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">${getInitials(d.name)}</div>
           <div class="donor-info">
             <div class="donor-name">${d.name} ${isNew ? '<span class="donor-new-badge">Neu</span>' : ''}</div>
-            <div class="donor-date">${d.date}${d.art ? ' &nbsp;·&nbsp; ' + d.art : ''}</div>
+            <div class="donor-date">${d.date}</div>
           </div>
           <div class="donor-amount">${formatEuro(d.amount)}</div>
         </div>`;
