@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Unterstützen Sie den Grundstückskauf der DITIB Breuberg. Gemeinsam schaffen wir ein neues Zuhause für unsere Gemeinde. Transparent, sicher, nachhaltig.">
+  <meta name="description"
+    content="Unterstützen Sie den Grundstückskauf der DITIB Breuberg. Gemeinsam schaffen wir ein neues Zuhause für unsere Gemeinde. Transparent, sicher, nachhaltig.">
   <title>Grundstückskauf – Spenden – DITIB Breuberg</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@600;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
@@ -21,6 +25,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .campaign-hero::before {
       content: '';
       position: absolute;
@@ -28,52 +33,78 @@
       background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       pointer-events: none;
     }
+
     .campaign-hero__inner {
       display: grid;
       grid-template-columns: 1fr;
       gap: 40px;
       align-items: center;
     }
+
     @media (max-width: 899px) {
-      .campaign-hero__inner > div:first-child { text-align: center; }
-      .campaign-hero__actions { justify-content: center; }
-      .campaign-hero__desc { max-width: 100%; }
+      .campaign-hero__inner>div:first-child {
+        text-align: center;
+      }
+
+      .campaign-hero__actions {
+        justify-content: center;
+      }
+
+      .campaign-hero__desc {
+        max-width: 100%;
+      }
     }
+
     @media (min-width: 900px) {
-      .campaign-hero__inner { grid-template-columns: 1fr 1fr; gap: 60px; }
+      .campaign-hero__inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+      }
     }
+
     .campaign-hero__badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .2);
       color: #fff;
       padding: 6px 16px;
       border-radius: 9999px;
       font-size: .75rem;
       font-weight: 600;
-      letter-spacing: .08em;
+      letter-spacing: .04em;
       text-transform: uppercase;
       margin-bottom: 20px;
+      white-space: nowrap;
     }
-    .campaign-hero__badge span { width: 8px; height: 8px; background: #6BBF8E; border-radius: 50%; animation: pulse-dot 2s infinite; }
-    @keyframes pulse-dot { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.6; transform:scale(1.3); } }
+
+
     .campaign-hero__title {
       font-family: 'Playfair Display', Georgia, serif;
       font-size: clamp(28px, 4vw, 52px);
       line-height: 1.15;
       margin-bottom: 20px;
     }
-    .campaign-hero__title em { font-style: normal; color: #6BBF8E; }
+
+    .campaign-hero__title em {
+      font-style: normal;
+      color: #6BBF8E;
+    }
+
     .campaign-hero__desc {
       font-size: 1rem;
       line-height: 1.75;
-      color: rgba(255,255,255,.8);
+      color: rgba(255, 255, 255, .8);
       margin-bottom: 32px;
       max-width: 520px;
     }
-    .campaign-hero__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .campaign-hero__actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
 
     /* Progress Card */
     .progress-card {
@@ -81,21 +112,31 @@
       border-radius: 24px;
       padding: 32px;
       color: #1A1A2E;
-      box-shadow: 0 20px 60px rgba(0,0,0,.3);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .3);
     }
+
     .progress-card__header {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       margin-bottom: 8px;
     }
-    .progress-card__label { font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: #6B7280; }
+
+    .progress-card__label {
+      font-size: .8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: #6B7280;
+    }
+
     .progress-card__percent {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       font-weight: 700;
       color: #1B5E42;
     }
+
     .progress-bar-wrap {
       height: 20px;
       background: #F3F4F6;
@@ -103,14 +144,16 @@
       margin-bottom: 20px;
       overflow: hidden;
     }
+
     .progress-bar-fill {
       height: 100%;
       border-radius: 9999px;
       background: linear-gradient(90deg, #1B5E42, #2D8653, #6BBF8E);
       width: 0%;
-      transition: width 1.8s cubic-bezier(.4,0,.2,1);
+      transition: width 1.8s cubic-bezier(.4, 0, .2, 1);
       position: relative;
     }
+
     .progress-bar-fill::after {
       content: '';
       position: absolute;
@@ -118,52 +161,79 @@
       top: 0;
       bottom: 0;
       width: 40px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.35));
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .35));
       border-radius: 9999px;
     }
+
     /* ── Booster "Strahl" ── */
-    .progress-bar-wrap { display: flex; }
-    .progress-bar-fill  { border-radius: 0; }
+    .progress-bar-wrap {
+      display: flex;
+    }
+
+    .progress-bar-fill {
+      border-radius: 0;
+    }
+
     .progress-bar-booster {
       height: 100%;
       background: linear-gradient(90deg, #F97316, #FB923C, #FDE68A);
       width: 0%;
       flex-shrink: 0;
-      transition: width 1.8s .3s cubic-bezier(.4,0,.2,1);
+      transition: width 1.8s .3s cubic-bezier(.4, 0, .2, 1);
       position: relative;
       overflow: hidden;
     }
+
     .progress-bar-booster::before {
       content: '';
       position: absolute;
-      top: 0; bottom: 0; left: -50px;
+      top: 0;
+      bottom: 0;
+      left: -50px;
       width: 50px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
       animation: boosterShine 1.6s ease-in-out infinite;
     }
+
     @keyframes boosterShine {
-      0%   { left: -50px; }
-      100% { left: 110%; }
+      0% {
+        left: -50px;
+      }
+
+      100% {
+        left: 110%;
+      }
     }
-    .live-total__bar { display: flex; }
-    .live-total__bar-fill { border-radius: 0; }
+
+    .live-total__bar {
+      display: flex;
+    }
+
+    .live-total__bar-fill {
+      border-radius: 0;
+    }
+
     .live-total__bar-booster {
       height: 100%;
       background: linear-gradient(90deg, #F97316, #FBBF24);
       width: 0%;
       flex-shrink: 0;
-      transition: width 2s .7s cubic-bezier(.4,0,.2,1);
+      transition: width 2s .7s cubic-bezier(.4, 0, .2, 1);
       position: relative;
       overflow: hidden;
     }
+
     .live-total__bar-booster::before {
       content: '';
       position: absolute;
-      top: 0; bottom: 0; left: -50px;
+      top: 0;
+      bottom: 0;
+      left: -50px;
       width: 50px;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
       animation: boosterShine 1.6s .4s ease-in-out infinite;
     }
+
     /* Booster badge (orange) */
     .booster-badge {
       display: inline-block;
@@ -179,8 +249,18 @@
       text-transform: uppercase;
       letter-spacing: .04em;
     }
-    .donor-amount--booster { color: #EA580C !important; font-weight: 700; }
-    .donor-detail { font-size: .7rem; color: #9CA3AF; margin-top: 1px; }
+
+    .donor-amount--booster {
+      color: #EA580C !important;
+      font-weight: 700;
+    }
+
+    .donor-detail {
+      font-size: .7rem;
+      color: #9CA3AF;
+      margin-top: 1px;
+    }
+
     /* Booster Legende in der Fortschrittsanzeige */
     .booster-legend {
       display: flex;
@@ -189,13 +269,16 @@
       font-size: .72rem;
       margin-top: 6px;
     }
+
     .booster-legend__bar {
       display: inline-block;
-      width: 28px; height: 8px;
+      width: 28px;
+      height: 8px;
       border-radius: 9999px;
       background: linear-gradient(90deg, #F97316, #FBBF24);
       flex-shrink: 0;
     }
+
     /* Booster info tag below stat */
     .booster-stat-info {
       font-size: .65rem;
@@ -204,13 +287,18 @@
       margin-top: 2px;
       display: none;
     }
+
     .progress-stats {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap: 12px;
       margin-bottom: 24px;
     }
-    .progress-stat { text-align: center; }
+
+    .progress-stat {
+      text-align: center;
+    }
+
     .progress-stat__value {
       font-family: 'Playfair Display', serif;
       font-size: 1.25rem;
@@ -218,15 +306,31 @@
       color: #1B5E42;
       display: block;
     }
-    .progress-stat__label { font-size: .7rem; color: #6B7280; font-weight: 500; text-transform: uppercase; letter-spacing: .04em; }
-    .progress-card__divider { height: 1px; background: #F3F4F6; margin: 0 -32px 20px; }
+
+    .progress-stat__label {
+      font-size: .7rem;
+      color: #6B7280;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+    }
+
+    .progress-card__divider {
+      height: 1px;
+      background: #F3F4F6;
+      margin: 0 -32px 20px;
+    }
+
     .progress-card__urgency {
       font-size: .85rem;
       color: #374151;
       text-align: center;
       line-height: 1.5;
     }
-    .progress-card__urgency strong { color: #1B5E42; }
+
+    .progress-card__urgency strong {
+      color: #1B5E42;
+    }
 
     /* === STATS BAR === */
     .stats-bar {
@@ -234,18 +338,26 @@
       border-bottom: 1px solid #F3F4F6;
       padding: 28px 0;
     }
+
     .stats-bar__grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 20px;
     }
-    @media (min-width: 640px) { .stats-bar__grid { grid-template-columns: repeat(4, 1fr); } }
+
+    @media (min-width: 640px) {
+      .stats-bar__grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
     .stats-bar__item {
       text-align: center;
       padding: 16px;
       border-radius: 16px;
       background: #F9FAFB;
     }
+
     .stats-bar__value {
       font-family: 'Playfair Display', serif;
       font-size: clamp(1.5rem, 3vw, 2rem);
@@ -253,24 +365,41 @@
       color: #1B5E42;
       display: block;
     }
-    .stats-bar__label { font-size: .8rem; color: #6B7280; font-weight: 500; margin-top: 4px; }
+
+    .stats-bar__label {
+      font-size: .8rem;
+      color: #6B7280;
+      font-weight: 500;
+      margin-top: 4px;
+    }
 
     /* === DONORS SECTION === */
-    .donors-section { padding: clamp(60px, 8vw, 100px) 0; background: #F9FAFB; }
+    .donors-section {
+      padding: clamp(60px, 8vw, 100px) 0;
+      background: #F9FAFB;
+    }
+
     .donors-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 40px;
       align-items: start;
     }
-    @media (min-width: 900px) { .donors-grid { grid-template-columns: 1fr 1fr; gap: 60px; } }
+
+    @media (min-width: 900px) {
+      .donors-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+      }
+    }
 
     .donors-list-wrap {
       background: #fff;
       border-radius: 20px;
       padding: 28px;
-      box-shadow: 0 4px 20px rgba(0,0,0,.06);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .06);
     }
+
     #donors-list {
       max-height: 720px;
       overflow-y: auto;
@@ -280,13 +409,26 @@
       scrollbar-color: transparent transparent;
       transition: scrollbar-color .2s;
     }
+
     #donors-list:hover {
       scrollbar-color: #D1FAE5 transparent;
     }
-    #donors-list::-webkit-scrollbar { width: 4px; }
-    #donors-list::-webkit-scrollbar-thumb { background: transparent; border-radius: 9999px; transition: background .2s; }
+
+    #donors-list::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    #donors-list::-webkit-scrollbar-thumb {
+      background: transparent;
+      border-radius: 9999px;
+      transition: background .2s;
+    }
+
     #donors-list:hover::-webkit-scrollbar-thumb,
-    #donors-list:focus-within::-webkit-scrollbar-thumb { background: #D1FAE5; }
+    #donors-list:focus-within::-webkit-scrollbar-thumb {
+      background: #D1FAE5;
+    }
+
     .donors-list-title {
       display: flex;
       align-items: center;
@@ -298,7 +440,11 @@
       padding-bottom: 16px;
       border-bottom: 2px solid #E8F5EE;
     }
-    .donors-list-title svg { color: #2D8653; flex-shrink: 0; }
+
+    .donors-list-title svg {
+      color: #2D8653;
+      flex-shrink: 0;
+    }
 
     .donor-item {
       display: flex;
@@ -308,8 +454,22 @@
       border-bottom: 1px solid #F3F4F6;
       animation: slideIn .4s ease forwards;
     }
-    .donor-item:last-child { border-bottom: none; }
-    @keyframes slideIn { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+
+    .donor-item:last-child {
+      border-bottom: none;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
     .donor-avatar {
       width: 44px;
@@ -324,9 +484,27 @@
       font-weight: 700;
       flex-shrink: 0;
     }
-    .donor-info { flex: 1; min-width: 0; }
-    .donor-name { font-weight: 600; font-size: .9rem; color: #1A1A2E; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .donor-date { font-size: .75rem; color: #9CA3AF; margin-top: 2px; }
+
+    .donor-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .donor-name {
+      font-weight: 600;
+      font-size: .9rem;
+      color: #1A1A2E;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .donor-date {
+      font-size: .75rem;
+      color: #9CA3AF;
+      margin-top: 2px;
+    }
+
     .donor-amount {
       font-family: 'Inter', sans-serif;
       font-weight: 700;
@@ -355,9 +533,17 @@
       border-radius: 20px;
       padding: 28px;
       text-align: center;
-      box-shadow: 0 4px 20px rgba(27,94,66,.35);
+      box-shadow: 0 4px 20px rgba(27, 94, 66, .35);
     }
-    .live-total__label { font-size: .8rem; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.65); margin-bottom: 8px; }
+
+    .live-total__label {
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: rgba(255, 255, 255, .65);
+      margin-bottom: 8px;
+    }
+
     .live-total__value {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.5rem, 6vw, 3.5rem);
@@ -366,28 +552,50 @@
       line-height: 1;
       margin-bottom: 4px;
     }
-    .live-total__goal { font-size: .9rem; color: rgba(255,255,255,.65); }
-    .live-total__goal strong { color: #fff; }
+
+    .live-total__goal {
+      font-size: .9rem;
+      color: rgba(255, 255, 255, .65);
+    }
+
+    .live-total__goal strong {
+      color: #fff;
+    }
+
     .live-total__bar {
       margin: 20px 0 16px;
       height: 12px;
-      background: rgba(255,255,255,.15);
+      background: rgba(255, 255, 255, .15);
       border-radius: 9999px;
       overflow: hidden;
     }
+
     .live-total__bar-fill {
       height: 100%;
       border-radius: 9999px;
       background: linear-gradient(90deg, #6BBF8E, #2D8653);
       width: 0%;
-      transition: width 2s 0.5s cubic-bezier(.4,0,.2,1);
+      transition: width 2s 0.5s cubic-bezier(.4, 0, .2, 1);
     }
-    .live-total__cta { margin-top: 20px; }
-    .live-total__supporters { font-size: .85rem; color: rgba(255,255,255,.75); margin-top: 14px; }
-    .live-total__supporters strong { color: #fff; }
+
+    .live-total__cta {
+      margin-top: 20px;
+    }
+
+    .live-total__supporters {
+      font-size: .85rem;
+      color: rgba(255, 255, 255, .75);
+      margin-top: 14px;
+    }
+
+    .live-total__supporters strong {
+      color: #fff;
+    }
 
     /* === DONATION METHODS === */
-    .methods-section { padding: clamp(60px, 8vw, 100px) 0; }
+    .methods-section {
+      padding: clamp(60px, 8vw, 100px) 0;
+    }
 
     /* Two-row grid:
        Row 1 → Bank card full width
@@ -397,6 +605,7 @@
       grid-template-columns: 1fr;
       gap: 20px;
     }
+
     @media (min-width: 768px) {
       .methods-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -414,9 +623,10 @@
       display: flex;
       flex-direction: column;
     }
+
     .method-card:hover {
       border-color: #2D8653;
-      box-shadow: 0 8px 32px rgba(27,94,66,.13);
+      box-shadow: 0 8px 32px rgba(27, 94, 66, .13);
       transform: translateY(-3px);
     }
 
@@ -424,13 +634,15 @@
     .method-card--featured {
       grid-column: 1 / -1;
       border-color: #1B5E42;
-      box-shadow: 0 4px 24px rgba(27,94,66,.10);
-      padding: 0;          /* inner padding handled by sub-sections */
+      box-shadow: 0 4px 24px rgba(27, 94, 66, .10);
+      padding: 0;
+      /* inner padding handled by sub-sections */
       overflow: hidden;
     }
+
     .method-card--featured:hover {
       border-color: #0A2D1F;
-      box-shadow: 0 10px 40px rgba(10,45,31,.18);
+      box-shadow: 0 10px 40px rgba(10, 45, 31, .18);
     }
 
     /* "Empfohlen" ribbon at the top of the featured card */
@@ -450,6 +662,7 @@
       align-items: center;
       gap: 6px;
     }
+
     .method-card__featured-badge::before {
       content: '★';
       font-size: .65rem;
@@ -460,8 +673,10 @@
       display: flex;
       flex-direction: column;
       gap: 0;
-      margin-top: 32px; /* clears the ribbon */
+      margin-top: 32px;
+      /* clears the ribbon */
     }
+
     @media (min-width: 768px) {
       .method-card--featured .bank-body {
         flex-direction: row;
@@ -489,6 +704,7 @@
       background: #F4FAF7;
       border-top: 1px solid #E5F0EA;
     }
+
     @media (min-width: 768px) {
       .bank-qr {
         border-top: none;
@@ -531,6 +747,7 @@
       font-size: 1.4rem;
       flex-shrink: 0;
     }
+
     .method-card--featured .method-card__icon-wrap {
       background: #D0EAD8;
       width: 52px;
@@ -545,6 +762,7 @@
       margin-bottom: 4px;
       line-height: 1.3;
     }
+
     .method-card__heading p {
       font-size: .85rem;
       color: #6B7280;
@@ -561,6 +779,7 @@
       overflow: hidden;
       border: 1px solid #DCF0E5;
     }
+
     .bank-data__row {
       display: flex;
       align-items: baseline;
@@ -568,9 +787,11 @@
       padding: 9px 16px;
       font-size: .85rem;
     }
-    .bank-data__row + .bank-data__row {
+
+    .bank-data__row+.bank-data__row {
       border-top: 1px solid #DCF0E5;
     }
+
     .bank-data__label {
       color: #6B7280;
       font-weight: 500;
@@ -578,27 +799,32 @@
       min-width: 130px;
       font-size: .8rem;
     }
+
     .bank-data__value {
       color: #0A2D1F;
       font-weight: 600;
       word-break: break-all;
     }
+
     @media (max-width: 480px) {
       .bank-data__row {
         flex-direction: column;
         gap: 2px;
         padding: 10px 14px;
       }
+
       .bank-data__label {
         min-width: 0;
         font-size: .72rem;
         text-transform: uppercase;
         letter-spacing: .04em;
       }
+
       .bank-data__value {
         font-size: .88rem;
       }
     }
+
     .bank-data__value--mono {
       font-family: 'JetBrains Mono', 'Courier New', monospace;
       letter-spacing: .04em;
@@ -623,12 +849,14 @@
       margin-bottom: 16px;
       flex-shrink: 0;
     }
+
     .method-card__title {
       font-size: 1.05rem;
       font-weight: 700;
       color: #0A2D1F;
       margin-bottom: 6px;
     }
+
     .method-card__desc {
       font-size: .875rem;
       color: #6B7280;
@@ -636,6 +864,7 @@
       margin-bottom: 18px;
       flex: 1;
     }
+
     .method-card__info {
       background: #F4FAF7;
       border: 1px solid #DCF0E5;
@@ -646,7 +875,10 @@
       color: #374151;
       margin-bottom: 20px;
     }
-    .method-card__info strong { color: #0A2D1F; }
+
+    .method-card__info strong {
+      color: #0A2D1F;
+    }
 
     /* PayPal SVG logo sizing */
     .paypal-logo {
@@ -661,28 +893,45 @@
       color: #1B5E42;
       border: 2px solid #1B5E42;
     }
+
     .btn--outline-green:hover {
       background: #1B5E42;
       color: #fff;
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(27,94,66,.25);
+      box-shadow: 0 6px 20px rgba(27, 94, 66, .25);
     }
 
     /* === PROJECT INFO === */
-    .project-section { padding: clamp(60px, 8vw, 100px) 0; background: #fff; }
+    .project-section {
+      padding: clamp(60px, 8vw, 100px) 0;
+      background: #fff;
+    }
+
     .project-grid {
       display: grid;
       grid-template-columns: 1fr;
       gap: 48px;
       align-items: center;
     }
-    @media (min-width: 900px) { .project-grid { grid-template-columns: 1fr 1fr; } }
-    .project-features { display: grid; gap: 16px; margin-top: 24px; }
+
+    @media (min-width: 900px) {
+      .project-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .project-features {
+      display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
     .project-feature {
       display: flex;
       gap: 14px;
       align-items: flex-start;
     }
+
     .project-feature__icon {
       width: 40px;
       height: 40px;
@@ -694,14 +943,26 @@
       font-size: 1.1rem;
       flex-shrink: 0;
     }
-    .project-feature__title { font-weight: 600; font-size: .9rem; color: #1A1A2E; }
-    .project-feature__desc { font-size: .825rem; color: #6B7280; margin-top: 2px; line-height: 1.5; }
+
+    .project-feature__title {
+      font-weight: 600;
+      font-size: .9rem;
+      color: #1A1A2E;
+    }
+
+    .project-feature__desc {
+      font-size: .825rem;
+      color: #6B7280;
+      margin-top: 2px;
+      line-height: 1.5;
+    }
 
     .cost-table-wrap {
       background: #F9FAFB;
       border-radius: 20px;
       padding: 28px;
     }
+
     .cost-table-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.15rem;
@@ -711,7 +972,13 @@
       align-items: center;
       gap: 8px;
     }
-    .cost-table { width: 100%; border-collapse: collapse; font-size: .875rem; }
+
+    .cost-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .875rem;
+    }
+
     .cost-table th {
       text-align: left;
       padding: 10px 14px;
@@ -722,22 +989,59 @@
       text-transform: uppercase;
       letter-spacing: .04em;
     }
-    .cost-table th:first-child { border-radius: 10px 0 0 10px; }
-    .cost-table th:last-child { border-radius: 0 10px 10px 0; text-align: right; }
-    .cost-table td { padding: 12px 14px; border-bottom: 1px solid #E5E7EB; color: #374151; }
-    .cost-table td:last-child { text-align: right; font-weight: 600; color: #1B5E42; }
-    .cost-table tr:last-child td { border-bottom: none; background: #E8F5EE; font-weight: 700; color: #0A2D1F; }
-    .cost-table tr:last-child td:last-child { color: #1B5E42; }
+
+    .cost-table th:first-child {
+      border-radius: 10px 0 0 10px;
+    }
+
+    .cost-table th:last-child {
+      border-radius: 0 10px 10px 0;
+      text-align: right;
+    }
+
+    .cost-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #E5E7EB;
+      color: #374151;
+    }
+
+    .cost-table td:last-child {
+      text-align: right;
+      font-weight: 600;
+      color: #1B5E42;
+    }
+
+    .cost-table tr:last-child td {
+      border-bottom: none;
+      background: #E8F5EE;
+      font-weight: 700;
+      color: #0A2D1F;
+    }
+
+    .cost-table tr:last-child td:last-child {
+      color: #1B5E42;
+    }
 
     /* === FAQ === */
-    .faq-section { padding: clamp(60px, 8vw, 100px) 0; background: #F9FAFB; }
-    .faq-list { max-width: 760px; margin: 0 auto; display: grid; gap: 12px; }
+    .faq-section {
+      padding: clamp(60px, 8vw, 100px) 0;
+      background: #F9FAFB;
+    }
+
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
     .faq-item {
       background: #fff;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,.05);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .05);
     }
+
     .faq-question {
       width: 100%;
       text-align: left;
@@ -754,13 +1058,47 @@
       background: none;
       font-family: inherit;
     }
-    .faq-question:hover { color: #1B5E42; }
-    .faq-icon { width: 22px; height: 22px; background: #E8F5EE; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform .25s, background .25s; }
-    .faq-icon svg { color: #1B5E42; }
-    .faq-item.open .faq-icon { transform: rotate(45deg); background: #1B5E42; }
-    .faq-item.open .faq-icon svg { color: #fff; }
-    .faq-answer { display: none; padding: 0 22px 18px; font-size: .9rem; color: #6B7280; line-height: 1.7; }
-    .faq-item.open .faq-answer { display: block; }
+
+    .faq-question:hover {
+      color: #1B5E42;
+    }
+
+    .faq-icon {
+      width: 22px;
+      height: 22px;
+      background: #E8F5EE;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: transform .25s, background .25s;
+    }
+
+    .faq-icon svg {
+      color: #1B5E42;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+      background: #1B5E42;
+    }
+
+    .faq-item.open .faq-icon svg {
+      color: #fff;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 0 22px 18px;
+      font-size: .9rem;
+      color: #6B7280;
+      line-height: 1.7;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
 
     /* === ISLAMIC QUOTE === */
     .islamic-quote {
@@ -769,6 +1107,7 @@
       padding: clamp(60px, 8vw, 80px) 0;
       text-align: center;
     }
+
     .islamic-quote__arabic {
       font-family: 'Amiri', serif;
       font-size: clamp(1.5rem, 4vw, 2.25rem);
@@ -777,22 +1116,42 @@
       direction: rtl;
       line-height: 1.6;
     }
-    .islamic-quote__text { font-size: 1rem; color: rgba(255,255,255,.85); max-width: 620px; margin: 0 auto 12px; line-height: 1.75; }
-    .islamic-quote__source { font-size: .85rem; color: rgba(255,255,255,.45); }
+
+    .islamic-quote__text {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, .85);
+      max-width: 620px;
+      margin: 0 auto 12px;
+      line-height: 1.75;
+    }
+
+    .islamic-quote__source {
+      font-size: .85rem;
+      color: rgba(255, 255, 255, .45);
+    }
 
     /* Btn green overrides */
     .btn--green {
       background: linear-gradient(135deg, #1B5E42, #2D8653);
       color: #fff;
-      box-shadow: 0 4px 16px rgba(27,94,66,.3);
+      box-shadow: 0 4px 16px rgba(27, 94, 66, .3);
     }
-    .btn--green:hover { background: linear-gradient(135deg, #0A2D1F, #1B5E42); box-shadow: 0 6px 24px rgba(27,94,66,.4); }
+
+    .btn--green:hover {
+      background: linear-gradient(135deg, #0A2D1F, #1B5E42);
+      box-shadow: 0 6px 24px rgba(27, 94, 66, .4);
+    }
+
     .btn--green-outline {
-      border: 2px solid rgba(255,255,255,.4);
+      border: 2px solid rgba(255, 255, 255, .4);
       color: #fff;
       background: transparent;
     }
-    .btn--green-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.7); }
+
+    .btn--green-outline:hover {
+      background: rgba(255, 255, 255, .1);
+      border-color: rgba(255, 255, 255, .7);
+    }
 
     /* Section titles */
     .section-label {
@@ -809,6 +1168,7 @@
       color: #1B5E42;
       margin-bottom: 12px;
     }
+
     .section-title {
       font-family: 'Playfair Display', serif;
       font-size: clamp(24px, 3.5vw, 40px);
@@ -816,7 +1176,13 @@
       margin-bottom: 14px;
       line-height: 1.2;
     }
-    .section-desc { color: #6B7280; font-size: .9375rem; line-height: 1.7; max-width: 580px; }
+
+    .section-desc {
+      color: #6B7280;
+      font-size: .9375rem;
+      line-height: 1.7;
+      max-width: 580px;
+    }
 
     /* Dua box */
     .dua-box {
@@ -829,7 +1195,10 @@
       line-height: 1.7;
       margin-top: 24px;
     }
-    .dua-box strong { color: #1B5E42; }
+
+    .dua-box strong {
+      color: #1B5E42;
+    }
 
     /* Updated at note */
     .last-updated {
@@ -842,713 +1211,842 @@
       justify-content: center;
       gap: 6px;
     }
-    .last-updated svg { color: #9CA3AF; }
+
+    .last-updated svg {
+      color: #9CA3AF;
+    }
   </style>
 </head>
+
 <body>
 
-<header>
-  <nav class="navbar">
-    <div class="container">
-      <div class="navbar__inner">
-        <a href="../index.html" class="navbar__logo">
-          <div class="navbar__logo-icon" aria-hidden="true">
-            <img src="../images/ditib_breuberg_logo.png" alt="DITIB Breuberg Logo" style="height:40px;width:auto;display:block;">
-          </div>
-          <div class="navbar__logo-text">
-            <strong>DITIB Breuberg</strong>
-            <span>Türkisch Islamische Gemeinde</span>
-          </div>
-        </a>
-        <nav class="navbar__nav">
-          <a href="../index.html">Startseite</a>
-          <a href="gebetszeiten.html">Gebetszeiten</a>
-          <a href="veranstaltungen.html">Veranstaltungen</a>
-          <a href="jugend.html">Jugend</a>
-          <a href="galerie.html">Galerie</a>
-          <a href="ueber-uns.html">Über uns</a>
-          <a href="kontakt.html">Kontakt</a>
-        </nav>
-        <div class="navbar__actions">
-          <a href="spenden.html" class="btn btn--emerald btn--sm navbar__donate active">❤️ Spenden</a>
-          <button class="navbar__hamburger" aria-label="Menü öffnen" aria-expanded="false">
-            <span></span><span></span><span></span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <div class="mobile-menu">
-    <div class="mobile-menu__inner">
-      <a href="../index.html">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Startseite
-      </a>
-      <a href="gebetszeiten.html">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Gebetszeiten
-      </a>
-      <a href="veranstaltungen.html">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Veranstaltungen
-      </a>
-      <a href="jugend.html">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Jugend
-      </a>
-      <a href="galerie.html">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        Galerie
-      </a>
-      <a href="ueber-uns.html">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Über uns
-      </a>
-      <a href="kontakt.html">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Kontakt
-      </a>
-    </div>
-  </div>
-</header>
-
-<!-- ===== CAMPAIGN HERO ===== -->
-<section class="campaign-hero">
-  <div class="container">
-    <div class="campaign-hero__inner">
-      <!-- Left: Text -->
-      <div>
-        <div class="campaign-hero__badge">
-          <span></span>
-          Spendenkampagne Neues Moscheegrundstück
-        </div>
-        <h1 class="campaign-hero__title">
-          Unser <em>neues Zuhause</em><br>für die Gemeinde
-        </h1>
-        <p class="campaign-hero__desc">
-          Wir kaufen gemeinsam ein Grundstück für eine neue, größere Heimstätte unserer Gemeinde in Breuberg. Jede Spende bringt uns diesem Ziel näher. Mit Ihrer Unterstützung schaffen wir einen Ort für Gebet, Bildung und Begegnung für kommende Generationen.
-        </p>
-        <div class="campaign-hero__actions">
-          <a href="#spenden-methoden" class="btn btn--emerald btn--lg">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-            Jetzt Spenden
+  <header>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar__inner">
+          <a href="../index.html" class="navbar__logo">
+            <div class="navbar__logo-icon" aria-hidden="true">
+              <img src="../images/ditib_breuberg_logo.png" alt="DITIB Breuberg Logo"
+                style="height:40px;width:auto;display:block;">
+            </div>
+            <div class="navbar__logo-text">
+              <strong>DITIB Breuberg</strong>
+              <span data-i18n="nav.tagline">Türkisch Islamische Gemeinde</span>
+            </div>
           </a>
-          <a href="#projekt-info" class="btn btn--green-outline btn--lg">Über das Projekt</a>
+          <nav class="navbar__nav">
+            <a href="../index.html" data-i18n="nav.home">Startseite</a>
+            <a href="gebetszeiten.html" data-i18n="nav.prayer">Gebetszeiten</a>
+            <a href="veranstaltungen.html" data-i18n="nav.events">Veranstaltungen</a>
+            <a href="jugend.html" data-i18n="nav.youth">Jugend</a>
+            <a href="galerie.html" data-i18n="nav.gallery">Galerie</a>
+            <a href="ueber-uns.html" data-i18n="nav.about">Über uns</a>
+            <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
+          </nav>
+          <div class="navbar__actions">
+            <div class="lang-switcher">
+              <button class="lang-btn" data-lang="tr">TR</button>
+              <button class="lang-btn" data-lang="de">DE</button>
+            </div>
+            <a href="spenden.html" class="btn btn--emerald btn--sm navbar__donate active">❤️ <span data-i18n="nav.donate">Spenden</span></a>
+            <button class="navbar__hamburger" aria-label="Menü öffnen" aria-expanded="false">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
         </div>
       </div>
+    </nav>
+    <div class="mobile-menu">
+      <div class="mobile-menu__inner">
+        <a href="../index.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+          </svg>
+          <span data-i18n="nav.home">Startseite</span>
+        </a>
+        <a href="gebetszeiten.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <polyline points="12 6 12 12 16 14" />
+          </svg>
+          <span data-i18n="nav.prayer">Gebetszeiten</span>
+        </a>
+        <a href="veranstaltungen.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+            <line x1="16" y1="2" x2="16" y2="6" />
+            <line x1="8" y1="2" x2="8" y2="6" />
+            <line x1="3" y1="10" x2="21" y2="10" />
+          </svg>
+          <span data-i18n="nav.events">Veranstaltungen</span>
+        </a>
+        <a href="jugend.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+            <circle cx="9" cy="7" r="4" />
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+          </svg>
+          <span data-i18n="nav.youth">Jugend</span>
+        </a>
+        <a href="galerie.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="3" width="18" height="18" rx="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" />
+            <polyline points="21 15 16 10 5 21" />
+          </svg>
+          <span data-i18n="nav.gallery">Galerie</span>
+        </a>
+        <a href="ueber-uns.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="8" x2="12" y2="12" />
+            <line x1="12" y1="16" x2="12.01" y2="16" />
+          </svg>
+          <span data-i18n="nav.about">Über uns</span>
+        </a>
+        <a href="kontakt.html">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <span data-i18n="nav.contact">Kontakt</span>
+        </a>
+      </div>
+    </div>
+  </header>
 
-      <!-- Right: Progress Card -->
-      <div>
-        <div class="progress-card">
-          <div class="progress-card__header">
-            <span class="progress-card__label">Gesamtfortschritt</span>
-            <span class="progress-card__percent" id="hero-percent">0%</span>
+  <!-- ===== CAMPAIGN HERO ===== -->
+  <section class="campaign-hero">
+    <div class="container">
+      <div class="campaign-hero__inner">
+        <!-- Left: Text -->
+        <div>
+          <div class="campaign-hero__badge">
+            <span data-i18n="donate.campaign.badge">Spendenkampagne Neues Moscheegrundstück</span>
           </div>
-          <div class="progress-bar-wrap">
-            <div class="progress-bar-fill" id="hero-bar"></div>
-            <div class="progress-bar-booster" id="hero-bar-booster"></div>
-          </div>
-          <div class="progress-stats">
-            <div class="progress-stat">
-              <span class="progress-stat__value" id="hero-collected">–</span>
-              <span class="progress-stat__label">Gesammelt</span>
-              <div class="booster-stat-info" id="hero-booster-info"></div>
-            </div>
-            <div class="progress-stat">
-              <span class="progress-stat__value" id="hero-remaining">–</span>
-              <span class="progress-stat__label">Noch benötigt</span>
-            </div>
-            <div class="progress-stat">
-              <span class="progress-stat__value" id="hero-donors">–</span>
-              <span class="progress-stat__label">Spender</span>
-            </div>
-          </div>
-          <div class="progress-card__divider"></div>
-          <p class="progress-card__urgency">
-            Ziel: <strong id="hero-goal">600.000 €</strong> für den Grundstückskauf.<br>
-            Helfen Sie mit, dieses Ziel zu erreichen!
+          <h1 class="campaign-hero__title" data-i18n-html="donate.campaign.title_html">
+            Unser <em>neues Zuhause</em><br>für die Gemeinde
+          </h1>
+          <p class="campaign-hero__desc" data-i18n="donate.campaign.desc">
+            Wir kaufen gemeinsam ein Grundstück für eine neue, größere Heimstätte unserer Gemeinde in Breuberg. Jede
+            Spende bringt uns diesem Ziel näher. Mit Ihrer Unterstützung schaffen wir einen Ort für Gebet, Bildung und
+            Begegnung für kommende Generationen.
           </p>
-        </div>
-        <p class="last-updated">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          Zuletzt aktualisiert: <span id="last-updated-date"></span>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== STATS BAR ===== -->
-<div class="stats-bar">
-  <div class="container">
-    <div class="stats-bar__grid">
-      <div class="stats-bar__item">
-        <span class="stats-bar__value" id="stat-collected">–</span>
-        <div class="stats-bar__label">Bisher gesammelt</div>
-      </div>
-      <div class="stats-bar__item">
-        <span class="stats-bar__value">600.000 €</span>
-        <div class="stats-bar__label">Gesamtziel</div>
-      </div>
-      <div class="stats-bar__item">
-        <span class="stats-bar__value" id="stat-donors">–</span>
-        <div class="stats-bar__label">Spender</div>
-      </div>
-      <div class="stats-bar__item">
-        <span class="stats-bar__value" id="stat-percent">–</span>
-        <div class="stats-bar__label">Prozent erreicht</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- ===== DONORS & LIVE TOTAL ===== -->
-<section class="donors-section" id="spender">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:48px">
-      <span class="section-label">Offenheit</span>
-      <h2 class="section-title">Wer uns unterstützt</h2>
-      <p class="section-desc" style="margin:0 auto">Wir zeigen offen, wer uns unterstützt und wie viel schon zusammengekommen ist. Möge Allah alle Spender belohnen.</p>
-    </div>
-    <div class="donors-grid">
-
-      <!-- Recent Donors List -->
-      <div>
-        <div class="donors-list-wrap">
-          <div class="donors-list-title">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            Letzte Spenden
-          </div>
-          <div id="donors-list">
-            <!-- Dynamisch befüllt via JS -->
-          </div>
-        </div>
-        <div class="dua-box" style="margin-top:16px">
-          <strong>Gebet für unsere Spender:</strong> „Möge Allah jeden segnen, der auf Seinem Weg gespendet hat. Er möge ihre Gabe annehmen und sie reichlich belohnen."
-        </div>
-      </div>
-
-      <!-- Live Total -->
-      <div>
-        <div class="live-total">
-          <div class="live-total__label">Bisher gesammelt</div>
-          <div class="live-total__value" id="live-amount">–</div>
-          <div class="live-total__goal">von <strong>600.000 €</strong> Gesamtziel</div>
-          <div class="live-total__bar">
-            <div class="live-total__bar-fill" id="live-bar"></div>
-            <div class="live-total__bar-booster" id="live-bar-booster"></div>
-          </div>
-          <div class="live-total__supporters" id="live-supporters">– Spender haben bereits mitgemacht</div>
-          <div class="booster-legend" id="live-booster-legend" style="display:none;justify-content:center;text-align:center;color:rgba(255,255,255,.8)">
-            <span class="booster-legend__bar"></span>
-            <span id="live-booster-text"></span>
-          </div>
-          <div class="live-total__cta">
-            <a href="#spenden-methoden" class="btn btn--emerald btn--lg" style="width:100%;justify-content:center">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-              Auch Spenden
+          <div class="campaign-hero__actions">
+            <a href="#spenden-methoden" class="btn btn--emerald btn--lg">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+              <span data-i18n="donate.campaign.btn1">Jetzt Spenden</span>
             </a>
+            <a href="#projekt-info" class="btn btn--green-outline btn--lg" data-i18n="donate.campaign.btn2">Über das Projekt</a>
           </div>
         </div>
 
-        <!-- Milestone tracker -->
-        <div style="background:#fff;border-radius:20px;padding:24px;margin-top:24px;box-shadow:0 4px 20px rgba(0,0,0,.06)">
-          <div style="font-weight:700;font-size:.9rem;color:#0A2D1F;margin-bottom:16px;display:flex;align-items:center;gap:8px">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B5E42" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-            Meilensteine
-          </div>
-          <div id="milestones-list">
-            <!-- Befüllt via JS -->
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== PROJECT INFO ===== -->
-<section class="project-section" id="projekt-info">
-  <div class="container">
-    <div class="project-grid">
-      <div>
-        <span class="section-label">Unser Projekt</span>
-        <h2 class="section-title">Warum wir dieses Grundstück kaufen</h2>
-        <p class="section-desc">
-          Seit fast 50 Jahren ist die DITIB Breuberg eine feste Säule des islamischen Lebens im Odenwaldkreis. Unsere Gemeinde wächst, und die bestehenden Räumlichkeiten stoßen an ihre Grenzen. Ein eigenes Grundstück gibt uns Planungssicherheit für eine neue, größere Heimstätte.
-        </p>
-        <div class="project-features">
-          <div class="project-feature">
-            <div class="project-feature__icon">🕌</div>
-            <div>
-              <div class="project-feature__title">Größere Gebetsräume</div>
-              <div class="project-feature__desc">Platz für alle Mitglieder bei Freitagsgebet, Feiertagen und täglichen Gebeten</div>
+        <!-- Right: Progress Card -->
+        <div>
+          <div class="progress-card">
+            <div class="progress-card__header">
+              <span class="progress-card__label" data-i18n="donate.progress.label">Gesamtfortschritt</span>
+              <span class="progress-card__percent" id="hero-percent">0%</span>
             </div>
-          </div>
-          <div class="project-feature">
-            <div class="project-feature__icon">📚</div>
-            <div>
-              <div class="project-feature__title">Bildungs- & Unterrichtsräume</div>
-              <div class="project-feature__desc">Koran-Unterricht und Sprachkurse unter einem Dach</div>
+            <div class="progress-bar-wrap">
+              <div class="progress-bar-fill" id="hero-bar"></div>
+              <div class="progress-bar-booster" id="hero-bar-booster"></div>
             </div>
-          </div>
-          <div class="project-feature">
-            <div class="project-feature__icon">👥</div>
-            <div>
-              <div class="project-feature__title">Gemeinschafts- & Veranstaltungsraum</div>
-              <div class="project-feature__desc">Iftar-Abende, Kermes, Familienfeste und interkulturelle Begegnungen</div>
-            </div>
-          </div>
-          <div class="project-feature">
-            <div class="project-feature__icon">🌍</div>
-            <div>
-              <div class="project-feature__title">Langfristige Planungssicherheit</div>
-              <div class="project-feature__desc">Eigenes Eigentum – keine Miete, keine Abhängigkeit, Zukunft für unsere Kinder</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>
-        <div class="cost-table-wrap">
-          <div class="cost-table-title">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B5E42" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-            Finanzierungsübersicht
-          </div>
-          <table class="cost-table">
-            <thead>
-              <tr>
-                <th>Posten</th>
-                <th style="text-align:right">Betrag</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Grundstückspreis inkl. Kaufnebenkosten</strong></td>
-                <td><strong>600.000 €</strong></td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== DONATION METHODS ===== -->
-<section class="methods-section" id="spenden-methoden" style="background:#F9FAFB">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:48px">
-      <span class="section-label">Unterstützen</span>
-      <h2 class="section-title">So können Sie spenden</h2>
-      <p class="section-desc" style="margin:0 auto">Wählen Sie die Methode, die für Sie am bequemsten ist. Jede Spende – ob groß oder klein – zählt.</p>
-    </div>
-    <div class="methods-grid">
-
-      <!-- ===== Karte 1: Banküberweisung (volle Breite) ===== -->
-      <div class="method-card method-card--featured">
-        <div class="method-card__featured-badge">Empfohlen</div>
-
-        <div class="bank-body">
-
-          <!-- Linke Spalte: Bankdaten -->
-          <div class="bank-details">
-            <div class="method-card__header">
-              <div class="method-card__icon-wrap"><i class="fa-solid fa-building-columns" style="font-size:1.5rem;color:#1B5E42"></i></div>
-              <div class="method-card__heading">
-                <h3>Banküberweisung</h3>
-                <p>Direkte Überweisung auf unser Vereinskonto. Sicher, kostenlos und nachvollziehbar.</p>
+            <div class="progress-stats">
+              <div class="progress-stat">
+                <span class="progress-stat__value" id="hero-collected">–</span>
+                <span class="progress-stat__label" data-i18n="donate.progress.collected">Gesammelt</span>
+                <div class="booster-stat-info" id="hero-booster-info"></div>
+              </div>
+              <div class="progress-stat">
+                <span class="progress-stat__value" id="hero-remaining">–</span>
+                <span class="progress-stat__label" data-i18n="donate.progress.remaining">Noch benötigt</span>
+              </div>
+              <div class="progress-stat">
+                <span class="progress-stat__value" id="hero-donors">–</span>
+                <span class="progress-stat__label" data-i18n="donate.progress.donors">Spender</span>
               </div>
             </div>
-
-            <div class="bank-data">
-              <div class="bank-data__row">
-                <span class="bank-data__label">Empfänger</span>
-                <span class="bank-data__value">DITIB Türkisch-Islamische Gemeinde zu Breuberg e.V.</span>
-              </div>
-              <div class="bank-data__row">
-                <span class="bank-data__label">Bank</span>
-                <span class="bank-data__value">Vereinigte Volksbank Raiffeisenbank</span>
-              </div>
-              <div class="bank-data__row">
-                <span class="bank-data__label">IBAN</span>
-                <span class="bank-data__value bank-data__value--mono">DE64 5086 3513 0105 0101 87</span>
-              </div>
-              <div class="bank-data__row">
-                <span class="bank-data__label">BIC</span>
-                <span class="bank-data__value bank-data__value--mono">GENODE51MIC</span>
-              </div>
-              <div class="bank-data__row bank-data__row--purpose">
-                <span class="bank-data__label">Verwendungszweck</span>
-                <span class="bank-data__value">Spende Grundstückskauf - DITIB Breuberg</span>
-              </div>
-            </div>
-
-            <button
-              id="iban-copy-btn"
-              onclick="navigator.clipboard.writeText('DE64508635130105010187').then(()=>{this.textContent='Kopiert \u2713';setTimeout(()=>this.textContent='IBAN kopieren',2000)})"
-              class="btn btn--green"
-              style="align-self:flex-start"
-            >IBAN kopieren</button>
-          </div>
-
-          <!-- Rechte Spalte: QR-Code -->
-          <div class="bank-qr">
-            <img src="../images/girocode-qr.png" alt="GiroCode QR-Code für Banküberweisung" width="180" height="180">
-            <p class="bank-qr__hint">
-              Banking-App öffnen&nbsp;&rarr; Überweisung&nbsp;&rarr; <strong>Fotoüberweisung</strong>&nbsp;&rarr; QR-Code scannen&nbsp;&rarr; Betrag selbst eingeben
+            <div class="progress-card__divider"></div>
+            <p class="progress-card__urgency" data-i18n-html="donate.campaign.urgency">
+              Ziel: <strong id="hero-goal">600.000 €</strong> für den Grundstückskauf.<br>
+              Helfen Sie mit, dieses Ziel zu erreichen!
             </p>
           </div>
+          <p class="last-updated">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            Zuletzt aktualisiert: <span id="last-updated-date"></span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        </div><!-- /.bank-body -->
-      </div><!-- /.method-card--featured -->
+  <!-- ===== STATS BAR ===== -->
+  <div class="stats-bar">
+    <div class="container">
+      <div class="stats-bar__grid">
+        <div class="stats-bar__item">
+          <span class="stats-bar__value" id="stat-collected">–</span>
+          <div class="stats-bar__label" data-i18n="donate.stats.collected">Bisher gesammelt</div>
+        </div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__value">600.000 €</span>
+          <div class="stats-bar__label" data-i18n="donate.stats.goal">Gesamtziel</div>
+        </div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__value" id="stat-donors">–</span>
+          <div class="stats-bar__label" data-i18n="donate.stats.donors">Spender</div>
+        </div>
+        <div class="stats-bar__item">
+          <span class="stats-bar__value" id="stat-percent">–</span>
+          <div class="stats-bar__label" data-i18n="donate.stats.percent">Prozent erreicht</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-      <!-- ===== Karte 2: Bar vor Ort ===== -->
-      <div class="method-card">
-        <div class="method-card__icon"><i class="fa-solid fa-hand-holding-heart" style="font-size:1.5rem;color:#1B5E42"></i></div>
-        <div class="method-card__title">Bar vor Ort</div>
-        <div class="method-card__desc">Bringen Sie Ihre Spende direkt in die Moschee – zu jeder Gebetszeit willkommen.</div>
-        <div class="method-card__info">
-          <strong>Kontaktinformationen</strong><br><br>
-          DITIB Breuberg<br>
-          Sudetenstr. 19<br>
-          64747 Breuberg-Sandbach<br><br>
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-            <span>Cemal Polat</span>
-            <a href="tel:+4915752675813" style="color:#1B5E42;font-weight:600">+49 157 526 75813</a>
+  <!-- ===== DONORS & LIVE TOTAL ===== -->
+  <section class="donors-section" id="spender">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px">
+        <span class="section-label" data-i18n="donate.donors.label">Offenheit</span>
+        <h2 class="section-title" data-i18n="donate.donors.title">Wer uns unterstützt</h2>
+        <p class="section-desc" data-i18n="donate.donors.desc" style="margin:0 auto">Wir zeigen offen, wer uns unterstützt und wie viel schon
+          zusammengekommen ist. Möge Allah alle Spender belohnen.</p>
+      </div>
+      <div class="donors-grid">
+
+        <!-- Recent Donors List -->
+        <div>
+          <div class="donors-list-wrap">
+            <div class="donors-list-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+              <span data-i18n="donate.donors.recent">Letzte Spenden</span>
+            </div>
+            <div id="donors-list">
+              <!-- Dynamisch befüllt via JS -->
+            </div>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
-            <span>Abdulselim Özkan</span>
-            <a href="tel:+4915257419023" style="color:#1B5E42;font-weight:600;white-space:nowrap">+49 152 574 19023</a>
+          <div class="dua-box" data-i18n="donate.donors.dua" style="margin-top:16px">
+            <strong>Gebet für unsere Spender:</strong> „Möge Allah jeden segnen, der auf Seinem Weg gespendet hat. Er
+            möge ihre Gabe annehmen und sie reichlich belohnen."
           </div>
         </div>
-        <a href="gebetszeiten.html" class="btn btn--outline-green" style="width:100%;justify-content:center;margin-top:auto">Gebetszeiten ansehen</a>
-      </div>
 
-      <!-- ===== Karte 3: PayPal ===== -->
-      <div class="method-card">
-        <!-- PayPal-Logo als inline SVG -->
-        <div class="method-card__icon" style="background:#EEF4FC"><i class="fa-brands fa-paypal" style="font-size:1.6rem;color:#009CDE"></i></div>
-        <div class="method-card__title">PayPal</div>
-        <div class="method-card__desc">Schnell und einfach per PayPal spenden.</div>
-        <div class="method-card__info">
-          Spende via PayPal<br>
-          <strong>paypal.me/DitibBreuberg</strong>
+        <!-- Live Total -->
+        <div>
+          <div class="live-total">
+            <div class="live-total__label" data-i18n="donate.live.collected">Bisher gesammelt</div>
+            <div class="live-total__value" id="live-amount">–</div>
+            <div class="live-total__goal" data-i18n-html="donate.live.goal">von <strong>600.000 €</strong> Gesamtziel</div>
+            <div class="live-total__bar">
+              <div class="live-total__bar-fill" id="live-bar"></div>
+              <div class="live-total__bar-booster" id="live-bar-booster"></div>
+            </div>
+            <div class="live-total__supporters" id="live-supporters">– Spender haben bereits mitgemacht</div>
+            <div class="booster-legend" id="live-booster-legend"
+              style="display:none;justify-content:center;text-align:center;color:rgba(255,255,255,.8)">
+              <span class="booster-legend__bar"></span>
+              <span id="live-booster-text"></span>
+            </div>
+            <div class="live-total__cta">
+              <a href="#spenden-methoden" class="btn btn--emerald btn--lg" style="width:100%;justify-content:center">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path
+                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                </svg>
+                <span data-i18n="donate.live.btn">Auch Spenden</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Milestone tracker -->
+          <div
+            style="background:#fff;border-radius:20px;padding:24px;margin-top:24px;box-shadow:0 4px 20px rgba(0,0,0,.06)">
+            <div
+              style="font-weight:700;font-size:.9rem;color:#0A2D1F;margin-bottom:16px;display:flex;align-items:center;gap:8px">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B5E42" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+              <span data-i18n="donate.milestones.title">Meilensteine</span>
+            </div>
+            <div id="milestones-list">
+              <!-- Befüllt via JS -->
+            </div>
+          </div>
         </div>
-        <a href="https://paypal.me/DitibBreuberg" target="_blank" rel="noopener" class="btn btn--outline-green" style="width:100%;justify-content:center;margin-top:auto">Jetzt via PayPal spenden</a>
-      </div>
 
-      <!-- ===== Karte 4: Mitglied werden ===== -->
-      <div class="method-card">
-        <div class="method-card__icon"><i class="fa-solid fa-users" style="font-size:1.5rem;color:#1B5E42"></i></div>
-        <div class="method-card__title">Mitglied werden</div>
-        <div class="method-card__desc">Als Vereinsmitglied unterstützen Sie uns dauerhaft.</div>
-        <div class="method-card__info">
-          <strong>Monatlicher Beitrag</strong><br>
-          ab 10 € / Monat
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECT INFO ===== -->
+  <section class="project-section" id="projekt-info">
+    <div class="container">
+      <div class="project-grid">
+        <div>
+          <span class="section-label" data-i18n="donate.project.label">Unser Projekt</span>
+          <h2 class="section-title" data-i18n="donate.project.title">Warum wir dieses Grundstück kaufen</h2>
+          <p class="section-desc" data-i18n="donate.project.desc">
+            Seit fast 50 Jahren ist die DITIB Breuberg eine feste Säule des islamischen Lebens im Odenwaldkreis. Unsere
+            Gemeinde wächst, und die bestehenden Räumlichkeiten stoßen an ihre Grenzen. Ein eigenes Grundstück gibt uns
+            Planungssicherheit für eine neue, größere Heimstätte.
+          </p>
+          <div class="project-features">
+            <div class="project-feature">
+              <div class="project-feature__icon">🕌</div>
+              <div>
+                <div class="project-feature__title" data-i18n="donate.project.feat1.title">Größere Gebetsräume</div>
+                <div class="project-feature__desc" data-i18n="donate.project.feat1.desc">Platz für alle Mitglieder bei Freitagsgebet, Feiertagen und täglichen
+                  Gebeten</div>
+              </div>
+            </div>
+            <div class="project-feature">
+              <div class="project-feature__icon">📚</div>
+              <div>
+                <div class="project-feature__title" data-i18n="donate.project.feat2.title">Bildungs- &amp; Unterrichtsräume</div>
+                <div class="project-feature__desc" data-i18n="donate.project.feat2.desc">Koran-Unterricht und Sprachkurse unter einem Dach</div>
+              </div>
+            </div>
+            <div class="project-feature">
+              <div class="project-feature__icon">👥</div>
+              <div>
+                <div class="project-feature__title" data-i18n="donate.project.feat3.title">Gemeinschafts- &amp; Veranstaltungsraum</div>
+                <div class="project-feature__desc" data-i18n="donate.project.feat3.desc">Iftar-Abende, Kermes, Familienfeste und interkulturelle Begegnungen
+                </div>
+              </div>
+            </div>
+            <div class="project-feature">
+              <div class="project-feature__icon">🌍</div>
+              <div>
+                <div class="project-feature__title" data-i18n="donate.project.feat4.title">Langfristige Planungssicherheit</div>
+                <div class="project-feature__desc" data-i18n="donate.project.feat4.desc">Eigenes Eigentum – keine Miete, keine Abhängigkeit, Zukunft für
+                  unsere Kinder</div>
+              </div>
+            </div>
+          </div>
         </div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc41CZieLPh_4YDz9NA4IJgyHXpFZOs7geW7C_utcrnheh56Q/viewform?usp=header" target="_blank" rel="noopener" class="btn btn--outline-green" style="width:100%;justify-content:center;margin-top:auto">Mitgliedschaft anfragen</a>
-      </div>
-
-    </div>
-
-    <!-- Sadaqa Jariya note -->
-    <div style="max-width:680px;margin:40px auto 0;text-align:center">
-      <div style="background:#fff;border-radius:20px;padding:28px 32px;box-shadow:0 4px 20px rgba(0,0,0,.06)">
-        <div style="font-size:2rem;margin-bottom:12px">🤲</div>
-        <p style="font-weight:600;color:#0A2D1F;margin-bottom:8px">Sadaqa Jariya</p>
-        <p style="font-size:.9rem;color:#6B7280;line-height:1.7">Jede Spende für den Bau eines islamischen Zentrums ist eine <strong style="color:#1B5E42">fortlaufende gute Tat (Sadaqa Jariya)</strong> – die Belohnung dafür wirkt über Ihr Leben hinaus fort, solange die Gemeinde davon profitiert.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== FAQ ===== -->
-<section class="faq-section" id="faq">
-  <div class="container">
-    <div style="text-align:center;margin-bottom:48px">
-      <span class="section-label">FAQ</span>
-      <h2 class="section-title">Häufige Fragen</h2>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Warum wird ein neues Grundstück benötigt?
-          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-        </button>
-        <div class="faq-answer">Unsere Gemeinde ist auf über 320 Mitglieder und ihre Familien gewachsen. Die aktuellen Räume in der Sudetenstr. reichen nicht mehr aus – besonders an Freitagsgebeten und Feiertagen. Ein eigenes Grundstück gibt uns die Freiheit, eine passgenaue Moschee mit Bildungs- und Gemeinschaftsräumen zu planen.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Wie wird mit den Spendengeldern umgegangen?
-          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-        </button>
-        <div class="faq-answer">Alle Spendengelder fließen ausschließlich in den Grundstückskauf. Der Verein ist als e.V. eingetragen und geprüft. Über den Stand der Kampagne informieren wir regelmäßig auf dieser Seite und bei unseren Gemeindeveranstaltungen.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Wie oft wird der Spendenstand aktualisiert?
-          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-        </button>
-        <div class="faq-answer">Wir aktualisieren den Stand auf dieser Seite mindestens einmal pro Woche. Größere Einzelspenden werden nach Bestätigung des Eingangs zeitnah eingetragen. Das Datum der letzten Aktualisierung ist unter dem Fortschrittsbalken sichtbar.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Was passiert, wenn das Ziel nicht erreicht wird?
-          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-        </button>
-        <div class="faq-answer">Wir sind zuversichtlich, dass wir das Ziel gemeinsam erreichen. Sollte sich der Zeitplan verzögern, werden alle Spenden sicher auf dem Vereinskonto verwahrt und ausschließlich für den Grundstückskauf verwendet. Alle Spender werden informiert.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          Kann ich anonym spenden?
-          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
-        </button>
-        <div class="faq-answer">Ja. Wenn Sie nicht in der Liste erscheinen möchten, vermerken Sie dies bitte im Verwendungszweck als „Anonym" oder teilen Sie uns dies beim Vorstand mit. Wir respektieren Ihren Wunsch vollständig.</div>
+        <div>
+          <div class="cost-table-wrap">
+            <div class="cost-table-title">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1B5E42" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+              <span data-i18n="donate.cost.title">Finanzierungsübersicht</span>
+            </div>
+            <table class="cost-table">
+              <thead>
+                <tr>
+                  <th data-i18n="donate.cost.col1">Posten</th>
+                  <th style="text-align:right" data-i18n="donate.cost.col2">Betrag</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong data-i18n="donate.cost.item">Grundstückspreis inkl. Kaufnebenkosten</strong></td>
+                  <td><strong>600.000 €</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- ===== ISLAMIC QUOTE ===== -->
-<section class="islamic-quote">
-  <div class="container">
-    <div class="islamic-quote__arabic" dir="rtl">
-      مَثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ
-    </div>
-    <p class="islamic-quote__text">
-      „Das Gleichnis derer, die ihr Vermögen auf dem Wege Gottes ausgeben, gleicht einem Korn, das sieben Ähren hervorbringt, in jeder Ähre hundert Körner. Und Allah verdoppelt es für wen Er will."
-    </p>
-    <p class="islamic-quote__source">Al-Baqara 2:261</p>
-  </div>
-</section>
+  <!-- ===== DONATION METHODS ===== -->
+  <section class="methods-section" id="spenden-methoden" style="background:#F9FAFB">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px">
+        <span class="section-label" data-i18n="donate.methods.label">Unterstützen</span>
+        <h2 class="section-title" data-i18n="donate.methods.title">So können Sie spenden</h2>
+        <p class="section-desc" data-i18n="donate.methods.desc" style="margin:0 auto">Wählen Sie die Methode, die für Sie am bequemsten ist. Jede Spende
+          – ob groß oder klein – zählt.</p>
+      </div>
+      <div class="methods-grid">
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer__bottom">
-      <p>© 2026 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
-      <div class="footer__bottom-links">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
+        <!-- ===== Karte 1: Banküberweisung (volle Breite) ===== -->
+        <div class="method-card method-card--featured">
+          <div class="method-card__featured-badge" data-i18n="donate.method.recommended">Empfohlen</div>
+
+          <div class="bank-body">
+
+            <!-- Linke Spalte: Bankdaten -->
+            <div class="bank-details">
+              <div class="method-card__header">
+                <div class="method-card__icon-wrap"><i class="fa-solid fa-building-columns"
+                    style="font-size:1.5rem;color:#1B5E42"></i></div>
+                <div class="method-card__heading">
+                  <h3 data-i18n="donate.bank.title">Banküberweisung</h3>
+                  <p data-i18n="donate.bank.desc">Direkte Überweisung auf unser Vereinskonto. Sicher, kostenlos und nachvollziehbar.</p>
+                </div>
+              </div>
+
+              <div class="bank-data">
+                <div class="bank-data__row">
+                  <span class="bank-data__label" data-i18n="donate.bank.recipient">Empfänger</span>
+                  <span class="bank-data__value">DITIB Türkisch-Islamische Gemeinde zu Breuberg e.V.</span>
+                </div>
+                <div class="bank-data__row">
+                  <span class="bank-data__label" data-i18n="donate.bank.bank">Bank</span>
+                  <span class="bank-data__value">Vereinigte Volksbank Raiffeisenbank</span>
+                </div>
+                <div class="bank-data__row">
+                  <span class="bank-data__label">IBAN</span>
+                  <span class="bank-data__value bank-data__value--mono">DE64 5086 3513 0105 0101 87</span>
+                </div>
+                <div class="bank-data__row">
+                  <span class="bank-data__label">BIC</span>
+                  <span class="bank-data__value bank-data__value--mono">GENODE51MIC</span>
+                </div>
+                <div class="bank-data__row bank-data__row--purpose">
+                  <span class="bank-data__label" data-i18n="donate.bank.purpose_label">Verwendungszweck</span>
+                  <span class="bank-data__value">Spende Grundstückskauf - DITIB Breuberg</span>
+                </div>
+              </div>
+
+              <button id="iban-copy-btn"
+                onclick="navigator.clipboard.writeText('DE64508635130105010187').then(()=>{this.textContent='Kopiert \u2713';setTimeout(()=>this.textContent=I18N.t('donate.bank.copy'),2000)})"
+                class="btn btn--green" data-i18n="donate.bank.copy" style="align-self:flex-start">IBAN kopieren</button>
+            </div>
+
+            <!-- Rechte Spalte: QR-Code -->
+            <div class="bank-qr">
+              <img src="../images/girocode-qr.png" alt="GiroCode QR-Code für Banküberweisung" width="180" height="180">
+              <p class="bank-qr__hint" data-i18n="donate.bank.qr_hint">
+                Banking-App öffnen&nbsp;&rarr; Überweisung&nbsp;&rarr; <strong>Fotoüberweisung</strong>&nbsp;&rarr;
+                QR-Code scannen&nbsp;&rarr; Betrag selbst eingeben
+              </p>
+            </div>
+
+          </div><!-- /.bank-body -->
+        </div><!-- /.method-card--featured -->
+
+        <!-- ===== Karte 2: Bar vor Ort ===== -->
+        <div class="method-card">
+          <div class="method-card__icon"><i class="fa-solid fa-hand-holding-heart"
+              style="font-size:1.5rem;color:#1B5E42"></i></div>
+          <div class="method-card__title" data-i18n="donate.cash.title">Bar vor Ort</div>
+          <div class="method-card__desc" data-i18n="donate.cash.desc">Bringen Sie Ihre Spende direkt in die Moschee – zu jeder Gebetszeit willkommen.
+          </div>
+          <div class="method-card__info">
+            <strong data-i18n="donate.cash.contact">Kontaktinformationen</strong><br><br>
+            DITIB Breuberg<br>
+            Sudetenstr. 19<br>
+            64747 Breuberg-Sandbach<br><br>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+              <span>Cemal Polat</span>
+              <a href="tel:+4915752675813" style="color:#1B5E42;font-weight:600">+49 157 526 75813</a>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+              <span>Abdulselim Özkan</span>
+              <a href="tel:+4915257419023" style="color:#1B5E42;font-weight:600;white-space:nowrap">+49 152 574
+                19023</a>
+            </div>
+          </div>
+          <a href="gebetszeiten.html" class="btn btn--outline-green" data-i18n="donate.cash.btn"
+            style="width:100%;justify-content:center;margin-top:auto">Gebetszeiten ansehen</a>
+        </div>
+
+        <!-- ===== Karte 3: PayPal ===== -->
+        <div class="method-card">
+          <!-- PayPal-Logo als inline SVG -->
+          <div class="method-card__icon" style="background:#EEF4FC"><i class="fa-brands fa-paypal"
+              style="font-size:1.6rem;color:#009CDE"></i></div>
+          <div class="method-card__title">PayPal</div>
+          <div class="method-card__desc" data-i18n="donate.paypal.desc">Schnell und einfach per PayPal spenden.</div>
+          <div class="method-card__info">
+            <span data-i18n="donate.paypal.note">Spende via PayPal</span>
+          </div>
+          <a href="https://www.paypal.com/donate/?hosted_button_id=NU3CZE5P33P52&locale.x=de_DE" target="_blank" rel="noopener" class="btn btn--outline-green" data-i18n="donate.paypal.btn"
+            style="width:100%;justify-content:center;margin-top:auto">Jetzt via PayPal spenden</a>
+        </div>
+
+        <!-- ===== Karte 4: Mitglied werden ===== -->
+        <div class="method-card">
+          <div class="method-card__icon"><i class="fa-solid fa-users" style="font-size:1.5rem;color:#1B5E42"></i></div>
+          <div class="method-card__title" data-i18n="donate.member.title">Mitglied werden</div>
+          <div class="method-card__desc" data-i18n="donate.member.desc">Als Vereinsmitglied unterstützen Sie uns dauerhaft.</div>
+          <div class="method-card__info">
+            <strong data-i18n="donate.member.fee">Monatlicher Beitrag</strong><br>
+            ab 10 € / Monat
+          </div>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSc41CZieLPh_4YDz9NA4IJgyHXpFZOs7geW7C_utcrnheh56Q/viewform?usp=header"
+            target="_blank" rel="noopener" class="btn btn--outline-green" data-i18n="donate.member.btn"
+            style="width:100%;justify-content:center;margin-top:auto">Mitgliedschaft anfragen</a>
+        </div>
+
+      </div>
+
+      <!-- Sadaqa Jariya note -->
+      <div style="max-width:680px;margin:40px auto 0;text-align:center">
+        <div style="background:#fff;border-radius:20px;padding:28px 32px;box-shadow:0 4px 20px rgba(0,0,0,.06)">
+          <div style="font-size:2rem;margin-bottom:12px">🤲</div>
+          <p data-i18n="donate.sadaqa.title" style="font-weight:600;color:#0A2D1F;margin-bottom:8px">Sadaqa Jariya</p>
+          <p data-i18n="donate.sadaqa.desc" style="font-size:.9rem;color:#6B7280;line-height:1.7">Jede Spende für den <strong>Kauf des
+              Grundstücks</strong> ist eine
+            <strong style="color:#1B5E42">fortlaufende gute Tat</strong> –
+            die Belohnung wirkt über Ihr Leben hinaus fort.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
-</footer>
+  </section>
 
-<script src="../js/main.js"></script>
-<script>
-  /* ============================================================
-     GOOGLE SHEETS KONFIGURATION
-     Spalten: A=Name | B=Datum | C=Betrag | D=Typ | E=Monate
-       Datum-Format: TT.MM.JJJJ (z.B. 22.03.2026)
-       Betrag: Zahl ohne €-Zeichen
-       Typ: leer oder "Spende"  →  normale Spende
-            "Beitrag"           →  monatliche Beitragserhöhung (Booster)
-       Monate: nur bei Typ=Beitrag, z.B. 12
-               Booster-Beitrag = Betrag × Monate
-     2. Datei → Freigeben → Im Web veröffentlichen → CSV → Link kopieren
-     3. Den Link unten eintragen
-     ============================================================ */
-  const SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQbZ2kPdvh9r-0NmGiRhWu_L3XY2ZU47Y1nvG5ahZAydx2EOu9Si_w5itglxZ6RZg/pub?gid=462232318&single=true&output=csv';
+  <!-- ===== FAQ ===== -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div style="text-align:center;margin-bottom:48px">
+        <span class="section-label" data-i18n="donate.faq.label">FAQ</span>
+        <h2 class="section-title" data-i18n="donate.faq.title">Häufige Fragen</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n="donate.faq.q1">Warum wird ein neues Grundstück benötigt?</span>
+            <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg></div>
+          </button>
+          <div class="faq-answer" data-i18n="donate.faq.a1">Unsere Gemeinde ist auf über 320 Mitglieder und ihre Familien gewachsen. Die aktuellen
+            Räume in der Sudetenstr. reichen nicht mehr aus – besonders an Freitagsgebeten und Feiertagen. Ein eigenes
+            Grundstück gibt uns die Freiheit, eine passgenaue Moschee mit Bildungs- und Gemeinschaftsräumen zu planen.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n="donate.faq.q2">Wie wird mit den Spendengeldern umgegangen?</span>
+            <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg></div>
+          </button>
+          <div class="faq-answer" data-i18n="donate.faq.a2">Alle Spendengelder fließen ausschließlich in den Grundstückskauf. Der Verein ist als
+            e.V. eingetragen und geprüft. Über den Stand der Kampagne informieren wir regelmäßig auf dieser Seite und
+            bei unseren Gemeindeveranstaltungen.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n="donate.faq.q3">Wie oft wird der Spendenstand aktualisiert?</span>
+            <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg></div>
+          </button>
+          <div class="faq-answer" data-i18n="donate.faq.a3">Wir aktualisieren den Stand auf dieser Seite mindestens einmal pro Woche. Größere
+            Einzelspenden werden nach Bestätigung des Eingangs zeitnah eingetragen. Das Datum der letzten Aktualisierung
+            ist unter dem Fortschrittsbalken sichtbar.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n="donate.faq.q4">Was passiert, wenn das Ziel nicht erreicht wird?</span>
+            <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg></div>
+          </button>
+          <div class="faq-answer" data-i18n="donate.faq.a4">Wir sind zuversichtlich, dass wir das Ziel gemeinsam erreichen. Sollte sich der
+            Zeitplan verzögern, werden alle Spenden sicher auf dem Vereinskonto verwahrt und ausschließlich für den
+            Grundstückskauf verwendet. Alle Spender werden informiert.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">
+            <span data-i18n="donate.faq.q5">Kann ich anonym spenden?</span>
+            <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg></div>
+          </button>
+          <div class="faq-answer" data-i18n="donate.faq.a5">Ja. Wenn Sie nicht in der Liste erscheinen möchten, vermerken Sie dies bitte im
+            Verwendungszweck als „Anonym" oder teilen Sie uns dies beim Vorstand mit. Wir respektieren Ihren Wunsch
+            vollständig.</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  /* ============================================================
-     KAMPAGNEN-ZIEL & MEILENSTEINE – Nur diese Werte anpassen
-     ============================================================ */
-  const CAMPAIGN_CONFIG = {
-    goal: 600000,
-    milestones: [
-      { label: '10 % erreicht',   target: 60000,  icon: '🎯' },
-      { label: '25 % erreicht',   target: 150000, icon: '🌟' },
-      { label: '50 % erreicht',   target: 300000, icon: '🏆' },
-      { label: 'Ziel erreicht!',  target: 600000, icon: '🤝' },
-    ]
-  };
+  <!-- ===== ISLAMIC QUOTE ===== -->
+  <section class="islamic-quote">
+    <div class="container">
+      <div class="islamic-quote__arabic" dir="rtl">
+        مَثَلُ الَّذِينَ يُنفِقُونَ أَمْوَالَهُمْ فِي سَبِيلِ اللَّهِ كَمَثَلِ حَبَّةٍ أَنبَتَتْ سَبْعَ سَنَابِلَ
+      </div>
+      <p class="islamic-quote__text" data-i18n="donate.quote.text">
+        „Das Gleichnis derer, die ihr Vermögen auf dem Wege Gottes ausgeben, gleicht einem Korn, das sieben Ähren
+        hervorbringt, in jeder Ähre hundert Körner. Und Allah verdoppelt es für wen Er will."
+      </p>
+      <p class="islamic-quote__source">Al-Baqara 2:261</p>
+    </div>
+  </section>
 
-  /* ============================================================
-     AB HIER NICHTS ÄNDERN – Automatische Berechnung & Anzeige
-     ============================================================ */
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__bottom">
+        <p data-i18n="footer.copyright">© 2026 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
+        <div class="footer__bottom-links">
+          <a href="impressum.html" data-i18n="footer.imprint">Impressum</a>
+          <a href="datenschutz.html" data-i18n="footer.privacy">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-  // Hilfsfunktion: eine CSV-Zeile in Spalten aufteilen (berücksichtigt "..." Felder)
-  function splitCSVLine(line) {
-    const cols = [];
-    let cur = '', inQ = false;
-    for (let i = 0; i < line.length; i++) {
-      if (line[i] === '"') { inQ = !inQ; }
-      else if (line[i] === ',' && !inQ) { cols.push(cur.trim()); cur = ''; }
-      else { cur += line[i]; }
+  <script src="../js/i18n.js"></script>
+  <script src="../js/main.js"></script>
+  <script>
+    /* ============================================================
+       GOOGLE SHEETS KONFIGURATION
+       Spalten: A=Name | B=Datum | C=Betrag | D=Typ | E=Monate
+         Datum-Format: TT.MM.JJJJ (z.B. 22.03.2026)
+         Betrag: Zahl ohne €-Zeichen
+         Typ: leer oder "Spende"  →  normale Spende
+              "Beitrag"           →  monatliche Beitragserhöhung (Booster)
+         Monate: nur bei Typ=Beitrag, z.B. 12
+                 Booster-Beitrag = Betrag × Monate
+       2. Datei → Freigeben → Im Web veröffentlichen → CSV → Link kopieren
+       3. Den Link unten eintragen
+       ============================================================ */
+    const SHEETS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQbZ2kPdvh9r-0NmGiRhWu_L3XY2ZU47Y1nvG5ahZAydx2EOu9Si_w5itglxZ6RZg/pub?gid=462232318&single=true&output=csv';
+
+    /* ============================================================
+       KAMPAGNEN-ZIEL & MEILENSTEINE – Nur diese Werte anpassen
+       ============================================================ */
+    const CAMPAIGN_CONFIG = {
+      goal: 600000,
+      milestones: [
+        { label: '10 % erreicht', target: 60000, icon: '🎯' },
+        { label: '25 % erreicht', target: 150000, icon: '🌟' },
+        { label: '50 % erreicht', target: 300000, icon: '🏆' },
+        { label: 'Ziel erreicht!', target: 600000, icon: '🤝' },
+      ]
+    };
+
+    /* ============================================================
+       AB HIER NICHTS ÄNDERN – Automatische Berechnung & Anzeige
+       ============================================================ */
+
+    // Hilfsfunktion: eine CSV-Zeile in Spalten aufteilen (berücksichtigt "..." Felder)
+    function splitCSVLine(line) {
+      const cols = [];
+      let cur = '', inQ = false;
+      for (let i = 0; i < line.length; i++) {
+        if (line[i] === '"') { inQ = !inQ; }
+        else if (line[i] === ',' && !inQ) { cols.push(cur.trim()); cur = ''; }
+        else { cur += line[i]; }
+      }
+      cols.push(cur.trim());
+      return cols;
     }
-    cols.push(cur.trim());
-    return cols;
-  }
 
-  // Zahlungsart für Anzeige übersetzen
-  function mapArt(raw) {
-    const s = (raw || '').trim().toLowerCase();
-    if (s.includes('rücklage') || s.includes('bank')) return 'Banküberweisung';
-    if (s.includes('paypal'))                          return 'PayPal';
-    if (s.includes('bar'))                             return 'Bar';
-    return raw;
-  }
+    // Zahlungsart für Anzeige übersetzen
+    function mapArt(raw) {
+      const s = (raw || '').trim().toLowerCase();
+      if (s.includes('rücklage') || s.includes('bank')) return 'Banküberweisung';
+      if (s.includes('paypal')) return 'PayPal';
+      if (s.includes('bar')) return 'Bar';
+      return raw;
+    }
 
-  // CSV parsen: sucht selbst die Kopfzeile (beginnt mit "Zahlungseingang")
-  // Darunter: DD/MM/YY, Name, ID, Art, Betrag, Typ, ...
-  function parseCSV(text) {
-    const lines = text.trim().split('\n').filter(l => l.trim());
+    // CSV parsen: sucht selbst die Kopfzeile (beginnt mit "Zahlungseingang")
+    // Darunter: DD/MM/YY, Name, ID, Art, Betrag, Typ, ...
+    function parseCSV(text) {
+      const lines = text.trim().split('\n').filter(l => l.trim());
 
-    // Kopfzeile finden
-    let dataStart = -1;
-    for (let i = 0; i < lines.length; i++) {
-      if (lines[i].toLowerCase().startsWith('zahlungseingang')) {
-        dataStart = i + 1;
-        break;
+      // Kopfzeile finden
+      let dataStart = -1;
+      for (let i = 0; i < lines.length; i++) {
+        if (lines[i].toLowerCase().startsWith('zahlungseingang')) {
+          dataStart = i + 1;
+          break;
+        }
+      }
+      if (dataStart === -1) return []; // kein gültiges Format
+
+      return lines.slice(dataStart).map(line => {
+        const cols = splitCSVLine(line);
+        const rawDate = (cols[0] || '').trim();
+        const name = (cols[1] || '').trim();
+        const rawArt = (cols[3] || '').trim();
+        // Deutsches Format: Punkt = Tausender, Komma = Dezimal → 3.420 → 3420, 265,6 → 265.6
+        const rawAmt = (cols[4] || '0').replace(/[€\s]/g, '').replace(/\./g, '').replace(',', '.');
+        const amount = parseFloat(rawAmt);
+        const typ = (cols[5] || '').trim().toLowerCase();
+        const months = parseInt((cols[9] || '0').trim(), 10) || 0;
+        const isBooster = typ === 'monatlich' && months > 0;
+
+        // Datum DD/MM/YY → DD.MM.YYYY
+        let date = rawDate;
+        const dm = rawDate.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/);
+        if (dm) date = dm[1].padStart(2, '0') + '.' + dm[2].padStart(2, '0') + '.20' + dm[3];
+
+        return {
+          name,
+          date,
+          art: mapArt(rawArt),
+          amount: isNaN(amount) ? 0 : amount,
+          isBooster,
+          months,
+          boosterTotal: isBooster ? (isNaN(amount) ? 0 : amount) * months : 0
+        };
+      }).filter(d => d.name && d.amount > 0);
+    }
+
+    // Datum TT.MM.JJJJ → Date-Objekt zum Sortieren
+    function parseDate(str) {
+      if (!str) return new Date(0);
+      const [d, m, y] = str.split('.');
+      return new Date(y + '-' + m + '-' + d);
+    }
+
+    function formatEuro(n) {
+      const hasCents = n % 1 !== 0;
+      return n.toLocaleString('de-DE', {
+        minimumFractionDigits: hasCents ? 2 : 0,
+        maximumFractionDigits: hasCents ? 2 : 0
+      }) + ' €';
+    }
+
+    function getInitials(name) {
+      if (name === 'Anonym') return '?';
+      return name.trim().split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
+    }
+
+    function getAvatarColor(name) {
+      const colors = [
+        ['#0A2D1F', '#1B5E42'], ['#1B5E42', '#2D8653'],
+        ['#2D8653', '#3D9970'], ['#14532D', '#166534'],
+        ['#065F46', '#047857']
+      ];
+      let hash = 0;
+      for (let c of name) hash += c.charCodeAt(0);
+      return colors[hash % colors.length];
+    }
+
+    // Gespeicherte Werte für Sprachwechsel
+    let _donorsCount = 0, _boosterTotal = 0;
+
+    function updateDynamicTexts() {
+      document.getElementById('live-supporters').innerHTML =
+        '<strong>' + _donorsCount + ' ' + I18N.t('donate.live.donors_unit') + '</strong> ' + I18N.t('donate.live.joined');
+      if (_boosterTotal > 0) {
+        document.getElementById('live-booster-text').textContent =
+          I18N.t('donate.booster.legend') + formatEuro(_boosterTotal);
       }
     }
-    if (dataStart === -1) return []; // kein gültiges Format
 
-    return lines.slice(dataStart).map(line => {
-      const cols = splitCSVLine(line);
-      const rawDate = (cols[0] || '').trim();
-      const name    = (cols[1] || '').trim();
-      const rawArt  = (cols[3] || '').trim();
-      // Deutsches Format: Punkt = Tausender, Komma = Dezimal → 3.420 → 3420, 265,6 → 265.6
-      const rawAmt  = (cols[4] || '0').replace(/[€\s]/g, '').replace(/\./g, '').replace(',', '.');
-      const amount  = parseFloat(rawAmt);
+    function renderCampaign(donors) {
+      // Beträge aufteilen
+      const spendenTotal = donors.filter(d => !d.isBooster).reduce((s, d) => s + d.amount, 0);
+      const boosterTotal = donors.filter(d => d.isBooster).reduce((s, d) => s + d.boosterTotal, 0);
+      const collected = spendenTotal + boosterTotal;
+      const donorsCount = donors.length;
+      _donorsCount = donorsCount;
+      _boosterTotal = boosterTotal;
+      const goal = CAMPAIGN_CONFIG.goal;
+      const pct = Math.min(100, (collected / goal) * 100);
+      const spendenPct = Math.min(100, (spendenTotal / goal) * 100);
+      const boosterPct = Math.min(pct - spendenPct, 100 - spendenPct);
+      const remaining = Math.max(0, goal - collected);
 
-      // Datum DD/MM/YY → DD.MM.YYYY
-      let date = rawDate;
-      const dm = rawDate.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/);
-      if (dm) date = dm[1].padStart(2,'0') + '.' + dm[2].padStart(2,'0') + '.20' + dm[3];
+      // Neueste zuerst; "Neu"-Badge für Einträge der letzten 3 Tage
+      const sorted = [...donors].sort((a, b) => parseDate(b.date) - parseDate(a.date));
+      const threeDaysAgo = new Date();
+      threeDaysAgo.setHours(0, 0, 0, 0);
+      threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
+      const lastUpdated = sorted[0]?.date || '–';
 
-      return {
-        name,
-        date,
-        art: mapArt(rawArt),
-        amount: isNaN(amount) ? 0 : amount,
-        isBooster: false,
-        months: 0,
-        boosterTotal: 0
-      };
-    }).filter(d => d.name && d.amount > 0);
-  }
-
-  // Datum TT.MM.JJJJ → Date-Objekt zum Sortieren
-  function parseDate(str) {
-    if (!str) return new Date(0);
-    const [d, m, y] = str.split('.');
-    return new Date(y + '-' + m + '-' + d);
-  }
-
-  function formatEuro(n) {
-    const hasCents = n % 1 !== 0;
-    return n.toLocaleString('de-DE', {
-      minimumFractionDigits: hasCents ? 2 : 0,
-      maximumFractionDigits: hasCents ? 2 : 0
-    }) + ' €';
-  }
-
-  function getInitials(name) {
-    if (name === 'Anonym') return '?';
-    return name.trim().split(/\s+/).map(w => w[0]).slice(0,2).join('').toUpperCase();
-  }
-
-  function getAvatarColor(name) {
-    const colors = [
-      ['#0A2D1F','#1B5E42'],['#1B5E42','#2D8653'],
-      ['#2D8653','#3D9970'],['#14532D','#166534'],
-      ['#065F46','#047857']
-    ];
-    let hash = 0;
-    for (let c of name) hash += c.charCodeAt(0);
-    return colors[hash % colors.length];
-  }
-
-  function renderCampaign(donors) {
-    // Beträge aufteilen
-    const spendenTotal  = donors.filter(d => !d.isBooster).reduce((s, d) => s + d.amount, 0);
-    const boosterTotal  = donors.filter(d =>  d.isBooster).reduce((s, d) => s + d.boosterTotal, 0);
-    const collected     = spendenTotal + boosterTotal;
-    const donorsCount   = donors.length;
-    const goal          = CAMPAIGN_CONFIG.goal;
-    const pct           = Math.min(100, (collected / goal) * 100);
-    const spendenPct    = Math.min(100, (spendenTotal / goal) * 100);
-    const boosterPct    = Math.min(pct - spendenPct, 100 - spendenPct);
-    const remaining     = Math.max(0, goal - collected);
-
-    // Neueste zuerst; "Neu"-Badge für Einträge der letzten 3 Tage
-    const sorted = [...donors].sort((a, b) => parseDate(b.date) - parseDate(a.date));
-    const threeDaysAgo = new Date();
-    threeDaysAgo.setHours(0, 0, 0, 0);
-    threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
-    const lastUpdated = sorted[0]?.date || '–';
-
-    // Hero progress card
-    document.getElementById('hero-percent').textContent = pct.toFixed(1) + '%';
-    document.getElementById('hero-collected').textContent = formatEuro(collected);
-    document.getElementById('hero-remaining').textContent = formatEuro(remaining);
-    document.getElementById('hero-donors').textContent = donorsCount;
-    document.getElementById('last-updated-date').textContent = lastUpdated;
+      // Hero progress card
+      document.getElementById('hero-percent').textContent = pct.toFixed(1) + '%';
+      document.getElementById('hero-collected').textContent = formatEuro(collected);
+      document.getElementById('hero-remaining').textContent = formatEuro(remaining);
+      document.getElementById('hero-donors').textContent = donorsCount;
+      document.getElementById('last-updated-date').textContent = lastUpdated;
 
 
-    // Animate bars after paint – grün bis spendenPct, orange Booster-Strahl drüber
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        document.getElementById('hero-bar').style.width = spendenPct + '%';
-        document.getElementById('hero-bar-booster').style.width = boosterPct + '%';
-        document.getElementById('live-bar').style.width = spendenPct + '%';
-        document.getElementById('live-bar-booster').style.width = boosterPct + '%';
-      }, 300);
-    });
+      // Animate bars after paint – grün bis spendenPct, orange Booster-Strahl drüber
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          document.getElementById('hero-bar').style.width = spendenPct + '%';
+          document.getElementById('hero-bar-booster').style.width = boosterPct + '%';
+          document.getElementById('live-bar').style.width = spendenPct + '%';
+          document.getElementById('live-bar-booster').style.width = boosterPct + '%';
+        }, 300);
+      });
 
-    // Stats bar
-    document.getElementById('stat-collected').textContent = formatEuro(collected);
-    document.getElementById('stat-donors').textContent = donorsCount;
-    document.getElementById('stat-percent').textContent = pct.toFixed(1) + '%';
+      // Stats bar
+      document.getElementById('stat-collected').textContent = formatEuro(collected);
+      document.getElementById('stat-donors').textContent = donorsCount;
+      document.getElementById('stat-percent').textContent = pct.toFixed(1) + '%';
 
-    // Live total
-    document.getElementById('live-amount').textContent = formatEuro(collected);
-    document.getElementById('live-supporters').innerHTML =
-      '<strong>' + donorsCount + ' Spender</strong> haben bereits mitgemacht';
-    if (boosterTotal > 0) {
-      const ll = document.getElementById('live-booster-legend');
-      document.getElementById('live-booster-text').textContent =
-        'Gesammelt durch Mitgliedsbeitrag-Erhöhung: ' + formatEuro(boosterTotal);
-      ll.style.display = 'flex';
-    }
+      // Live total
+      document.getElementById('live-amount').textContent = formatEuro(collected);
+      document.getElementById('live-supporters').innerHTML =
+        '<strong>' + donorsCount + ' ' + I18N.t('donate.live.donors_unit') + '</strong> ' + I18N.t('donate.live.joined');
+      if (boosterTotal > 0) {
+        const ll = document.getElementById('live-booster-legend');
+        document.getElementById('live-booster-text').textContent =
+          I18N.t('donate.booster.legend') + formatEuro(boosterTotal);
+        ll.style.display = 'flex';
+      }
 
-    // Donors list
-    const list = document.getElementById('donors-list');
-    list.innerHTML = sorted.map((d, i) => {
-      const isNew = parseDate(d.date) >= threeDaysAgo;
-      if (d.isBooster) {
-        // Oranger Booster-Eintrag
-        return `
+      // Donors list
+      const list = document.getElementById('donors-list');
+      list.innerHTML = sorted.slice(0, 8).map((d, i) => {
+        const isNew = parseDate(d.date) >= threeDaysAgo;
+        if (d.isBooster) {
+          // Oranger Booster-Eintrag
+          return `
           <div class="donor-item" style="animation-delay:${i * 60}ms">
             <div class="donor-avatar" style="background:linear-gradient(135deg,#F97316,#FBBF24)">${getInitials(d.name)}</div>
             <div class="donor-info">
-              <div class="donor-name">${d.name} <span class="booster-badge">Beitragserhöhung</span>${isNew ? ' <span class="donor-new-badge">Neu</span>' : ''}</div>
-              <div class="donor-date">${d.date} &nbsp;·&nbsp; Letzte Aktivität</div>
-              <div class="donor-detail">+${formatEuro(d.amount)}/Monat × ${d.months} Monate</div>
+              <div class="donor-name">${d.name} <span class="booster-badge">${I18N.t('donate.booster.badge')}</span>${isNew ? ' <span class="donor-new-badge">Neu</span>' : ''}</div>
+              <div class="donor-date">${d.date} &nbsp;·&nbsp; ${I18N.t('donate.booster.activity')}</div>
+              <div class="donor-detail">+${formatEuro(d.amount)}/${I18N.t('donate.booster.month')} × ${d.months} ${I18N.t('donate.booster.months')}</div>
             </div>
             <div class="donor-amount donor-amount--booster">${formatEuro(d.boosterTotal)}</div>
           </div>`;
-      }
-      const [c1, c2] = getAvatarColor(d.name);
-      return `
+        }
+        const [c1, c2] = getAvatarColor(d.name);
+        const isAnon = d.name === 'Anonym';
+        return `
         <div class="donor-item" style="animation-delay:${i * 60}ms">
-          <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">${getInitials(d.name)}</div>
+          <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">${isAnon ? '🕶️' : getInitials(d.name)}</div>
           <div class="donor-info">
             <div class="donor-name">${d.name} ${isNew ? '<span class="donor-new-badge">Neu</span>' : ''}</div>
             <div class="donor-date">${d.date}</div>
           </div>
           <div class="donor-amount">${formatEuro(d.amount)}</div>
         </div>`;
-    }).join('');
+      }).join('');
 
-    // Milestones
-    const ml = document.getElementById('milestones-list');
-    ml.innerHTML = CAMPAIGN_CONFIG.milestones.map(m => {
-      const done = collected >= m.target;
-      const mpct = Math.min(100, (collected / m.target) * 100);
-      return `
+      // Milestones
+      const ml = document.getElementById('milestones-list');
+      ml.innerHTML = CAMPAIGN_CONFIG.milestones.map(m => {
+        const done = collected >= m.target;
+        const mpct = Math.min(100, (collected / m.target) * 100);
+        return `
         <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #F3F4F6">
           <span style="font-size:1.25rem">${m.icon}</span>
           <div style="flex:1">
@@ -1560,53 +2058,54 @@
             : `<span style="font-size:.75rem;color:#9CA3AF">${mpct.toFixed(0)}%</span>`
           }
         </div>`;
-    }).join('');
-  }
-
-  async function init() {
-    try {
-      const res = await fetch(SHEETS_CSV_URL);
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      const text = await res.text();
-      renderCampaign(parseCSV(text));
-    } catch (err) {
-      console.error('Fehler beim Laden der Spenderdaten:', err);
-      document.getElementById('donors-list').innerHTML =
-        '<p style="color:#9CA3AF;font-size:.875rem;padding:16px 0">Spenderdaten konnten nicht geladen werden.</p>';
+      }).join('');
     }
-  }
 
-  // FAQ accordion
-  document.querySelectorAll('.faq-question').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(el => {
-        el.classList.remove('open');
-        el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+    async function init() {
+      try {
+        const res = await fetch(SHEETS_CSV_URL);
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const text = await res.text();
+        renderCampaign(parseCSV(text));
+      } catch (err) {
+        console.error('Fehler beim Laden der Spenderdaten:', err);
+        document.getElementById('donors-list').innerHTML =
+          '<p style="color:#9CA3AF;font-size:.875rem;padding:16px 0">Spenderdaten konnten nicht geladen werden.</p>';
+      }
+    }
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
       });
-      if (!isOpen) {
-        item.classList.add('open');
-        btn.setAttribute('aria-expanded', 'true');
-      }
     });
-  });
 
-  // IntersectionObserver for bar animation on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        // Breite wird durch renderCampaign gesetzt – hier nur nochmal triggern
-        const bar = document.getElementById('live-bar');
-        if (bar) bar.style.width = bar.style.width;
-      }
-    });
-  }, { threshold: 0.3 });
-  const liveBar = document.querySelector('.live-total');
-  if (liveBar) observer.observe(liveBar);
+    // IntersectionObserver for bar animation on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          // Breite wird durch renderCampaign gesetzt – hier nur nochmal triggern
+          const bar = document.getElementById('live-bar');
+          if (bar) bar.style.width = bar.style.width;
+        }
+      });
+    }, { threshold: 0.3 });
+    const liveBar = document.querySelector('.live-total');
+    if (liveBar) observer.observe(liveBar);
 
-  init();
+    init();
 
-</script>
+  </script>
 </body>
+
 </html>

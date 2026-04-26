@@ -38,28 +38,32 @@
             </div>
             <div class="navbar__logo-text">
               <strong>DITIB Breuberg</strong>
-              <span>Türkisch Islamische Gemeinde</span>
+              <span data-i18n="nav.tagline">Türkisch Islamische Gemeinde</span>
             </div>
           </a>
 
           <!-- Desktop Navigation -->
           <nav class="navbar__nav" aria-label="Desktop Navigation">
-            <a href="index.html" class="active">Startseite</a>
-            <a href="pages/gebetszeiten.html">Gebetszeiten</a>
-            <a href="pages/veranstaltungen.html">Veranstaltungen</a>
-            <a href="pages/jugend.html">Jugend</a>
-            <a href="pages/galerie.html">Galerie</a>
-            <a href="pages/ueber-uns.html">Über uns</a>
-            <a href="pages/kontakt.html">Kontakt</a>
+            <a href="index.html" class="active" data-i18n="nav.home">Startseite</a>
+            <a href="pages/gebetszeiten.html" data-i18n="nav.prayer">Gebetszeiten</a>
+            <a href="pages/veranstaltungen.html" data-i18n="nav.events">Veranstaltungen</a>
+            <a href="pages/jugend.html" data-i18n="nav.youth">Jugend</a>
+            <a href="pages/galerie.html" data-i18n="nav.gallery">Galerie</a>
+            <a href="pages/ueber-uns.html" data-i18n="nav.about">Über uns</a>
+            <a href="pages/kontakt.html" data-i18n="nav.contact">Kontakt</a>
           </nav>
 
           <div class="navbar__actions">
+            <div class="lang-switcher">
+              <button class="lang-btn" data-lang="tr">TR</button>
+              <button class="lang-btn" data-lang="de">DE</button>
+            </div>
             <a href="pages/spenden.html" class="btn btn--emerald btn--sm navbar__donate">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path
                   d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
               </svg>
-              Spenden
+              <span data-i18n="nav.donate">Spenden</span>
             </a>
 
             <button class="navbar__hamburger" aria-label="Menü öffnen" aria-expanded="false">
@@ -80,14 +84,14 @@
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
             <polyline points="9 22 9 12 15 12 15 22" />
           </svg>
-          Startseite
+          <span data-i18n="nav.home">Startseite</span>
         </a>
         <a href="pages/gebetszeiten.html">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="10" />
             <polyline points="12 6 12 12 16 14" />
           </svg>
-          Gebetszeiten
+          <span data-i18n="nav.prayer">Gebetszeiten</span>
         </a>
         <a href="pages/veranstaltungen.html">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -96,7 +100,7 @@
             <line x1="8" y1="2" x2="8" y2="6" />
             <line x1="3" y1="10" x2="21" y2="10" />
           </svg>
-          Veranstaltungen
+          <span data-i18n="nav.events">Veranstaltungen</span>
         </a>
         <a href="pages/jugend.html">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -105,7 +109,7 @@
             <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
             <path d="M16 3.13a4 4 0 0 1 0 7.75" />
           </svg>
-          Jugend
+          <span data-i18n="nav.youth">Jugend</span>
         </a>
         <a href="pages/galerie.html">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -113,7 +117,7 @@
             <circle cx="8.5" cy="8.5" r="1.5" />
             <polyline points="21 15 16 10 5 21" />
           </svg>
-          Galerie
+          <span data-i18n="nav.gallery">Galerie</span>
         </a>
         <a href="pages/ueber-uns.html">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -122,14 +126,14 @@
             <line x1="12" y1="16" x2="12" y2="12" />
             <line x1="12" y1="8" x2="12.01" y2="8" />
           </svg>
-          Über uns
+          <span data-i18n="nav.about">Über uns</span>
         </a>
         <a href="pages/kontakt.html">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
             <circle cx="12" cy="10" r="3" />
           </svg>
-          Kontakt
+          <span data-i18n="nav.contact">Kontakt</span>
         </a>
         <div class="mobile-menu__divider"></div>
         <a href="pages/spenden.html" class="mobile-menu__donate">
@@ -137,7 +141,7 @@
             <path
               d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
           </svg>
-          Spenden
+          <span data-i18n="nav.donate">Spenden</span>
         </a>
       </div>
     </div>
@@ -162,13 +166,12 @@
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor">
                   <circle cx="12" cy="12" r="10" />
                 </svg>
-                DITIB Breuberg · Seit 1977
+                <span data-i18n="index.hero.label">DITIB Breuberg · Seit 1977</span>
               </div>
               <h1 class="hero__title">
-                Willkommen bei
-                <em>DITIB Breuberg</em>
+                <span data-i18n="index.hero.title">Willkommen bei DITIB Breuberg</span>
               </h1>
-              <p class="hero__subtitle">
+              <p class="hero__subtitle" data-i18n="index.hero.subtitle">
                 Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V. — eine lebendige Gemeinschaft für Gebet, Bildung,
                 Jugend und Harmonie im Odenwaldkreis.
               </p>
@@ -178,22 +181,22 @@
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 6 12 12 16 14" />
                   </svg>
-                  Gebetszeiten
+                  <span data-i18n="index.hero.cta1">Gebetszeiten</span>
                 </a>
-                <a href="pages/ueber-uns.html" class="btn btn--outline-white btn--lg">Über uns</a>
+                <a href="pages/ueber-uns.html" class="btn btn--outline-white btn--lg" data-i18n="index.hero.cta2">Über uns</a>
               </div>
               <div class="hero__stats" role="list">
                 <div class="hero__stat" role="listitem">
                   <strong>1977</strong>
-                  <span>Gegründet</span>
+                  <span data-i18n="index.hero.stat1">Gegründet</span>
                 </div>
                 <div class="hero__stat" role="listitem">
                   <strong>320+</strong>
-                  <span>Mitglieder</span>
+                  <span data-i18n="index.hero.stat2">Mitglieder</span>
                 </div>
                 <div class="hero__stat" role="listitem">
                   <strong>49</strong>
-                  <span>Jahre</span>
+                  <span data-i18n="index.hero.stat3">Jahre</span>
                 </div>
               </div>
             </div>
@@ -203,12 +206,11 @@
               <div id="prayer-card-content">
                 <div class="prayer-card__loading">
                   <div class="prayer-spinner"></div>
-                  Gebetszeiten werden geladen…
+                  <span data-i18n="common.loading_prayer">Gebetszeiten werden geladen…</span>
                 </div>
               </div>
               <div style="margin-top:16px;text-align:center">
-                <a href="pages/gebetszeiten.html" class="btn btn--outline-white btn--sm" style="width:100%">Alle Zeiten
-                  anzeigen →</a>
+                <a href="pages/gebetszeiten.html" class="btn btn--outline-white btn--sm" style="width:100%"><span data-i18n="index.hero.prayer_btn">Alle Zeiten anzeigen →</span></a>
               </div>
             </div>
           </div>
@@ -219,15 +221,15 @@
     <!-- ============ ANNOUNCEMENT BAR ============ -->
     <div class="announcement-bar" role="marquee" aria-label="Aktuelle Ankündigungen">
       <div class="announcement-bar__inner">
-        <span>📅 Freitagsgebet: zur Mittagsgebetzeit &nbsp;·&nbsp;</span>
-        <span>🕌 Tägliche Gebete in der Moschee &nbsp;·&nbsp;</span>
-        <span>📚 Koran-Unterricht für Kinder: Sa & So 10:00–14:00 Uhr &nbsp;·&nbsp;</span>
-        <span>⚽ Sportliche Aktivitäten mit der Jugend: Sonntags 16:00–20:00 Uhr &nbsp;·&nbsp;</span>
+        <span><span data-i18n="ticker.1">📅 Freitagsgebet: zur Mittagsgebetzeit</span> &nbsp;·&nbsp;</span>
+        <span><span data-i18n="ticker.2">🕌 Tägliche Gebete in der Moschee</span> &nbsp;·&nbsp;</span>
+        <span><span data-i18n="ticker.3">📚 Koran-Unterricht für Kinder: Sa & So 10:00–14:00 Uhr</span> &nbsp;·&nbsp;</span>
+        <span><span data-i18n="ticker.4">⚽ Sportliche Aktivitäten mit der Jugend: Sonntags 16:00–20:00 Uhr</span> &nbsp;·&nbsp;</span>
         <!-- Duplicate for seamless loop -->
-        <span aria-hidden="true">📅 Freitagsgebet: zur Mittagsgebetzeit &nbsp;·&nbsp;</span>
-        <span aria-hidden="true">🕌 Tägliche Gebete in der Moschee &nbsp;·&nbsp;</span>
-        <span aria-hidden="true">📚 Koran-Unterricht für Kinder: Sa & So 10:00–14:00 Uhr &nbsp;·&nbsp;</span>
-        <span aria-hidden="true">⚽ Sportliche Aktivitäten mit der Jugend: Sonntags 16:00–20:00 Uhr &nbsp;·&nbsp;</span>
+        <span aria-hidden="true"><span data-i18n="ticker.1">📅 Freitagsgebet: zur Mittagsgebetzeit</span> &nbsp;·&nbsp;</span>
+        <span aria-hidden="true"><span data-i18n="ticker.2">🕌 Tägliche Gebete in der Moschee</span> &nbsp;·&nbsp;</span>
+        <span aria-hidden="true"><span data-i18n="ticker.3">📚 Koran-Unterricht für Kinder: Sa & So 10:00–14:00 Uhr</span> &nbsp;·&nbsp;</span>
+        <span aria-hidden="true"><span data-i18n="ticker.4">⚽ Sportliche Aktivitäten mit der Jugend: Sonntags 16:00–20:00 Uhr</span> &nbsp;·&nbsp;</span>
       </div>
     </div>
 
@@ -236,38 +238,38 @@
       <div class="container">
         <div class="about-grid">
           <div class="about-text" data-aos>
-            <span class="badge">Unsere Gemeinde</span>
-            <h2>Eine Heimat für Muslime im Odenwaldkreis</h2>
-            <p>Seit unserer Gründung im Jahr 1977 sind wir eine lebendige islamische Gemeinschaft im Herzen des
+            <span class="badge" data-i18n="index.about.badge">Unsere Gemeinde</span>
+            <h2 data-i18n="index.about.title">Eine Heimat für Muslime im Odenwaldkreis</h2>
+            <p data-i18n="index.about.p1">Seit unserer Gründung im Jahr 1977 sind wir eine lebendige islamische Gemeinschaft im Herzen des
               Odenwaldkreises. Wir fördern Religion, Bildung, Sport, Jugendvorsorge und interkulturelle Verständigung.
             </p>
-            <p>Unser Verein besteht aus über 320 Mitgliedern und deren Familien aus der gesamten Region. Alle
+            <p data-i18n="index.about.p2">Unser Verein besteht aus über 320 Mitgliedern und deren Familien aus der gesamten Region. Alle
               Aktivitäten werden von einem engagierten Team aus ehrenamtlichen Mitarbeitern getragen.</p>
 
             <div class="about-features">
               <div class="about-feature">
                 <div class="about-feature__icon" aria-hidden="true">🕌</div>
                 <div class="about-feature__text">
-                  <strong>Tägliche Gebete</strong>
-                  <span>Fünf tägliche Gebete sowie Freitagsgebet und Feiertagsgebete</span>
+                  <strong data-i18n="index.about.feat1.title">Tägliche Gebete</strong>
+                  <span data-i18n="index.about.feat1.desc">Fünf tägliche Gebete sowie Freitagsgebet und Feiertagsgebete</span>
                 </div>
               </div>
               <div class="about-feature">
                 <div class="about-feature__icon" aria-hidden="true">📚</div>
                 <div class="about-feature__text">
-                  <strong>Koran-Unterricht</strong>
-                  <span>Regelmäßiger Koran-Unterricht und religiöse Bildung für alle Altersgruppen</span>
+                  <strong data-i18n="index.about.feat2.title">Koran-Unterricht</strong>
+                  <span data-i18n="index.about.feat2.desc">Regelmäßiger Koran-Unterricht und religiöse Bildung für alle Altersgruppen</span>
                 </div>
               </div>
               <div class="about-feature">
                 <div class="about-feature__icon" aria-hidden="true">🤝</div>
                 <div class="about-feature__text">
-                  <strong>Harmonie</strong>
-                  <span>Interkulturelle Veranstaltungen und Zusammenarbeit mit der Nachbarschaft</span>
+                  <strong data-i18n="index.about.feat3.title">Harmonie</strong>
+                  <span data-i18n="index.about.feat3.desc">Interkulturelle Veranstaltungen und Zusammenarbeit mit der Nachbarschaft</span>
                 </div>
               </div>
             </div>
-            <a href="pages/ueber-uns.html" class="btn btn--primary" style="margin-top:28px">Mehr über uns</a>
+            <a href="pages/ueber-uns.html" class="btn btn--primary" style="margin-top:28px" data-i18n="index.about.btn">Mehr über uns</a>
           </div>
 
           <div class="about-visual" data-aos data-aos-delay="200">
@@ -277,7 +279,7 @@
             </div>
             <div class="about-visual__badge">
               <strong>1977</strong>
-              <span>Gegründet</span>
+              <span data-i18n="index.about.founded">Gegründet</span>
             </div>
           </div>
         </div>
@@ -288,9 +290,9 @@
     <section class="section section--alt" id="gebetszeiten" aria-label="Gebetszeiten">
       <div class="container">
         <div class="section-header" data-aos>
-          <span class="badge">Täglich</span>
-          <h2>Gebetszeiten</h2>
-          <p>Heutige Gebetszeiten für Breuberg. Berechnet nach der Methode von Diyanet İşleri Başkanlığı.</p>
+          <span class="badge" data-i18n="index.prayer.badge">Täglich</span>
+          <h2 data-i18n="index.prayer.title">Gebetszeiten</h2>
+          <p data-i18n="index.prayer.desc">Heutige Gebetszeiten für Breuberg. Berechnet nach der Methode von Diyanet İşleri Başkanlığı.</p>
         </div>
 
         <div id="prayer-times-full" data-aos>
@@ -304,7 +306,7 @@
 
         <div style="text-align:center;margin-top:32px" data-aos>
           <a href="pages/gebetszeiten.html" class="btn btn--primary">
-            Vollständige Gebetszeiten anzeigen
+            <span data-i18n="index.prayer.btn">Vollständige Gebetszeiten anzeigen</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14" />
               <path d="M12 5l7 7-7 7" />
@@ -318,16 +320,16 @@
     <section class="section" id="veranstaltungen" aria-label="Veranstaltungen">
       <div class="container">
         <div class="section-header" data-aos>
-          <span class="badge">Aktuell</span>
-          <h2>Veranstaltungen &amp; Termine</h2>
-          <p>Entdecken Sie unsere aktuellen und kommenden Veranstaltungen – für die ganze Familie.</p>
+          <span class="badge" data-i18n="index.events.badge">Aktuell</span>
+          <h2 data-i18n="index.events.title">Veranstaltungen &amp; Termine</h2>
+          <p data-i18n="index.events.desc">Entdecken Sie unsere aktuellen und kommenden Veranstaltungen – für die ganze Familie.</p>
         </div>
 
         <div class="events-grid">
           <article class="event-card" data-aos>
             <div class="event-card__image">
               <div class="event-card__image-placeholder" aria-hidden="true">🕌</div>
-              <span class="event-card__category">Gebet</span>
+              <span class="event-card__category" data-i18n="index.ev1.cat">Gebet</span>
             </div>
             <div class="event-card__body">
               <div class="event-card__date">
@@ -337,10 +339,10 @@
                   <line x1="8" y1="2" x2="8" y2="6" />
                   <line x1="3" y1="10" x2="21" y2="10" />
                 </svg>
-                Jeden Freitag · zur Mittagsgebetzeit
+                <span data-i18n="index.ev1.date">Jeden Freitag · zur Mittagsgebetzeit</span>
               </div>
-              <h3 class="event-card__title">Freitagsgebet (Cuma Namazı)</h3>
-              <p class="event-card__desc">Das wöchentliche Freitagsgebet in der Breuberger Moschee zur jeweiligen
+              <h3 class="event-card__title" data-i18n="index.ev1.title">Freitagsgebet (Cuma Namazı)</h3>
+              <p class="event-card__desc" data-i18n="index.ev1.desc">Das wöchentliche Freitagsgebet in der Breuberger Moschee zur jeweiligen
                 Mittagsgebetzeit. Alle Gläubigen sind herzlich willkommen.</p>
               <div class="event-card__footer">
                 <span class="event-card__location">
@@ -350,7 +352,7 @@
                   </svg>
                   Sudetenstr. 19, Breuberg
                 </span>
-                <a href="pages/gebetszeiten.html" class="btn btn--sm btn--outline">Details</a>
+                <a href="pages/gebetszeiten.html" class="btn btn--sm btn--outline" data-i18n="common.details">Details</a>
               </div>
             </div>
           </article>
@@ -358,7 +360,7 @@
           <article class="event-card" data-aos data-aos-delay="100">
             <div class="event-card__image">
               <div class="event-card__image-placeholder" aria-hidden="true">📚</div>
-              <span class="event-card__category">Bildung</span>
+              <span class="event-card__category" data-i18n="index.ev2.cat">Bildung</span>
             </div>
             <div class="event-card__body">
               <div class="event-card__date">
@@ -368,10 +370,10 @@
                   <line x1="8" y1="2" x2="8" y2="6" />
                   <line x1="3" y1="10" x2="21" y2="10" />
                 </svg>
-                Sa & So · 10:00 – 14:00 Uhr
+                <span data-i18n="index.ev2.date">Sa & So · 10:00 – 14:00 Uhr</span>
               </div>
-              <h3 class="event-card__title">Koran-Unterricht für Kinder</h3>
-              <p class="event-card__desc">Wöchentlicher Koran-Unterricht für Kinder und Jugendliche samstags und
+              <h3 class="event-card__title" data-i18n="index.ev2.title">Koran-Unterricht für Kinder</h3>
+              <p class="event-card__desc" data-i18n="index.ev2.desc">Wöchentlicher Koran-Unterricht für Kinder und Jugendliche samstags und
                 sonntags. Grundlagen der arabischen Schrift und Rezitation.</p>
               <div class="event-card__footer">
                 <span class="event-card__location">
@@ -381,7 +383,7 @@
                   </svg>
                   DITIB Gemeinde
                 </span>
-                <a href="pages/jugend.html" class="btn btn--sm btn--outline">Details</a>
+                <a href="pages/jugend.html" class="btn btn--sm btn--outline" data-i18n="common.details">Details</a>
               </div>
             </div>
           </article>
@@ -390,7 +392,7 @@
           <article class="event-card" data-aos>
             <div class="event-card__image">
               <div class="event-card__image-placeholder" aria-hidden="true">⚽</div>
-              <span class="event-card__category">Sport</span>
+              <span class="event-card__category" data-i18n="index.ev3.cat">Sport</span>
             </div>
             <div class="event-card__body">
               <div class="event-card__date">
@@ -400,10 +402,10 @@
                   <line x1="8" y1="2" x2="8" y2="6" />
                   <line x1="3" y1="10" x2="21" y2="10" />
                 </svg>
-                Sonntag · 16:00–20:00 Uhr
+                <span data-i18n="index.ev3.date">Sonntag · 16:00–20:00 Uhr</span>
               </div>
-              <h3 class="event-card__title">Jugend-Fußball</h3>
-              <p class="event-card__desc">Wöchentliche Fußballveranstaltung für Jugendliche in der Heinrich-Böhm-Halle,
+              <h3 class="event-card__title" data-i18n="index.ev3.title">Jugend-Fußball</h3>
+              <p class="event-card__desc" data-i18n="index.ev3.desc">Wöchentliche Fußballveranstaltung für Jugendliche in der Heinrich-Böhm-Halle,
                 Sandbach. Spaß, Sport und Gemeinschaft.</p>
               <div class="event-card__footer">
                 <span class="event-card__location">
@@ -413,7 +415,7 @@
                   </svg>
                   Heinrich-Böhm-Halle
                 </span>
-                <a href="pages/jugend.html" class="btn btn--sm btn--outline">Details</a>
+                <a href="pages/jugend.html" class="btn btn--sm btn--outline" data-i18n="common.details">Details</a>
               </div>
             </div>
           </article>
@@ -421,7 +423,7 @@
           <article class="event-card" data-aos data-aos-delay="100">
             <div class="event-card__image">
               <div class="event-card__image-placeholder" aria-hidden="true">🌙</div>
-              <span class="event-card__category">Ramazan</span>
+              <span class="event-card__category" data-i18n="index.ev4.cat">Ramazan</span>
             </div>
             <div class="event-card__body">
               <div class="event-card__date">
@@ -431,10 +433,10 @@
                   <line x1="8" y1="2" x2="8" y2="6" />
                   <line x1="3" y1="10" x2="21" y2="10" />
                 </svg>
-                Ramazan · Fr–So (Iftar) · Täglich (Tarawih)
+                <span data-i18n="index.ev4.date">Ramazan · Fr–So (Iftar) · Täglich (Tarawih)</span>
               </div>
-              <h3 class="event-card__title">Iftar &amp; Tarawih</h3>
-              <p class="event-card__desc">Gemeinsames Fastenbrechen (Iftar) freitags bis sonntags in der Moschee. Das
+              <h3 class="event-card__title" data-i18n="index.ev4.title">Iftar &amp; Tarawih</h3>
+              <p class="event-card__desc" data-i18n="index.ev4.desc">Gemeinsames Fastenbrechen (Iftar) freitags bis sonntags in der Moschee. Das
                 Tarawih-Gebet findet täglich im Monat Ramazan statt. Alle sind herzlich willkommen.</p>
               <div class="event-card__footer">
                 <span class="event-card__location">
@@ -444,7 +446,7 @@
                   </svg>
                   Breuberger Moschee
                 </span>
-                <a href="pages/veranstaltungen.html" class="btn btn--sm btn--outline">Details</a>
+                <a href="pages/veranstaltungen.html" class="btn btn--sm btn--outline" data-i18n="common.details">Details</a>
               </div>
             </div>
           </article>
@@ -452,7 +454,7 @@
           <article class="event-card" data-aos data-aos-delay="200">
             <div class="event-card__image">
               <div class="event-card__image-placeholder" aria-hidden="true">🎪</div>
-              <span class="event-card__category">Kermes</span>
+              <span class="event-card__category" data-i18n="index.ev5.cat">Kermes</span>
             </div>
             <div class="event-card__body">
               <div class="event-card__date">
@@ -462,10 +464,10 @@
                   <line x1="8" y1="2" x2="8" y2="6" />
                   <line x1="3" y1="10" x2="21" y2="10" />
                 </svg>
-                Jährlich
+                <span data-i18n="index.ev5.date">Jährlich</span>
               </div>
-              <h3 class="event-card__title">Kermes</h3>
-              <p class="event-card__desc">Unser jährlicher Gemeinschaftsmarkt mit traditionellen Speisen, Kultur, Musik
+              <h3 class="event-card__title" data-i18n="index.ev5.title">Kermes</h3>
+              <p class="event-card__desc" data-i18n="index.ev5.desc">Unser jährlicher Gemeinschaftsmarkt mit traditionellen Speisen, Kultur, Musik
                 und Begegnung. Ein Fest für die ganze Familie.</p>
               <div class="event-card__footer">
                 <span class="event-card__location">
@@ -475,7 +477,7 @@
                   </svg>
                   Breuberger Moschee
                 </span>
-                <a href="pages/veranstaltungen.html" class="btn btn--sm btn--outline">Details</a>
+                <a href="pages/veranstaltungen.html" class="btn btn--sm btn--outline" data-i18n="common.details">Details</a>
               </div>
             </div>
           </article>
@@ -483,7 +485,7 @@
           <article class="event-card" data-aos data-aos-delay="200">
             <div class="event-card__image">
               <div class="event-card__image-placeholder" aria-hidden="true">🕌</div>
-              <span class="event-card__category">Offene Moschee</span>
+              <span class="event-card__category" data-i18n="index.ev6.cat">Offene Moschee</span>
             </div>
             <div class="event-card__body">
               <div class="event-card__date">
@@ -493,10 +495,10 @@
                   <line x1="8" y1="2" x2="8" y2="6" />
                   <line x1="3" y1="10" x2="21" y2="10" />
                 </svg>
-                Jährlich · 3. Oktober
+                <span data-i18n="index.ev6.date">Jährlich · 3. Oktober</span>
               </div>
-              <h3 class="event-card__title">Tag der offenen Moschee</h3>
-              <p class="event-card__desc">Am deutschen Nationalfeiertag öffnen wir unsere Türen für alle Interessierten:
+              <h3 class="event-card__title" data-i18n="index.ev6.title">Tag der offenen Moschee</h3>
+              <p class="event-card__desc" data-i18n="index.ev6.desc">Am deutschen Nationalfeiertag öffnen wir unsere Türen für alle Interessierten:
                 Moscheeführungen, Informationen über den Islam, interreligiöser Dialog und traditionelle Bewirtung.</p>
               <div class="event-card__footer">
                 <span class="event-card__location">
@@ -506,7 +508,7 @@
                   </svg>
                   Breuberger Moschee
                 </span>
-                <a href="pages/veranstaltungen.html" class="btn btn--sm btn--outline">Details</a>
+                <a href="pages/veranstaltungen.html" class="btn btn--sm btn--outline" data-i18n="common.details">Details</a>
               </div>
             </div>
           </article>
@@ -514,7 +516,7 @@
 
         <div style="text-align:center;margin-top:40px" data-aos>
           <a href="pages/veranstaltungen.html" class="btn btn--outline">
-            Alle Veranstaltungen
+            <span data-i18n="index.events.all">Alle Veranstaltungen</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14" />
               <path d="M12 5l7 7-7 7" />
@@ -528,19 +530,19 @@
     <section class="section youth-section" id="jugend" aria-label="Jugend">
       <div class="container">
         <div class="section-header" data-aos>
-          <span class="badge">Jugend &amp; Familie</span>
-          <h2>Programme für Jugend &amp; Familien</h2>
-          <p>Wir bieten ein breites Angebot für Kinder, Jugendliche und Familien – von Bildung bis Sport.</p>
+          <span class="badge" data-i18n="index.youth.badge">Jugend &amp; Familie</span>
+          <h2 data-i18n="index.youth.title">Programme für Jugend &amp; Familien</h2>
+          <p data-i18n="index.youth.desc">Wir bieten ein breites Angebot für Kinder, Jugendliche und Familien – von Bildung bis Sport.</p>
         </div>
 
         <div class="youth-grid">
           <div class="youth-card" data-aos>
             <div class="youth-card__icon" aria-hidden="true">📚</div>
-            <h3 class="youth-card__title">Koran-Unterricht</h3>
-            <p class="youth-card__desc">Koran-Unterricht für Kinder und Jugendliche. Lernen der arabischen Schrift,
+            <h3 class="youth-card__title" data-i18n="index.youth.koran.title">Koran-Unterricht</h3>
+            <p class="youth-card__desc" data-i18n="index.youth.koran.desc">Koran-Unterricht für Kinder und Jugendliche. Lernen der arabischen Schrift,
               Rezitation und islamischer Grundwerte in kindgerechter Atmosphäre.</p>
             <a href="pages/jugend.html#koran" class="youth-card__link">
-              Mehr erfahren
+              <span data-i18n="common.more">Mehr erfahren</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M5 12h14" />
                 <path d="M12 5l7 7-7 7" />
@@ -551,11 +553,11 @@
 
           <div class="youth-card" data-aos data-aos-delay="200">
             <div class="youth-card__icon" aria-hidden="true">⚽</div>
-            <h3 class="youth-card__title">Jugend-Sport</h3>
-            <p class="youth-card__desc">Wöchentliches Fußballtraining und Sportveranstaltungen für Jugendliche.
+            <h3 class="youth-card__title" data-i18n="index.youth.sport.title">Jugend-Sport</h3>
+            <p class="youth-card__desc" data-i18n="index.youth.sport.desc">Wöchentliches Fußballtraining und Sportveranstaltungen für Jugendliche.
               Teamgeist, Fairplay und Spaß an der Bewegung.</p>
             <a href="pages/jugend.html#sport" class="youth-card__link">
-              Mehr erfahren
+              <span data-i18n="common.more">Mehr erfahren</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M5 12h14" />
                 <path d="M12 5l7 7-7 7" />
@@ -566,11 +568,11 @@
 
           <div class="youth-card" data-aos data-aos-delay="100">
             <div class="youth-card__icon" aria-hidden="true">🌍</div>
-            <h3 class="youth-card__title">Interkulturelle Events</h3>
-            <p class="youth-card__desc">Gemeinsame Veranstaltungen mit der Nachbarschaft: interkulturelle Wanderungen,
+            <h3 class="youth-card__title" data-i18n="index.youth.inter.title">Interkulturelle Events</h3>
+            <p class="youth-card__desc" data-i18n="index.youth.inter.desc">Gemeinsame Veranstaltungen mit der Nachbarschaft: interkulturelle Wanderungen,
               Kochprojekte und Dialog zwischen Kulturen.</p>
             <a href="pages/veranstaltungen.html#interkulturell" class="youth-card__link">
-              Mehr erfahren
+              <span data-i18n="common.more">Mehr erfahren</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M5 12h14" />
                 <path d="M12 5l7 7-7 7" />
@@ -580,11 +582,11 @@
 
           <div class="youth-card" data-aos data-aos-delay="200">
             <div class="youth-card__icon" aria-hidden="true">🏆</div>
-            <h3 class="youth-card__title">Wettbewerbe</h3>
-            <p class="youth-card__desc">Teilnahme an regionalen und überregionalen Koranrezitations- und
+            <h3 class="youth-card__title" data-i18n="index.youth.wett.title">Wettbewerbe</h3>
+            <p class="youth-card__desc" data-i18n="index.youth.wett.desc">Teilnahme an regionalen und überregionalen Koranrezitations- und
               Gebetsruf-Wettbewerben. Wir fördern Talente!</p>
             <a href="pages/jugend.html#wettbewerbe" class="youth-card__link">
-              Mehr erfahren
+              <span data-i18n="common.more">Mehr erfahren</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                 <path d="M5 12h14" />
                 <path d="M12 5l7 7-7 7" />
@@ -599,9 +601,16 @@
     <section class="section section--alt" id="galerie" aria-label="Galerie">
       <div class="container">
         <div class="section-header" data-aos>
-          <span class="badge">Einblicke</span>
-          <h2>Aus unserem Gemeindeleben</h2>
-          <p>Bilder aus Veranstaltungen, dem Gemeindealltag und besonderen Momenten.</p>
+          <span class="badge" data-i18n="index.gallery.badge">Einblicke</span>
+          <h2 data-i18n="index.gallery.title">Aus unserem Gemeindeleben</h2>
+          <p data-i18n="index.gallery.desc">Bilder aus Veranstaltungen, dem Gemeindealltag und besonderen Momenten.</p>
+        </div>
+
+        <!-- Hinweis: Fotos folgen -->
+        <div style="text-align:center;background:var(--cream);border-radius:var(--radius-lg);padding:36px 24px;margin-bottom:32px;color:var(--gray-600)" data-aos>
+          <div style="font-size:2.5rem;margin-bottom:12px">📷</div>
+          <p style="font-size:1rem;font-weight:600;color:var(--gray-700);margin-bottom:6px" data-i18n="index.gallery.notice.title">Galerie noch in Bearbeitung</p>
+          <p style="font-size:.9rem" data-i18n="index.gallery.notice.desc">Fotos aus unserem Gemeindeleben werden in Kürze hier hinzugefügt.</p>
         </div>
 
         <div class="gallery-grid" data-aos>
@@ -669,7 +678,7 @@
 
         <div style="text-align:center;margin-top:36px" data-aos>
           <a href="pages/galerie.html" class="btn btn--outline">
-            Alle Bilder ansehen
+            <span data-i18n="index.gallery.btn">Alle Bilder ansehen</span>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M5 12h14" />
               <path d="M12 5l7 7-7 7" />
@@ -684,11 +693,11 @@
       <div class="container">
         <div class="donation-grid">
           <div class="donation-text" data-aos>
-            <span class="badge">Unterstützen</span>
-            <h2>Unterstützen Sie <em>unsere Arbeit</em></h2>
-            <p>Unsere Gemeinde trägt sich durch die Unterstützung unserer Mitglieder und Förderer. Jede Spende – groß
+            <span class="badge" data-i18n="index.donate.badge">Unterstützen</span>
+            <h2 data-i18n="index.donate.title">Unterstützen Sie unsere Arbeit</h2>
+            <p data-i18n="index.donate.p1">Unsere Gemeinde trägt sich durch die Unterstützung unserer Mitglieder und Förderer. Jede Spende – groß
               oder klein – hilft uns, unsere Arbeit fortzuführen.</p>
-            <p>Ihre Spende ermöglicht uns, Bildungsangebote, Jugendprogramme und den Betrieb der Moschee
+            <p data-i18n="index.donate.p2">Ihre Spende ermöglicht uns, Bildungsangebote, Jugendprogramme und den Betrieb der Moschee
               aufrechtzuerhalten.</p>
 
             <div class="donation-amounts" role="group" aria-label="Spendenbetrag wählen">
@@ -696,7 +705,7 @@
               <button class="donation-amount-btn selected" data-amount="25">25 €</button>
               <button class="donation-amount-btn" data-amount="50">50 €</button>
               <button class="donation-amount-btn" data-amount="100">100 €</button>
-              <button class="donation-amount-btn" data-amount="">Anderer Betrag</button>
+              <button class="donation-amount-btn" data-amount="" data-i18n="index.donate.other">Anderer Betrag</button>
             </div>
 
             <a href="pages/spenden.html" class="btn btn--emerald btn--lg">
@@ -704,7 +713,7 @@
                 <path
                   d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
               </svg>
-              Jetzt Spenden
+              <span data-i18n="index.donate.btn">Jetzt Spenden</span>
             </a>
           </div>
 
@@ -713,32 +722,32 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
               </svg>
-              Spendenmöglichkeiten
+              <span data-i18n="index.donate.card_title">Spendenmöglichkeiten</span>
             </h3>
             <div class="donation-methods">
               <div class="donation-method">
                 <div class="donation-method__icon" aria-hidden="true">🏦</div>
                 <div class="donation-method__text">
-                  <strong>Banküberweisung</strong>
-                  <span>Volksbank Odenwald eG<br>IBAN: auf Anfrage</span>
+                  <strong data-i18n="index.donate.bank.title">Banküberweisung</strong>
+                  <span data-i18n-html="index.donate.bank.desc">Volksbank Odenwald eG<br>IBAN: auf Anfrage</span>
                 </div>
               </div>
               <div class="donation-method">
                 <div class="donation-method__icon" aria-hidden="true">💵</div>
                 <div class="donation-method__text">
-                  <strong>Bar vor Ort</strong>
-                  <span>Direkt in der Moschee<br>zu den Gebetszeiten</span>
+                  <strong data-i18n="index.donate.cash.title">Bar vor Ort</strong>
+                  <span data-i18n-html="index.donate.cash.desc">Direkt in der Moschee<br>zu den Gebetszeiten</span>
                 </div>
               </div>
               <div class="donation-method">
                 <div class="donation-method__icon" aria-hidden="true">👥</div>
                 <div class="donation-method__text">
-                  <strong>Mitglied werden</strong>
-                  <span>Monatlicher Beitrag<br>ab 10 € / Monat</span>
+                  <strong data-i18n="index.donate.member.title">Mitglied werden</strong>
+                  <span data-i18n-html="index.donate.member.desc">Monatlicher Beitrag<br>ab 10 € / Monat</span>
                 </div>
               </div>
             </div>
-            <a href="pages/spenden.html" class="donation-cta" role="button">Mehr Informationen →</a>
+            <a href="pages/spenden.html" class="donation-cta" role="button" data-i18n="index.donate.more">Mehr Informationen →</a>
           </div>
         </div>
       </div>
@@ -748,21 +757,21 @@
     <section class="section" id="kontakt" aria-label="Kontakt">
       <div class="container">
         <div class="section-header" data-aos>
-          <span class="badge">Kontakt</span>
-          <h2>Nehmen Sie Kontakt auf</h2>
-          <p>Wir freuen uns über Ihren Besuch oder Ihre Nachricht. Kommen Sie vorbei oder schreiben Sie uns!</p>
+          <span class="badge" data-i18n="index.contact.badge">Kontakt</span>
+          <h2 data-i18n="index.contact.title">Nehmen Sie Kontakt auf</h2>
+          <p data-i18n="index.contact.desc">Wir freuen uns über Ihren Besuch oder Ihre Nachricht. Kommen Sie vorbei oder schreiben Sie uns!</p>
         </div>
 
         <div class="contact-grid">
           <div class="contact-info" data-aos>
             <div class="contact-info-card">
               <div class="contact-info-card__icon" aria-hidden="true">📍</div>
-              <h3>Adresse</h3>
+              <h3 data-i18n="index.contact.addr">Adresse</h3>
               <p>DITIB – Türkisch Islamische Gemeinde<br>Sudetenstr. 19<br>64747 Breuberg-Sandbach</p>
             </div>
             <div class="contact-info-card">
               <div class="contact-info-card__icon" aria-hidden="true">📞</div>
-              <h3>Telefon &amp; Fax</h3>
+              <h3 data-i18n="index.contact.phone">Telefon &amp; Fax</h3>
               <p>
                 Tel: <a href="tel:+4961634105">+49 6163 / 4105</a><br>
                 Fax: +49 6163 / 828 727
@@ -770,7 +779,7 @@
             </div>
             <div class="contact-info-card">
               <div class="contact-info-card__icon" aria-hidden="true">✉️</div>
-              <h3>E-Mail &amp; Social Media</h3>
+              <h3 data-i18n="index.contact.email">E-Mail &amp; Social Media</h3>
               <p>
                 <a href="mailto:ditib-breuberg@hotmail.com">ditib-breuberg@hotmail.com</a><br>
                 <a href="https://www.facebook.com/groups/115303355158682/" target="_blank"
@@ -779,7 +788,7 @@
             </div>
             <div class="contact-info-card">
               <div class="contact-info-card__icon" aria-hidden="true">🕌</div>
-              <h3>Vereinsvorsitzender</h3>
+              <h3 data-i18n="index.contact.chair">Vereinsvorsitzender</h3>
               <p>Cemal Polat</p>
             </div>
           </div>
@@ -789,7 +798,7 @@
               <div class="map-placeholder">
                 <span style="font-size:3rem" aria-hidden="true">🗺️</span>
                 <p>Sudetenstr. 19, 64747 Breuberg-Sandbach</p>
-                <a href="https://maps.google.com/?q=Sudetenstr.+19,+64747+Breuberg" target="_blank" rel="noopener">
+                <a href="https://maps.google.com/?q=Sudetenstr.+19,+64747+Breuberg" target="_blank" rel="noopener" data-i18n="index.contact.maps">
                   In Google Maps öffnen →
                 </a>
               </div>
@@ -799,7 +808,7 @@
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                   <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                 </svg>
-                Kontaktformular öffnen
+                <span data-i18n="index.contact.form">Kontaktformular öffnen</span>
               </a>
             </div>
           </div>
@@ -819,10 +828,10 @@
               style="height:40px;width:auto;display:block;">
             <div class="footer__logo-text">
               <strong>DITIB Breuberg</strong>
-              <span>Gegründet 1977</span>
+              <span data-i18n="footer.founded">Gegründet 1977</span>
             </div>
           </div>
-          <p class="footer__desc">Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V. – Eine Gemeinschaft für Gebet,
+          <p class="footer__desc" data-i18n="footer.desc">Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V. – Eine Gemeinschaft für Gebet,
             Bildung und Harmonie im Odenwaldkreis.</p>
           <div class="footer__socials">
             <a href="https://www.facebook.com/groups/115303355158682/" target="_blank" rel="noopener"
@@ -848,34 +857,34 @@
 
         <!-- Navigation -->
         <div class="footer__col">
-          <h4>Navigation</h4>
+          <h4 data-i18n="footer.nav">Navigation</h4>
           <ul class="footer__links">
-            <li><a href="index.html">Startseite</a></li>
-            <li><a href="pages/gebetszeiten.html">Gebetszeiten</a></li>
-            <li><a href="pages/veranstaltungen.html">Veranstaltungen</a></li>
-            <li><a href="pages/jugend.html">Jugend &amp; Familie</a></li>
-            <li><a href="pages/galerie.html">Galerie</a></li>
+            <li><a href="index.html" data-i18n="footer.fn.home">Startseite</a></li>
+            <li><a href="pages/gebetszeiten.html" data-i18n="footer.fn.prayer">Gebetszeiten</a></li>
+            <li><a href="pages/veranstaltungen.html" data-i18n="footer.fn.events">Veranstaltungen</a></li>
+            <li><a href="pages/jugend.html" data-i18n="footer.fn.youth">Jugend &amp; Familie</a></li>
+            <li><a href="pages/galerie.html" data-i18n="footer.fn.gallery">Galerie</a></li>
           </ul>
         </div>
 
         <!-- About -->
         <div class="footer__col">
-          <h4>Über uns</h4>
+          <h4 data-i18n="footer.about_col">Über uns</h4>
           <ul class="footer__links">
-            <li><a href="pages/ueber-uns.html">Geschichte</a></li>
-            <li><a href="pages/ueber-uns.html#vorstand">Vorstand</a></li>
-            <li><a href="pages/ueber-uns.html#mitglied">Mitglied werden</a></li>
-            <li><a href="pages/spenden.html">Spenden</a></li>
-            <li><a href="pages/kontakt.html">Kontakt</a></li>
+            <li><a href="pages/ueber-uns.html" data-i18n="footer.fa.history">Geschichte</a></li>
+            <li><a href="pages/ueber-uns.html#vorstand" data-i18n="footer.fa.board">Vorstand</a></li>
+            <li><a href="pages/ueber-uns.html#mitglied" data-i18n="footer.fa.member">Mitglied werden</a></li>
+            <li><a href="pages/spenden.html" data-i18n="footer.fa.donate">Spenden</a></li>
+            <li><a href="pages/kontakt.html" data-i18n="footer.fa.contact">Kontakt</a></li>
           </ul>
         </div>
 
         <!-- Contact -->
         <div class="footer__col">
-          <h4>Kontakt</h4>
+          <h4 data-i18n="footer.contact_col">Kontakt</h4>
           <div>
             <div class="footer__contact-item">
-              <span>Adresse</span>
+              <span data-i18n="footer.fc.address">Adresse</span>
               <p><a href="https://www.google.com/maps/search/?api=1&query=Sudetenstr.+19,+64747+Breuberg-Sandbach"
                   target="_blank" rel="noopener">Sudetenstr. 19<br>64747 Breuberg-Sandbach</a></p>
             </div>
@@ -892,16 +901,17 @@
       </div>
 
       <div class="footer__bottom">
-        <p>© 2026 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
+        <p data-i18n="footer.copyright">© 2026 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
         <div class="footer__bottom-links">
-          <a href="pages/impressum.html">Impressum</a>
-          <a href="pages/datenschutz.html">Datenschutz</a>
+          <a href="pages/impressum.html" data-i18n="footer.imprint">Impressum</a>
+          <a href="pages/datenschutz.html" data-i18n="footer.privacy">Datenschutz</a>
         </div>
       </div>
     </div>
   </footer>
 
   <script src="js/prayer-times.js"></script>
+  <script src="js/i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 

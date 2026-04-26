@@ -78,20 +78,24 @@
           </div>
           <div class="navbar__logo-text">
             <strong>DITIB Breuberg</strong>
-            <span>Türkisch Islamische Gemeinde</span>
+            <span data-i18n="nav.tagline">Türkisch Islamische Gemeinde</span>
           </div>
         </a>
         <nav class="navbar__nav">
-          <a href="../index.html">Startseite</a>
-          <a href="gebetszeiten.html">Gebetszeiten</a>
-          <a href="veranstaltungen.html">Veranstaltungen</a>
-          <a href="jugend.html">Jugend</a>
-          <a href="galerie.html">Galerie</a>
-          <a href="ueber-uns.html">Über uns</a>
-          <a href="kontakt.html" class="active">Kontakt</a>
+          <a href="../index.html" data-i18n="nav.home">Startseite</a>
+          <a href="gebetszeiten.html" data-i18n="nav.prayer">Gebetszeiten</a>
+          <a href="veranstaltungen.html" data-i18n="nav.events">Veranstaltungen</a>
+          <a href="jugend.html" data-i18n="nav.youth">Jugend</a>
+          <a href="galerie.html" data-i18n="nav.gallery">Galerie</a>
+          <a href="ueber-uns.html" data-i18n="nav.about">Über uns</a>
+          <a href="kontakt.html" class="active" data-i18n="nav.contact">Kontakt</a>
         </nav>
         <div class="navbar__actions">
-          <a href="spenden.html" class="btn btn--emerald btn--sm navbar__donate">❤️ Spenden</a>
+          <div class="lang-switcher">
+            <button class="lang-btn" data-lang="tr">TR</button>
+            <button class="lang-btn" data-lang="de">DE</button>
+          </div>
+          <a href="spenden.html" class="btn btn--emerald btn--sm navbar__donate">❤️ <span data-i18n="nav.donate">Spenden</span></a>
           <button class="navbar__hamburger" aria-label="Menü öffnen" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -103,36 +107,36 @@
     <div class="mobile-menu__inner">
       <a href="../index.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Startseite
+        <span data-i18n="nav.home">Startseite</span>
       </a>
       <a href="gebetszeiten.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Gebetszeiten
+        <span data-i18n="nav.prayer">Gebetszeiten</span>
       </a>
       <a href="veranstaltungen.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Veranstaltungen
+        <span data-i18n="nav.events">Veranstaltungen</span>
       </a>
       <a href="jugend.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Jugend
+        <span data-i18n="nav.youth">Jugend</span>
       </a>
       <a href="galerie.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        Galerie
+        <span data-i18n="nav.gallery">Galerie</span>
       </a>
       <a href="ueber-uns.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Über uns
+        <span data-i18n="nav.about">Über uns</span>
       </a>
       <a href="kontakt.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Kontakt
+        <span data-i18n="nav.contact">Kontakt</span>
       </a>
       <div class="mobile-menu__divider"></div>
       <a href="spenden.html" class="mobile-menu__donate">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        Spenden
+        <span data-i18n="nav.donate">Spenden</span>
       </a>
     </div>
   </div>
@@ -142,12 +146,12 @@
   <div class="container">
     <div class="page-hero__inner">
       <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">Startseite</a>
+        <a href="../index.html" data-i18n="common.breadcrumb_home">Startseite</a>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         <span>Kontakt</span>
       </nav>
-      <h1>Kontakt</h1>
-      <p>Wir freuen uns auf Ihre Nachricht! Schreiben Sie uns oder besuchen Sie uns direkt in der Moschee.</p>
+      <h1 data-i18n="contact.hero.title">Kontakt</h1>
+      <p data-i18n="contact.hero.desc">Wir freuen uns auf Ihre Nachricht! Schreiben Sie uns oder besuchen Sie uns direkt in der Moschee.</p>
     </div>
   </div>
 </div>
@@ -160,7 +164,7 @@
         <div class="contact-info" data-aos>
           <div class="contact-info-card">
             <div class="contact-info-card__icon">📍</div>
-            <h3>Adresse</h3>
+            <h3 data-i18n="contact.info.address">Adresse</h3>
             <p>
               DITIB – Türkisch Islamische Gemeinde<br>
               zu Breuberg-Sandbach e.V.<br>
@@ -170,7 +174,7 @@
           </div>
           <div class="contact-info-card">
             <div class="contact-info-card__icon">📞</div>
-            <h3>Telefon &amp; Fax</h3>
+            <h3 data-i18n="contact.info.phone">Telefon &amp; Fax</h3>
             <p>
               Telefon: <a href="tel:+4961634105">+49 6163 / 4105</a><br>
               Fax: +49 6163 / 828 727
@@ -178,24 +182,24 @@
           </div>
           <div class="contact-info-card">
             <div class="contact-info-card__icon">✉️</div>
-            <h3>E-Mail</h3>
+            <h3 data-i18n="contact.info.email">E-Mail</h3>
             <p>
               <a href="mailto:ditib-breuberg@hotmail.com">ditib-breuberg@hotmail.com</a>
             </p>
           </div>
           <div class="contact-info-card">
             <div class="contact-info-card__icon">👤</div>
-            <h3>Vereinsvorsitzender</h3>
+            <h3 data-i18n="contact.info.chairman">Vereinsvorsitzender</h3>
             <p>Cemal Polat</p>
           </div>
           <div class="contact-info-card">
             <div class="contact-info-card__icon">🕌</div>
-            <h3>Vorbeter / Imam</h3>
+            <h3 data-i18n="contact.info.imam">Vorbeter / Imam</h3>
             <p>Abdulselim Özkan</p>
           </div>
           <div class="contact-info-card">
             <div class="contact-info-card__icon">📘</div>
-            <h3>Facebook</h3>
+            <h3 data-i18n="contact.info.facebook">Facebook</h3>
             <p>
               <a href="https://www.facebook.com/groups/115303355158682/" target="_blank" rel="noopener">
                 DITIB - BREUBERG Gruppe →
@@ -207,21 +211,21 @@
         <!-- Contact Form -->
         <div data-aos data-aos-delay="150">
           <form class="contact-form" id="contact-form">
-            <h3>Nachricht senden</h3>
+            <h3 data-i18n="contact.form.title">Nachricht senden</h3>
 
             <!-- Status-Meldungen -->
             <div class="form-status success" id="form-success">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
               <div>
-                <strong>Vielen Dank!</strong>
-                Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns baldmöglichst bei Ihnen melden.
+                <strong data-i18n="contact.form.success_title">Vielen Dank!</strong>
+                <span data-i18n="contact.form.success_desc">Ihre Nachricht wurde erfolgreich gesendet. Wir werden uns baldmöglichst bei Ihnen melden.</span>
               </div>
             </div>
             <div class="form-status error" id="form-error">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
               <div>
-                <strong>Es ist ein Fehler aufgetreten.</strong>
-                Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt per E-Mail.
+                <strong data-i18n="contact.form.error_title">Es ist ein Fehler aufgetreten.</strong>
+                <span data-i18n="contact.form.error_desc">Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt per E-Mail.</span>
               </div>
             </div>
 
@@ -230,44 +234,44 @@
 
             <div class="form-row">
               <div class="form-group">
-                <label class="form-label" for="name">Ihr Name *</label>
-                <input type="text" class="form-input" id="name" name="name" placeholder="Max Mustermann" required autocomplete="name">
+                <label class="form-label" for="name" data-i18n="contact.form.name_label">Ihr Name *</label>
+                <input type="text" class="form-input" id="name" name="name" placeholder="Max Mustermann" data-i18n-placeholder="contact.form.name_placeholder" required autocomplete="name">
               </div>
               <div class="form-group">
-                <label class="form-label" for="email">E-Mail-Adresse *</label>
-                <input type="email" class="form-input" id="email" name="email" placeholder="max@beispiel.de" required autocomplete="email">
+                <label class="form-label" for="email" data-i18n="contact.form.email_label">E-Mail-Adresse *</label>
+                <input type="email" class="form-input" id="email" name="email" placeholder="max@beispiel.de" data-i18n-placeholder="contact.form.email_placeholder" required autocomplete="email">
               </div>
             </div>
             <div class="form-group">
-              <label class="form-label" for="subject">Betreff</label>
+              <label class="form-label" for="subject" data-i18n="contact.form.subject_label">Betreff</label>
               <select class="form-select" id="subject" name="subject">
-                <option value="">Bitte wählen…</option>
-                <option value="Allgemeine Anfrage">Allgemeine Anfrage</option>
-                <option value="Mitglied werden">Mitglied werden</option>
-                <option value="Jugendprogramme">Jugendprogramme</option>
-                <option value="Veranstaltungen">Veranstaltungen</option>
-                <option value="Spenden">Spenden</option>
-                <option value="Sonstiges">Sonstiges</option>
+                <option value="" data-i18n="contact.form.subject_default">Bitte wählen…</option>
+                <option value="Allgemeine Anfrage" data-i18n="contact.form.subject_general">Allgemeine Anfrage</option>
+                <option value="Mitglied werden" data-i18n="contact.form.subject_member">Mitglied werden</option>
+                <option value="Jugendprogramme" data-i18n="contact.form.subject_youth">Jugendprogramme</option>
+                <option value="Veranstaltungen" data-i18n="contact.form.subject_events">Veranstaltungen</option>
+                <option value="Spenden" data-i18n="contact.form.subject_donate">Spenden</option>
+                <option value="Sonstiges" data-i18n="contact.form.subject_other">Sonstiges</option>
               </select>
             </div>
             <div class="form-group">
-              <label class="form-label" for="phone">Telefon (optional)</label>
-              <input type="tel" class="form-input" id="phone" name="phone" placeholder="+49 6163 …" autocomplete="tel">
+              <label class="form-label" for="phone" data-i18n="contact.form.phone_label">Telefon (optional)</label>
+              <input type="tel" class="form-input" id="phone" name="phone" placeholder="+49 6163 …" data-i18n-placeholder="contact.form.phone_placeholder" autocomplete="tel">
             </div>
             <div class="form-group">
-              <label class="form-label" for="message">Ihre Nachricht *</label>
-              <textarea class="form-textarea" id="message" name="message" placeholder="Schreiben Sie uns Ihre Nachricht…" required rows="5"></textarea>
+              <label class="form-label" for="message" data-i18n="contact.form.message_label">Ihre Nachricht *</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Schreiben Sie uns Ihre Nachricht…" data-i18n-placeholder="contact.form.message_placeholder" required rows="5"></textarea>
             </div>
             <div class="form-group" style="display:flex;align-items:flex-start;gap:10px">
               <input type="checkbox" id="datenschutz" name="datenschutz" required style="width:18px;height:18px;margin-top:3px;flex-shrink:0">
-              <label for="datenschutz" style="font-size:.875rem;color:var(--gray-500);cursor:pointer">
+              <label for="datenschutz" style="font-size:.875rem;color:var(--gray-500);cursor:pointer" data-i18n-html="contact.form.privacy_label">
                 Ich habe die <a href="datenschutz.html" style="color:var(--green-700);text-decoration:underline">Datenschutzerklärung</a> gelesen und stimme der Verarbeitung meiner Daten zu. *
               </label>
             </div>
             <button type="submit" class="btn btn--primary form-submit" id="submit-btn">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
               <span class="spinner"></span>
-              <span class="btn-text">Nachricht senden</span>
+              <span class="btn-text" data-i18n="contact.form.submit">Nachricht senden</span>
             </button>
           </form>
         </div>
@@ -279,8 +283,8 @@
   <section class="section section--alt">
     <div class="container">
       <div class="section-header" data-aos>
-        <span class="badge">Anfahrt</span>
-        <h2>So finden Sie uns</h2>
+        <span class="badge" data-i18n="contact.map.badge">Anfahrt</span>
+        <h2 data-i18n="contact.map.title">So finden Sie uns</h2>
       </div>
       <div class="map-section" data-aos>
         <div class="map-placeholder">
@@ -288,7 +292,7 @@
           <p style="font-weight:600;color:var(--gray-700)">Sudetenstr. 19, 64747 Breuberg-Sandbach</p>
           <p>Odenwaldkreis, Hessen, Deutschland</p>
           <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Sudetenstr.+19,+64747+Breuberg-Sandbach" target="_blank" rel="noopener" class="btn btn--primary btn--sm">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Sudetenstr.+19,+64747+Breuberg-Sandbach" target="_blank" rel="noopener" class="btn btn--primary btn--sm" data-i18n="contact.map.nav_btn">
               Navigation starten →
             </a>
           </div>
@@ -299,18 +303,18 @@
       <div style="display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:32px" data-aos>
         <div class="youth-card">
           <div class="youth-card__icon">🚗</div>
-          <h3 class="youth-card__title">Mit dem Auto</h3>
-          <p class="youth-card__desc">Über die B45 aus Richtung Erbach oder Michelstadt. In Breuberg der Ausschilderung zur Moschee folgen. Parkplätze sind vorhanden.</p>
+          <h3 class="youth-card__title" data-i18n="contact.dir.car_title">Mit dem Auto</h3>
+          <p class="youth-card__desc" data-i18n="contact.dir.car_desc">Über die B45 aus Richtung Erbach oder Michelstadt. In Breuberg der Ausschilderung zur Moschee folgen. Parkplätze sind vorhanden.</p>
         </div>
         <div class="youth-card">
           <div class="youth-card__icon">🚌</div>
-          <h3 class="youth-card__title">Mit dem Bus</h3>
-          <p class="youth-card__desc">RMV-Bus Linie nach Breuberg-Sandbach. Haltestelle Sandbach Ortsmitte, dann ca. 5 Minuten Fußweg.</p>
+          <h3 class="youth-card__title" data-i18n="contact.dir.bus_title">Mit dem Bus</h3>
+          <p class="youth-card__desc" data-i18n="contact.dir.bus_desc">RMV-Bus Linie nach Breuberg-Sandbach. Haltestelle Sandbach Ortsmitte, dann ca. 5 Minuten Fußweg.</p>
         </div>
         <div class="youth-card">
           <div class="youth-card__icon">🕌</div>
-          <h3 class="youth-card__title">Öffnungszeiten</h3>
-          <p class="youth-card__desc">Die Moschee ist zu den täglichen Gebetszeiten geöffnet. Für Besuche außerhalb der Gebetszeiten bitte vorher anrufen.</p>
+          <h3 class="youth-card__title" data-i18n="contact.dir.hours_title">Öffnungszeiten</h3>
+          <p class="youth-card__desc" data-i18n="contact.dir.hours_desc">Die Moschee ist zu den täglichen Gebetszeiten geöffnet. Für Besuche außerhalb der Gebetszeiten bitte vorher anrufen.</p>
         </div>
       </div>
     </div>
@@ -320,15 +324,16 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__bottom">
-      <p>© 2026 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
+      <p data-i18n="footer.copyright">© 2026 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
       <div class="footer__bottom-links">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
+        <a href="impressum.html" data-i18n="footer.imprint">Impressum</a>
+        <a href="datenschutz.html" data-i18n="footer.privacy">Datenschutz</a>
       </div>
     </div>
   </div>
 </footer>
 
+<script src="../js/i18n.js"></script>
 <script src="../js/main.js"></script>
 <script>
   // AJAX Form Submission an FormSubmit – User bleibt auf der Seite
@@ -356,7 +361,7 @@
       // Loading-State
       submitBtn.disabled = true;
       submitBtn.classList.add('loading');
-      btnText.textContent = 'Wird gesendet…';
+      btnText.textContent = I18N.t('contact.form.sending');
 
       // Formulardaten als JSON sammeln
       const formData = new FormData(form);
@@ -403,7 +408,7 @@
       } finally {
         submitBtn.disabled = false;
         submitBtn.classList.remove('loading');
-        btnText.textContent = 'Nachricht senden';
+        btnText.textContent = I18N.t('contact.form.submit');
       }
     });
   })();

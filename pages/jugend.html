@@ -22,20 +22,24 @@
           </div>
           <div class="navbar__logo-text">
             <strong>DITIB Breuberg</strong>
-            <span>Türkisch Islamische Gemeinde</span>
+            <span data-i18n="nav.tagline">Türkisch Islamische Gemeinde</span>
           </div>
         </a>
         <nav class="navbar__nav">
-          <a href="../index.html">Startseite</a>
-          <a href="gebetszeiten.html">Gebetszeiten</a>
-          <a href="veranstaltungen.html">Veranstaltungen</a>
-          <a href="jugend.html" class="active">Jugend</a>
-          <a href="galerie.html">Galerie</a>
-          <a href="ueber-uns.html">Über uns</a>
-          <a href="kontakt.html">Kontakt</a>
+          <a href="../index.html" data-i18n="nav.home">Startseite</a>
+          <a href="gebetszeiten.html" data-i18n="nav.prayer">Gebetszeiten</a>
+          <a href="veranstaltungen.html" data-i18n="nav.events">Veranstaltungen</a>
+          <a href="jugend.html" class="active" data-i18n="nav.youth">Jugend</a>
+          <a href="galerie.html" data-i18n="nav.gallery">Galerie</a>
+          <a href="ueber-uns.html" data-i18n="nav.about">Über uns</a>
+          <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
         </nav>
         <div class="navbar__actions">
-          <a href="spenden.html" class="btn btn--emerald btn--sm navbar__donate">❤️ Spenden</a>
+          <div class="lang-switcher">
+            <button class="lang-btn" data-lang="tr">TR</button>
+            <button class="lang-btn" data-lang="de">DE</button>
+          </div>
+          <a href="spenden.html" class="btn btn--emerald btn--sm navbar__donate">❤️ <span data-i18n="nav.donate">Spenden</span></a>
           <button class="navbar__hamburger" aria-label="Menü öffnen" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -47,36 +51,36 @@
     <div class="mobile-menu__inner">
       <a href="../index.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Startseite
+        <span data-i18n="nav.home">Startseite</span>
       </a>
       <a href="gebetszeiten.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Gebetszeiten
+        <span data-i18n="nav.prayer">Gebetszeiten</span>
       </a>
       <a href="veranstaltungen.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Veranstaltungen
+        <span data-i18n="nav.events">Veranstaltungen</span>
       </a>
       <a href="jugend.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Jugend
+        <span data-i18n="nav.youth">Jugend</span>
       </a>
       <a href="galerie.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        Galerie
+        <span data-i18n="nav.gallery">Galerie</span>
       </a>
       <a href="ueber-uns.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Über uns
+        <span data-i18n="nav.about">Über uns</span>
       </a>
       <a href="kontakt.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Kontakt
+        <span data-i18n="nav.contact">Kontakt</span>
       </a>
       <div class="mobile-menu__divider"></div>
       <a href="spenden.html" class="mobile-menu__donate">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        Spenden
+        <span data-i18n="nav.donate">Spenden</span>
       </a>
     </div>
   </div>
@@ -86,12 +90,12 @@
   <div class="container">
     <div class="page-hero__inner">
       <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">Startseite</a>
+        <a href="../index.html" data-i18n="common.breadcrumb_home">Startseite</a>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         <span>Jugend &amp; Familie</span>
       </nav>
-      <h1>Jugend &amp; Familie</h1>
-      <p>Programme, Bildung und Aktivitäten für Kinder, Jugendliche und Familien in unserer Gemeinde.</p>
+      <h1 data-i18n="youth.hero.title">Jugend &amp; Familie</h1>
+      <p data-i18n="youth.hero.desc">Programme, Bildung und Aktivitäten für Kinder, Jugendliche und Familien in unserer Gemeinde.</p>
     </div>
   </div>
 </div>
@@ -102,17 +106,17 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-text" data-aos>
-          <span class="badge">Unsere Jugend</span>
-          <h2>Bildung, Sport und Gemeinschaft für alle</h2>
-          <p>Die Jugendarbeit ist ein zentraler Bestandteil unserer Gemeindearbeit. Wir bieten ein vielfältiges Programm, das religiöse Bildung mit sozialen Aktivitäten verbindet.</p>
-          <p>Alle Programme werden von engagierten Ehrenamtlichen betreut und stehen Kindern und Jugendlichen unserer Gemeindemitglieder sowie der Umgebung offen.</p>
-          <a href="kontakt.html" class="btn btn--primary" style="margin-top:20px">Jetzt anmelden</a>
+          <span class="badge" data-i18n="youth.intro.badge">Unsere Jugend</span>
+          <h2 data-i18n="youth.intro.title">Bildung, Sport und Gemeinschaft für alle</h2>
+          <p data-i18n="youth.intro.p1">Die Jugendarbeit ist ein zentraler Bestandteil unserer Gemeindearbeit. Wir bieten ein vielfältiges Programm, das religiöse Bildung mit sozialen Aktivitäten verbindet.</p>
+          <p data-i18n="youth.intro.p2">Alle Programme werden von engagierten Ehrenamtlichen betreut und stehen Kindern und Jugendlichen unserer Gemeindemitglieder sowie der Umgebung offen.</p>
+          <a href="kontakt.html" class="btn btn--primary" style="margin-top:20px" data-i18n="youth.intro.btn">Jetzt anmelden</a>
         </div>
         <div class="about-visual" data-aos data-aos-delay="200">
           <div class="about-visual__card" style="font-size:4rem">👨‍👩‍👧‍👦</div>
           <div class="about-visual__badge">
             <strong>1977</strong>
-            <span>Gegründet</span>
+            <span data-i18n="youth.founded">Gegründet</span>
           </div>
         </div>
       </div>
@@ -123,8 +127,8 @@
   <section class="section section--alt" id="koran">
     <div class="container">
       <div class="section-header" data-aos>
-        <span class="badge">Programme</span>
-        <h2>Unsere Angebote</h2>
+        <span class="badge" data-i18n="youth.programs.badge">Programme</span>
+        <h2 data-i18n="youth.programs.title">Unsere Angebote</h2>
       </div>
 
       <!-- Koran Unterricht -->
@@ -132,8 +136,8 @@
         <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
           <div style="font-size:3rem">📚</div>
           <div style="flex:1;min-width:200px">
-            <h3 style="font-family:var(--font-heading);font-size:1.5rem;color:var(--green-900);margin-bottom:12px">Koran-Unterricht</h3>
-            <p style="color:var(--gray-500);margin-bottom:16px;line-height:1.7">
+            <h3 style="font-family:var(--font-heading);font-size:1.5rem;color:var(--green-900);margin-bottom:12px" data-i18n="youth.koran.title">Koran-Unterricht</h3>
+            <p style="color:var(--gray-500);margin-bottom:16px;line-height:1.7" data-i18n="youth.koran.desc">
               Wöchentlicher Koran-Unterricht für Kinder und Jugendliche. Die Schülerinnen und Schüler lernen die arabische Schrift, Koranrezitation und islamische Grundwerte in kindgerechter Atmosphäre.
             </p>
             <div style="display:flex;flex-wrap:wrap;gap:12px">
@@ -145,14 +149,13 @@
         </div>
       </div>
 
-
       <!-- Sport -->
       <div id="sport" style="background:var(--white);border-radius:var(--radius-xl);padding:36px;margin-bottom:24px;box-shadow:var(--shadow-sm);border:1px solid var(--gray-300)" data-aos>
         <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
           <div style="font-size:3rem">⚽</div>
           <div style="flex:1;min-width:200px">
-            <h3 style="font-family:var(--font-heading);font-size:1.5rem;color:var(--green-900);margin-bottom:12px">Jugend-Sport</h3>
-            <p style="color:var(--gray-500);margin-bottom:16px;line-height:1.7">
+            <h3 style="font-family:var(--font-heading);font-size:1.5rem;color:var(--green-900);margin-bottom:12px" data-i18n="youth.sport.title">Jugend-Sport</h3>
+            <p style="color:var(--gray-500);margin-bottom:16px;line-height:1.7" data-i18n="youth.sport.desc">
               Seit Juni 2014 findet in der Heinrich-Böhm-Halle in Sandbach eine wöchentliche Fußballveranstaltung für Jugendliche statt. Teamgeist, Fairplay und Spaß an der Bewegung stehen im Vordergrund.
             </p>
             <div style="display:flex;flex-wrap:wrap;gap:12px">
@@ -164,18 +167,17 @@
         </div>
       </div>
 
-
       <!-- Wettbewerbe -->
       <div id="wettbewerbe" style="background:var(--white);border-radius:var(--radius-xl);padding:36px;box-shadow:var(--shadow-sm);border:1px solid var(--gray-300)" data-aos>
         <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
           <div style="font-size:3rem">🏆</div>
           <div style="flex:1;min-width:200px">
-            <h3 style="font-family:var(--font-heading);font-size:1.5rem;color:var(--green-900);margin-bottom:12px">Wettbewerbe &amp; Förderung</h3>
-            <p style="color:var(--gray-500);margin-bottom:16px;line-height:1.7">
+            <h3 style="font-family:var(--font-heading);font-size:1.5rem;color:var(--green-900);margin-bottom:12px" data-i18n="youth.wett.title">Wettbewerbe &amp; Förderung</h3>
+            <p style="color:var(--gray-500);margin-bottom:16px;line-height:1.7" data-i18n="youth.wett.desc">
               Wir bereiten Kinder und Jugendliche auf regionale und überregionale Wettbewerbe in Koranrezitation (Hutbe &amp; Ezan) und islamischem Wissen vor.
             </p>
-            <p style="color:var(--gray-500);margin-bottom:16px;line-height:1.7">
-              <strong>Erfolge:</strong> Unsere Schüler haben bei Wettbewerben in Wahlen und Hirschhorn hervorragende Platzierungen erzielt.
+            <p style="color:var(--gray-500);margin-bottom:16px;line-height:1.7" data-i18n="youth.wett.success">
+              Erfolge: Unsere Schüler haben bei Wettbewerben in Wahlen und Hirschhorn hervorragende Platzierungen erzielt.
             </p>
             <div style="display:flex;flex-wrap:wrap;gap:12px">
               <span class="badge">🏅 Hutbe &amp; Ezan</span>
@@ -192,14 +194,14 @@
   <section class="section section--green">
     <div class="container" style="text-align:center">
       <div data-aos>
-        <h2 style="font-family:var(--font-heading);font-size:clamp(24px,3vw,36px);color:var(--white);margin-bottom:16px">
+        <h2 style="font-family:var(--font-heading);font-size:clamp(24px,3vw,36px);color:var(--white);margin-bottom:16px" data-i18n="youth.cta.title">
           Ihr Kind möchte mitmachen?
         </h2>
-        <p style="color:rgba(255,255,255,.75);max-width:500px;margin:0 auto 32px;font-size:1.0625rem">
+        <p style="color:rgba(255,255,255,.75);max-width:500px;margin:0 auto 32px;font-size:1.0625rem" data-i18n="youth.cta.desc">
           Wir freuen uns über jeden neuen Teilnehmer! Kontaktieren Sie uns für weitere Informationen zu Anmeldung und Programm.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
-          <a href="kontakt.html" class="btn btn--emerald btn--lg">Jetzt Kontakt aufnehmen</a>
+          <a href="kontakt.html" class="btn btn--emerald btn--lg" data-i18n="youth.cta.btn">Jetzt Kontakt aufnehmen</a>
           <a href="tel:+4961634105" class="btn btn--outline-white btn--lg">📞 06163 / 4105</a>
         </div>
       </div>
@@ -210,15 +212,16 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__bottom">
-      <p>© 2026 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
+      <p data-i18n="footer.copyright">© 2026 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
       <div class="footer__bottom-links">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
+        <a href="impressum.html" data-i18n="footer.imprint">Impressum</a>
+        <a href="datenschutz.html" data-i18n="footer.privacy">Datenschutz</a>
       </div>
     </div>
   </div>
 </footer>
 
+<script src="../js/i18n.js"></script>
 <script src="../js/main.js"></script>
 </body>
 </html>

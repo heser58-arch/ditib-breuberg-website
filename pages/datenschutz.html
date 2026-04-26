@@ -26,10 +26,14 @@
             </div>
             <div class="navbar__logo-text">
               <strong>DITIB Breuberg</strong>
-              <span>Türkisch Islamische Gemeinde</span>
+              <span data-i18n="nav.tagline">Türkisch Islamische Gemeinde</span>
             </div>
           </a>
           <div class="navbar__actions">
+            <div class="lang-switcher">
+              <button class="lang-btn" data-lang="tr">TR</button>
+              <button class="lang-btn" data-lang="de">DE</button>
+            </div>
             <a href="../index.html" class="btn btn--outline btn--sm">← Zurück</a>
           </div>
         </div>
@@ -108,8 +112,7 @@
           </ul>
 
           <p style="color:var(--gray-500);font-size:.875rem">
-            Stand: März 2026. Diese Datenschutzerklärung ist vorläufig und sollte bei Bedarf durch einen Rechtsanwalt
-            geprüft und angepasst werden.
+            Stand: April 2026.
           </p>
         </div>
       </div>
@@ -119,15 +122,16 @@
   <footer class="footer">
     <div class="container">
       <div class="footer__bottom">
-        <p>© 2026 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
+        <p data-i18n="footer.copyright">© 2026 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
         <div class="footer__bottom-links">
-          <a href="impressum.html">Impressum</a>
-          <a href="datenschutz.html">Datenschutz</a>
+          <a href="impressum.html" data-i18n="footer.imprint">Impressum</a>
+          <a href="datenschutz.html" data-i18n="footer.privacy">Datenschutz</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <script src="../js/i18n.js"></script>
   <script src="../js/main.js"></script>
 </body>
 

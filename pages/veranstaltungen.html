@@ -22,20 +22,24 @@
           </div>
           <div class="navbar__logo-text">
             <strong>DITIB Breuberg</strong>
-            <span>Türkisch Islamische Gemeinde</span>
+            <span data-i18n="nav.tagline">Türkisch Islamische Gemeinde</span>
           </div>
         </a>
         <nav class="navbar__nav">
-          <a href="../index.html">Startseite</a>
-          <a href="gebetszeiten.html">Gebetszeiten</a>
-          <a href="veranstaltungen.html" class="active">Veranstaltungen</a>
-          <a href="jugend.html">Jugend</a>
-          <a href="galerie.html">Galerie</a>
-          <a href="ueber-uns.html">Über uns</a>
-          <a href="kontakt.html">Kontakt</a>
+          <a href="../index.html" data-i18n="nav.home">Startseite</a>
+          <a href="gebetszeiten.html" data-i18n="nav.prayer">Gebetszeiten</a>
+          <a href="veranstaltungen.html" class="active" data-i18n="nav.events">Veranstaltungen</a>
+          <a href="jugend.html" data-i18n="nav.youth">Jugend</a>
+          <a href="galerie.html" data-i18n="nav.gallery">Galerie</a>
+          <a href="ueber-uns.html" data-i18n="nav.about">Über uns</a>
+          <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
         </nav>
         <div class="navbar__actions">
-          <a href="spenden.html" class="btn btn--emerald btn--sm navbar__donate">❤️ Spenden</a>
+          <div class="lang-switcher">
+            <button class="lang-btn" data-lang="tr">TR</button>
+            <button class="lang-btn" data-lang="de">DE</button>
+          </div>
+          <a href="spenden.html" class="btn btn--emerald btn--sm navbar__donate">❤️ <span data-i18n="nav.donate">Spenden</span></a>
           <button class="navbar__hamburger" aria-label="Menü öffnen" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -47,36 +51,36 @@
     <div class="mobile-menu__inner">
       <a href="../index.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Startseite
+        <span data-i18n="nav.home">Startseite</span>
       </a>
       <a href="gebetszeiten.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Gebetszeiten
+        <span data-i18n="nav.prayer">Gebetszeiten</span>
       </a>
       <a href="veranstaltungen.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Veranstaltungen
+        <span data-i18n="nav.events">Veranstaltungen</span>
       </a>
       <a href="jugend.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Jugend
+        <span data-i18n="nav.youth">Jugend</span>
       </a>
       <a href="galerie.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        Galerie
+        <span data-i18n="nav.gallery">Galerie</span>
       </a>
       <a href="ueber-uns.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Über uns
+        <span data-i18n="nav.about">Über uns</span>
       </a>
       <a href="kontakt.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Kontakt
+        <span data-i18n="nav.contact">Kontakt</span>
       </a>
       <div class="mobile-menu__divider"></div>
       <a href="spenden.html" class="mobile-menu__donate">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        Spenden
+        <span data-i18n="nav.donate">Spenden</span>
       </a>
     </div>
   </div>
@@ -86,12 +90,12 @@
   <div class="container">
     <div class="page-hero__inner">
       <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">Startseite</a>
+        <a href="../index.html" data-i18n="common.breadcrumb_home">Startseite</a>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         <span>Veranstaltungen</span>
       </nav>
-      <h1>Veranstaltungen &amp; Termine</h1>
-      <p>Aktuelle und wiederkehrende Veranstaltungen unserer Gemeinde. Alle sind herzlich eingeladen!</p>
+      <h1 data-i18n="events.hero.title">Veranstaltungen &amp; Termine</h1>
+      <p data-i18n="events.hero.desc">Aktuelle und wiederkehrende Veranstaltungen unserer Gemeinde. Alle sind herzlich eingeladen!</p>
     </div>
   </div>
 </div>
@@ -101,22 +105,22 @@
   <section class="section">
     <div class="container">
       <div class="section-header" data-aos>
-        <span class="badge">Wöchentlich</span>
-        <h2>Regelmäßige Veranstaltungen</h2>
+        <span class="badge" data-i18n="events.weekly.badge">Wöchentlich</span>
+        <h2 data-i18n="events.weekly.title">Regelmäßige Veranstaltungen</h2>
       </div>
       <div class="events-grid">
         <article class="event-card" data-aos>
           <div class="event-card__image">
             <div class="event-card__image-placeholder">🕌</div>
-            <span class="event-card__category">Gebet</span>
+            <span class="event-card__category" data-i18n="ev.friday.cat">Gebet</span>
           </div>
           <div class="event-card__body">
-            <div class="event-card__date">📅 Jeden Freitag · zur Mittagsgebetzeit</div>
-            <h3 class="event-card__title">Freitagsgebet (Cuma Namazı)</h3>
-            <p class="event-card__desc">Das wöchentliche Freitagsgebet mit Predigt (Hutbe) zur jeweiligen Mittagsgebetzeit. Alle Gläubigen sind herzlich eingeladen.</p>
+            <div class="event-card__date" data-i18n="ev.friday.date">📅 Jeden Freitag · zur Mittagsgebetzeit</div>
+            <h3 class="event-card__title" data-i18n="ev.friday.title">Freitagsgebet (Cuma Namazı)</h3>
+            <p class="event-card__desc" data-i18n="ev.friday.desc">Das wöchentliche Freitagsgebet mit Predigt (Hutbe) zur jeweiligen Mittagsgebetzeit. Alle Gläubigen sind herzlich eingeladen.</p>
             <div class="event-card__footer">
               <span class="event-card__location">📍 Sudetenstr. 19, Breuberg</span>
-              <a href="gebetszeiten.html" class="btn btn--sm btn--outline">Zeiten</a>
+              <a href="gebetszeiten.html" class="btn btn--sm btn--outline" data-i18n="ev.times">Zeiten</a>
             </div>
           </div>
         </article>
@@ -124,15 +128,15 @@
         <article class="event-card" data-aos data-aos-delay="100">
           <div class="event-card__image">
             <div class="event-card__image-placeholder">📚</div>
-            <span class="event-card__category">Bildung</span>
+            <span class="event-card__category" data-i18n="ev.koran.cat">Bildung</span>
           </div>
           <div class="event-card__body">
-            <div class="event-card__date">📅 Sa & So · 10:00–14:00 Uhr</div>
-            <h3 class="event-card__title">Koran-Unterricht</h3>
-            <p class="event-card__desc">Koran-Unterricht für Kinder und Jugendliche samstags und sonntags. Arabische Schrift, Rezitation und islamische Grundwerte.</p>
+            <div class="event-card__date" data-i18n="ev.koran.date">📅 Sa & So · 10:00–14:00 Uhr</div>
+            <h3 class="event-card__title" data-i18n="ev.koran.title">Koran-Unterricht</h3>
+            <p class="event-card__desc" data-i18n="ev.koran.desc">Koran-Unterricht für Kinder und Jugendliche samstags und sonntags. Arabische Schrift, Rezitation und islamische Grundwerte.</p>
             <div class="event-card__footer">
               <span class="event-card__location">📍 DITIB Gemeinde</span>
-              <a href="jugend.html" class="btn btn--sm btn--outline">Details</a>
+              <a href="jugend.html" class="btn btn--sm btn--outline" data-i18n="common.details">Details</a>
             </div>
           </div>
         </article>
@@ -145,22 +149,22 @@
   <section class="section section--alt">
     <div class="container">
       <div class="section-header" data-aos>
-        <span class="badge">Jährlich</span>
-        <h2>Jährliche Höhepunkte</h2>
+        <span class="badge" data-i18n="events.annual.badge">Jährlich</span>
+        <h2 data-i18n="events.annual.title">Jährliche Höhepunkte</h2>
       </div>
       <div class="events-grid">
         <article class="event-card" data-aos>
           <div class="event-card__image">
             <div class="event-card__image-placeholder">🌙</div>
-            <span class="event-card__category">Ramazan</span>
+            <span class="event-card__category" data-i18n="ev.ramazan.cat">Ramazan</span>
           </div>
           <div class="event-card__body">
-            <div class="event-card__date">📅 Ramazan · Iftar Fr–So · Tarawih täglich</div>
-            <h3 class="event-card__title">Ramazan – Iftar &amp; Tarawih</h3>
-            <p class="event-card__desc">Gemeinsames Fastenbrechen (Iftar) freitags bis sonntags in der Moschee. Das Tarawih-Nachtgebet findet täglich im gesamten Fastenmonat Ramazan statt.</p>
+            <div class="event-card__date" data-i18n="ev.ramazan.date">📅 Ramazan · Iftar Fr–So · Tarawih täglich</div>
+            <h3 class="event-card__title" data-i18n="ev.ramazan.title">Ramazan – Iftar &amp; Tarawih</h3>
+            <p class="event-card__desc" data-i18n="ev.ramazan.desc">Gemeinsames Fastenbrechen (Iftar) freitags bis sonntags in der Moschee. Das Tarawih-Nachtgebet findet täglich im gesamten Fastenmonat Ramazan statt.</p>
             <div class="event-card__footer">
               <span class="event-card__location">📍 Breuberger Moschee</span>
-              <a href="galerie.html" class="btn btn--sm btn--outline">Bilder</a>
+              <a href="galerie.html" class="btn btn--sm btn--outline" data-i18n="ev.images">Bilder</a>
             </div>
           </div>
         </article>
@@ -168,15 +172,15 @@
         <article class="event-card" data-aos data-aos-delay="100">
           <div class="event-card__image">
             <div class="event-card__image-placeholder">🕌</div>
-            <span class="event-card__category">Tag d. off. Moschee</span>
+            <span class="event-card__category" data-i18n="ev.openmos.cat">Tag d. off. Moschee</span>
           </div>
           <div class="event-card__body">
-            <div class="event-card__date">📅 Jährlich · 3. Oktober</div>
-            <h3 class="event-card__title">Tag der offenen Moschee</h3>
-            <p class="event-card__desc">Am deutschen Nationalfeiertag öffnen wir unsere Türen für alle Interessierten. Geführte Moscheerundgänge, Informationen über den Islam und das muslimische Leben in Deutschland, interreligiöse Gespräche und traditionelle Bewirtung. Seit 1997 bundesweit in über 1.000 Gemeinden – auch bei uns in Breuberg.</p>
+            <div class="event-card__date" data-i18n="ev.openmos.date">📅 Jährlich · 3. Oktober</div>
+            <h3 class="event-card__title" data-i18n="ev.openmos.title">Tag der offenen Moschee</h3>
+            <p class="event-card__desc" data-i18n="ev.openmos.desc">Am deutschen Nationalfeiertag öffnen wir unsere Türen für alle Interessierten. Geführte Moscheerundgänge, Informationen über den Islam und das muslimische Leben in Deutschland, interreligiöse Gespräche und traditionelle Bewirtung. Seit 1997 bundesweit in über 1.000 Gemeinden – auch bei uns in Breuberg.</p>
             <div class="event-card__footer">
               <span class="event-card__location">📍 Breuberger Moschee</span>
-              <a href="galerie.html" class="btn btn--sm btn--outline">Bilder</a>
+              <a href="galerie.html" class="btn btn--sm btn--outline" data-i18n="ev.images">Bilder</a>
             </div>
           </div>
         </article>
@@ -184,15 +188,15 @@
         <article class="event-card" data-aos data-aos-delay="200">
           <div class="event-card__image">
             <div class="event-card__image-placeholder">🎪</div>
-            <span class="event-card__category">Kermes</span>
+            <span class="event-card__category" data-i18n="ev.kermes.cat">Kermes</span>
           </div>
           <div class="event-card__body">
-            <div class="event-card__date">📅 Oktober (jährlich)</div>
-            <h3 class="event-card__title">Kermes – Gemeindemarkt</h3>
-            <p class="event-card__desc">Unser jährlicher Gemeindemarkt mit türkischen und internationalen Speisen, Kultur und Gemeinschaft. Erstmals 2014, seitdem fester Bestandteil.</p>
+            <div class="event-card__date" data-i18n="ev.kermes.date">📅 Oktober (jährlich)</div>
+            <h3 class="event-card__title" data-i18n="ev.kermes.title">Kermes – Gemeindemarkt</h3>
+            <p class="event-card__desc" data-i18n="ev.kermes.desc">Unser jährlicher Gemeindemarkt mit türkischen und internationalen Speisen, Kultur und Gemeinschaft. Erstmals 2014, seitdem fester Bestandteil.</p>
             <div class="event-card__footer">
               <span class="event-card__location">📍 Breuberger Moschee</span>
-              <a href="galerie.html" class="btn btn--sm btn--outline">Bilder</a>
+              <a href="galerie.html" class="btn btn--sm btn--outline" data-i18n="ev.images">Bilder</a>
             </div>
           </div>
         </article>
@@ -200,12 +204,12 @@
         <article class="event-card" data-aos>
           <div class="event-card__image">
             <div class="event-card__image-placeholder">🐑</div>
-            <span class="event-card__category">Opferfest</span>
+            <span class="event-card__category" data-i18n="ev.kurban.cat">Opferfest</span>
           </div>
           <div class="event-card__body">
-            <div class="event-card__date">📅 Jährlich · Kurban Bayramı</div>
-            <h3 class="event-card__title">Opferfest (Kurban Bayramı)</h3>
-            <p class="event-card__desc">Das viertägige Opferfest wird in unserer Gemeinde mit Festgebet und gemeinschaftlichen Aktivitäten gefeiert.</p>
+            <div class="event-card__date" data-i18n="ev.kurban.date">📅 Jährlich · Kurban Bayramı</div>
+            <h3 class="event-card__title" data-i18n="ev.kurban.title">Opferfest (Kurban Bayramı)</h3>
+            <p class="event-card__desc" data-i18n="ev.kurban.desc">Das viertägige Opferfest wird in unserer Gemeinde mit Festgebet und gemeinschaftlichen Aktivitäten gefeiert.</p>
             <div class="event-card__footer">
               <span class="event-card__location">📍 Breuberger Moschee</span>
             </div>
@@ -215,12 +219,12 @@
         <article class="event-card" data-aos data-aos-delay="100">
           <div class="event-card__image">
             <div class="event-card__image-placeholder">🌍</div>
-            <span class="event-card__category">Interkulturell</span>
+            <span class="event-card__category" data-i18n="ev.inter.cat">Interkulturell</span>
           </div>
           <div class="event-card__body">
-            <div class="event-card__date">📅 September (jährlich)</div>
-            <h3 class="event-card__title">Interkulturelle Woche</h3>
-            <p class="event-card__desc">Jährliche Teilnahme an der bundesweiten interkulturellen Woche. Wanderungen, Begegnungen und interkultureller Dialog.</p>
+            <div class="event-card__date" data-i18n="ev.inter.date">📅 September (jährlich)</div>
+            <h3 class="event-card__title" data-i18n="ev.inter.title">Interkulturelle Woche</h3>
+            <p class="event-card__desc" data-i18n="ev.inter.desc">Jährliche Teilnahme an der bundesweiten interkulturellen Woche. Wanderungen, Begegnungen und interkultureller Dialog.</p>
             <div class="event-card__footer">
               <span class="event-card__location">📍 Odenwaldkreis</span>
             </div>
@@ -230,12 +234,12 @@
         <article class="event-card" data-aos data-aos-delay="200">
           <div class="event-card__image">
             <div class="event-card__image-placeholder">🎊</div>
-            <span class="event-card__category">Zuckerfest</span>
+            <span class="event-card__category" data-i18n="ev.zucker.cat">Zuckerfest</span>
           </div>
           <div class="event-card__body">
-            <div class="event-card__date">📅 Jährlich · Ramazan Bayramı</div>
-            <h3 class="event-card__title">Zuckerfest (Ramazan Bayramı)</h3>
-            <p class="event-card__desc">Das dreitägige Fest am Ende des Ramazans wird mit Festgebet, Familienbesuchen und Feierlichkeiten begangen.</p>
+            <div class="event-card__date" data-i18n="ev.zucker.date">📅 Jährlich · Ramazan Bayramı</div>
+            <h3 class="event-card__title" data-i18n="ev.zucker.title">Zuckerfest (Ramazan Bayramı)</h3>
+            <p class="event-card__desc" data-i18n="ev.zucker.desc">Das dreitägige Fest am Ende des Ramazans wird mit Festgebet, Familienbesuchen und Feierlichkeiten begangen.</p>
             <div class="event-card__footer">
               <span class="event-card__location">📍 Breuberger Moschee</span>
             </div>
@@ -249,17 +253,17 @@
   <section class="section section--green" id="interkulturell">
     <div class="container" style="text-align:center">
       <div data-aos>
-        <h2 style="font-family:var(--font-heading);font-size:clamp(24px,3vw,36px);color:var(--white);margin-bottom:16px">
+        <h2 style="font-family:var(--font-heading);font-size:clamp(24px,3vw,36px);color:var(--white);margin-bottom:16px" data-i18n="events.cta.title">
           Keine Veranstaltung verpassen
         </h2>
-        <p style="color:rgba(255,255,255,.75);max-width:480px;margin:0 auto 32px;font-size:1.0625rem">
+        <p style="color:rgba(255,255,255,.75);max-width:480px;margin:0 auto 32px;font-size:1.0625rem" data-i18n="events.cta.desc">
           Folgen Sie uns auf Facebook oder nehmen Sie Kontakt auf, um über unsere Veranstaltungen informiert zu werden.
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
-          <a href="https://www.facebook.com/groups/115303355158682/" target="_blank" rel="noopener" class="btn btn--emerald btn--lg">
+          <a href="https://www.facebook.com/groups/115303355158682/" target="_blank" rel="noopener" class="btn btn--emerald btn--lg" data-i18n="events.cta.fb">
             Facebook Gruppe
           </a>
-          <a href="kontakt.html" class="btn btn--outline-white btn--lg">Kontakt aufnehmen</a>
+          <a href="kontakt.html" class="btn btn--outline-white btn--lg" data-i18n="events.cta.contact">Kontakt aufnehmen</a>
         </div>
       </div>
     </div>
@@ -269,15 +273,16 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__bottom">
-      <p>© 2026 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
+      <p data-i18n="footer.copyright">© 2026 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
       <div class="footer__bottom-links">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
+        <a href="impressum.html" data-i18n="footer.imprint">Impressum</a>
+        <a href="datenschutz.html" data-i18n="footer.privacy">Datenschutz</a>
       </div>
     </div>
   </div>
 </footer>
 
+<script src="../js/i18n.js"></script>
 <script src="../js/main.js"></script>
 </body>
 </html>

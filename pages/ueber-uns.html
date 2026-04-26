@@ -22,20 +22,24 @@
           </div>
           <div class="navbar__logo-text">
             <strong>DITIB Breuberg</strong>
-            <span>Türkisch Islamische Gemeinde</span>
+            <span data-i18n="nav.tagline">Türkisch Islamische Gemeinde</span>
           </div>
         </a>
         <nav class="navbar__nav">
-          <a href="../index.html">Startseite</a>
-          <a href="gebetszeiten.html">Gebetszeiten</a>
-          <a href="veranstaltungen.html">Veranstaltungen</a>
-          <a href="jugend.html">Jugend</a>
-          <a href="galerie.html">Galerie</a>
-          <a href="ueber-uns.html" class="active">Über uns</a>
-          <a href="kontakt.html">Kontakt</a>
+          <a href="../index.html" data-i18n="nav.home">Startseite</a>
+          <a href="gebetszeiten.html" data-i18n="nav.prayer">Gebetszeiten</a>
+          <a href="veranstaltungen.html" data-i18n="nav.events">Veranstaltungen</a>
+          <a href="jugend.html" data-i18n="nav.youth">Jugend</a>
+          <a href="galerie.html" data-i18n="nav.gallery">Galerie</a>
+          <a href="ueber-uns.html" class="active" data-i18n="nav.about">Über uns</a>
+          <a href="kontakt.html" data-i18n="nav.contact">Kontakt</a>
         </nav>
         <div class="navbar__actions">
-          <a href="spenden.html" class="btn btn--emerald btn--sm navbar__donate">❤️ Spenden</a>
+          <div class="lang-switcher">
+            <button class="lang-btn" data-lang="tr">TR</button>
+            <button class="lang-btn" data-lang="de">DE</button>
+          </div>
+          <a href="spenden.html" class="btn btn--emerald btn--sm navbar__donate">❤️ <span data-i18n="nav.donate">Spenden</span></a>
           <button class="navbar__hamburger" aria-label="Menü öffnen" aria-expanded="false">
             <span></span><span></span><span></span>
           </button>
@@ -47,36 +51,36 @@
     <div class="mobile-menu__inner">
       <a href="../index.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        Startseite
+        <span data-i18n="nav.home">Startseite</span>
       </a>
       <a href="gebetszeiten.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        Gebetszeiten
+        <span data-i18n="nav.prayer">Gebetszeiten</span>
       </a>
       <a href="veranstaltungen.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        Veranstaltungen
+        <span data-i18n="nav.events">Veranstaltungen</span>
       </a>
       <a href="jugend.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        Jugend
+        <span data-i18n="nav.youth">Jugend</span>
       </a>
       <a href="galerie.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        Galerie
+        <span data-i18n="nav.gallery">Galerie</span>
       </a>
       <a href="ueber-uns.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Über uns
+        <span data-i18n="nav.about">Über uns</span>
       </a>
       <a href="kontakt.html">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Kontakt
+        <span data-i18n="nav.contact">Kontakt</span>
       </a>
       <div class="mobile-menu__divider"></div>
       <a href="spenden.html" class="mobile-menu__donate">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-        Spenden
+        <span data-i18n="nav.donate">Spenden</span>
       </a>
     </div>
   </div>
@@ -86,12 +90,12 @@
   <div class="container">
     <div class="page-hero__inner">
       <nav class="page-hero__breadcrumb" aria-label="Breadcrumb">
-        <a href="../index.html">Startseite</a>
+        <a href="../index.html" data-i18n="common.breadcrumb_home">Startseite</a>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         <span>Über uns</span>
       </nav>
-      <h1>Über uns</h1>
-      <p>Die Geschichte, der Vorstand und die Satzung der DITIB Türkisch Islamischen Gemeinde zu Breuberg-Sandbach e.V.</p>
+      <h1 data-i18n="about.hero.title">Über uns</h1>
+      <p data-i18n="about.hero.desc">Die Geschichte, der Vorstand und die Satzung der DITIB Türkisch Islamischen Gemeinde zu Breuberg-Sandbach e.V.</p>
     </div>
   </div>
 </div>
@@ -102,12 +106,12 @@
     <div class="container">
       <div class="about-grid">
         <div class="about-text" data-aos>
-          <span class="badge">Seit 1977</span>
-          <h2>Unsere Geschichte</h2>
-          <p>Die DITIB - Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V. wurde im Jahr <strong>1977</strong> gegründet. Die Gemeinde entstand aus der Idee heraus, für muslimische Gastarbeiter im Odenwaldkreis eine religiöse Heimat zu schaffen.</p>
-          <p>Zweck der Gemeinde ist die Förderung der <strong>Religion, Erziehung und Bildung, des Sports, der Jugendvorsorge, der Mildtätigkeit, der Harmonie sowie der Kultur</strong>.</p>
-          <p>Heute zählt unser Verein über <strong>320 Mitglieder</strong> und deren Familien aus der Region des Odenwaldkreises. In der Moschee finden täglich Gebete, Koran-Unterricht und kulturelle Aktivitäten statt.</p>
-          <p>Langfristig planen wir einen Umzug in neue und größere Räumlichkeiten, um dem wachsenden Bedarf unserer Gemeinde gerecht zu werden.</p>
+          <span class="badge" data-i18n="about.history.badge">Seit 1977</span>
+          <h2 data-i18n="about.history.title">Unsere Geschichte</h2>
+          <p data-i18n="about.history.p1">Die DITIB - Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V. wurde im Jahr <strong>1977</strong> gegründet. Die Gemeinde entstand aus der Idee heraus, für muslimische Gastarbeiter im Odenwaldkreis eine religiöse Heimat zu schaffen.</p>
+          <p data-i18n="about.history.p2">Zweck der Gemeinde ist die Förderung der <strong>Religion, Erziehung und Bildung, des Sports, der Jugendvorsorge, der Mildtätigkeit, der Harmonie sowie der Kultur</strong>.</p>
+          <p data-i18n="about.history.p3">Heute zählt unser Verein über <strong>320 Mitglieder</strong> und deren Familien aus der Region des Odenwaldkreises. In der Moschee finden täglich Gebete, Koran-Unterricht und kulturelle Aktivitäten statt.</p>
+          <p data-i18n="about.history.p4">Langfristig planen wir einen Umzug in neue und größere Räumlichkeiten, um dem wachsenden Bedarf unserer Gemeinde gerecht zu werden.</p>
         </div>
         <div class="about-visual" data-aos data-aos-delay="200">
           <div class="about-visual__card" aria-hidden="true" style="padding:0;overflow:hidden">
@@ -115,7 +119,7 @@
           </div>
           <div class="about-visual__badge">
             <strong>49</strong>
-            <span>Jahre Gemeinde</span>
+            <span data-i18n="about.history.years">Jahre Gemeinde</span>
           </div>
         </div>
       </div>
@@ -126,39 +130,39 @@
   <section class="section section--alt">
     <div class="container">
       <div class="section-header" data-aos>
-        <span class="badge">Mission</span>
-        <h2>Unsere Zwecke</h2>
+        <span class="badge" data-i18n="about.mission.badge">Mission</span>
+        <h2 data-i18n="about.mission.title">Unsere Zwecke</h2>
       </div>
       <div class="youth-grid" data-aos>
         <div class="youth-card">
           <div class="youth-card__icon">🙏</div>
-          <h3 class="youth-card__title">Religion</h3>
-          <p class="youth-card__desc">Förderung des islamischen Glaubens: tägliche Gebete, Freitagsgebet, Feiertagsgebete, Koran-Unterricht.</p>
+          <h3 class="youth-card__title" data-i18n="about.mission.religion.title">Religion</h3>
+          <p class="youth-card__desc" data-i18n="about.mission.religion.desc">Förderung des islamischen Glaubens: tägliche Gebete, Freitagsgebet, Feiertagsgebete, Koran-Unterricht.</p>
         </div>
         <div class="youth-card">
           <div class="youth-card__icon">📖</div>
-          <h3 class="youth-card__title">Erziehung &amp; Bildung</h3>
-          <p class="youth-card__desc">Religiöse und weltliche Bildung für alle Altersgruppen.</p>
+          <h3 class="youth-card__title" data-i18n="about.mission.education.title">Erziehung &amp; Bildung</h3>
+          <p class="youth-card__desc" data-i18n="about.mission.education.desc">Religiöse und weltliche Bildung für alle Altersgruppen.</p>
         </div>
         <div class="youth-card">
           <div class="youth-card__icon">⚽</div>
-          <h3 class="youth-card__title">Sport</h3>
-          <p class="youth-card__desc">Sportliche Aktivitäten für Jugendliche, insbesondere wöchentliches Fußballangebot.</p>
+          <h3 class="youth-card__title" data-i18n="about.mission.sport.title">Sport</h3>
+          <p class="youth-card__desc" data-i18n="about.mission.sport.desc">Sportliche Aktivitäten für Jugendliche, insbesondere wöchentliches Fußballangebot.</p>
         </div>
         <div class="youth-card">
           <div class="youth-card__icon">👶</div>
-          <h3 class="youth-card__title">Jugendvorsorge</h3>
-          <p class="youth-card__desc">Begleitung und Förderung junger Menschen in ihrer religiösen und sozialen Entwicklung.</p>
+          <h3 class="youth-card__title" data-i18n="about.mission.youth.title">Jugendvorsorge</h3>
+          <p class="youth-card__desc" data-i18n="about.mission.youth.desc">Begleitung und Förderung junger Menschen in ihrer religiösen und sozialen Entwicklung.</p>
         </div>
         <div class="youth-card">
           <div class="youth-card__icon">❤️</div>
-          <h3 class="youth-card__title">Mildtätigkeit</h3>
-          <p class="youth-card__desc">Unterstützung Bedürftiger, Spendensammlungen für Flüchtlinge und soziale Projekte.</p>
+          <h3 class="youth-card__title" data-i18n="about.mission.charity.title">Mildtätigkeit</h3>
+          <p class="youth-card__desc" data-i18n="about.mission.charity.desc">Unterstützung Bedürftiger, Spendensammlungen für Flüchtlinge und soziale Projekte.</p>
         </div>
         <div class="youth-card">
           <div class="youth-card__icon">🌍</div>
-          <h3 class="youth-card__title">Harmonie</h3>
-          <p class="youth-card__desc">Interkultureller Dialog, Tag der offenen Moschee, Zusammenarbeit mit Nachbarschaftsvereinen.</p>
+          <h3 class="youth-card__title" data-i18n="about.mission.harmony.title">Harmonie</h3>
+          <p class="youth-card__desc" data-i18n="about.mission.harmony.desc">Interkultureller Dialog, Tag der offenen Moschee, Zusammenarbeit mit Nachbarschaftsvereinen.</p>
         </div>
       </div>
     </div>
@@ -168,67 +172,67 @@
   <section class="section" id="vorstand">
     <div class="container">
       <div class="section-header" data-aos>
-        <span class="badge">Team</span>
-        <h2>Vorstand &amp; Team</h2>
-        <p>Unser Team besteht ausschließlich aus engagierten ehrenamtlichen Mitarbeitern.</p>
+        <span class="badge" data-i18n="about.team.badge">Team</span>
+        <h2 data-i18n="about.team.title">Vorstand &amp; Team</h2>
+        <p data-i18n="about.team.desc">Unser Team besteht ausschließlich aus engagierten ehrenamtlichen Mitarbeitern.</p>
       </div>
       <div class="team-grid" data-aos>
         <div class="team-card">
           <div class="team-card__avatar">👤</div>
           <div class="team-card__name">Cemal Polat</div>
-          <div class="team-card__role">Vereinsvorsitzender</div>
+          <div class="team-card__role" data-i18n="about.team.role.chair">Vereinsvorsitzender</div>
+        </div>
+        <div class="team-card">
+          <div class="team-card__avatar">👤</div>
+          <div class="team-card__name">Ilkay Özlüoğlu</div>
+          <div class="team-card__role" data-i18n="about.team.role.vchair_m">Stellv. Vereinsvorsitzender</div>
         </div>
         <div class="team-card">
           <div class="team-card__avatar">👩</div>
           <div class="team-card__name">Medine Akcay</div>
-          <div class="team-card__role">Stellv. Vereinsvorsitzende</div>
-        </div>
-        <div class="team-card">
-          <div class="team-card__avatar">👤</div>
-          <div class="team-card__name">Ilkay Özlüoglu</div>
-          <div class="team-card__role">Stellv. Vereinsvorsitzender</div>
+          <div class="team-card__role" data-i18n="about.team.role.vchair_f">Stellv. Vereinsvorsitzende</div>
         </div>
         <div class="team-card">
           <div class="team-card__avatar">💻</div>
           <div class="team-card__name">Hakan Eser</div>
-          <div class="team-card__role">Schriftführer / Website-Verantwortlicher</div>
+          <div class="team-card__role" data-i18n="about.team.role.secretary">Schriftführer / Website-Verantwortlicher</div>
         </div>
         <div class="team-card">
           <div class="team-card__avatar">👤</div>
-          <div class="team-card__name">Hasan Ince</div>
-          <div class="team-card__role">Kassenwart</div>
+          <div class="team-card__name">Hasan İnce</div>
+          <div class="team-card__role" data-i18n="about.team.role.treasurer">Kassenwart</div>
         </div>
         <div class="team-card">
           <div class="team-card__avatar">👤</div>
           <div class="team-card__name">Fikret Ekecik</div>
-          <div class="team-card__role">Beisitzer</div>
+          <div class="team-card__role" data-i18n="about.team.role.member">Beisitzer</div>
         </div>
         <div class="team-card">
           <div class="team-card__avatar">👩</div>
-          <div class="team-card__name">Isik Ergürbüz</div>
-          <div class="team-card__role">Beisitzerin Frauenvertretung</div>
+          <div class="team-card__name">Işık Ergürbüz</div>
+          <div class="team-card__role" data-i18n="about.team.role.member_f">Beisitzerin Frauenvertretung</div>
         </div>
         <div class="team-card">
           <div class="team-card__avatar">👤</div>
-          <div class="team-card__name">Kenan Taskan</div>
-          <div class="team-card__role">Beisitzer Elternvertretung</div>
+          <div class="team-card__name">Kenan Taşkan</div>
+          <div class="team-card__role" data-i18n="about.team.role.member_parents">Beisitzer Elternvertretung</div>
         </div>
         <div class="team-card">
           <div class="team-card__avatar">👤</div>
           <div class="team-card__name">Samet Yilan</div>
-          <div class="team-card__role">Beisitzer Jugendvertretung</div>
+          <div class="team-card__role" data-i18n="about.team.role.member_youth_m">Beisitzer Jugendvertretung</div>
         </div>
         <div class="team-card">
           <div class="team-card__avatar">👩</div>
-          <div class="team-card__name">Aleyna Özlüoglu</div>
-          <div class="team-card__role">Beisitzerin Jugendvertretung</div>
+          <div class="team-card__name">Aleyna Özlüoğlu</div>
+          <div class="team-card__role" data-i18n="about.team.role.member_youth_f">Beisitzerin Jugendvertretung</div>
         </div>
         <div class="team-card">
           <div class="team-card__avatar">👤</div>
           <div class="team-card__name">Abdulselim Özkan</div>
-          <div class="team-card__role">Vorbeter / Imam</div>
+          <div class="team-card__role" data-i18n="about.team.role.imam">Vorbeter / Imam</div>
         </div>
-        
+
       </div>
     </div>
   </section>
@@ -237,16 +241,16 @@
   <section class="section section--green" id="mitglied">
     <div class="container" style="text-align:center">
       <div data-aos>
-        <span class="badge" style="background:rgba(45,134,83,.2);border:1px solid rgba(45,134,83,.3);color:var(--emerald-300);margin-bottom:20px">Mitmachen</span>
-        <h2 style="font-family:var(--font-heading);font-size:clamp(24px,3vw,40px);color:var(--white);margin-bottom:16px">
+        <span class="badge" data-i18n="about.member.badge" style="background:rgba(45,134,83,.2);border:1px solid rgba(45,134,83,.3);color:var(--emerald-300);margin-bottom:20px">Mitmachen</span>
+        <h2 data-i18n="about.member.title" style="font-family:var(--font-heading);font-size:clamp(24px,3vw,40px);color:var(--white);margin-bottom:16px">
           Werden Sie Mitglied!
         </h2>
-        <p style="color:rgba(255,255,255,.75);max-width:560px;margin:0 auto 32px;font-size:1.0625rem;line-height:1.7">
+        <p data-i18n="about.member.desc" style="color:rgba(255,255,255,.75);max-width:560px;margin:0 auto 32px;font-size:1.0625rem;line-height:1.7">
           Unterstützen Sie unsere Gemeinde als Mitglied. Mit Ihrem Beitrag stärken Sie religiöses und kulturelles Leben im Odenwaldkreis. Helfende Hände sind uns jederzeit herzlich willkommen!
         </p>
         <div style="display:flex;flex-wrap:wrap;gap:14px;justify-content:center">
-          <a href="kontakt.html" class="btn btn--emerald btn--lg">Jetzt Mitglied werden</a>
-          <a href="mailto:ditib-breuberg@hotmail.com" class="btn btn--outline-white btn--lg">Per E-Mail anfragen</a>
+          <a href="kontakt.html" class="btn btn--emerald btn--lg" data-i18n="about.member.btn1">Jetzt Mitglied werden</a>
+          <a href="mailto:ditib-breuberg@hotmail.com" class="btn btn--outline-white btn--lg" data-i18n="about.member.btn2">Per E-Mail anfragen</a>
         </div>
       </div>
     </div>
@@ -256,11 +260,11 @@
   <section class="section">
     <div class="container">
       <div style="background:var(--cream);border-radius:var(--radius-xl);padding:40px 36px;max-width:800px;margin:0 auto" data-aos>
-        <h3 style="font-family:var(--font-heading);font-size:1.375rem;color:var(--green-900);margin-bottom:16px">Was ist DITIB?</h3>
-        <p style="color:var(--gray-500);line-height:1.7;margin-bottom:14px">
+        <h3 data-i18n="about.ditib.title" style="font-family:var(--font-heading);font-size:1.375rem;color:var(--green-900);margin-bottom:16px">Was ist DITIB?</h3>
+        <p data-i18n="about.ditib.p1" style="color:var(--gray-500);line-height:1.7;margin-bottom:14px">
           DITIB ist ein eingetragener Verein und Dachverband türkisch-islamischer Gemeinden in Deutschland.
         </p>
-        <p style="color:var(--gray-500);line-height:1.7">
+        <p data-i18n="about.ditib.p2" style="color:var(--gray-500);line-height:1.7">
           Die DITIB-Gemeinde in Breuberg ist eine eigenständige Ortsgemeinde und Teil dieses bundesweiten Netzwerks. Sie gestaltet ihre Aktivitäten eigenverantwortlich und ist tief in der lokalen Gemeinschaft des Odenwaldkreises verwurzelt.
         </p>
       </div>
@@ -271,15 +275,16 @@
 <footer class="footer">
   <div class="container">
     <div class="footer__bottom">
-      <p>© 2026 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
+      <p data-i18n="footer.copyright">© 2026 DITIB – Türkisch Islamische Gemeinde zu Breuberg-Sandbach e.V.</p>
       <div class="footer__bottom-links">
-        <a href="impressum.html">Impressum</a>
-        <a href="datenschutz.html">Datenschutz</a>
+        <a href="impressum.html" data-i18n="footer.imprint">Impressum</a>
+        <a href="datenschutz.html" data-i18n="footer.privacy">Datenschutz</a>
       </div>
     </div>
   </div>
 </footer>
 
+<script src="../js/i18n.js"></script>
 <script src="../js/main.js"></script>
 </body>
 </html>
