@@ -233,7 +233,7 @@ const translations = {
     'youth.fri'             : 'Freitagabend',
     'youth.sun'             : 'Sonntagabend',
     'youth.wed.act'         : 'Arabisch-Unterricht (14–17 Jahre)',
-    'youth.fri.act'         : 'Deutscher Vortrag',
+    'youth.fri.act'         : 'Vorträge auf Deutsch',
     'youth.sun.act'         : 'Hallenfußball + Koranlesung (ab 18 Jahre)',
     'youth.ramadan'         : 'Ramadan',
     'youth.ramadan.act'     : 'Iftar- und Suhur-Veranstaltungen',
