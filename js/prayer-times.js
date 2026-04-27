@@ -131,13 +131,33 @@ function getTimeUntil(prayer) {
 }
 
 /**
- * Datum auf Deutsch formatieren
+ * Datum sprachabhängig formatieren
  */
-function formatDateDE(date) {
-  return date.toLocaleDateString('de-DE', {
+function formatDate(date) {
+  const lang = (typeof I18N !== 'undefined' ? I18N.currentLang : null) || 'de';
+  const locale = lang === 'tr' ? 'tr-TR' : 'de-DE';
+  return date.toLocaleDateString(locale, {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
   });
 }
+
+/**
+ * Gebetsname sprachabhängig
+ */
+function prayerName(p) {
+  const lang = (typeof I18N !== 'undefined' ? I18N.currentLang : null) || 'de';
+  return lang === 'tr' ? p.name : p.nameDE;
+}
+
+/**
+ * i18n-Hilfsfunktion (auch nutzbar bevor I18N initialisiert ist)
+ */
+function pt(key) {
+  return (typeof I18N !== 'undefined') ? I18N.t(key) : key;
+}
+
+// Gespeicherte Renderdaten für Rerender bei Sprachwechsel
+let _lastRenderData = null;
 
 /**
  * Gebetskarte im Hero-Bereich rendern
@@ -146,18 +166,14 @@ function renderHeroPrayerCard(times, date, prayerData) {
   const container = document.getElementById('prayer-card-content');
   if (!container) return;
 
-  const { current, next, prayers, isTomorrow } = getCurrentAndNextPrayer(times, prayerData);
-  // Nach Yatsı: nächstes Gebet ist morgen → Datum auf morgen wechseln
-  const displayDate = isTomorrow
-    ? new Date(date.getFullYear(), date.getMonth(), date.getDate() + 1)
-    : date;
-  const dateStr = formatDateDE(displayDate);
+  const { current, next, prayers } = getCurrentAndNextPrayer(times, prayerData);
+  const dateStr = formatDate(date);
 
   container.innerHTML = `
     <div class="prayer-card__header">
       <div class="prayer-card__title">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        Gebetszeiten
+        ${pt('prayer.card.title')}
       </div>
       <div class="prayer-card__date">
         <div>${dateStr}</div>
@@ -167,8 +183,8 @@ function renderHeroPrayerCard(times, date, prayerData) {
     ${next ? `
     <div class="prayer-card__next">
       <div>
-        <div class="prayer-card__next-label">Nächstes Gebet</div>
-        <div class="prayer-card__next-name">${next.icon} ${next.nameDE}</div>
+        <div class="prayer-card__next-label">${pt('prayer.card.next')}</div>
+        <div class="prayer-card__next-name">${next.icon} ${prayerName(next)}</div>
         <div style="font-size:.8125rem;opacity:.8;margin-top:2px" id="hero-countdown"></div>
       </div>
       <div class="prayer-card__next-time">${next.time}</div>
@@ -179,7 +195,7 @@ function renderHeroPrayerCard(times, date, prayerData) {
         <div class="prayer-item ${current && current.key === p.key ? 'current' : ''}">
           <div class="prayer-item__name">
             <div class="prayer-item__icon">${p.icon}</div>
-            <span>${p.nameDE}</span>
+            <span>${prayerName(p)}</span>
           </div>
           <div class="prayer-item__time">${p.time}</div>
         </div>
@@ -188,9 +204,10 @@ function renderHeroPrayerCard(times, date, prayerData) {
   `;
 
   if (next) {
+    const prefix = pt('prayer.card.in');
     function updateCountdown() {
       const el = document.getElementById('hero-countdown');
-      if (el) el.textContent = `in ${getTimeUntil(next)}`;
+      if (el) el.textContent = prefix ? `${prefix} ${getTimeUntil(next)}` : getTimeUntil(next);
     }
     updateCountdown();
     setInterval(updateCountdown, 1000);
@@ -212,12 +229,12 @@ function renderFullPrayerTimes(times, prayerData) {
       <div class="next-prayer-banner__info">
         <div class="next-prayer-banner__icon">${next.icon}</div>
         <div class="next-prayer-banner__text">
-          <strong>Nächstes Gebet</strong>
-          <h3>${next.nameDE} · ${next.time}</h3>
+          <strong>${pt('prayer.card.next')}</strong>
+          <h3>${prayerName(next)} · ${next.time}</h3>
         </div>
       </div>
       <div class="next-prayer-banner__countdown">
-        <div class="label">Verbleibend</div>
+        <div class="label">${pt('prayer.card.remaining')}</div>
         <div class="time" id="full-countdown">${getTimeUntil(next)}</div>
       </div>
     `;
@@ -232,10 +249,10 @@ function renderFullPrayerTimes(times, prayerData) {
       ${prayers.map(p => `
         <div class="prayer-times-card ${current && current.key === p.key ? 'current' : ''}">
           <div class="prayer-times-card__icon">${p.icon}</div>
-          <div class="prayer-times-card__name">${p.nameDE}</div>
+          <div class="prayer-times-card__name">${prayerName(p)}</div>
           <div class="prayer-times-card__time">${p.time}</div>
           <div style="font-size:.75rem;color:var(--gray-500);margin-top:4px">${p.name}</div>
-          ${current && current.key === p.key ? '<div style="margin-top:8px"><span class="badge">Aktuelle Zeit</span></div>' : ''}
+          ${current && current.key === p.key ? `<div style="margin-top:8px"><span class="badge">${pt('prayer.card.current')}</span></div>` : ''}
         </div>
       `).join('')}
     </div>
@@ -271,7 +288,6 @@ async function initPrayerTimes() {
     return;
   }
 
-  // Prüfen ob nach Yatsı (alle Gebete heute vorbei) → morgen anzeigen
   const { isTomorrow } = getCurrentAndNextPrayer(times, prayerData);
   let displayDate = today;
   let displayTimes = times;
@@ -284,8 +300,21 @@ async function initPrayerTimes() {
     }
   }
 
+  // Renderdaten speichern für Sprachwechsel-Rerender
+  _lastRenderData = { displayTimes, displayDate, prayerData };
+
   if (heroCard) renderHeroPrayerCard(displayTimes, displayDate, prayerData);
   if (fullPage) renderFullPrayerTimes(displayTimes, prayerData);
 }
 
-window.PrayerTimes = { init: initPrayerTimes };
+window.PrayerTimes = {
+  init: initPrayerTimes,
+  rerender() {
+    if (!_lastRenderData) return;
+    const { displayTimes, displayDate, prayerData } = _lastRenderData;
+    const heroCard = document.getElementById('prayer-card-content');
+    const fullPage = document.getElementById('prayer-times-full');
+    if (heroCard) renderHeroPrayerCard(displayTimes, displayDate, prayerData);
+    if (fullPage) renderFullPrayerTimes(displayTimes, prayerData);
+  }
+};

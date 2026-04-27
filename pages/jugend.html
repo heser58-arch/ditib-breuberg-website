@@ -107,17 +107,16 @@
       <div class="about-grid">
         <div class="about-text" data-aos>
           <span class="badge" data-i18n="youth.intro.badge">Unsere Jugend</span>
-          <h2 data-i18n="youth.intro.title">Bildung, Sport und Gemeinschaft für alle</h2>
-          <p data-i18n="youth.intro.p1">Die Jugendarbeit ist ein zentraler Bestandteil unserer Gemeindearbeit. Wir bieten ein vielfältiges Programm, das religiöse Bildung mit sozialen Aktivitäten verbindet.</p>
-          <p data-i18n="youth.intro.p2">Alle Programme werden von engagierten Ehrenamtlichen betreut und stehen Kindern und Jugendlichen unserer Gemeindemitglieder sowie der Umgebung offen.</p>
+          <h2 data-i18n="youth.intro.title">Aktivitäten &amp; Programme für unsere Jugend</h2>
+          <p data-i18n="youth.intro.p1">Unsere Jugendarbeit ist lebendig, strukturiert und voller Herzblut. In zwei aktiven Gruppen – für Jungs und Mädchen – kommen wir wöchentlich zusammen: für Arabisch-Unterricht, Deutschen Vortrag, Hallenfußball und Koranlesung. Gemeinschaft, die man wirklich spürt.</p>
+          <p data-i18n="youth.intro.p2">Ob gemeinsame Ramadan-Abende, Zeltlager, Bergwanderungen, Picknicks oder Städtereisen – unsere Jugend erlebt das ganze Jahr über unvergessliche Momente. Alle Angebote werden von engagierten Ehrenamtlichen geleitet und stehen Jugendlichen aus der gesamten Region offen.</p>
           <a href="kontakt.html" class="btn btn--primary" style="margin-top:20px" data-i18n="youth.intro.btn">Jetzt anmelden</a>
         </div>
         <div class="about-visual" data-aos data-aos-delay="200">
-          <div class="about-visual__card" style="font-size:4rem">👨‍👩‍👧‍👦</div>
-          <div class="about-visual__badge">
-            <strong>1977</strong>
-            <span data-i18n="youth.founded">Gegründet</span>
+          <div class="about-visual__card" style="padding:0;overflow:hidden;border-radius:var(--radius-xl)">
+            <img src="../images/alpen.jpg" alt="Alpen" style="width:100%;height:100%;object-fit:cover;display:block;border-radius:var(--radius-xl)">
           </div>
+
         </div>
       </div>
     </div>
@@ -131,61 +130,121 @@
         <h2 data-i18n="youth.programs.title">Unsere Angebote</h2>
       </div>
 
-      <!-- Koran Unterricht -->
-      <div style="background:var(--white);border-radius:var(--radius-xl);padding:36px;margin-bottom:24px;box-shadow:var(--shadow-sm);border:1px solid var(--gray-300)" data-aos>
-        <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
-          <div style="font-size:3rem">📚</div>
-          <div style="flex:1;min-width:200px">
-            <h3 style="font-family:var(--font-heading);font-size:1.5rem;color:var(--green-900);margin-bottom:12px" data-i18n="youth.koran.title">Koran-Unterricht</h3>
-            <p style="color:var(--gray-500);margin-bottom:16px;line-height:1.7" data-i18n="youth.koran.desc">
-              Wöchentlicher Koran-Unterricht für Kinder und Jugendliche. Die Schülerinnen und Schüler lernen die arabische Schrift, Koranrezitation und islamische Grundwerte in kindgerechter Atmosphäre.
-            </p>
-            <div style="display:flex;flex-wrap:wrap;gap:12px">
-              <span class="badge">📅 Sa & So 10:00–14:00 Uhr</span>
-              <span class="badge">📍 DITIB Gemeinde</span>
-              <span class="badge">🎓 Alle Altersstufen</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Gruppen: Erkekler & Kizlar -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px" data-aos>
 
-      <!-- Sport -->
-      <div id="sport" style="background:var(--white);border-radius:var(--radius-xl);padding:36px;margin-bottom:24px;box-shadow:var(--shadow-sm);border:1px solid var(--gray-300)" data-aos>
-        <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
-          <div style="font-size:3rem">⚽</div>
-          <div style="flex:1;min-width:200px">
-            <h3 style="font-family:var(--font-heading);font-size:1.5rem;color:var(--green-900);margin-bottom:12px" data-i18n="youth.sport.title">Jugend-Sport</h3>
-            <p style="color:var(--gray-500);margin-bottom:16px;line-height:1.7" data-i18n="youth.sport.desc">
-              Seit Juni 2014 findet in der Heinrich-Böhm-Halle in Sandbach eine wöchentliche Fußballveranstaltung für Jugendliche statt. Teamgeist, Fairplay und Spaß an der Bewegung stehen im Vordergrund.
-            </p>
-            <div style="display:flex;flex-wrap:wrap;gap:12px">
-              <span class="badge">📅 Sonntag 16:00–20:00 Uhr</span>
-              <span class="badge">📍 Heinrich-Böhm-Halle, Sandbach</span>
-              <span class="badge">⚽ Jugendliche</span>
-            </div>
+        <!-- Erkekler -->
+        <div style="background:var(--white);border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-sm);border:1px solid var(--gray-300)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+            <div style="font-size:2.5rem">🧑</div>
+            <h3 style="font-family:var(--font-heading);font-size:1.5rem;color:var(--green-900)" data-i18n="youth.erkekler.title">Jungs</h3>
           </div>
-        </div>
-      </div>
 
-      <!-- Wettbewerbe -->
-      <div id="wettbewerbe" style="background:var(--white);border-radius:var(--radius-xl);padding:36px;box-shadow:var(--shadow-sm);border:1px solid var(--gray-300)" data-aos>
-        <div style="display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
-          <div style="font-size:3rem">🏆</div>
-          <div style="flex:1;min-width:200px">
-            <h3 style="font-family:var(--font-heading);font-size:1.5rem;color:var(--green-900);margin-bottom:12px" data-i18n="youth.wett.title">Wettbewerbe &amp; Förderung</h3>
-            <p style="color:var(--gray-500);margin-bottom:16px;line-height:1.7" data-i18n="youth.wett.desc">
-              Wir bereiten Kinder und Jugendliche auf regionale und überregionale Wettbewerbe in Koranrezitation (Hutbe &amp; Ezan) und islamischem Wissen vor.
-            </p>
-            <p style="color:var(--gray-500);margin-bottom:16px;line-height:1.7" data-i18n="youth.wett.success">
-              Erfolge: Unsere Schüler haben bei Wettbewerben in Wahlen und Hirschhorn hervorragende Platzierungen erzielt.
-            </p>
-            <div style="display:flex;flex-wrap:wrap;gap:12px">
-              <span class="badge">🏅 Hutbe &amp; Ezan</span>
-              <span class="badge">📖 Dini Bilgiler</span>
-              <span class="badge">🌟 Regionale Wettbewerbe</span>
+          <!-- Wöchentlich -->
+          <div style="margin-bottom:20px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <span style="font-size:1.1rem">📅</span>
+              <strong style="color:var(--green-700);font-size:.95rem" data-i18n="youth.weekly">Wöchentlich</strong>
             </div>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px">
+              <li style="display:flex;gap:8px;font-size:.9rem;color:var(--gray-600)">
+                <span style="color:var(--green-600);font-weight:600;min-width:130px" data-i18n="youth.wed">Mittwochabend</span>
+                <span data-i18n="youth.wed.act">Arabisch-Unterricht (14–17 Jahre)</span>
+              </li>
+              <li style="display:flex;gap:8px;font-size:.9rem;color:var(--gray-600)">
+                <span style="color:var(--green-600);font-weight:600;min-width:130px" data-i18n="youth.fri">Freitagabend</span>
+                <span data-i18n="youth.fri.act">Deutscher Vortrag</span>
+              </li>
+              <li style="display:flex;gap:8px;font-size:.9rem;color:var(--gray-600)">
+                <span style="color:var(--green-600);font-weight:600;min-width:130px" data-i18n="youth.sun">Sonntagabend</span>
+                <span data-i18n="youth.sun.act">Hallenfußball + Koranlesung (ab 18 Jahre)</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Ramadan -->
+          <div style="margin-bottom:20px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <span style="font-size:1.1rem">🌙</span>
+              <strong style="color:var(--green-700);font-size:.95rem" data-i18n="youth.ramadan">Ramadan</strong>
+            </div>
+            <ul style="list-style:none;padding:0;margin:0">
+              <li style="font-size:.9rem;color:var(--gray-600)" data-i18n="youth.ramadan.act">Iftar- und Suhur-Veranstaltungen</li>
+            </ul>
+          </div>
+
+          <!-- Jährlich -->
+          <div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <span style="font-size:1.1rem">🗓️</span>
+              <strong style="color:var(--green-700);font-size:.95rem" data-i18n="youth.annual">Jährlich</strong>
+            </div>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px">
+              <li style="font-size:.9rem;color:var(--gray-600);display:flex;gap:6px"><span style="color:var(--green-500)">–</span><span data-i18n="youth.erk.a1">Picknick (Saisonabschluss)</span></li>
+              <li style="font-size:.9rem;color:var(--gray-600);display:flex;gap:6px"><span style="color:var(--green-500)">–</span><span data-i18n="youth.erk.a2">Grillen (Saisoneröffnung)</span></li>
+              <li style="font-size:.9rem;color:var(--gray-600);display:flex;gap:6px"><span style="color:var(--green-500)">–</span><span data-i18n="youth.erk.a3">Zeltlager</span></li>
+              <li style="font-size:.9rem;color:var(--gray-600);display:flex;gap:6px"><span style="color:var(--green-500)">–</span><span data-i18n="youth.erk.a4">Bergwanderung</span></li>
+              <li style="font-size:.9rem;color:var(--gray-600);display:flex;gap:6px"><span style="color:var(--green-500)">–</span><span data-i18n="youth.erk.a5">Verschiedene Ausflüge</span></li>
+            </ul>
           </div>
         </div>
+
+        <!-- Kizlar -->
+        <div style="background:var(--white);border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-sm);border:1px solid var(--gray-300)">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:24px">
+            <div style="font-size:2.5rem">👧</div>
+            <h3 style="font-family:var(--font-heading);font-size:1.5rem;color:var(--green-900)" data-i18n="youth.kizlar.title">Mädchen</h3>
+          </div>
+
+          <!-- Wöchentlich -->
+          <div style="margin-bottom:20px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <span style="font-size:1.1rem">📅</span>
+              <strong style="color:var(--green-700);font-size:.95rem" data-i18n="youth.weekly">Wöchentlich</strong>
+            </div>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px">
+              <li style="display:flex;gap:8px;font-size:.9rem;color:var(--gray-600)">
+                <span style="color:var(--green-600);font-weight:600;min-width:130px" data-i18n="youth.wed">Mittwochabend</span>
+                <span data-i18n="youth.wed.act">Arabisch-Unterricht (14–17 Jahre)</span>
+              </li>
+              <li style="display:flex;gap:8px;font-size:.9rem;color:var(--gray-600)">
+                <span style="color:var(--green-600);font-weight:600;min-width:130px" data-i18n="youth.fri">Freitagabend</span>
+                <span data-i18n="youth.fri.act">Deutscher Vortrag</span>
+              </li>
+              <li style="display:flex;gap:8px;font-size:.9rem;color:var(--gray-600)">
+                <span style="color:var(--green-600);font-weight:600;min-width:130px" data-i18n="youth.sun">Sonntagabend</span>
+                <span data-i18n="youth.sun.act">Hallenfußball + Koranlesung (ab 18 Jahre)</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Ramadan -->
+          <div style="margin-bottom:20px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <span style="font-size:1.1rem">🌙</span>
+              <strong style="color:var(--green-700);font-size:.95rem" data-i18n="youth.ramadan">Ramadan</strong>
+            </div>
+            <ul style="list-style:none;padding:0;margin:0">
+              <li style="font-size:.9rem;color:var(--gray-600)" data-i18n="youth.ramadan.act">Iftar- und Suhur-Veranstaltungen</li>
+            </ul>
+          </div>
+
+          <!-- Jährlich -->
+          <div>
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <span style="font-size:1.1rem">🗓️</span>
+              <strong style="color:var(--green-700);font-size:.95rem" data-i18n="youth.annual">Jährlich</strong>
+            </div>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:5px">
+              <li style="font-size:.9rem;color:var(--gray-600);display:flex;gap:6px"><span style="color:var(--green-500)">–</span><span data-i18n="youth.kiz.a1">Picknick (Juni, Saisonabschluss)</span></li>
+              <li style="font-size:.9rem;color:var(--gray-600);display:flex;gap:6px"><span style="color:var(--green-500)">–</span><span data-i18n="youth.kiz.a2">Grillen (August, Saisoneröffnung)</span></li>
+              <li style="font-size:.9rem;color:var(--gray-600);display:flex;gap:6px"><span style="color:var(--green-500)">–</span><span data-i18n="youth.kiz.a3">Zeltlager (3 Tage)</span></li>
+              <li style="font-size:.9rem;color:var(--gray-600);display:flex;gap:6px"><span style="color:var(--green-500)">–</span><span data-i18n="youth.kiz.a4">Bergwanderung (3 Tage)</span></li>
+              <li style="font-size:.9rem;color:var(--gray-600);display:flex;gap:6px"><span style="color:var(--green-500)">–</span><span data-i18n="youth.kiz.a5">Verschiedene Aktivitäten (Stadtausflug, Naturwanderung, Regionaltreffen)</span></li>
+            </ul>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>

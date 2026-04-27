@@ -1355,13 +1355,13 @@
             </div>
             <div class="progress-bar-wrap">
               <div class="progress-bar-fill" id="hero-bar"></div>
-              <div class="progress-bar-booster" id="hero-bar-booster"></div>
+
             </div>
             <div class="progress-stats">
               <div class="progress-stat">
                 <span class="progress-stat__value" id="hero-collected">–</span>
                 <span class="progress-stat__label" data-i18n="donate.progress.collected">Gesammelt</span>
-                <div class="booster-stat-info" id="hero-booster-info"></div>
+
               </div>
               <div class="progress-stat">
                 <span class="progress-stat__value" id="hero-remaining">–</span>
@@ -1455,14 +1455,10 @@
             <div class="live-total__goal" data-i18n-html="donate.live.goal">von <strong>600.000 €</strong> Gesamtziel</div>
             <div class="live-total__bar">
               <div class="live-total__bar-fill" id="live-bar"></div>
-              <div class="live-total__bar-booster" id="live-bar-booster"></div>
+
             </div>
             <div class="live-total__supporters" id="live-supporters">– Spender haben bereits mitgemacht</div>
-            <div class="booster-legend" id="live-booster-legend"
-              style="display:none;justify-content:center;text-align:center;color:rgba(255,255,255,.8)">
-              <span class="booster-legend__bar"></span>
-              <span id="live-booster-text"></span>
-            </div>
+
             <div class="live-total__cta">
               <a href="#spenden-methoden" class="btn btn--emerald btn--lg" style="width:100%;justify-content:center">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1474,20 +1470,6 @@
             </div>
           </div>
 
-          <!-- Milestone tracker -->
-          <div
-            style="background:#fff;border-radius:20px;padding:24px;margin-top:24px;box-shadow:0 4px 20px rgba(0,0,0,.06)">
-            <div
-              style="font-weight:700;font-size:.9rem;color:#0A2D1F;margin-bottom:16px;display:flex;align-items:center;gap:8px">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B5E42" stroke-width="2">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-              </svg>
-              <span data-i18n="donate.milestones.title">Meilensteine</span>
-            </div>
-            <div id="milestones-list">
-              <!-- Befüllt via JS -->
-            </div>
-          </div>
         </div>
 
       </div>
@@ -1508,18 +1490,18 @@
           </p>
           <div class="project-features">
             <div class="project-feature">
+              <div class="project-feature__icon">📚</div>
+              <div>
+                <div class="project-feature__title" data-i18n="donate.project.feat2.title">Bildungs- &amp; Unterrichtsräume</div>
+                <div class="project-feature__desc" data-i18n="donate.project.feat2.desc">Koran-Unterricht und Sprachkurse unter einem Dach</div>
+              </div>
+            </div>
+            <div class="project-feature">
               <div class="project-feature__icon">🕌</div>
               <div>
                 <div class="project-feature__title" data-i18n="donate.project.feat1.title">Größere Gebetsräume</div>
                 <div class="project-feature__desc" data-i18n="donate.project.feat1.desc">Platz für alle Mitglieder bei Freitagsgebet, Feiertagen und täglichen
                   Gebeten</div>
-              </div>
-            </div>
-            <div class="project-feature">
-              <div class="project-feature__icon">📚</div>
-              <div>
-                <div class="project-feature__title" data-i18n="donate.project.feat2.title">Bildungs- &amp; Unterrichtsräume</div>
-                <div class="project-feature__desc" data-i18n="donate.project.feat2.desc">Koran-Unterricht und Sprachkurse unter einem Dach</div>
               </div>
             </div>
             <div class="project-feature">
@@ -1740,9 +1722,7 @@
                 <line x1="5" y1="12" x2="19" y2="12" />
               </svg></div>
           </button>
-          <div class="faq-answer" data-i18n="donate.faq.a2">Alle Spendengelder fließen ausschließlich in den Grundstückskauf. Der Verein ist als
-            e.V. eingetragen und geprüft. Über den Stand der Kampagne informieren wir regelmäßig auf dieser Seite und
-            bei unseren Gemeindeveranstaltungen.</div>
+          <div class="faq-answer" data-i18n="donate.faq.a2">Alle Spendengelder fließen ausschließlich in den Grundstückskauf. Der Verein ist als e.V. eingetragen und geprüft. Jede Spende wird sorgfältig dokumentiert – der Spender erhält eine Kopie der Dokumentation. Über den Stand der Kampagne informieren wir regelmäßig auf dieser Seite und bei unseren Gemeindeveranstaltungen.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
@@ -1766,9 +1746,7 @@
                 <line x1="5" y1="12" x2="19" y2="12" />
               </svg></div>
           </button>
-          <div class="faq-answer" data-i18n="donate.faq.a4">Wir sind zuversichtlich, dass wir das Ziel gemeinsam erreichen. Sollte sich der
-            Zeitplan verzögern, werden alle Spenden sicher auf dem Vereinskonto verwahrt und ausschließlich für den
-            Grundstückskauf verwendet. Alle Spender werden informiert.</div>
+          <div class="faq-answer" data-i18n="donate.faq.a4">Wir sind zuversichtlich, dass wir das Ziel gemeinsam erreichen. Sollte das Gesamtziel wider Erwarten nicht vollständig erreicht werden, werden alle Spenden an die jeweiligen Spender zurückerstattet. Kein Geld bleibt einbehalten. Alle Spender werden selbstverständlich informiert.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" aria-expanded="false">
@@ -1950,10 +1928,6 @@
     function updateDynamicTexts() {
       document.getElementById('live-supporters').innerHTML =
         '<strong>' + _donorsCount + ' ' + I18N.t('donate.live.donors_unit') + '</strong> ' + I18N.t('donate.live.joined');
-      if (_boosterTotal > 0) {
-        document.getElementById('live-booster-text').textContent =
-          I18N.t('donate.booster.legend') + formatEuro(_boosterTotal);
-      }
     }
 
     function renderCampaign(donors) {
@@ -1985,13 +1959,11 @@
       document.getElementById('last-updated-date').textContent = lastUpdated;
 
 
-      // Animate bars after paint – grün bis spendenPct, orange Booster-Strahl drüber
+      // Animate bars after paint
       requestAnimationFrame(() => {
         setTimeout(() => {
-          document.getElementById('hero-bar').style.width = spendenPct + '%';
-          document.getElementById('hero-bar-booster').style.width = boosterPct + '%';
-          document.getElementById('live-bar').style.width = spendenPct + '%';
-          document.getElementById('live-bar-booster').style.width = boosterPct + '%';
+          document.getElementById('hero-bar').style.width = pct + '%';
+          document.getElementById('live-bar').style.width = pct + '%';
         }, 300);
       });
 
@@ -2004,30 +1976,11 @@
       document.getElementById('live-amount').textContent = formatEuro(collected);
       document.getElementById('live-supporters').innerHTML =
         '<strong>' + donorsCount + ' ' + I18N.t('donate.live.donors_unit') + '</strong> ' + I18N.t('donate.live.joined');
-      if (boosterTotal > 0) {
-        const ll = document.getElementById('live-booster-legend');
-        document.getElementById('live-booster-text').textContent =
-          I18N.t('donate.booster.legend') + formatEuro(boosterTotal);
-        ll.style.display = 'flex';
-      }
-
       // Donors list
       const list = document.getElementById('donors-list');
-      list.innerHTML = sorted.slice(0, 8).map((d, i) => {
+      const normalDonors = sorted.filter(d => !d.isBooster);
+      list.innerHTML = normalDonors.slice(0, 8).map((d, i) => {
         const isNew = parseDate(d.date) >= threeDaysAgo;
-        if (d.isBooster) {
-          // Oranger Booster-Eintrag
-          return `
-          <div class="donor-item" style="animation-delay:${i * 60}ms">
-            <div class="donor-avatar" style="background:linear-gradient(135deg,#F97316,#FBBF24)">${getInitials(d.name)}</div>
-            <div class="donor-info">
-              <div class="donor-name">${d.name} <span class="booster-badge">${I18N.t('donate.booster.badge')}</span>${isNew ? ' <span class="donor-new-badge">Neu</span>' : ''}</div>
-              <div class="donor-date">${d.date} &nbsp;·&nbsp; ${I18N.t('donate.booster.activity')}</div>
-              <div class="donor-detail">+${formatEuro(d.amount)}/${I18N.t('donate.booster.month')} × ${d.months} ${I18N.t('donate.booster.months')}</div>
-            </div>
-            <div class="donor-amount donor-amount--booster">${formatEuro(d.boosterTotal)}</div>
-          </div>`;
-        }
         const [c1, c2] = getAvatarColor(d.name);
         const isAnon = d.name === 'Anonym';
         return `
@@ -2041,24 +1994,6 @@
         </div>`;
       }).join('');
 
-      // Milestones
-      const ml = document.getElementById('milestones-list');
-      ml.innerHTML = CAMPAIGN_CONFIG.milestones.map(m => {
-        const done = collected >= m.target;
-        const mpct = Math.min(100, (collected / m.target) * 100);
-        return `
-        <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #F3F4F6">
-          <span style="font-size:1.25rem">${m.icon}</span>
-          <div style="flex:1">
-            <div style="font-size:.825rem;font-weight:600;color:${done ? '#1B5E42' : '#374151'}">${m.label}</div>
-            <div style="font-size:.75rem;color:#9CA3AF;margin-top:2px">${formatEuro(m.target)}</div>
-          </div>
-          ${done
-            ? '<span style="font-size:.75rem;font-weight:700;background:#E8F5EE;color:#1B5E42;padding:3px 10px;border-radius:9999px">Erreicht ✓</span>'
-            : `<span style="font-size:.75rem;color:#9CA3AF">${mpct.toFixed(0)}%</span>`
-          }
-        </div>`;
-      }).join('');
     }
 
     async function init() {
