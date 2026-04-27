@@ -366,8 +366,8 @@ const translations = {
     'about.member.btn1'                : 'Jetzt Mitglied werden',
     'about.member.btn2'                : 'Per E-Mail anfragen',
     'about.ditib.title'                : 'Was ist DITIB?',
-    'about.ditib.p1'                   : 'DITIB ist ein eingetragener Verein und Dachverband türkisch-islamischer Gemeinden in Deutschland.',
-    'about.ditib.p2'                   : 'Die DITIB-Gemeinde in Breuberg ist eine eigenständige Ortsgemeinde und Teil dieses bundesweiten Netzwerks. Sie gestaltet ihre Aktivitäten eigenverantwortlich und ist tief in der lokalen Gemeinschaft des Odenwaldkreises verwurzelt.',
+    'about.ditib.p1'                   : 'DITIB (Türkisch-Islamische Union der Anstalt für Religion e.V.) wurde am 5. Juli 1984 in Köln als bundesweiter Dachverband gegründet, um die religiösen, sozialen und kulturellen Tätigkeiten der angeschlossenen Vereine zu koordinieren. Heute umfasst DITIB über 960 Mitgliedsgemeinden und ist die mitgliederstärkste Migrantenorganisation in der Bundesrepublik Deutschland.',
+    'about.ditib.p2'                   : 'Die angeschlossenen Ortsgemeinden sind rechtlich und wirtschaftlich selbstständige eingetragene Vereine, die dieselben Grundsätze und Satzungszwecke von DITIB verfolgen. Die DITIB-Gemeinde in Breuberg ist eine solche eigenständige Ortsgemeinde.',
 
     /* ======== SPENDEN (page content) ======== */
     'donate.campaign.status'       : 'Aktiv',
@@ -849,8 +849,8 @@ const translations = {
     'about.member.btn1'                : 'Hemen Üye Ol',
     'about.member.btn2'                : 'E-Posta ile Başvur',
     'about.ditib.title'                : 'DITIB Nedir?',
-    'about.ditib.p1'                   : 'DITIB, Almanya\'daki Türk-İslam cemiyetlerinin tescilli bir derneği ve çatı kuruluşudur.',
-    'about.ditib.p2'                   : 'Breuberg\'deki DITIB cemiyeti, bağımsız bir yerel cemiyet olup bu ülke çapındaki ağın bir parçasıdır. Faaliyetlerini kendi sorumluluğuyla yürütmekte ve Odenwaldkreis\'in yerel topluluğuna derinden kök salmaktadır.',
+    'about.ditib.p1'                   : 'DİTİB, bünyesindeki derneklerin dinî, sosyal ve kültürel faaliyetlerini koordine etmek amacıyla 5 Temmuz 1984 tarihinde Köln\'de federal çatı örgütü olarak kurulmuştur. Bugün 960\'tan fazla üye derneğiyle Almanya\'nın en büyük göçmen üye kuruluşu olan DİTİB, Almanya\'daki Müslümanların yüzde 70\'inden fazlasını temsil etmektedir.',
+    'about.ditib.p2'                   : 'Bağlı yerel cemiyetler, DİTİB\'in ilke ve tüzük amaçlarını benimseyen bağımsız tescilli derneklerdir. Breuberg DİTİB Cemiyeti de bu yapı içinde yer alan özerk bir yerel cemiyet olup Odenwaldkreis\'te güzel bir şekilde faaliyet göstermektedir.',
 
     /* ======== SPENDEN ======== */
     'donate.hero.title': 'Bağış',
