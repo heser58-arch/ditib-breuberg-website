@@ -1973,14 +1973,24 @@
         '<strong>' + donorsCount + ' ' + I18N.t('donate.live.donors_unit') + '</strong> ' + I18N.t('donate.live.joined');
       // Donors list
       const list = document.getElementById('donors-list');
-      const normalDonors = sorted.filter(d => !d.isBooster);
-      list.innerHTML = normalDonors.map((d, i) => {
+      list.innerHTML = sorted.map((d, i) => {
         const isNew = parseDate(d.date) >= threeDaysAgo;
-        const [c1, c2] = getAvatarColor(d.name);
         const isAnon = d.name.trim().toLowerCase() === 'anonym';
+        const [c1, c2] = getAvatarColor(d.name);
+        if (d.isBooster) {
+          return `
+          <div class="donor-item" style="animation-delay:${i * 60}ms">
+            <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">${isAnon ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="13" r="3"/><circle cx="17" cy="13" r="3"/><path d="M4 13a8 8 0 0 1 16 0"/><line x1="10" y1="13" x2="14" y2="13"/></svg>` : getInitials(d.name)}</div>
+            <div class="donor-info">
+              <div class="donor-name">${d.name} <span style="font-size:.7rem;background:#E8F5EE;color:#1B5E42;border-radius:9999px;padding:2px 7px;font-weight:600">${I18N.t('donate.monthly.badge')}${d.months > 0 ? ` (${d.months} ${I18N.t('donate.monthly.months')})` : ''}</span>${isNew ? ' <span class="donor-new-badge">Neu</span>' : ''}</div>
+              <div class="donor-date">${d.date}</div>
+            </div>
+            <div class="donor-amount">${formatEuro(d.amount)}</div>
+          </div>`;
+        }
         return `
         <div class="donor-item" style="animation-delay:${i * 60}ms">
-          <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">${isAnon ? '<span style="font-size:1.3rem">😎</span>' : getInitials(d.name)}</div>
+          <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">${isAnon ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="13" r="3"/><circle cx="17" cy="13" r="3"/><path d="M4 13a8 8 0 0 1 16 0"/><line x1="10" y1="13" x2="14" y2="13"/></svg>` : getInitials(d.name)}</div>
           <div class="donor-info">
             <div class="donor-name">${d.name} ${isNew ? '<span class="donor-new-badge">Neu</span>' : ''}</div>
             <div class="donor-date">${d.date}</div>
