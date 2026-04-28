@@ -1931,17 +1931,12 @@
     }
 
     function renderCampaign(donors) {
-      // Beträge aufteilen
-      const spendenTotal = donors.filter(d => !d.isBooster).reduce((s, d) => s + d.amount, 0);
-      const boosterTotal = donors.filter(d => d.isBooster).reduce((s, d) => s + d.boosterTotal, 0);
-      const collected = spendenTotal + boosterTotal;
+      // Nur Betragsspalte summieren
+      const collected = donors.reduce((s, d) => s + d.amount, 0);
       const donorsCount = donors.length;
       _donorsCount = donorsCount;
-      _boosterTotal = boosterTotal;
       const goal = CAMPAIGN_CONFIG.goal;
       const pct = Math.min(100, (collected / goal) * 100);
-      const spendenPct = Math.min(100, (spendenTotal / goal) * 100);
-      const boosterPct = Math.min(pct - spendenPct, 100 - spendenPct);
       const remaining = Math.max(0, goal - collected);
 
       // Neueste zuerst; "Neu"-Badge für Einträge der letzten 3 Tage
