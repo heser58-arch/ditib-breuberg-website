@@ -1974,7 +1974,7 @@
       // Donors list
       const list = document.getElementById('donors-list');
       const normalDonors = sorted.filter(d => !d.isBooster);
-      list.innerHTML = normalDonors.slice(0, 8).map((d, i) => {
+      list.innerHTML = normalDonors.map((d, i) => {
         const isNew = parseDate(d.date) >= threeDaysAgo;
         const [c1, c2] = getAvatarColor(d.name);
         const isAnon = d.name === 'Anonym';
