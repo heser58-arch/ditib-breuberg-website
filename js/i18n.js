@@ -715,7 +715,7 @@ const translations = {
     'youth.intro.btn'      : 'Hemen başvur',
     'youth.founded'        : 'Kuruluş',
     'youth.programs.badge' : 'Programlar',
-    'youth.programs.title' : 'Tekliflerimiz',
+    'youth.programs.title' : 'Faaliyetlerimiz',
     'youth.erkekler.title'  : 'Erkekler',
     'youth.kizlar.title'    : 'Kızlar',
     'youth.weekly'          : 'Haftalık',
