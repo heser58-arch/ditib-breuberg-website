@@ -62,8 +62,8 @@ const translations = {
     'index.about.feat1.desc' : 'Fünf tägliche Gebete sowie Freitagsgebet und Feiertagsgebete',
     'index.about.feat2.title': 'Koran-Unterricht',
     'index.about.feat2.desc' : 'Regelmäßiger Koran-Unterricht und religiöse Bildung für alle Altersgruppen',
-    'index.about.feat3.title': 'Harmonie',
-    'index.about.feat3.desc' : 'Interkulturelle Veranstaltungen und Zusammenarbeit mit der Nachbarschaft',
+    'index.about.feat3.title': 'Religiöse Veranstaltungen',
+    'index.about.feat3.desc' : 'Mevlütler, Taziyeler und weitere gemeinschaftliche Veranstaltungen',
     'index.about.btn'        : 'Mehr über uns',
     'index.about.founded'    : 'Gegründet',
 
@@ -552,8 +552,8 @@ const translations = {
     'index.about.feat1.desc' : 'Beş vakit namaz, Cuma namazı ve bayram namazları',
     'index.about.feat2.title': 'Kuran Kursu',
     'index.about.feat2.desc' : 'Tüm yaş grupları için düzenli Kuran kursu ve dini eğitim',
-    'index.about.feat3.title': 'Toplumsal Uyum',
-    'index.about.feat3.desc' : 'Kültürlerarası etkinlikler ve komşularla işbirliği',
+    'index.about.feat3.title': 'Dini Etkinlikler',
+    'index.about.feat3.desc' : 'Mevlütler, taziyeler ve diğer toplumsal dini etkinlikler',
     'index.about.btn'        : 'Hakkımızda daha fazla',
     'index.about.founded'    : 'Kuruluş',
 
