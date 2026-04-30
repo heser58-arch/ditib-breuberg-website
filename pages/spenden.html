@@ -1949,6 +1949,20 @@
       threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
       const lastUpdated = sorted[0]?.date || '–';
 
+      // Aylık bağışçılar için ödeme numarası hesapla (tarih sırasına göre)
+      const boosterPaymentMap = new Map(); // name → sorted payment dates
+      donors.filter(d => d.isBooster).forEach(d => {
+        if (!boosterPaymentMap.has(d.name)) boosterPaymentMap.set(d.name, []);
+        boosterPaymentMap.get(d.name).push(d.date);
+      });
+      boosterPaymentMap.forEach((dates, name) => {
+        dates.sort((a, b) => parseDate(a) - parseDate(b));
+      });
+      function getPaymentNumber(d) {
+        const dates = boosterPaymentMap.get(d.name) || [];
+        return dates.indexOf(d.date) + 1;
+      }
+
       // Hero progress card
       document.getElementById('hero-percent').textContent = pct.toFixed(1) + '%';
       document.getElementById('hero-collected').textContent = formatEuro(collected);
@@ -1981,14 +1995,19 @@
         const isAnon = d.name.trim().toLowerCase() === 'anonym';
         const [c1, c2] = getAvatarColor(d.name);
         if (d.isBooster) {
+          const payNum = getPaymentNumber(d);
+          const totalPledge = d.amount * d.months;
           return `
           <div class="donor-item" style="animation-delay:${i * 60}ms">
             <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">${isAnon ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="13" r="3"/><circle cx="17" cy="13" r="3"/><path d="M4 13a8 8 0 0 1 16 0"/><line x1="10" y1="13" x2="14" y2="13"/></svg>` : getInitials(d.name)}</div>
             <div class="donor-info">
-              <div class="donor-name">${d.name} <span style="font-size:.7rem;background:#E8F5EE;color:#1B5E42;border-radius:9999px;padding:2px 7px;font-weight:600">${I18N.t('donate.monthly.badge')}${d.months > 0 ? ` (${d.months} ${I18N.t('donate.monthly.months')})` : ''}</span>${isNew ? ' <span class="donor-new-badge">Neu</span>' : ''}</div>
+              <div class="donor-name">${d.name}${isNew ? ' <span class="donor-new-badge">Neu</span>' : ''}</div>
               <div class="donor-date">${d.date}</div>
             </div>
-            <div class="donor-amount">${formatEuro(d.amount)}</div>
+            <div class="donor-amount" style="text-align:right">
+              <div style="font-size:.75rem;color:#6B7280;white-space:nowrap">${I18N.t('donate.monthly.badge')} ${formatEuro(totalPledge)} – ${payNum}/${d.months}</div>
+              <div style="font-weight:700;color:#1B5E42">${formatEuro(d.amount)}</div>
+            </div>
           </div>`;
         }
         return `
