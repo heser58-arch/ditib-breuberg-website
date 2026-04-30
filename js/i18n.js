@@ -731,7 +731,7 @@ const translations = {
     'youth.erk.a1'          : 'Piknik (sezon kapanış)',
     'youth.erk.a2'          : 'Mangal (sezon açılış)',
     'youth.erk.a3'          : 'Kamp',
-    'youth.erk.a4'          : 'Alpin Dağ Gezisi',
+    'youth.erk.a4'          : 'Alpin Dağ Gezisi (DE/CH',
     'youth.erk.a5'          : 'Çeşitli geziler',
     'youth.kiz.a1'          : 'Piknik (Haziran sezon kapanış)',
     'youth.kiz.a2'          : 'Mangal (Ağustos sezon açılış)',
