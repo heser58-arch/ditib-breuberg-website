@@ -456,6 +456,8 @@ const translations = {
     'donate.faq.q5'                : 'Kann ich anonym spenden?',
     'donate.faq.a5'                : 'Ja. Wenn Sie nicht in der Liste erscheinen möchten, vermerken Sie dies bitte im Verwendungszweck als „Anonym" oder teilen Sie uns dies beim Vorstand mit. Wir respektieren Ihren Wunsch vollständig.',
     'donate.quote.text'            : '„Das Gleichnis derer, die ihr Vermögen auf dem Wege Gottes ausgeben, gleicht einem Korn, das sieben Ähren hervorbringt, in jeder Ähre hundert Körner. Und Allah verdoppelt es für wen Er will."',
+    'donate.stats.label'           : 'Webseitenbesucher',
+    'donate.stats.desc'            : 'Seitenaufrufe insgesamt',
 
     /* ---- Aliases used by generated HTML (kontakt.html) ---- */
     'contact.info.address'          : 'Adresse',
@@ -944,6 +946,8 @@ const translations = {
     'donate.faq.q5'                : 'Anonim bağış yapabilir miyim?',
     'donate.faq.a5'                : 'Evet. Listede görünmek istemiyorsanız lütfen açıklama kısmına "Anonim" yazın veya bunu yönetim kuruluna bildirin. Talebinize tamamen saygı duyarız.',
     'donate.quote.text'            : '„Allah yolunda mallarını harcayanların örneği, yedi başak bitiren ve her başakta yüz tane bulunan bir tohum gibidir. Allah, dilediğine kat kat verir."',
+    'donate.stats.label'           : 'Web Sitesi Ziyaretçileri',
+    'donate.stats.desc'            : 'Toplam sayfa görüntüleme',
 
     /* ---- Aliases used by generated HTML (kontakt.html) ---- */
     'contact.info.address'          : 'Adres',
