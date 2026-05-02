@@ -458,6 +458,8 @@ const translations = {
     'donate.quote.text'            : '„Das Gleichnis derer, die ihr Vermögen auf dem Wege Gottes ausgeben, gleicht einem Korn, das sieben Ähren hervorbringt, in jeder Ähre hundert Körner. Und Allah verdoppelt es für wen Er will."',
     'donate.stats.label'           : 'Webseitenbesucher',
     'donate.stats.desc'            : 'Seitenaufrufe insgesamt',
+    'donate.stats.spenden.label'   : 'Spendenseite besucht',
+    'donate.stats.spenden.desc'    : 'Aufrufe dieser Seite',
 
     /* ---- Aliases used by generated HTML (kontakt.html) ---- */
     'contact.info.address'          : 'Adresse',
@@ -948,6 +950,8 @@ const translations = {
     'donate.quote.text'            : '„Allah yolunda mallarını harcayanların örneği, yedi başak bitiren ve her başakta yüz tane bulunan bir tohum gibidir. Allah, dilediğine kat kat verir."',
     'donate.stats.label'           : 'Web Sitesi Ziyaretçileri',
     'donate.stats.desc'            : 'Toplam sayfa görüntüleme',
+    'donate.stats.spenden.label'   : 'Bağış Sayfası Ziyaretçileri',
+    'donate.stats.spenden.desc'    : 'Bu sayfanın görüntülenmesi',
 
     /* ---- Aliases used by generated HTML (kontakt.html) ---- */
     'contact.info.address'          : 'Adres',

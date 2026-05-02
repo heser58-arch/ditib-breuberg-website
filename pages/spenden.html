@@ -1780,10 +1780,17 @@
   </section>
 
   <section style="background:#f9fafb;padding:2.5rem 0;border-top:1px solid #e5e7eb;text-align:center;">
-    <div class="container">
-      <p style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9ca3af;margin-bottom:.5rem" data-i18n="donate.stats.label">Webseitenbesucher</p>
-      <p id="gc-visitor-count" style="font-size:2.75rem;font-weight:800;color:var(--red-600);margin:0;line-height:1">–</p>
-      <p style="font-size:.8rem;color:#6b7280;margin-top:.3rem" data-i18n="donate.stats.desc">Seitenaufrufe insgesamt</p>
+    <div class="container" style="display:flex;justify-content:center;gap:3rem;flex-wrap:wrap;">
+      <div>
+        <p style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9ca3af;margin-bottom:.5rem" data-i18n="donate.stats.label">Webseitenbesucher</p>
+        <p id="gc-total-count" style="font-size:2.75rem;font-weight:800;color:var(--red-600);margin:0;line-height:1">–</p>
+        <p style="font-size:.8rem;color:#6b7280;margin-top:.3rem" data-i18n="donate.stats.desc">Seitenaufrufe insgesamt</p>
+      </div>
+      <div>
+        <p style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9ca3af;margin-bottom:.5rem" data-i18n="donate.stats.spenden.label">Spendenseite besucht</p>
+        <p id="gc-spenden-count" style="font-size:2.75rem;font-weight:800;color:var(--red-600);margin:0;line-height:1">–</p>
+        <p style="font-size:.8rem;color:#6b7280;margin-top:.3rem" data-i18n="donate.stats.spenden.desc">Aufrufe dieser Seite</p>
+      </div>
     </div>
   </section>
 
@@ -2079,15 +2086,20 @@
   <script data-goatcounter="https://ditib-breuberg.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
   <script>
-    // GoatCounter Besucherzähler – Token unter: ditib-breuberg.goatcounter.com → Einstellungen → API-Tokens
     fetch('https://ditib-breuberg.goatcounter.com/api/v0/stats/hits?start=2024-01-01&end=' + new Date().toISOString().slice(0,10) + '&limit=500', {
       headers: { 'Authorization': 'Bearer mknhyxsemjzvo4en7883bvef3wwawx80vosi6j3bodte5n2i' }
     })
     .then(function(r) { return r.json(); })
     .then(function(d) {
-      var total = (d.hits || []).reduce(function(s, h) { return s + h.count; }, 0);
-      var el = document.getElementById('gc-visitor-count');
-      if (el && total > 0) el.textContent = total.toLocaleString('de-DE');
+      var total = 0, spenden = 0;
+      (d.hits || []).forEach(function(h) {
+        total += h.count;
+        if (h.path && h.path.indexOf('spenden') !== -1) spenden += h.count;
+      });
+      var elTotal = document.getElementById('gc-total-count');
+      var elSpenden = document.getElementById('gc-spenden-count');
+      if (elTotal && total > 0) elTotal.textContent = total.toLocaleString('de-DE');
+      if (elSpenden && spenden > 0) elSpenden.textContent = spenden.toLocaleString('de-DE');
     })
     .catch(function() {});
   </script>
