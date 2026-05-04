@@ -1890,7 +1890,9 @@
         const amount = parseFloat(rawAmt);
         const typ = (cols[5] || '').trim().toLowerCase();
         const months = parseInt((cols[9] || '0').trim(), 10) || 0;
-        const isBooster = typ === 'monatlich' && months > 0;
+        const rawVaad = (cols[10] || '0').replace(/[€\s]/g, '').replace(/\./g, '').replace(',', '.');
+        const vaad = parseFloat(rawVaad) || 0;
+        const isBooster = typ === 'monatlich' && (months > 0 || vaad > 0);
 
         // Datum DD/MM/YY → DD.MM.YYYY
         let date = rawDate;
@@ -1904,7 +1906,8 @@
           amount: isNaN(amount) ? 0 : amount,
           isBooster,
           months,
-          boosterTotal: isBooster ? (isNaN(amount) ? 0 : amount) * months : 0
+          vaad,
+          boosterTotal: isBooster && !vaad ? (isNaN(amount) ? 0 : amount) * months : 0
         };
       }).filter(d => d.name && d.amount > 0);
     }
@@ -1949,34 +1952,40 @@
     }
 
     function renderCampaign(donors) {
-      // Nur Betragsspalte summieren
-      const collected = donors.reduce((s, d) => s + d.amount, 0);
-      const donorsCount = donors.length;
+      // Monatlich-Einträge zusammenführen: gleicher Name → Beträge summieren, neuestes Datum behalten
+      const boosterMap = new Map();
+      const nonBoosters = [];
+      donors.forEach(d => {
+        if (d.isBooster) {
+          if (!boosterMap.has(d.name)) {
+            boosterMap.set(d.name, { ...d, paidTotal: d.amount, monthlyAmount: d.amount, paymentCount: 1 });
+          } else {
+            const b = boosterMap.get(d.name);
+            b.paidTotal += d.amount;
+            b.paymentCount += 1;
+            if (parseDate(d.date) > parseDate(b.date)) b.date = d.date;
+          }
+        } else {
+          nonBoosters.push(d);
+        }
+      });
+      const boosters = Array.from(boosterMap.values()).map(b => ({ ...b, amount: b.paidTotal }));
+      const mergedDonors = nonBoosters.concat(boosters);
+
+      // Nur tatsächlich eingegangene Beträge summieren
+      const collected = mergedDonors.reduce((s, d) => s + d.amount, 0);
+      const donorsCount = mergedDonors.length;
       _donorsCount = donorsCount;
       const goal = CAMPAIGN_CONFIG.goal;
       const pct = Math.min(100, (collected / goal) * 100);
       const remaining = Math.max(0, goal - collected);
 
       // Neueste zuerst; "Neu"-Badge für Einträge der letzten 3 Tage
-      const sorted = [...donors].sort((a, b) => parseDate(b.date) - parseDate(a.date));
+      const sorted = [...mergedDonors].sort((a, b) => parseDate(b.date) - parseDate(a.date));
       const threeDaysAgo = new Date();
       threeDaysAgo.setHours(0, 0, 0, 0);
       threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
       const lastUpdated = sorted[0]?.date || '–';
-
-      // Aylık bağışçılar için ödeme numarası hesapla (tarih sırasına göre)
-      const boosterPaymentMap = new Map(); // name → sorted payment dates
-      donors.filter(d => d.isBooster).forEach(d => {
-        if (!boosterPaymentMap.has(d.name)) boosterPaymentMap.set(d.name, []);
-        boosterPaymentMap.get(d.name).push(d.date);
-      });
-      boosterPaymentMap.forEach((dates, name) => {
-        dates.sort((a, b) => parseDate(a) - parseDate(b));
-      });
-      function getPaymentNumber(d) {
-        const dates = boosterPaymentMap.get(d.name) || [];
-        return dates.indexOf(d.date) + 1;
-      }
 
       // Hero progress card
       document.getElementById('hero-percent').textContent = pct.toFixed(1) + '%';
@@ -2010,8 +2019,8 @@
         const isAnon = d.name.trim().toLowerCase() === 'anonym';
         const [c1, c2] = getAvatarColor(d.name);
         if (d.isBooster) {
-          const payNum = getPaymentNumber(d);
-          const totalPledge = d.amount * d.months;
+          const payNum = d.paymentCount;
+          const totalPledge = d.vaad > 0 ? d.vaad : d.monthlyAmount * d.months;
           return `
           <div class="donor-item" style="animation-delay:${i * 60}ms">
             <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">${isAnon ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="13" r="3"/><circle cx="17" cy="13" r="3"/><path d="M4 13a8 8 0 0 1 16 0"/><line x1="10" y1="13" x2="14" y2="13"/></svg>` : getInitials(d.name)}</div>
