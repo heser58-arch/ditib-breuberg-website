@@ -1880,7 +1880,7 @@
       }
       if (dataStart === -1) return []; // kein gültiges Format
 
-      return lines.slice(dataStart).map(line => {
+      return lines.slice(dataStart).map((line, idx) => {
         const cols = splitCSVLine(line);
         const rawDate = (cols[0] || '').trim();
         const name = (cols[1] || '').trim();
@@ -1907,7 +1907,8 @@
           isBooster,
           months,
           vaad,
-          boosterTotal: isBooster && !vaad ? (isNaN(amount) ? 0 : amount) * months : 0
+          boosterTotal: isBooster && !vaad ? (isNaN(amount) ? 0 : amount) * months : 0,
+          idx,
         };
       }).filter(d => d.name && d.amount > 0);
     }
@@ -1958,12 +1959,13 @@
       donors.forEach(d => {
         if (d.isBooster) {
           if (!boosterMap.has(d.name)) {
-            boosterMap.set(d.name, { ...d, paidTotal: d.amount, monthlyAmount: d.amount, paymentCount: 1 });
+            boosterMap.set(d.name, { ...d, paidTotal: d.amount, monthlyAmount: d.amount, paymentCount: 1, maxIdx: d.idx });
           } else {
             const b = boosterMap.get(d.name);
             b.paidTotal += d.amount;
             b.paymentCount += 1;
             if (parseDate(d.date) > parseDate(b.date)) b.date = d.date;
+            b.maxIdx = Math.max(b.maxIdx, d.idx);
           }
         } else {
           nonBoosters.push(d);
@@ -1980,11 +1982,11 @@
       const pct = Math.min(100, (collected / goal) * 100);
       const remaining = Math.max(0, goal - collected);
 
-      // Neueste zuerst; "Neu"-Badge für Einträge der letzten 3 Tage
-      const sorted = [...mergedDonors].sort((a, b) => parseDate(b.date) - parseDate(a.date));
-      const threeDaysAgo = new Date();
-      threeDaysAgo.setHours(0, 0, 0, 0);
-      threeDaysAgo.setDate(threeDaysAgo.getDate() - 3);
+      // Excel-Reihenfolge umkehren: letzter Eintrag = neuester = ganz oben
+      const sorted = [...mergedDonors].sort((a, b) => (b.maxIdx ?? b.idx ?? 0) - (a.maxIdx ?? a.idx ?? 0));
+      const oneDayAgo = new Date();
+      oneDayAgo.setHours(0, 0, 0, 0);
+      oneDayAgo.setDate(oneDayAgo.getDate() - 1);
       const lastUpdated = sorted[0]?.date || '–';
 
       // Hero progress card
@@ -2015,7 +2017,7 @@
       // Donors list
       const list = document.getElementById('donors-list');
       list.innerHTML = sorted.map((d, i) => {
-        const isNew = parseDate(d.date) >= threeDaysAgo;
+        const isNew = parseDate(d.date) >= oneDayAgo;
         const isAnon = d.name.trim().toLowerCase() === 'anonym';
         const [c1, c2] = getAvatarColor(d.name);
         if (d.isBooster) {
