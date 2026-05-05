@@ -526,6 +526,25 @@
       letter-spacing: .05em;
     }
 
+    .donor-campaign {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: .68rem;
+      font-weight: 600;
+      color: #92400e;
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 9999px;
+      padding: 2px 9px;
+      margin-top: 5px;
+      letter-spacing: .02em;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
     /* === LIVE TOTAL BADGE === */
     .live-total {
       background: linear-gradient(135deg, #0A2D1F, #1B5E42);
@@ -1899,6 +1918,10 @@
         const dm = rawDate.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/);
         if (dm) date = dm[1].padStart(2, '0') + '.' + dm[2].padStart(2, '0') + '.20' + dm[3];
 
+        // Spalte L: Kampanya – Format: kampanyaName;kişiAdı;art
+        const kampanyaRaw = (cols[11] || '').trim();
+        const [kampanyaName = '', kampanyaPerson = '', kampanyaArt = ''] = kampanyaRaw.split(';').map(s => s.trim());
+
         return {
           name,
           date,
@@ -1908,6 +1931,9 @@
           months,
           vaad,
           boosterTotal: isBooster && !vaad ? (isNaN(amount) ? 0 : amount) * months : 0,
+          kampanyaName,
+          kampanyaPerson,
+          kampanyaArt,
           idx,
         };
       }).filter(d => d.name && d.amount > 0);
@@ -2020,6 +2046,10 @@
         const isNew = parseDate(d.date) >= oneDayAgo;
         const isAnon = d.name.trim().toLowerCase() === 'anonym';
         const [c1, c2] = getAvatarColor(d.name);
+        const isGift = d.kampanyaName && d.kampanyaPerson && d.kampanyaPerson !== d.name;
+        const kampanyaBadge = d.kampanyaName
+          ? `<div class="donor-campaign">🎁 ${d.kampanyaName}${isGift ? ' · ' + d.kampanyaPerson : ''}</div>`
+          : '';
         if (d.isBooster) {
           const payNum = d.paymentCount;
           const totalPledge = d.vaad > 0 ? d.vaad : d.monthlyAmount * d.months;
@@ -2029,6 +2059,7 @@
             <div class="donor-info">
               <div class="donor-name">${d.name}${isNew ? ' <span class="donor-new-badge">Neu</span>' : ''}</div>
               <div class="donor-date">${d.date}</div>
+              ${kampanyaBadge}
             </div>
             <div class="donor-amount" style="text-align:right">
               <div style="font-size:.75rem;color:#6B7280;white-space:nowrap">${I18N.t('donate.monthly.badge')} ${formatEuro(totalPledge)} – ${payNum}/${d.months}</div>
@@ -2042,6 +2073,7 @@
           <div class="donor-info">
             <div class="donor-name">${d.name} ${isNew ? '<span class="donor-new-badge">Neu</span>' : ''}</div>
             <div class="donor-date">${d.date}</div>
+            ${kampanyaBadge}
           </div>
           <div class="donor-amount">${formatEuro(d.amount)}</div>
         </div>`;
