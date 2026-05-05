@@ -2048,7 +2048,7 @@
         const [c1, c2] = getAvatarColor(d.name);
         const isGift = d.kampanyaName && d.kampanyaPerson && d.kampanyaPerson !== d.name;
         const kampanyaBadge = d.kampanyaName
-          ? `<div class="donor-campaign">🎁 ${d.kampanyaName}${isGift ? ' · ' + d.kampanyaPerson : ''}</div>`
+          ? `<div class="donor-campaign">🎁 ${d.kampanyaName}${isGift ? ' · ' + d.kampanyaPerson : ''}${d.kampanyaArt ? ' · ' + d.kampanyaArt : ''}${d.kampanyaArt ? ' · ' + I18N.t('donate.kampanya.art_label') : ''}</div>`
           : '';
         if (d.isBooster) {
           const payNum = d.paymentCount;
