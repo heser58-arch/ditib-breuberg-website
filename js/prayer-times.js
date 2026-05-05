@@ -204,8 +204,8 @@ function renderHeroPrayerCard(times, date, prayerData) {
   `;
 
   if (next) {
-    const prefix = pt('prayer.card.in');
     function updateCountdown() {
+      const prefix = pt('prayer.card.in');
       const el = document.getElementById('hero-countdown');
       if (el) el.textContent = prefix ? `${prefix} ${getTimeUntil(next)}` : getTimeUntil(next);
     }
