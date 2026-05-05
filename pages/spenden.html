@@ -2047,8 +2047,9 @@
         const isAnon = d.name.trim().toLowerCase() === 'anonym';
         const [c1, c2] = getAvatarColor(d.name);
         const isGift = d.kampanyaName && d.kampanyaPerson && d.kampanyaPerson !== d.name;
+        const hasM2 = d.kampanyaArt && /m²|m2/i.test(d.kampanyaArt);
         const kampanyaBadge = d.kampanyaName
-          ? `<div class="donor-campaign">🎁 ${d.kampanyaName}${isGift ? ' · ' + d.kampanyaPerson : ''}${d.kampanyaArt ? ' · ' + d.kampanyaArt : ''}${d.kampanyaArt ? ' · ' + I18N.t('donate.kampanya.art_label') : ''}</div>`
+          ? `<div class="donor-campaign">🎁 ${d.kampanyaName}${isGift ? ' · ' + d.kampanyaPerson : ''}${d.kampanyaArt ? ' · ' + d.kampanyaArt : ''}${hasM2 ? ' · ' + I18N.t('donate.kampanya.art_label') : ''}</div>`
           : '';
         if (d.isBooster) {
           const payNum = d.paymentCount;
