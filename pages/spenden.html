@@ -288,31 +288,39 @@
       display: none;
     }
 
+    /* === FIX 1: Progress Stats umbruchsicher === */
     .progress-stats {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 12px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
       margin-bottom: 24px;
     }
 
     .progress-stat {
       text-align: center;
+      min-width: 0;
     }
 
     .progress-stat__value {
       font-family: 'Playfair Display', serif;
-      font-size: 1.25rem;
+      font-size: clamp(0.95rem, 3.2vw, 1.25rem);
       font-weight: 700;
       color: #1B5E42;
       display: block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 1.15;
     }
 
     .progress-stat__label {
-      font-size: .7rem;
+      font-size: .68rem;
       color: #6B7280;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: .04em;
+      margin-top: 4px;
+      display: block;
     }
 
     .progress-card__divider {
@@ -543,6 +551,36 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+
+    /* === FIX 2: Donor-Items auf Mobile umstrukturieren === */
+    @media (max-width: 480px) {
+      .donor-item {
+        flex-wrap: wrap;
+        row-gap: 6px;
+      }
+      .donor-info {
+        flex: 1 1 calc(100% - 58px);
+      }
+      .donor-name {
+        white-space: normal;
+        line-height: 1.35;
+      }
+      .donor-amount {
+        flex: 0 0 100%;
+        text-align: right;
+        padding-left: 58px;
+        font-size: 1.05rem;
+        white-space: normal;
+      }
+      .donor-amount > div:first-child {
+        text-align: right;
+        white-space: normal;
+        line-height: 1.3;
+      }
+      .donors-list-wrap {
+        padding: 20px 18px;
+      }
     }
 
     /* === LIVE TOTAL BADGE === */
@@ -1953,6 +1991,11 @@
       }) + ' €';
     }
 
+    // Gerundete Variante für die schmale Hero-Card auf Mobile
+    function formatEuroRounded(n) {
+      return Math.round(n).toLocaleString('de-DE') + ' €';
+    }
+
     function getInitials(name) {
       if (name === 'Anonym') return '?';
       return name.trim().split(/\s+/).map(w => w[0]).slice(0, 2).join('').toUpperCase();
@@ -2014,10 +2057,10 @@
       oneDayAgo.setDate(oneDayAgo.getDate() - 1);
       const lastUpdated = sorted[0]?.date || '–';
 
-      // Hero progress card
+      // Hero progress card – auf Mobile gerundet, damit die schmale 3-Spalten-Anzeige sauber bleibt
       document.getElementById('hero-percent').textContent = pct.toFixed(1) + '%';
-      document.getElementById('hero-collected').textContent = formatEuro(collected);
-      document.getElementById('hero-remaining').textContent = formatEuro(remaining);
+      document.getElementById('hero-collected').textContent = formatEuroRounded(collected);
+      document.getElementById('hero-remaining').textContent = formatEuroRounded(remaining);
       document.getElementById('hero-donors').textContent = donorsCount;
       document.getElementById('last-updated-date').textContent = lastUpdated;
 
@@ -2030,7 +2073,7 @@
         }, 300);
       });
 
-      // Stats bar
+      // Stats bar – mehr Platz, hier ruhig mit Cents
       document.getElementById('stat-collected').textContent = formatEuro(collected);
       document.getElementById('stat-donors').textContent = donorsCount;
       document.getElementById('stat-percent').textContent = pct.toFixed(1) + '%';
@@ -2061,8 +2104,8 @@
               ${kampanyaBadge}
             </div>
             <div class="donor-amount" style="text-align:right">
-              <div style="font-size:.75rem;color:#6B7280;white-space:nowrap">${I18N.t('donate.monthly.badge')} ${formatEuro(totalPledge)} – ${payNum}/${d.months}</div>
-              <div style="font-weight:700;color:#1B5E42">${formatEuro(d.amount)}</div>
+              <div style="font-size:.7rem;color:#6B7280;white-space:normal;line-height:1.3">${I18N.t('donate.monthly.badge')} ${formatEuro(totalPledge)} – ${payNum}/${d.months}</div>
+              <div style="font-weight:700;color:#1B5E42;margin-top:2px">${formatEuro(d.amount)}</div>
             </div>
           </div>`;
         }
