@@ -1918,9 +1918,9 @@
         const dm = rawDate.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2})$/);
         if (dm) date = dm[1].padStart(2, '0') + '.' + dm[2].padStart(2, '0') + '.20' + dm[3];
 
-        // Spalte L: Kampanya – Format: kampanyaName;kişiAdı;art
+        // Spalte L: Format: türkischer Text;deutscher Text
         const kampanyaRaw = (cols[11] || '').trim();
-        const [kampanyaName = '', kampanyaPerson = '', kampanyaArt = ''] = kampanyaRaw.split(';').map(s => s.trim());
+        const [kampanyaTR = '', kampanyaDE = ''] = kampanyaRaw.split(';').map(s => s.trim());
 
         return {
           name,
@@ -1931,9 +1931,8 @@
           months,
           vaad,
           boosterTotal: isBooster && !vaad ? (isNaN(amount) ? 0 : amount) * months : 0,
-          kampanyaName,
-          kampanyaPerson,
-          kampanyaArt,
+          kampanyaTR,
+          kampanyaDE,
           idx,
         };
       }).filter(d => d.name && d.amount > 0);
@@ -2046,10 +2045,9 @@
         const isNew = parseDate(d.date) >= oneDayAgo;
         const isAnon = d.name.trim().toLowerCase() === 'anonym';
         const [c1, c2] = getAvatarColor(d.name);
-        const isGift = d.kampanyaName && d.kampanyaPerson && d.kampanyaPerson !== d.name;
-        const hasM2 = d.kampanyaArt && /m²|m2/i.test(d.kampanyaArt);
-        const kampanyaBadge = d.kampanyaName
-          ? `<div class="donor-campaign">🎁 ${d.kampanyaName}${isGift ? ' · ' + d.kampanyaPerson : ''}${d.kampanyaArt ? ' · ' + d.kampanyaArt : ''}${hasM2 ? ' · ' + I18N.t('donate.kampanya.art_label') : ''}</div>`
+        const kampanyaText = I18N.currentLang === 'tr' ? d.kampanyaTR : d.kampanyaDE;
+        const kampanyaBadge = kampanyaText
+          ? `<div class="donor-campaign">🎁 ${kampanyaText}</div>`
           : '';
         if (d.isBooster) {
           const payNum = d.paymentCount;
