@@ -2054,7 +2054,7 @@
           const totalPledge = d.vaad > 0 ? d.vaad : d.monthlyAmount * d.months;
           return `
           <div class="donor-item" style="animation-delay:${i * 60}ms">
-            <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">${isAnon ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="13" r="3"/><circle cx="17" cy="13" r="3"/><path d="M4 13a8 8 0 0 1 16 0"/><line x1="10" y1="13" x2="14" y2="13"/></svg>` : getInitials(d.name)}</div>
+            <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">🤲🏻</div>
             <div class="donor-info">
               <div class="donor-name">${d.name}${isNew ? ' <span class="donor-new-badge">Neu</span>' : ''}</div>
               <div class="donor-date">${d.date}</div>
@@ -2068,7 +2068,7 @@
         }
         return `
         <div class="donor-item" style="animation-delay:${i * 60}ms">
-          <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">${isAnon ? `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="7" cy="13" r="3"/><circle cx="17" cy="13" r="3"/><path d="M4 13a8 8 0 0 1 16 0"/><line x1="10" y1="13" x2="14" y2="13"/></svg>` : getInitials(d.name)}</div>
+          <div class="donor-avatar" style="background:linear-gradient(135deg,${c1},${c2})">🤲🏻</div>
           <div class="donor-info">
             <div class="donor-name">${d.name} ${isNew ? '<span class="donor-new-badge">Neu</span>' : ''}</div>
             <div class="donor-date">${d.date}</div>
