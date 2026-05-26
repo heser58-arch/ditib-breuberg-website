@@ -63,6 +63,8 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
@@ -71,6 +73,8 @@ body {
   background: var(--white);
   line-height: 1.6;
   overflow-x: hidden;
+  overflow-x: clip;
+  position: relative;
 }
 
 img, svg, video { display: block; max-width: 100%; }

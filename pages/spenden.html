@@ -76,7 +76,8 @@
       letter-spacing: .04em;
       text-transform: uppercase;
       margin-bottom: 20px;
-      white-space: nowrap;
+      white-space: normal;
+      max-width: 100%;
     }
 
 
@@ -321,6 +322,15 @@
       margin: 0 -32px 20px;
     }
 
+    @media (max-width: 480px) {
+      .progress-card {
+        padding: 20px;
+      }
+      .progress-card__divider {
+        margin: 0 -20px 20px;
+      }
+    }
+
     .progress-card__urgency {
       font-size: .85rem;
       color: #374151;
@@ -386,6 +396,10 @@
       align-items: start;
     }
 
+    .donors-grid > * {
+      min-width: 0;
+    }
+
     @media (min-width: 900px) {
       .donors-grid {
         grid-template-columns: 1fr 1fr;
@@ -398,16 +412,25 @@
       border-radius: 20px;
       padding: 28px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, .06);
+      overflow: hidden;
     }
 
     #donors-list {
-      max-height: 720px;
+      max-height: 360px;
       overflow-y: auto;
-      padding-right: 8px;
-      margin-right: -8px;
+      overflow-x: hidden;
       scrollbar-width: thin;
       scrollbar-color: transparent transparent;
       transition: scrollbar-color .2s;
+      padding-bottom: 4px;
+    }
+
+    @media (min-width: 900px) {
+      #donors-list {
+        max-height: 720px;
+        padding-right: 8px;
+        margin-right: -8px;
+      }
     }
 
     #donors-list:hover {
@@ -453,6 +476,7 @@
       padding: 14px 0;
       border-bottom: 1px solid #F3F4F6;
       animation: slideIn .4s ease forwards;
+      max-width: 100%;
     }
 
     .donor-item:last-child {
@@ -512,7 +536,11 @@
       font-size: 1rem;
       color: #1B5E42;
       white-space: nowrap;
-      flex-shrink: 0;
+      flex-shrink: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 45%;
     }
 
     .donor-new-badge {
@@ -539,10 +567,8 @@
       padding: 2px 9px;
       margin-top: 5px;
       letter-spacing: .02em;
-      max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      white-space: normal;
+      word-break: break-word;
     }
 
     /* === LIVE TOTAL BADGE === */
@@ -1213,6 +1239,8 @@
       color: #374151;
       line-height: 1.7;
       margin-top: 24px;
+      overflow: hidden;
+      word-break: break-word;
     }
 
     .dua-box strong {
@@ -1233,6 +1261,281 @@
 
     .last-updated svg {
       color: #9CA3AF;
+    }
+
+    /* ===== TOP 10 LEADERBOARD ===== (auskommentiert – TODO: wieder einkommentieren nach Abstimmung)
+    .leaderboard-section {
+      padding: clamp(36px, 6vw, 100px) 0;
+      background: linear-gradient(180deg, #F9FAFB 0%, #EEF7F2 100%);
+    }
+
+    .leaderboard-section .section-title {
+      font-size: clamp(18px, 4vw, 40px);
+    }
+
+    .leaderboard-section .section-header {
+      text-align: center;
+      margin-bottom: clamp(24px, 4vw, 48px);
+    }
+
+    .leaderboard-trophy-icon {
+      font-size: clamp(1.5rem, 5vw, 2.5rem);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    /* Podium: Top 3 
+    .leaderboard-podium {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .podium-card {
+      flex: 1;
+      max-width: 220px;
+      background: #fff;
+      border-radius: 20px;
+      padding: 24px 16px 20px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .podium-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 36px rgba(0,0,0,.13);
+    }
+
+    /* #1 – Gold, slightly taller 
+    .podium-card--1 {
+      border: 3px solid #F59E0B;
+      order: 1;
+      padding: 36px 20px 24px;
+      min-height: 220px;
+      background: linear-gradient(160deg, #FFFBEB 0%, #fff 60%);
+      box-shadow: 0 6px 32px rgba(245,158,11,.18);
+    }
+
+    /* #2 – Silver 
+    .podium-card--2 {
+      border: 2px solid #94A3B8;
+      order: 2;
+      padding: 28px 16px 20px;
+      min-height: 190px;
+      background: linear-gradient(160deg, #F8FAFC 0%, #fff 60%);
+    }
+
+    /* #3 – Bronze */
+    .podium-card--3 {
+      border: 1px solid #CD9B6A;
+      order: 3;
+      padding: 22px 14px 16px;
+      min-height: 165px;
+      background: linear-gradient(160deg, #FDF8F4 0%, #fff 60%);
+    }
+
+    .podium-medal {
+      font-size: 2rem;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .podium-rank {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .75rem;
+      font-weight: 800;
+      color: #fff;
+    }
+
+    .podium-card--1 .podium-rank { background: #F59E0B; }
+    .podium-card--2 .podium-rank { background: #94A3B8; }
+    .podium-card--3 .podium-rank { background: #CD9B6A; }
+
+    .podium-name {
+      font-weight: 700;
+      font-size: .9rem;
+      color: #1A1A2E;
+      margin-bottom: 6px;
+      word-break: break-word;
+      line-height: 1.3;
+    }
+
+    .podium-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1B5E42;
+    }
+
+    .podium-card--1 .podium-amount { color: #B45309; font-size: 1.3rem; }
+    .podium-card--2 .podium-amount { color: #475569; }
+    .podium-card--3 .podium-amount { color: #92400E; }
+
+    /* Rest: ranks 4-10 
+    .leaderboard-list {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.06);
+      overflow: hidden;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .leaderboard-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 24px;
+      border-bottom: 1px solid #F3F4F6;
+      transition: background .15s;
+    }
+
+    .leaderboard-row:last-child {
+      border-bottom: none;
+    }
+
+    .leaderboard-row:hover {
+      background: #F9FAFB;
+    }
+
+    .leaderboard-row__rank {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #F3F4F6;
+      color: #6B7280;
+      font-size: .8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .leaderboard-row__name {
+      flex: 1;
+      font-weight: 600;
+      font-size: .9rem;
+      color: #1A1A2E;
+      min-width: 0;
+      word-break: break-word;
+    }
+
+    .leaderboard-row__bar-wrap {
+      flex: 2;
+      height: 6px;
+      background: #F3F4F6;
+      border-radius: 9999px;
+      overflow: hidden;
+      min-width: 60px;
+    }
+
+    .leaderboard-row__bar {
+      height: 100%;
+      border-radius: 9999px;
+      background: linear-gradient(90deg, #1B5E42, #6BBF8E);
+      width: 0%;
+      transition: width 1.2s cubic-bezier(.4,0,.2,1);
+    }
+
+    .leaderboard-row__amount {
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: .9rem;
+      color: #1B5E42;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 599px) {
+      .leaderboard-podium {
+        gap: 8px;
+      }
+      .podium-card {
+        padding: 20px 10px 16px;
+      }
+      .podium-amount {
+        font-size: 1rem;
+      }
+      .leaderboard-row__bar-wrap {
+        display: none;
+      }
+    }
+    ===== ENDE TOP 10 LEADERBOARD ===== */
+
+    /* ===== MOBILE OVERFLOW FIX (max 480px) ===== */
+    @media (max-width: 480px) {
+      .donors-list-wrap {
+        padding: 16px;
+      }
+
+      .donor-item {
+        gap: 10px;
+      }
+
+      .donor-avatar {
+        width: 36px;
+        height: 36px;
+        font-size: .9rem;
+      }
+
+      .donor-name {
+        font-size: .82rem;
+      }
+
+      .donor-amount {
+        font-size: .85rem;
+        max-width: 40%;
+      }
+
+      .bank-details {
+        padding: 20px 16px;
+      }
+
+      .bank-qr {
+        padding: 20px 16px;
+      }
+
+      .progress-stats {
+        gap: 6px;
+      }
+
+      .progress-stat__value {
+        font-size: 1rem;
+      }
+
+      .progress-stat__label {
+        font-size: .62rem;
+      }
+
+      .live-total {
+        padding: 20px;
+      }
+
+      .leaderboard-row {
+        padding: 12px 16px;
+        gap: 10px;
+      }
+
+      .method-card {
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -1495,6 +1798,31 @@
     </div>
   </section>
 
+  <!-- ===== TOP 10 LEADERBOARD ===== (auskommentiert – TODO: wieder einkommentieren nach Abstimmung)
+  <section class="leaderboard-section" id="top-spender">
+    <div class="container">
+      <div class="section-header">
+        <span class="leaderboard-trophy-icon">🏆</span>
+        <span class="section-label" data-i18n="donate.top10.label">Unsere Besten</span>
+        <h2 class="section-title" data-i18n="donate.top10.title">Top 10 Spender</h2>
+        <p class="section-desc" style="margin:0 auto" data-i18n="donate.top10.desc">
+          Die Gemeinde dankt diesen großzügigen Menschen von Herzen – möge Allah ihre Spenden vielfach belohnen.
+        </p>
+      </div>
+
+      <!- - Platz 1, 2, 3 – Podium - ->
+      <div class="leaderboard-podium" id="leaderboard-podium">
+        <!- - Dynamisch via JS - ->
+      </div>
+
+      <!- - Platz 4–10 – Liste - ->
+      <div class="leaderboard-list" id="leaderboard-list">
+        <!- - Dynamisch via JS - ->
+      </div>
+    </div>
+  </section>
+  ===== ENDE TOP 10 LEADERBOARD ===== -->
+
   <!-- ===== PROJECT INFO ===== -->
   <section class="project-section" id="projekt-info">
     <div class="container">
@@ -1697,7 +2025,7 @@
 
       <!-- Sadaqa Jariya note -->
       <div style="max-width:680px;margin:40px auto 0;text-align:center">
-        <div style="background:#fff;border-radius:20px;padding:28px 32px;box-shadow:0 4px 20px rgba(0,0,0,.06)">
+        <div style="background:#fff;border-radius:20px;padding:28px clamp(16px,4vw,32px);box-shadow:0 4px 20px rgba(0,0,0,.06)">
           <div style="font-size:2rem;margin-bottom:12px">🤲</div>
           <p data-i18n="donate.sadaqa.title" style="font-weight:600;color:#0A2D1F;margin-bottom:8px">Sadaqa Jariya</p>
           <p data-i18n="donate.sadaqa.desc" style="font-size:.9rem;color:#6B7280;line-height:1.7">Jede Spende für den <strong>Kauf des
@@ -2041,6 +2369,53 @@
         '<strong>' + donorsCount + ' ' + I18N.t('donate.live.donors_unit') + '</strong> ' + I18N.t('donate.live.joined');
       // Donors list
       const list = document.getElementById('donors-list');
+      /* ── Top 10 Leaderboard (auskommentiert – TODO: wieder einkommentieren nach Abstimmung) ──
+      const topMap = new Map();
+      const excludedNames = ['sommerfest', 'sammelspende', 'sammelspenden'];
+      donors.forEach(d => {
+        const key = d.name.trim();
+        const keyLower = key.toLowerCase();
+        if (!key || keyLower === 'anonym') return;
+        if (excludedNames.some(ex => keyLower.includes(ex))) return;
+        topMap.set(key, (topMap.get(key) || 0) + d.amount);
+      });
+      const top10 = Array.from(topMap.entries())
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 10);
+
+      const trophyColors = ['#D4A017', '#8A9BA8', '#A0522D'];
+      const podiumEl = document.getElementById('leaderboard-podium');
+      const listEl   = document.getElementById('leaderboard-list');
+
+      if (podiumEl && top10.length > 0) {
+        const top3 = top10.slice(0, 3);
+        podiumEl.innerHTML = top3.map(([name, amt], i) => `
+          <div class="podium-card podium-card--${i + 1}">
+            <div class="podium-rank">${i + 1}</div>
+            <div class="podium-medal"><i class="fa-solid fa-trophy" style="color:${trophyColors[i]};font-size:${['2.4rem','1.9rem','1.5rem'][i]};filter:drop-shadow(0 2px 4px rgba(0,0,0,.2))"></i></div>
+            <div class="podium-name">${name}</div>
+            <div class="podium-amount">${formatEuro(amt)}</div>
+          </div>`).join('');
+      }
+
+      if (listEl && top10.length > 3) {
+        const rest = top10.slice(3);
+        const maxAmt = top10[0][1];
+        listEl.innerHTML = rest.map(([name, amt], i) => {
+          const pct = maxAmt > 0 ? (amt / maxAmt * 100).toFixed(1) : 0;
+          return `
+          <div class="leaderboard-row">
+            <div class="leaderboard-row__rank">${i + 4}</div>
+            <div class="leaderboard-row__name">${name}</div>
+            <div class="leaderboard-row__bar-wrap">
+              <div class="leaderboard-row__bar" style="width:${pct}%"></div>
+            </div>
+            <div class="leaderboard-row__amount">${formatEuro(amt)}</div>
+          </div>`;
+        }).join('');
+      }
+      ── ENDE Top 10 Leaderboard ── */
+
       list.innerHTML = sorted.map((d, i) => {
         const isNew = parseDate(d.date) >= oneDayAgo;
         const isAnon = d.name.trim().toLowerCase() === 'anonym';
@@ -2060,9 +2435,9 @@
               <div class="donor-date">${d.date}</div>
               ${kampanyaBadge}
             </div>
-            <div class="donor-amount" style="text-align:right">
-              <div style="font-size:.75rem;color:#6B7280;white-space:nowrap">${I18N.t('donate.monthly.badge')} ${formatEuro(totalPledge)} – ${payNum}/${d.months}</div>
-              <div style="font-weight:700;color:#1B5E42">${formatEuro(d.amount)}</div>
+            <div class="donor-amount" style="text-align:right;white-space:normal;overflow:visible;max-width:45%">
+              <div style="font-size:.7rem;color:#6B7280;word-break:break-word;line-height:1.3">${I18N.t('donate.monthly.badge')} ${formatEuro(totalPledge)} – ${payNum}/${d.months}</div>
+              <div style="font-weight:700;color:#1B5E42;white-space:nowrap">${formatEuro(d.amount)}</div>
             </div>
           </div>`;
         }
