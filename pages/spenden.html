@@ -138,102 +138,230 @@
       color: #1B5E42;
     }
 
-    .progress-bar-wrap {
-      height: 20px;
-      background: #F3F4F6;
-      border-radius: 9999px;
-      margin-bottom: 20px;
-      overflow: hidden;
-    }
+    /* === Fortschrittsanzeige ===
+       Phase 1: Grundstück (578.500 €) + Nebenkosten (46.000 €) = 624.500 €
+                → ein Balken mit zwei Zonen (Grenze bei 92,63 %), „Erreicht"
+       Phase 2: Grundstücksgestaltung und Planung → OFFEN, kein festes Ziel,
+                zeigt nur den zusätzlich gesammelten Betrag + Appell-Text */
+    .phase-block { margin-bottom: 18px; }
+    .phase-block:last-of-type { margin-bottom: 0; }
 
-    .progress-bar-fill {
-      height: 100%;
-      border-radius: 9999px;
-      background: linear-gradient(90deg, #1B5E42, #2D8653, #6BBF8E);
-      width: 0%;
-      transition: width 1.8s cubic-bezier(.4, 0, .2, 1);
-      position: relative;
-    }
-
-    .progress-bar-fill::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      width: 40px;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .35));
-      border-radius: 9999px;
-    }
-
-    /* ── Booster "Strahl" ── */
-    .progress-bar-wrap {
+    .phase-head {
       display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 7px;
     }
 
-    .progress-bar-fill {
-      border-radius: 0;
+    .phase-head__title {
+      font-size: .78rem;
+      font-weight: 600;
+      color: #374151;
     }
 
-    .progress-bar-booster {
-      height: 100%;
-      background: linear-gradient(90deg, #F97316, #FB923C, #FDE68A);
-      width: 0%;
-      flex-shrink: 0;
-      transition: width 1.8s .3s cubic-bezier(.4, 0, .2, 1);
+    .phase-head__value {
+      font-size: .82rem;
+      font-weight: 700;
+      color: #1B5E42;
+      white-space: nowrap;
+    }
+
+    .phase-done { color: #2D8653; }
+
+    .bar-wrap {
       position: relative;
+      height: 18px;
+      border-radius: 9999px;
       overflow: hidden;
     }
 
-    .progress-bar-booster::before {
-      content: '';
+    .bar-fill {
       position: absolute;
-      top: 0;
-      bottom: 0;
-      left: -50px;
-      width: 50px;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
-      animation: boosterShine 1.6s ease-in-out infinite;
+      inset: 0;
+      width: 100%;
+      clip-path: inset(0 100% 0 0);
+      transition: clip-path 1.6s cubic-bezier(.4, 0, .2, 1);
     }
 
-    @keyframes boosterShine {
-      0% {
-        left: -50px;
-      }
-
-      100% {
-        left: 110%;
-      }
+    /* Phase 1 – grün (Grundstück) + blau (Nebenkosten), Grenze bei 92,63 % */
+    .bar-wrap--p1 {
+      background: linear-gradient(90deg,
+        #DCF0E6 0%, #DCF0E6 92.2%,
+        #FFFFFF 92.2%, #FFFFFF 93.0%,
+        #DBEAFE 93.0%, #DBEAFE 100%);
+    }
+    .bar-fill--p1 {
+      background: linear-gradient(90deg,
+        #1B5E42 0%, #2D8653 92.2%,
+        #FFFFFF 92.2%, #FFFFFF 93.0%,
+        #2563EB 93.0%, #1D4ED8 100%);
     }
 
-    .live-total__bar {
+    /* Phase 2 – orange (Außenanlage) */
+    .bar-wrap--p2 { background: #FFEDD5; }
+    .bar-fill--p2 { background: linear-gradient(90deg, #F97316, #FB923C); }
+
+    /* Legende unter einem Balken */
+    .budget-legend {
       display: flex;
+      flex-wrap: wrap;
+      gap: 6px 14px;
+      margin-top: 8px;
     }
 
-    .live-total__bar-fill {
-      border-radius: 0;
+    .budget-legend__item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: .7rem;
+      color: #4B5563;
+      line-height: 1.2;
     }
 
-    .live-total__bar-booster {
-      height: 100%;
-      background: linear-gradient(90deg, #F97316, #FBBF24);
-      width: 0%;
+    .budget-legend__dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 3px;
       flex-shrink: 0;
-      transition: width 2s .7s cubic-bezier(.4, 0, .2, 1);
-      position: relative;
-      overflow: hidden;
     }
 
-    .live-total__bar-booster::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: -50px;
-      width: 50px;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
-      animation: boosterShine 1.6s .4s ease-in-out infinite;
+    .budget-legend__dot--land { background: #2D8653; }
+    .budget-legend__dot--extra { background: #2563EB; }
+    .budget-legend__dot--outdoor { background: #F97316; }
+
+    .budget-legend__amount {
+      font-weight: 700;
+      color: #1B5E42;
     }
+
+    /* Dunkle Variante (Live-Karte) */
+    .phase-block--dark .phase-head__title { color: rgba(255, 255, 255, .75); }
+    .phase-block--dark .phase-head__value { color: #fff; }
+    .phase-block--dark .phase-done { color: #6BBF8E; }
+
+    .bar-wrap--p1-dark {
+      background: linear-gradient(90deg,
+        rgba(109, 191, 142, .30) 0%, rgba(109, 191, 142, .30) 92.2%,
+        rgba(255, 255, 255, .5) 92.2%, rgba(255, 255, 255, .5) 93.0%,
+        rgba(96, 165, 250, .35) 93.0%, rgba(96, 165, 250, .35) 100%);
+    }
+    .bar-fill--p1-dark {
+      background: linear-gradient(90deg,
+        #6BBF8E 0%, #2D8653 92.2%,
+        #FFFFFF 92.2%, #FFFFFF 93.0%,
+        #60A5FA 93.0%, #3B82F6 100%);
+    }
+    .bar-wrap--p2-dark { background: rgba(251, 146, 60, .25); }
+    .bar-fill--p2-dark { background: linear-gradient(90deg, #FB923C, #F97316); }
+
+    .budget-legend--dark .budget-legend__item { color: rgba(255, 255, 255, .8); }
+    .budget-legend--dark .budget-legend__amount { color: #fff; }
+
+    /* Eigener Prozentsatz je Phase */
+    .phase-head__pct {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .phase-head__pct--done { color: #2D8653; }
+    .phase-head__pct--active { color: #EA580C; }
+
+    /* Zeile unter dem Balken: Betrag */
+    .phase-foot {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-top: 6px;
+      font-size: .74rem;
+      color: #6B7280;
+    }
+    .phase-foot strong { color: #374151; font-weight: 700; }
+
+    /* Status-Badges */
+    .phase-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: .62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      white-space: nowrap;
+    }
+    .phase-badge--done { background: #DCFCE7; color: #15803D; }
+    .phase-badge--active { background: #FFEDD5; color: #C2410C; }
+
+    /* Aktive Phase hervorheben (motiviert zum Weiterspenden) */
+    .phase-block--active {
+      background: #F1F8F4;
+      border: 1.5px solid #9FD3B8;
+      border-radius: 16px;
+      padding: 16px 16px 14px;
+      box-shadow: 0 6px 18px rgba(27, 94, 66, .10);
+    }
+    .phase-block--active .phase-head__title { color: #1B5E42; font-weight: 700; }
+
+    /* Abgeschlossene Phase dezent */
+    .phase-block--done { opacity: .92; }
+
+    /* Dunkle Varianten */
+    .phase-block--dark .phase-foot { color: rgba(255, 255, 255, .6); }
+    .phase-block--dark .phase-foot strong { color: rgba(255, 255, 255, .9); }
+    .phase-block--dark.phase-block--active {
+      background: rgba(45, 134, 83, .16);
+      border-color: rgba(107, 191, 142, .5);
+      box-shadow: none;
+    }
+    .phase-block--dark.phase-block--active .phase-head__title { color: #6BBF8E; }
+    .phase-block--dark .phase-head__pct--active { color: #FDBA74; }
+    .phase-block--dark .phase-head__pct--done { color: #6BBF8E; }
+    .phase-block--dark .phase-badge--active { background: rgba(249, 115, 22, .25); color: #FED7AA; }
+    .phase-block--dark .phase-badge--done { background: rgba(34, 197, 94, .2); color: #86EFAC; }
+
+    /* Offene Phase (kein festes Ziel): Betrag + Appell-Text */
+    .phase-open {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .phase-open__label {
+      font-size: .74rem;
+      color: #6B7280;
+    }
+    .phase-open__amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #1B5E42;
+      white-space: nowrap;
+    }
+    .phase-open__note {
+      font-size: .78rem;
+      line-height: 1.55;
+      color: #1F2937;
+      background: #fff;
+      border: 1px dashed #9FD3B8;
+      border-radius: 10px;
+      padding: 11px 13px;
+      margin-top: 6px;
+    }
+    .phase-open__note strong { color: #1B5E42; }
+
+    .phase-block--dark .phase-open__label { color: rgba(255, 255, 255, .65); }
+    .phase-block--dark .phase-open__amount { color: #fff; }
+    .phase-block--dark .phase-open__note {
+      color: rgba(255, 255, 255, .85);
+      background: rgba(0, 0, 0, .18);
+      border-color: rgba(107, 191, 142, .4);
+    }
+    .phase-block--dark .phase-open__note strong { color: #6BBF8E; }
 
     /* Booster badge (orange) */
     .booster-badge {
@@ -606,20 +734,8 @@
       color: #fff;
     }
 
-    .live-total__bar {
-      margin: 20px 0 16px;
-      height: 12px;
-      background: rgba(255, 255, 255, .15);
-      border-radius: 9999px;
-      overflow: hidden;
-    }
-
-    .live-total__bar-fill {
-      height: 100%;
-      border-radius: 9999px;
-      background: linear-gradient(90deg, #6BBF8E, #2D8653);
-      width: 0%;
-      transition: width 2s 0.5s cubic-bezier(.4, 0, .2, 1);
+    .live-total__phases {
+      margin: 20px 0 12px;
     }
 
     .live-total__cta {
@@ -1648,12 +1764,11 @@
             <span data-i18n="donate.campaign.badge">Spendenkampagne Neues Moscheegrundstück</span>
           </div>
           <h1 class="campaign-hero__title" data-i18n-html="donate.campaign.title_html">
-            Unser <em>neues Zuhause</em><br>für die Gemeinde
+            Unser <em>neues Grundstück</em><br>für die Gemeinde
           </h1>
           <p class="campaign-hero__desc" data-i18n="donate.campaign.desc">
-            Wir kaufen gemeinsam ein Grundstück für eine neue, größere Heimstätte unserer Gemeinde in Breuberg. Jede
-            Spende bringt uns diesem Ziel näher. Mit Ihrer Unterstützung schaffen wir einen Ort für Gebet, Bildung und
-            Begegnung für kommende Generationen.
+            Jede Spende bringt uns diesem Ziel näher. Mit Ihrer Unterstützung schaffen wir einen
+            Ort für Gebet, Bildung und Begegnung für kommende Generationen.
           </p>
           <div class="campaign-hero__actions">
             <a href="#spenden-methoden" class="btn btn--emerald btn--lg">
@@ -1671,22 +1786,49 @@
         <div>
           <div class="progress-card">
             <div class="progress-card__header">
-              <span class="progress-card__label" data-i18n="donate.progress.label">Gesamtfortschritt</span>
-              <span class="progress-card__percent" id="hero-percent">0%</span>
+              <span class="progress-card__label" data-i18n="donate.progress.label">Spendenfortschritt</span>
             </div>
-            <div class="progress-bar-wrap">
-              <div class="progress-bar-fill" id="hero-bar"></div>
+            <!-- Phase 1: Grundstück + Nebenkosten (erreicht) -->
+            <div class="phase-block phase-block--done">
+              <div class="phase-head">
+                <span class="phase-head__title" data-i18n="donate.phase1.title">Grundstück + Steuer, Notar & Abwicklungskosten</span>
+                <span class="phase-badge phase-badge--done" data-i18n="donate.phase.done">Erreicht</span>
+              </div>
+              <div class="bar-wrap bar-wrap--p1">
+                <div class="bar-fill bar-fill--p1" id="hero-bar1"></div>
+              </div>
+              <div class="phase-foot">
+                <span><strong id="hero-p1-val">624.500 €</strong> / 624.500 €</span>
+                <span class="phase-head__pct phase-head__pct--done" id="hero-p1-pct">100 %</span>
+              </div>
+              <div class="budget-legend">
+                <div class="budget-legend__item">
+                  <span class="budget-legend__dot budget-legend__dot--land"></span>
+                  <span><span data-i18n="donate.breakdown.land">Grundstück</span> · <span class="budget-legend__amount">578.500 €</span></span>
+                </div>
+                <div class="budget-legend__item">
+                  <span class="budget-legend__dot budget-legend__dot--extra"></span>
+                  <span><span data-i18n="donate.breakdown.extra">Steuer, Notar & Abwicklungskosten</span> · <span class="budget-legend__amount">46.000 €</span></span>
+                </div>
+              </div>
+            </div>
 
+            <!-- Phase 2: Grundstücksgestaltung und Planung (offen – kein festes Ziel) -->
+            <div class="phase-block phase-block--active phase-block--open">
+              <div class="phase-head">
+                <span class="phase-head__title" data-i18n="donate.phase2.title">Laufende Spenden</span>
+                <strong class="phase-open__amount" id="hero-p2-val">0 €</strong>
+              </div>
+              <p class="phase-open__note" data-i18n-html="donate.phase2.note">
+                <strong>Liebe Gemeinde,</strong><br>die zusätzlich für das neue Grundstücksprojekt eingehenden Spenden werden ausschließlich für das neue Grundstück und die neue Moschee verwendet. Wir freuen uns über Ihre Spendenzusagen und Ihre Unterstützung während der gesamten Projektlaufzeit.
+              </p>
             </div>
-            <div class="progress-stats">
+            <div class="progress-card__divider" style="margin-top:20px"></div>
+            <div class="progress-stats" style="grid-template-columns:1fr 1fr">
               <div class="progress-stat">
                 <span class="progress-stat__value" id="hero-collected">–</span>
                 <span class="progress-stat__label" data-i18n="donate.progress.collected">Gesammelt</span>
 
-              </div>
-              <div class="progress-stat">
-                <span class="progress-stat__value" id="hero-remaining">–</span>
-                <span class="progress-stat__label" data-i18n="donate.progress.remaining">Noch benötigt</span>
               </div>
               <div class="progress-stat">
                 <span class="progress-stat__value" id="hero-donors">–</span>
@@ -1695,8 +1837,8 @@
             </div>
             <div class="progress-card__divider"></div>
             <p class="progress-card__urgency" data-i18n-html="donate.campaign.urgency">
-              Ziel: <strong id="hero-goal">600.000 €</strong> für den Grundstückskauf.<br>
-              Helfen Sie mit, dieses Ziel zu erreichen!
+              Jede Spende fließt ausschließlich in unser neues Grundstücks- und Moscheeprojekt.<br>
+              Helfen Sie mit – jede Unterstützung zählt!
             </p>
           </div>
           <p class="last-updated">
@@ -1720,7 +1862,7 @@
           <div class="stats-bar__label" data-i18n="donate.stats.collected">Bisher gesammelt</div>
         </div>
         <div class="stats-bar__item">
-          <span class="stats-bar__value">600.000 €</span>
+          <span class="stats-bar__value">624.500 €</span>
           <div class="stats-bar__label" data-i18n="donate.stats.goal">Gesamtziel</div>
         </div>
         <div class="stats-bar__item">
@@ -1773,10 +1915,44 @@
           <div class="live-total">
             <div class="live-total__label" data-i18n="donate.live.collected">Bisher gesammelt</div>
             <div class="live-total__value" id="live-amount">–</div>
-            <div class="live-total__goal" data-i18n-html="donate.live.goal">von <strong>600.000 €</strong> Gesamtziel</div>
-            <div class="live-total__bar">
-              <div class="live-total__bar-fill" id="live-bar"></div>
+            <div class="live-total__goal" data-i18n-html="donate.live.goal">für unser neues Grundstücks- und Moscheeprojekt</div>
 
+            <div class="live-total__phases">
+              <!-- Phase 1: Grundstück + Nebenkosten (erreicht) -->
+              <div class="phase-block phase-block--dark phase-block--done">
+                <div class="phase-head">
+                  <span class="phase-head__title" data-i18n="donate.phase1.title">Grundstück + Steuer, Notar & Abwicklungskosten</span>
+                  <span class="phase-badge phase-badge--done" data-i18n="donate.phase.done">Erreicht</span>
+                </div>
+                <div class="bar-wrap bar-wrap--p1-dark">
+                  <div class="bar-fill bar-fill--p1-dark" id="live-bar1"></div>
+                </div>
+                <div class="phase-foot">
+                  <span><strong id="live-p1-val">624.500 €</strong> / 624.500 €</span>
+                  <span class="phase-head__pct phase-head__pct--done" id="live-p1-pct">100 %</span>
+                </div>
+                <div class="budget-legend budget-legend--dark">
+                  <div class="budget-legend__item">
+                    <span class="budget-legend__dot budget-legend__dot--land"></span>
+                    <span><span data-i18n="donate.breakdown.land">Grundstück</span> · <span class="budget-legend__amount">578.500 €</span></span>
+                  </div>
+                  <div class="budget-legend__item">
+                    <span class="budget-legend__dot budget-legend__dot--extra"></span>
+                    <span><span data-i18n="donate.breakdown.extra">Steuer, Notar & Abwicklungskosten</span> · <span class="budget-legend__amount">46.000 €</span></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Phase 2: Grundstücksgestaltung und Planung (offen – kein festes Ziel) -->
+              <div class="phase-block phase-block--dark phase-block--active phase-block--open">
+                <div class="phase-head">
+                  <span class="phase-head__title" data-i18n="donate.phase2.title">Laufende Spenden</span>
+                  <strong class="phase-open__amount" id="live-p2-val">0 €</strong>
+                </div>
+                <p class="phase-open__note" data-i18n-html="donate.phase2.note">
+                  <strong>Liebe Gemeinde,</strong><br>die zusätzlich für das neue Grundstücksprojekt eingehenden Spenden werden ausschließlich für das neue Grundstück und die neue Moschee verwendet. Wir freuen uns über Ihre Spendenzusagen und Ihre Unterstützung während der gesamten Projektlaufzeit.
+                </p>
+              </div>
             </div>
             <div class="live-total__supporters" id="live-supporters">– Spender haben bereits mitgemacht</div>
 
@@ -1887,8 +2063,22 @@
               </thead>
               <tbody>
                 <tr>
-                  <td><strong data-i18n="donate.cost.item">Grundstückspreis inkl. Kaufnebenkosten</strong></td>
-                  <td><strong>600.000 €</strong></td>
+                  <td>
+                    <span class="budget-legend__dot budget-legend__dot--land" style="display:inline-block;vertical-align:middle;margin-right:8px"></span>
+                    <span data-i18n="donate.cost.land">Grundstück</span>
+                  </td>
+                  <td>578.500 €</td>
+                </tr>
+                <tr>
+                  <td>
+                    <span class="budget-legend__dot budget-legend__dot--extra" style="display:inline-block;vertical-align:middle;margin-right:8px"></span>
+                    <span data-i18n="donate.cost.extra">Steuer, Notar & Abwicklungskosten</span>
+                  </td>
+                  <td>46.000 €</td>
+                </tr>
+                <tr>
+                  <td><strong data-i18n="donate.cost.total">Grundstück + Nebenkosten (gesamt)</strong></td>
+                  <td><strong>624.500 €</strong></td>
                 </tr>
               </tbody>
             </table>
@@ -2176,13 +2366,10 @@
        KAMPAGNEN-ZIEL & MEILENSTEINE – Nur diese Werte anpassen
        ============================================================ */
     const CAMPAIGN_CONFIG = {
-      goal: 600000,
-      milestones: [
-        { label: '10 % erreicht', target: 60000, icon: '🎯' },
-        { label: '25 % erreicht', target: 150000, icon: '🌟' },
-        { label: '50 % erreicht', target: 300000, icon: '🏆' },
-        { label: 'Ziel erreicht!', target: 600000, icon: '🤝' },
-      ]
+      // Phase 1: Grundstück (578.500 €) + Nebenkosten (46.000 €) = 624.500 €
+      phase1Goal: 624500,
+      // Phase 2: Grundstücksgestaltung und Planung → OFFEN, kein festes Ziel.
+      // Es wird nur der zusätzlich gesammelte Betrag (Überschuss) angezeigt.
     };
 
     /* ============================================================
@@ -2330,9 +2517,32 @@
       const collected = mergedDonors.reduce((s, d) => s + d.amount, 0);
       const donorsCount = mergedDonors.length;
       _donorsCount = donorsCount;
-      const goal = CAMPAIGN_CONFIG.goal;
-      const pct = Math.min(100, (collected / goal) * 100);
-      const remaining = Math.max(0, goal - collected);
+      // Phase 1 (Grundstück + Nebenkosten) ist das einzige feste Ziel.
+      // Phase 2 (Grundstücksgestaltung und Planung) ist OFFEN – wir zeigen nur
+      // den zusätzlich gesammelten Betrag (Überschuss über Phase 1), ohne Ziel.
+      const p1Goal = CAMPAIGN_CONFIG.phase1Goal;
+      const p1Collected = Math.min(collected, p1Goal);
+      const p2Collected = Math.max(0, collected - p1Goal);
+      const p1Pct = Math.min(100, (p1Collected / p1Goal) * 100);
+
+      // Anzeige-Helfer
+      const setText = (id, txt) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = txt;
+      };
+      const p1AmtText = formatEuro(p1Collected);
+      const p2AmtText = formatEuro(p2Collected);
+      const p1PctText = p1Pct.toFixed(0) + ' %';
+
+      // Phase 1 – Betrag + eigener Prozentsatz (beide Karten)
+      setText('hero-p1-val', p1AmtText);
+      setText('live-p1-val', p1AmtText);
+      setText('hero-p1-pct', p1PctText);
+      setText('live-p1-pct', p1PctText);
+
+      // Phase 2 – nur der offene (zusätzlich gesammelte) Betrag, kein Ziel/Prozent
+      setText('hero-p2-val', p2AmtText);
+      setText('live-p2-val', p2AmtText);
 
       // Excel-Reihenfolge umkehren: letzter Eintrag = neuester = ganz oben
       const sorted = [...mergedDonors].sort((a, b) => (b.maxIdx ?? b.idx ?? 0) - (a.maxIdx ?? a.idx ?? 0));
@@ -2342,25 +2552,27 @@
       const lastUpdated = sorted[0]?.date || '–';
 
       // Hero progress card
-      document.getElementById('hero-percent').textContent = pct.toFixed(1) + '%';
       document.getElementById('hero-collected').textContent = formatEuro(collected);
-      document.getElementById('hero-remaining').textContent = formatEuro(remaining);
       document.getElementById('hero-donors').textContent = donorsCount;
       document.getElementById('last-updated-date').textContent = lastUpdated;
 
-
-      // Animate bars after paint
+      // Nur der Phase-1-Balken hat ein festes Ziel und wird animiert
+      const inset = p => 'inset(0 ' + (100 - p) + '% 0 0)';
+      const setBar = (id, p) => {
+        const el = document.getElementById(id);
+        if (el) el.style.clipPath = inset(p);
+      };
       requestAnimationFrame(() => {
         setTimeout(() => {
-          document.getElementById('hero-bar').style.width = pct + '%';
-          document.getElementById('live-bar').style.width = pct + '%';
+          setBar('hero-bar1', p1Pct);
+          setBar('live-bar1', p1Pct);
         }, 300);
       });
 
       // Stats bar
       document.getElementById('stat-collected').textContent = formatEuro(collected);
       document.getElementById('stat-donors').textContent = donorsCount;
-      document.getElementById('stat-percent').textContent = pct.toFixed(1) + '%';
+      document.getElementById('stat-percent').textContent = p1PctText;
 
       // Live total
       document.getElementById('live-amount').textContent = formatEuro(collected);
@@ -2482,19 +2694,6 @@
         }
       });
     });
-
-    // IntersectionObserver for bar animation on scroll
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          // Breite wird durch renderCampaign gesetzt – hier nur nochmal triggern
-          const bar = document.getElementById('live-bar');
-          if (bar) bar.style.width = bar.style.width;
-        }
-      });
-    }, { threshold: 0.3 });
-    const liveBar = document.querySelector('.live-total');
-    if (liveBar) observer.observe(liveBar);
 
     init();
 
