@@ -1652,6 +1652,27 @@
         padding: 20px;
       }
     }
+
+    /* === Mobil: Scroll-Performance ===
+       - Spenderliste ohne eigenes Scroll-Feld (kein Scroll-im-Scroll, das „hängt")
+       - Einblend-Animation der Einträge aus
+       - dekorative SVG-Textur im Hero aus (spart Paint beim Scrollen) */
+    @media (max-width: 768px) {
+      #donors-list {
+        max-height: none;
+        overflow: visible;
+      }
+      .donor-item {
+        animation: none;
+      }
+      .campaign-hero::before {
+        display: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .donor-item { animation: none; }
+    }
   </style>
 </head>
 
