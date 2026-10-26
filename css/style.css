@@ -1663,3 +1663,15 @@ input, textarea, select { font: inherit; }
 .toast.show { transform: translateY(0); opacity: 1; }
 .toast.success { background: var(--red-800); }
 .toast.error { background: var(--red-500); }
+
+/* === Mobile Scroll-Performance ===
+   backdrop-filter (Blur) ist auf Mobilgeräten sehr teuer und lässt den Inhalt
+   beim Scrollen hinter der fixierten Navbar ruckeln. Auf kleinen Screens
+   abschalten – der Navbar-Hintergrund ist ohnehin fast deckend. */
+@media (max-width: 768px) {
+  .navbar {
+    background: #fff;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
