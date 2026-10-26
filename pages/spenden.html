@@ -1653,42 +1653,14 @@
       }
     }
 
-    /* === Mobil: Scroll-Performance + kompakte Spenderliste ===
-       Auf dem Handy wird die Liste kompakt abgeschnitten (KEIN inneres
-       Scroll-Feld = kein „hängt") und per Button ausklappbar. */
-    #donors-toggle {
-      display: none;
-      width: 100%;
-      margin-top: 12px;
-      padding: 11px 16px;
-      border: 1px solid #1B5E42;
-      background: #fff;
-      color: #1B5E42;
-      font-weight: 700;
-      font-size: .85rem;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    #donors-toggle .donors-toggle__less { display: none; }
-    #donors-list.is-expanded ~ #donors-toggle .donors-toggle__more { display: none; }
-    #donors-list.is-expanded ~ #donors-toggle .donors-toggle__less { display: inline; }
-
+    /* === Mobil: Scroll-Performance ===
+       Spenderliste bleibt ein kompaktes, scrollbares Feld (vertraute Bedienung),
+       aber mit sauberem Touch-Scrolling, damit es nicht ruckelt/„hängt". */
     @media (max-width: 768px) {
       #donors-list {
-        max-height: 560px;
-        overflow: hidden;
-        -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent);
-        mask-image: linear-gradient(to bottom, #000 78%, transparent);
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
       }
-      #donors-list.is-expanded,
-      #donors-list.no-collapse {
-        max-height: none;
-        overflow: visible;
-        -webkit-mask-image: none;
-        mask-image: none;
-      }
-      #donors-toggle { display: inline-flex; align-items: center; justify-content: center; }
-      #donors-list.no-collapse ~ #donors-toggle { display: none; }
       .donor-item { animation: none; }
       .campaign-hero::before { display: none; }
     }
@@ -1947,10 +1919,6 @@
             <div id="donors-list">
               <!-- Dynamisch befüllt via JS -->
             </div>
-            <button id="donors-toggle" type="button" aria-expanded="false">
-              <span class="donors-toggle__more" data-i18n="donate.donors.showall">Alle Spender anzeigen</span>
-              <span class="donors-toggle__less" data-i18n="donate.donors.showless">Weniger anzeigen</span>
-            </button>
           </div>
           <div class="dua-box" data-i18n="donate.donors.dua" style="margin-top:16px">
             <strong>Gebet für unsere Spender:</strong> „Möge Allah jeden segnen, der auf Seinem Weg gespendet hat. Er
@@ -2725,31 +2693,7 @@
         document.getElementById('donors-list').innerHTML =
           '<p style="color:#9CA3AF;font-size:.875rem;padding:16px 0">Spenderdaten konnten nicht geladen werden.</p>';
       }
-      setupDonorsToggle();
     }
-
-    // Spenderliste: auf dem Handy kompakt + ausklappbar.
-    // Button nur zeigen, wenn die Liste im eingeklappten Zustand überläuft.
-    function setupDonorsToggle() {
-      const list = document.getElementById('donors-list');
-      const btn = document.getElementById('donors-toggle');
-      if (!list || !btn) return;
-      const isMobile = window.matchMedia('(max-width: 768px)').matches;
-      const COLLAPSED = 560;
-      if (!isMobile || list.scrollHeight <= COLLAPSED + 40) {
-        list.classList.add('no-collapse');
-      } else {
-        list.classList.remove('no-collapse');
-      }
-      if (!btn.dataset.wired) {
-        btn.dataset.wired = '1';
-        btn.addEventListener('click', () => {
-          const expanded = list.classList.toggle('is-expanded');
-          btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-        });
-      }
-    }
-    window.addEventListener('resize', setupDonorsToggle);
 
     // FAQ accordion
     document.querySelectorAll('.faq-question').forEach(btn => {
