@@ -12,7 +12,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@600;700&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css?v=20261026b">
+  <link rel="stylesheet" href="../css/style.css?v=20261026c">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     /* ===== SPENDEN PAGE STYLES ===== */
@@ -1653,21 +1653,44 @@
       }
     }
 
-    /* === Mobil: Scroll-Performance ===
-       - Spenderliste ohne eigenes Scroll-Feld (kein Scroll-im-Scroll, das „hängt")
-       - Einblend-Animation der Einträge aus
-       - dekorative SVG-Textur im Hero aus (spart Paint beim Scrollen) */
+    /* === Mobil: Scroll-Performance + kompakte Spenderliste ===
+       Auf dem Handy wird die Liste kompakt abgeschnitten (KEIN inneres
+       Scroll-Feld = kein „hängt") und per Button ausklappbar. */
+    #donors-toggle {
+      display: none;
+      width: 100%;
+      margin-top: 12px;
+      padding: 11px 16px;
+      border: 1px solid #1B5E42;
+      background: #fff;
+      color: #1B5E42;
+      font-weight: 700;
+      font-size: .85rem;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #donors-toggle .donors-toggle__less { display: none; }
+    #donors-list.is-expanded ~ #donors-toggle .donors-toggle__more { display: none; }
+    #donors-list.is-expanded ~ #donors-toggle .donors-toggle__less { display: inline; }
+
     @media (max-width: 768px) {
       #donors-list {
+        max-height: 560px;
+        overflow: hidden;
+        -webkit-mask-image: linear-gradient(to bottom, #000 78%, transparent);
+        mask-image: linear-gradient(to bottom, #000 78%, transparent);
+      }
+      #donors-list.is-expanded,
+      #donors-list.no-collapse {
         max-height: none;
         overflow: visible;
+        -webkit-mask-image: none;
+        mask-image: none;
       }
-      .donor-item {
-        animation: none;
-      }
-      .campaign-hero::before {
-        display: none;
-      }
+      #donors-toggle { display: inline-flex; align-items: center; justify-content: center; }
+      #donors-list.no-collapse ~ #donors-toggle { display: none; }
+      .donor-item { animation: none; }
+      .campaign-hero::before { display: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1924,6 +1947,10 @@
             <div id="donors-list">
               <!-- Dynamisch befüllt via JS -->
             </div>
+            <button id="donors-toggle" type="button" aria-expanded="false">
+              <span class="donors-toggle__more" data-i18n="donate.donors.showall">Alle Spender anzeigen</span>
+              <span class="donors-toggle__less" data-i18n="donate.donors.showless">Weniger anzeigen</span>
+            </button>
           </div>
           <div class="dua-box" data-i18n="donate.donors.dua" style="margin-top:16px">
             <strong>Gebet für unsere Spender:</strong> „Möge Allah jeden segnen, der auf Seinem Weg gespendet hat. Er
@@ -2366,8 +2393,8 @@
     </div>
   </footer>
 
-  <script src="../js/i18n.js?v=20261026b"></script>
-  <script src="../js/main.js?v=20261026b"></script>
+  <script src="../js/i18n.js?v=20261026c"></script>
+  <script src="../js/main.js?v=20261026c"></script>
   <script>
     /* ============================================================
        GOOGLE SHEETS KONFIGURATION
@@ -2698,7 +2725,31 @@
         document.getElementById('donors-list').innerHTML =
           '<p style="color:#9CA3AF;font-size:.875rem;padding:16px 0">Spenderdaten konnten nicht geladen werden.</p>';
       }
+      setupDonorsToggle();
     }
+
+    // Spenderliste: auf dem Handy kompakt + ausklappbar.
+    // Button nur zeigen, wenn die Liste im eingeklappten Zustand überläuft.
+    function setupDonorsToggle() {
+      const list = document.getElementById('donors-list');
+      const btn = document.getElementById('donors-toggle');
+      if (!list || !btn) return;
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+      const COLLAPSED = 560;
+      if (!isMobile || list.scrollHeight <= COLLAPSED + 40) {
+        list.classList.add('no-collapse');
+      } else {
+        list.classList.remove('no-collapse');
+      }
+      if (!btn.dataset.wired) {
+        btn.dataset.wired = '1';
+        btn.addEventListener('click', () => {
+          const expanded = list.classList.toggle('is-expanded');
+          btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        });
+      }
+    }
+    window.addEventListener('resize', setupDonorsToggle);
 
     // FAQ accordion
     document.querySelectorAll('.faq-question').forEach(btn => {
